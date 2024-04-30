@@ -4,7 +4,7 @@
  */
 package TelaRecepcionista;
 
-import TelaADM.TelaCadProdutos;
+import TelaRecepcionista.TelaCadProdutos;
 
 public class TelaConsProduto extends javax.swing.JFrame {
 
@@ -36,7 +36,6 @@ public class TelaConsProduto extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         consultaBancoProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

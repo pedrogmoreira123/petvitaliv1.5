@@ -8,11 +8,12 @@ import TelaADM.TelasCadFuncionarios;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import TelaADM.TelaCadProdutos;
+import TelaRecepcionista.TelaCadProdutos;
+import TelaRecepcionista.TelaConsProduto;
 import TelaRecepcionista.TelaCadClientes;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import TelaRecepcionista.TelaConsProduto;
+
 
 /**
  *
@@ -58,10 +59,19 @@ public class TelaMenu extends javax.swing.JFrame {
         ButaoDeCadClientes = new javax.swing.JButton();
         barraMenu = new javax.swing.JMenuBar();
         cadastros = new javax.swing.JMenu();
-        CadFuncionario = new javax.swing.JMenuItem();
+        MenuFuncionarios = new javax.swing.JMenu();
+        CadFuncionarios = new javax.swing.JMenuItem();
+        ConsFuncionarios = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenu4 = new javax.swing.JMenu();
         CadClientes = new javax.swing.JMenuItem();
+        ConsClientes = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
         CadProdutos = new javax.swing.JMenuItem();
-        CadConsultas = new javax.swing.JMenuItem();
+        ConsProdutos = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         relatorios = new javax.swing.JMenu();
         vendas = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
@@ -179,37 +189,71 @@ public class TelaMenu extends javax.swing.JFrame {
 
         cadastros.setText("Cadastros/Consultas");
 
-        CadFuncionario.setText("Funcionarios");
-        CadFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        MenuFuncionarios.setText("Funcionarios");
+
+        CadFuncionarios.setText("Cadastrar");
+        CadFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadFuncionarioActionPerformed(evt);
+                CadFuncionariosActionPerformed(evt);
             }
         });
-        cadastros.add(CadFuncionario);
+        MenuFuncionarios.add(CadFuncionarios);
 
-        CadClientes.setText("Clientes");
+        ConsFuncionarios.setText("Consultar");
+        ConsFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsFuncionariosActionPerformed(evt);
+            }
+        });
+        MenuFuncionarios.add(ConsFuncionarios);
+        MenuFuncionarios.add(jSeparator1);
+
+        cadastros.add(MenuFuncionarios);
+
+        jMenu4.setText("Clientes");
+
+        CadClientes.setText("Cadastrar");
         CadClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadClientesActionPerformed(evt);
             }
         });
-        cadastros.add(CadClientes);
+        jMenu4.add(CadClientes);
 
-        CadProdutos.setText("Produtos");
+        ConsClientes.setText("Consultar");
+        jMenu4.add(ConsClientes);
+
+        cadastros.add(jMenu4);
+
+        jMenu5.setText("Produtos");
+
+        CadProdutos.setText("Cadastrar");
         CadProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadProdutosActionPerformed(evt);
             }
         });
-        cadastros.add(CadProdutos);
+        jMenu5.add(CadProdutos);
 
-        CadConsultas.setText("Consultas");
-        CadConsultas.addActionListener(new java.awt.event.ActionListener() {
+        ConsProdutos.setText("Consultar");
+        ConsProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadConsultasActionPerformed(evt);
+                ConsProdutosActionPerformed(evt);
             }
         });
-        cadastros.add(CadConsultas);
+        jMenu5.add(ConsProdutos);
+
+        cadastros.add(jMenu5);
+
+        jMenu6.setText("Consultas");
+
+        jMenuItem10.setText("Cadastrar");
+        jMenu6.add(jMenuItem10);
+
+        jMenuItem11.setText("Consultar");
+        jMenu6.add(jMenuItem11);
+
+        cadastros.add(jMenu6);
 
         barraMenu.add(cadastros);
 
@@ -288,30 +332,6 @@ public class TelaMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_voltarActionPerformed
 
-    private void CadConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadConsultasActionPerformed
-        TelaCadClientes consultas = new TelaCadClientes();
-        consultas.setVisible(true);
-    }//GEN-LAST:event_CadConsultasActionPerformed
-
-    private void CadProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadProdutosActionPerformed
-
-        TelaConsProduto ConsPro = new TelaConsProduto ();
-        ConsPro.setVisible(true);
-
-    }//GEN-LAST:event_CadProdutosActionPerformed
-
-    private void CadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClientesActionPerformed
-        TelaCadClientes cadclientes = new TelaCadClientes();
-        cadclientes.setVisible(true);
-    }//GEN-LAST:event_CadClientesActionPerformed
-
-    private void CadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadFuncionarioActionPerformed
-
-        TelasCadFuncionarios cadfuncionarios = new TelasCadFuncionarios();
-        cadfuncionarios.setVisible(true);
-
-    }//GEN-LAST:event_CadFuncionarioActionPerformed
-
     private void ButaoDeCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoDeCadClientesActionPerformed
       
         TelaCadClientes cadclientes = new TelaCadClientes();
@@ -334,6 +354,38 @@ public class TelaMenu extends javax.swing.JFrame {
                                         + "Tipo de Consulta: " + tipoConsulta);
                                                        
     }//GEN-LAST:event_ButaoAgendarConsActionPerformed
+
+    private void CadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadFuncionariosActionPerformed
+     
+        TelasCadFuncionarios CadFuncionarios = new TelasCadFuncionarios();
+        CadFuncionarios.setVisible(true);
+                
+    }//GEN-LAST:event_CadFuncionariosActionPerformed
+
+    private void ConsFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsFuncionariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsFuncionariosActionPerformed
+
+    private void CadProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadProdutosActionPerformed
+        
+        TelaCadProdutos CadProdutos = new TelaCadProdutos();
+        CadProdutos.setVisible(true);
+        
+    }//GEN-LAST:event_CadProdutosActionPerformed
+
+    private void ConsProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsProdutosActionPerformed
+        
+        TelaConsProduto ConsProdutos = new TelaConsProduto();
+        ConsProdutos.setVisible(true);
+        
+    }//GEN-LAST:event_ConsProdutosActionPerformed
+
+    private void CadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClientesActionPerformed
+        
+        TelaCadClientes CadClientes = new TelaCadClientes();
+        CadClientes.setVisible(true);
+        
+    }//GEN-LAST:event_CadClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -382,12 +434,15 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JButton ButaoAgendarCons;
     private javax.swing.JButton ButaoDeCadClientes;
     private javax.swing.JMenuItem CadClientes;
-    private javax.swing.JMenuItem CadConsultas;
-    private javax.swing.JMenuItem CadFuncionario;
+    private javax.swing.JMenuItem CadFuncionarios;
     private javax.swing.JMenuItem CadProdutos;
     private javax.swing.JComboBox<String> CaixaDeTipodeConsultas;
     private javax.swing.JTextField CampoNomedoPet;
     private javax.swing.JTextField CampoNomedoTutor;
+    private javax.swing.JMenuItem ConsClientes;
+    private javax.swing.JMenuItem ConsFuncionarios;
+    private javax.swing.JMenuItem ConsProdutos;
+    private javax.swing.JMenu MenuFuncionarios;
     private javax.swing.JPanel Painel;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenu cadastros;
@@ -396,10 +451,16 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu menuSair;
     private javax.swing.JPanel painel2;
     private javax.swing.JMenu relatorios;
