@@ -34,34 +34,7 @@ private ConfiguracaoBancoDados configuracao;
 
         configuracao.salvarConfiguracoes(servidor, usuario, senha);
     }
-
-
-    private void sairBancoActionPerformed(java.awt.event.ActionEvent evt) {
-        dispose(); // Fecha a janela
-    }
-
-    private void salvarBancoActionPerformed(java.awt.event.ActionEvent evt) {
-        salvarConfiguracoes();
-    }
-   
-    private void BancoCkActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        String servidor = ipServidor.getText();
-        String usuario = usuarioSQL.getText(); // Obter o usuário do campo de texto
-        String senha = new String(senhaSQL.getPassword()); // Obter a senha do campo de texto
-
-            if (servidor.isEmpty()) {
-            // Exibe uma mensagem de erro se o campo do servidor estiver vazio
-                JOptionPane.showMessageDialog(null, "Por favor, insira o servidor do banco de dados.", "Erro", JOptionPane.ERROR_MESSAGE);
-            } else {
-            // Lógica para verificar a conexão com o servidor
-                if (BancoDeDadosUtil.verificarConexao(servidor, usuario, senha, "nome_do_seu_banco")) {
-                JOptionPane.showMessageDialog(null, "Conexão bem-sucedida com o servidor.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Não foi possível conectar ao servidor.", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-}
-
+ 
 // Método para verificar a conexão com o servidor
     private static boolean verificarConexao(String servidor, String usuario, String senha, String banco) {
         try {
@@ -99,9 +72,26 @@ private ConfiguracaoBancoDados configuracao;
 
         TxtSenha.setText("Senha");
 
+        BancoCk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/check.png"))); // NOI18N
+        BancoCk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BancoCkActionPerformed(evt);
+            }
+        });
+
         salvarBanco.setText("Salvar");
+        salvarBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarBancoActionPerformed(evt);
+            }
+        });
 
         sairBanco.setText("Sair");
+        sairBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairBancoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,9 +154,32 @@ private ConfiguracaoBancoDados configuracao;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void salvarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarBancoActionPerformed
+        salvarConfiguracoes();
+    }//GEN-LAST:event_salvarBancoActionPerformed
+
+    private void sairBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBancoActionPerformed
+        dispose(); // Fecha a janela
+    }//GEN-LAST:event_sairBancoActionPerformed
+
+    private void BancoCkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BancoCkActionPerformed
+        String servidor = ipServidor.getText();
+        String usuario = usuarioSQL.getText(); // Obter o usuário do campo de texto
+        String senha = new String(senhaSQL.getPassword()); // Obter a senha do campo de texto
+
+            if (servidor.isEmpty()) {
+            // Exibe uma mensagem de erro se o campo do servidor estiver vazio
+                JOptionPane.showMessageDialog(null, "Por favor, insira o servidor do banco de dados.", "Erro", JOptionPane.ERROR_MESSAGE);
+            } else {
+            // Lógica para verificar a conexão com o servidor
+                if (BancoDeDadosUtil.verificarConexao(servidor, usuario, senha, "nome_do_seu_banco")) {
+                JOptionPane.showMessageDialog(null, "Conexão bem-sucedida com o servidor.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possível conectar ao servidor.", "Erro", JOptionPane.ERROR_MESSAGE);       
+            }        
+        }
+    }//GEN-LAST:event_BancoCkActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
