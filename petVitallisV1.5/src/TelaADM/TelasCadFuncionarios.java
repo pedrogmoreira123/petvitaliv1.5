@@ -6,6 +6,7 @@ package TelaADM;
 
 import ClassesDoRecepcionista.CadFuncionario;
 import TelasLogin.TelaMenu;
+import javax.swing.ImageIcon;
 
 import javax.swing.JOptionPane;
 
@@ -18,6 +19,13 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         super("Cadastro de Funcionarios");
         initComponents();
         this.setLocationRelativeTo(null);
+        String caminhoImagem = "/icon/iconepet.png";
+        
+         // Carrega a imagem do ícone
+        ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
+        // Define o ícone da janela
+        this.setIconImage(icon.getImage());
+        
     }
 
     /**

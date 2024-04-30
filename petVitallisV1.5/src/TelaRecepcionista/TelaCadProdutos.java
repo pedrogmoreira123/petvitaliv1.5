@@ -5,6 +5,7 @@
 package TelaRecepcionista;
 
 import ClassesDoRecepcionista.CadProdutos;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,13 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         super("Cadastro de Produtos");
         initComponents();
          this.setLocationRelativeTo(null);
+         String caminhoImagem = "/icon/iconepet.png";
+        
+         // Carrega a imagem do ícone
+        ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
+        // Define o ícone da janela
+        this.setIconImage(icon.getImage());
+        
     }
 
     /**

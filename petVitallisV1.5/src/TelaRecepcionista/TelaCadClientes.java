@@ -5,6 +5,7 @@
 package TelaRecepcionista;
 
 import ClassesDoRecepcionista.CadClientes;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,13 @@ public class TelaCadClientes extends javax.swing.JFrame {
     public TelaCadClientes() {
         initComponents();
         this.setLocationRelativeTo(null);
+        String caminhoImagem = "/icon/iconepet.png";
+        
+         // Carrega a imagem do ícone
+        ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
+        // Define o ícone da janela
+        this.setIconImage(icon.getImage());
+        
     }
 
     /**
@@ -54,6 +62,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastros de Clientes");
         setPreferredSize(new java.awt.Dimension(640, 350));
 
         CliSalvar.setText("Salvar");
@@ -89,7 +98,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Sei la");
+        jMenu1.setText("Menu");
 
         jMenuItem1.setText("Cadrastrar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,8 +138,16 @@ public class TelaCadClientes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(ckSenha)
+                            .addGap(191, 191, 191))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(ButaoVolta)
+                            .addGap(118, 118, 118)
+                            .addComponent(CliSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -152,22 +169,15 @@ public class TelaCadClientes extends javax.swing.JFrame {
                                 .addComponent(txtCliEmail)
                                 .addComponent(txtCliUsu)
                                 .addComponent(txtCliSenha)
-                                .addComponent(txtCliConfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ckSenha)
-                        .addGap(191, 191, 191))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(ButaoVolta)
-                        .addGap(118, 118, 118)
-                        .addComponent(CliSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCliConfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(212, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -196,7 +206,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCliConfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
-                        .addGap(24, 24, 24)
+                        .addGap(18, 18, 18)
                         .addComponent(ckSenha)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -205,10 +215,10 @@ public class TelaCadClientes extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(CliSalvar)))
-                        .addGap(55, 55, 55))))
+                        .addGap(61, 61, 61))))
         );
 
-        setBounds(0, 0, 656, 358);
+        setBounds(0, 0, 656, 428);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ckSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckSenhaActionPerformed
