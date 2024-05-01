@@ -3,6 +3,7 @@ package TelasLogin;
 
 
 
+import TelaADM.TelaConsFuncionarios;
 import TelasLogin.TelaLogin;
 import TelaADM.TelasCadFuncionarios;
 import javax.swing.ImageIcon;
@@ -360,7 +361,8 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_CadFuncionariosActionPerformed
 
     private void ConsFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsFuncionariosActionPerformed
-        // TODO add your handling code here:
+        TelaConsFuncionarios CadFuncionarios = new TelaConsFuncionarios();
+        CadFuncionarios.setVisible(true);
     }//GEN-LAST:event_ConsFuncionariosActionPerformed
 
     private void CadProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadProdutosActionPerformed

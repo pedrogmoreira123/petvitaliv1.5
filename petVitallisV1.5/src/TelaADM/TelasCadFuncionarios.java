@@ -217,7 +217,8 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_NomeFuncionarioActionPerformed
 
     private void BotaoConsultarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConsultarFuncionarioActionPerformed
-
+        TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
+        CadProd.setVisible(true);
     }//GEN-LAST:event_BotaoConsultarFuncionarioActionPerformed
 
     /**
