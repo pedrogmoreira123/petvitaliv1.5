@@ -229,7 +229,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
         
         
         //Os codigo de nome, usuario, email, senha e confirmar senha são praticamente iguais
-        //O que muda é o (txt) que sera usado
+        //O que  da é o (txt) que sera usado
         //E aonde ele vai setar as coisa(Set)
         
         if (!txtCliNome.getText().isEmpty()) {
@@ -246,7 +246,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
   
         //Aqui ele só permite número
         //Aqui tambem usamos a variavel NumCli
-      
+        
         if (!txtCliNum.getText().isEmpty()) {
         try {
             NumCli = Integer.parseInt(txtCliNum.getText());
