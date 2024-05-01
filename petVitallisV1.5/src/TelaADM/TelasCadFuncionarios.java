@@ -6,7 +6,6 @@ package TelaADM;
 
 import ClassesDoRecepcionista.CadFuncionario;
 import TelasLogin.TelaMenu;
-import javax.swing.ImageIcon;
 
 import javax.swing.JOptionPane;
 
@@ -19,13 +18,6 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         super("Cadastro de Funcionarios");
         initComponents();
         this.setLocationRelativeTo(null);
-        String caminhoImagem = "/icon/iconepet.png";
-        
-         // Carrega a imagem do ícone
-        ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
-        // Define o ícone da janela
-        this.setIconImage(icon.getImage());
-        
     }
 
     /**
@@ -67,6 +59,11 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         });
 
         BotaoConsultarFuncionario.setText("Consultar Cadastro");
+        BotaoConsultarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoConsultarFuncionarioActionPerformed(evt);
+            }
+        });
 
         NomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,6 +215,11 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     private void NomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeFuncionarioActionPerformed
+
+    private void BotaoConsultarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConsultarFuncionarioActionPerformed
+        TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
+        CadProd.setVisible(true);
+    }//GEN-LAST:event_BotaoConsultarFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments

@@ -63,7 +63,7 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        imageLogin = new javax.swing.JLabel();
         BotaoLogin = new javax.swing.JButton();
         BotaoSair = new javax.swing.JButton();
         campoLogin = new javax.swing.JTextField();
@@ -74,8 +74,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/laprador2.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        imageLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/laprador2.png"))); // NOI18N
+        imageLogin.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -272,7 +272,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField campoLogin;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JCheckBox cbSenha;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imageLogin;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
