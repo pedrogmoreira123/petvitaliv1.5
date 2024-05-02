@@ -1,7 +1,4 @@
-
 package TelasLogin;
-
-
 
 import TelaADM.TelaConsFuncionarios;
 import TelasLogin.TelaLogin;
@@ -15,11 +12,6 @@ import TelaRecepcionista.TelaCadClientes;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
-/**
- *
- * @author paje9
- */
 public class TelaMenu extends javax.swing.JFrame {
 
     /**
