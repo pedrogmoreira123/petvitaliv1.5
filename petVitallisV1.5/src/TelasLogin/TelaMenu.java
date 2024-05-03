@@ -10,6 +10,8 @@ import TelaRecepcionista.TelaCadProdutos;
 import TelaRecepcionista.TelaConsProduto;
 import TelaRecepcionista.TelaCadClientes;
 import TelaRecepcionista.TelaCadPet;
+import TelaRecepcionista.TelaConsClientes;
+import TelaRecepcionista.TelaConsPets;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -218,6 +220,11 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu4.add(CadClientes);
 
         ConsClientes.setText("Consultar");
+        ConsClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsClientesActionPerformed(evt);
+            }
+        });
         jMenu4.add(ConsClientes);
 
         cadastros.add(jMenu4);
@@ -233,6 +240,11 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu9.add(jMenuItem4);
 
         jMenuItem5.setText("Consultar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu9.add(jMenuItem5);
 
         cadastros.add(jMenu9);
@@ -401,6 +413,16 @@ public class TelaMenu extends javax.swing.JFrame {
         TelaCadPet CadPet = new TelaCadPet();
         CadPet.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void ConsClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsClientesActionPerformed
+      TelaConsClientes consCli = new TelaConsClientes();
+      consCli.setVisible(true);
+    }//GEN-LAST:event_ConsClientesActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+      TelaConsPets consPets = new TelaConsPets();
+      consPets.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
