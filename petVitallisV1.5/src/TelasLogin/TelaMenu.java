@@ -9,6 +9,7 @@ import javax.swing.SwingConstants;
 import TelaRecepcionista.TelaCadProdutos;
 import TelaRecepcionista.TelaConsProduto;
 import TelaRecepcionista.TelaCadClientes;
+import TelaRecepcionista.TelaCadPet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -59,6 +60,9 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         CadClientes = new javax.swing.JMenuItem();
         ConsClientes = new javax.swing.JMenuItem();
+        jMenu9 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         CadProdutos = new javax.swing.JMenuItem();
         ConsProdutos = new javax.swing.JMenuItem();
@@ -217,6 +221,21 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu4.add(ConsClientes);
 
         cadastros.add(jMenu4);
+
+        jMenu9.setText("Pets");
+
+        jMenuItem4.setText("Cadastrar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem4);
+
+        jMenuItem5.setText("Consultar");
+        jMenu9.add(jMenuItem5);
+
+        cadastros.add(jMenu9);
 
         jMenu5.setText("Produtos");
 
@@ -378,6 +397,11 @@ public class TelaMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_CadClientesActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        TelaCadPet CadPet = new TelaCadPet();
+        CadPet.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -445,12 +469,15 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu menuSair;
     private javax.swing.JPanel painel2;

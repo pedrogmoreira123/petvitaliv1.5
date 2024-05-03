@@ -52,9 +52,6 @@ public class TelaCadClientes extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         ckSenha = new javax.swing.JCheckBox();
         VoltarMenu = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastros de Clientes");
@@ -91,35 +88,6 @@ public class TelaCadClientes extends javax.swing.JFrame {
                 VoltarMenuActionPerformed(evt);
             }
         });
-
-        jMenu2.setText("Opções");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
-            }
-        });
-
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("Fechar");
-        jRadioButtonMenuItem1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jRadioButtonMenuItem1AncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jRadioButtonMenuItem1);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,7 +130,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addContainerGap(78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -296,26 +264,11 @@ public class TelaCadClientes extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_CliSalvarActionPerformed
    
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-       // Fecha a tela
-       this.dispose();
-    }//GEN-LAST:event_jMenu2ActionPerformed
-
-    private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
-      // Fecha a tela
-      this.dispose();
-    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
-
     private void VoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarMenuActionPerformed
    
         this.dispose();
-        TelaMenu  telaMenu = new TelaMenu();
-        telaMenu.setVisible(true);
+       
     }//GEN-LAST:event_VoltarMenuActionPerformed
-
-    private void jRadioButtonMenuItem1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonMenuItem1AncestorAdded
 
     /**
      * @param args the command line arguments
@@ -370,9 +323,6 @@ public class TelaCadClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JPasswordField txtCliConfSenha;
     private javax.swing.JTextField txtCliEmail;

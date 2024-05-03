@@ -38,7 +38,12 @@ public class TelaCadPet extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        VoltarMEnu.setText("Menu");
+        VoltarMEnu.setText("Voltar");
+        VoltarMEnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoltarMEnuActionPerformed(evt);
+            }
+        });
 
         SalvarPet.setText("Salvar");
         SalvarPet.addActionListener(new java.awt.event.ActionListener() {
@@ -207,6 +212,10 @@ public class TelaCadPet extends javax.swing.JFrame {
         }
             
     }//GEN-LAST:event_SalvarPetActionPerformed
+
+    private void VoltarMEnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarMEnuActionPerformed
+         this.dispose();
+    }//GEN-LAST:event_VoltarMEnuActionPerformed
 
     /**
      * @param args the command line arguments
