@@ -1,6 +1,6 @@
 package TelaRecepcionista;
 
-import ClassesDoRecepcionista.CadClientes;
+import ClassesDeCadastro.CadClientes;
 import TelasLogin.TelaMenu;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

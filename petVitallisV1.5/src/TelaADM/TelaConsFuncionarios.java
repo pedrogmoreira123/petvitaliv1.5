@@ -3,7 +3,7 @@ package TelaADM;
 import TelaRecepcionista.*;
 import TelaRecepcionista.TelaCadProdutos;
 import javax.swing.ImageIcon;
-import ClassesDoRecepcionista.CadProdutos;
+import ClassesDeCadastro.CadProdutos;
 
 public class TelaConsFuncionarios extends javax.swing.JFrame {
 

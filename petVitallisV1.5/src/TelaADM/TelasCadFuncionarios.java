@@ -1,6 +1,6 @@
 package TelaADM;
 
-import ClassesDoRecepcionista.CadFuncionario;
+import ClassesDeCadastro.CadFuncionario;
 import TelasLogin.TelaMenu;
 
 import javax.swing.JOptionPane;

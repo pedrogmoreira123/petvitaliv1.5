@@ -2,7 +2,7 @@ package TelaRecepcionista;
 
 import TelaRecepcionista.TelaCadProdutos;
 import javax.swing.ImageIcon;
-import ClassesDoRecepcionista.CadProdutos;
+import ClassesDeCadastro.CadProdutos;
 
 public class TelaConsProduto extends javax.swing.JFrame {
 

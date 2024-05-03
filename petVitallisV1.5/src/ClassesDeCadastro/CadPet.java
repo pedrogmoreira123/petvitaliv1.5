@@ -1,4 +1,4 @@
-package ClassesDoRecepcionista;
+package ClassesDeCadastro;
 
 import javax.swing.JOptionPane;
 
@@ -65,7 +65,7 @@ public class CadPet {
     }
     
     public void IncluirPet(){
-        JOptionPane.showMessageDialog(null, Nome + ", cadrastro com sucesso");
+        JOptionPane.showMessageDialog(null,"Cadrastro com sucesso");
     }
     
    

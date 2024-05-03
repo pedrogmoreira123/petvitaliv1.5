@@ -1,4 +1,4 @@
-package ClassesDoRecepcionista;
+package ClassesDeCadastro;
 
 public class CadConsultas {
     

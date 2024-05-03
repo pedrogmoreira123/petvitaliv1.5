@@ -1,4 +1,4 @@
-package ClassesDoRecepcionista;
+package ClassesDeCadastro;
 
 import javax.swing.JOptionPane;
 
@@ -65,7 +65,7 @@ public class CadClientes {
     }
     
     public void IncluiCli(){
-        JOptionPane.showMessageDialog(null,Nome +", Cadastrado com sucesso!");
+        JOptionPane.showMessageDialog(null,"Cadastrado com sucesso!");
     }
     
 }

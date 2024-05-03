@@ -1,6 +1,6 @@
 package TelaRecepcionista;
 
-import ClassesDoRecepcionista.CadProdutos;
+import ClassesDeCadastro.CadProdutos;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 

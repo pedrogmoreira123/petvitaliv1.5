@@ -1,4 +1,4 @@
-package ClassesDoRecepcionista;
+package ClassesDeCadastro;
 
 import java.util.Date;
 
