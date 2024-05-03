@@ -2,6 +2,8 @@ package TelaRecepcionista;
 
 import ClassesDoRecepcionista.CadClientes;
 import TelasLogin.TelaMenu;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -243,7 +245,25 @@ public class TelaCadClientes extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Campo de Senha Inválido");
         }
+         
+         
+         
+         //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
         
+         String textNum = txtCliNum.getText();
+         
+         //Define uma expressão regular para verificar se o texto contém apenas números
+         String regexNumerico = "\\d+";  
+         
+         // Cria um padrão regex 
+         //Pattern é uma classe em Java que compila uma expressão regular em um objeto de padrão.
+         //Uma expressão regular é uma sequência de caracteres que define um padrão de busca.
+         Pattern pattern = Pattern.compile(regexNumerico);
+         
+         // Cria um Matcher para aplicar o padrão ao texto do campo
+         //Matcher é uma classe que realiza a correspondência de padrões em uma sequência de caracteres. 
+         //Ela é usada para aplicar um padrão regex a uma determinada string e encontrar todas as ocorrências desse padrão na string.
+         Matcher matcherNumCli = pattern.matcher(textNum);
        
         if (Senha.equals(confSenha) && 
          !txtCliNome.getText().isEmpty() && 
@@ -251,7 +271,8 @@ public class TelaCadClientes extends javax.swing.JFrame {
          !txtCliNum.getText().isEmpty() && 
          !txtCliSenha.getText().isEmpty() &&
          !txtCliConfSenha.getText().isEmpty() && 
-         !txtCliUsu.getText().isEmpty()) {
+         !txtCliUsu.getText().isEmpty() &&
+          matcherNumCli.matches()) {
             cli.IncluiCli();
         }
         else{

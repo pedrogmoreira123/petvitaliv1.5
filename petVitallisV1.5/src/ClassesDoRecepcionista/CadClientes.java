@@ -65,7 +65,7 @@ public class CadClientes {
     }
     
     public void IncluiCli(){
-        JOptionPane.showMessageDialog(null,"Cadastrado com sucesso!");
+        JOptionPane.showMessageDialog(null,Nome +", Cadastrado com sucesso!");
     }
     
 }

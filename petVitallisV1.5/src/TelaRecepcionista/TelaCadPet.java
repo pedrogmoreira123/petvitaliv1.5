@@ -1,6 +1,8 @@
 package TelaRecepcionista;
 
 import ClassesDoRecepcionista.CadPet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 public class TelaCadPet extends javax.swing.JFrame {
@@ -197,18 +199,40 @@ public class TelaCadPet extends javax.swing.JFrame {
             //  mostra para o usuario aonde está errado
           }
         
+        
+        
+        //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
+        
+        String textIdaPet = txtIdadePet.getText();
+        String textNumPet = txtNumPet.getText();
+        
+        //Define uma expressão regular para verificar se o texto contém apenas números
+        String regexNumerico = "\\d+";  
+         
+        // Cria um padrão regex 
+        //Pattern é uma classe em Java que compila uma expressão regular em um objeto de padrão.
+        //Uma expressão regular é uma sequência de caracteres que define um padrão de busca.
+        Pattern pattern = Pattern.compile(regexNumerico);
+         
+        // Cria um Matcher para aplicar o padrão ao texto do campo
+        //Matcher é uma classe que realiza a correspondência de padrões em uma sequência de caracteres. 
+        //Ela é usada para aplicar um padrão regex a uma determinada string e encontrar todas as ocorrências desse padrão na string.
+         Matcher matcherIdade = pattern.matcher(textIdaPet);
+         Matcher matcherNumPet = pattern.matcher(textNumPet);
+        
         //Aqui basicamente é só para confirmar se todos os dados foram preenchidos
         //Se tiverem sido preechidos corretamente ai finaliza o cadrastro
         
-        if (txtNomeTutor.getText().isEmpty()
-            && txtNomePet.getText().isEmpty()
-            && txtRacaPet.getText().isEmpty()
-            && txtIdadePet.getText().isEmpty()
-            && txtNumPet.getText().isEmpty()) 
-        { 
-          JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
-        }else{
+        if (!txtNomeTutor.getText().isEmpty()
+            && !txtNomePet.getText().isEmpty()
+            && !txtRacaPet.getText().isEmpty()
+            && !txtIdadePet.getText().isEmpty()
+            && !txtNumPet.getText().isEmpty()
+            && matcherIdade.matches()
+            && matcherNumPet.matches())  { 
             pet.IncluirPet();
+        }else{
+             JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
         }
             
     }//GEN-LAST:event_SalvarPetActionPerformed
