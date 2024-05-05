@@ -44,7 +44,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
         txtCliNome = new javax.swing.JTextField();
         txtCliEmail = new javax.swing.JTextField();
         txtCliNum = new javax.swing.JTextField();
-        txtCliUsu = new javax.swing.JTextField();
+        txtCliCpf = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -71,7 +71,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
 
         jLabel5.setText("Número");
 
-        jLabel6.setText("Usuário");
+        jLabel6.setText("CPF");
 
         jLabel7.setText("Senha");
 
@@ -122,7 +122,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtCliNum)
                                 .addComponent(txtCliEmail)
-                                .addComponent(txtCliUsu)
+                                .addComponent(txtCliCpf)
                                 .addComponent(txtCliSenha)
                                 .addComponent(txtCliConfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(40, 40, 40)
@@ -151,7 +151,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCliUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCliCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -191,7 +191,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
        
         String Senha, confSenha;
         
-        int NumCli;// essa vaviavel é para poder transformar String em número
+        int NumCli, CpfCli;// essa vaviavel é para poder transformar String em número
         
         
         //Os codigo de nome, usuario, email, senha e confirmar senha são praticamente iguais
@@ -227,12 +227,23 @@ public class TelaCadClientes extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Campo número Inválido");
           
           }
-         
-        if (!txtCliUsu.getText().isEmpty()) {
-            cli.setUsuario(txtCliUsu.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Usuário Inválido");
+        
+        if (!txtCliCpf.getText().isEmpty()) {
+        try {
+            CpfCli = Integer.parseInt(txtCliCpf.getText());
+            
+            cli.setCpf(CpfCli);
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
+           
         }
+           } else {
+        JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
+          
+          }
+         
+        
         
         Senha = txtCliSenha.getText();
         confSenha = txtCliConfSenha.getText();
@@ -251,6 +262,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
          //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
         
          String textNum = txtCliNum.getText();
+         String textCpf = txtCliCpf.getText();
          
          //Define uma expressão regular para verificar se o texto contém apenas números
          String regexNumerico = "\\d+";  
@@ -264,6 +276,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
          //Matcher é uma classe que realiza a correspondência de padrões em uma sequência de caracteres. 
          //Ela é usada para aplicar um padrão regex a uma determinada string e encontrar todas as ocorrências desse padrão na string.
          Matcher matcherNumCli = pattern.matcher(textNum);
+         Matcher matcherCpfCli = pattern.matcher(textCpf);
        
         if (Senha.equals(confSenha) && 
          !txtCliNome.getText().isEmpty() && 
@@ -271,8 +284,9 @@ public class TelaCadClientes extends javax.swing.JFrame {
          !txtCliNum.getText().isEmpty() && 
          !txtCliSenha.getText().isEmpty() &&
          !txtCliConfSenha.getText().isEmpty() && 
-         !txtCliUsu.getText().isEmpty() &&
-          matcherNumCli.matches()) {
+         !txtCliCpf.getText().isEmpty() &&
+          matcherNumCli.matches() &&
+          matcherCpfCli.matches()) {
             cli.IncluiCli();
         }
         else{
@@ -346,10 +360,10 @@ public class TelaCadClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JPasswordField txtCliConfSenha;
+    private javax.swing.JTextField txtCliCpf;
     private javax.swing.JTextField txtCliEmail;
     private javax.swing.JTextField txtCliNome;
     private javax.swing.JTextField txtCliNum;
     private javax.swing.JPasswordField txtCliSenha;
-    private javax.swing.JTextField txtCliUsu;
     // End of variables declaration//GEN-END:variables
 }

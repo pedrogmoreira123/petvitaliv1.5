@@ -9,9 +9,9 @@ public class CadPet {
     private String Raca;               
     private int Idade;
     private int Num;
-    
-    
-    
+    private int CpfTutor;
+
+
     public CadPet() {
     }
     
@@ -30,6 +30,14 @@ public class CadPet {
 
     public void setNomeTutor(String NomeTutor) {
         this.NomeTutor = NomeTutor;
+    }
+    
+    public int getCpfTutor() {
+        return CpfTutor;
+    }
+
+    public void setCpfTutor(int CpfTutor) {
+        this.CpfTutor = CpfTutor;
     }
 
     public String getNome() {

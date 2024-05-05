@@ -9,17 +9,17 @@ public class CadClientes {
    
     private String Nome;
     private String Email;
-    private String Usuario;
     private String Senha;
     private int Numero;
+    private int Cpf;
 
     public CadClientes() {
     }
      
-    public CadClientes(String Nome, String Email, String Usuario, String Senha, int Numero) {
+    public CadClientes(String Nome, String Email, int Cpf, String Senha, int Numero) {
        this.Nome = Nome;
        this.Email = Email;
-       this.Usuario = Usuario;
+       this.Cpf = Cpf;
        this.Senha = Senha;
        this.Numero = Numero;
      }
@@ -40,12 +40,12 @@ public class CadClientes {
         this.Email = Email;
     }
 
-    public String getUsuario() {
-        return Usuario;
+    public int getCpf() {
+        return Cpf;
     }
 
-    public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
+    public void setCpf(int Cpf) {
+        this.Cpf = Cpf;
     }
 
     public String getSenha() {

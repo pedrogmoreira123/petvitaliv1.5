@@ -65,7 +65,7 @@
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtCliNum" max="32767" attributes="0"/>
                               <Component id="txtCliEmail" max="32767" attributes="0"/>
-                              <Component id="txtCliUsu" max="32767" attributes="0"/>
+                              <Component id="txtCliCpf" max="32767" attributes="0"/>
                               <Component id="txtCliSenha" max="32767" attributes="0"/>
                               <Component id="txtCliConfSenha" min="-2" pref="180" max="-2" attributes="0"/>
                           </Group>
@@ -104,7 +104,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtCliUsu" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCliCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -150,7 +150,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtCliNum">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCliUsu">
+    <Component class="javax.swing.JTextField" name="txtCliCpf">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
     </Component>
@@ -171,7 +171,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
+        <Property name="text" type="java.lang.String" value="CPF"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">

@@ -333,7 +333,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             && matcherRgFun.matches()
             && matcherCepFun.matches()
             && matcherDataNasFun.matches()
-            && matcherPisFun.matches()    )  { 
+            && matcherPisFun.matches())  { 
             alo.IncluirFun();
         }else{
              JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
