@@ -1,5 +1,7 @@
 package ClassesDeCadastro;
 
+import javax.swing.JOptionPane;
+
 public class CadFuncionario {
     
     
@@ -76,6 +78,8 @@ public class CadFuncionario {
         this.Numero = Numero;
     }
     
-    
+    public void IncluirFun(){
+        JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
+    }
     
 }

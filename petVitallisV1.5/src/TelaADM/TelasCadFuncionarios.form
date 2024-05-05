@@ -37,15 +37,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="nomefun" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="NomeFuncionario" pref="120" max="32767" attributes="0"/>
+                              <Component id="nomeFuncionario" pref="120" max="32767" attributes="0"/>
                               <Component id="cpffun" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cpffuncionario" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cpfFuncionario" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="areapisfuncionario" alignment="0" pref="120" max="32767" attributes="0"/>
-                              <Component id="rgfuncionario" alignment="0" max="32767" attributes="0"/>
+                              <Component id="pisFuncionario" alignment="0" pref="120" max="32767" attributes="0"/>
+                              <Component id="rgFuncionario" alignment="0" max="32767" attributes="0"/>
                               <Component id="rgfun" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="datadenascifuncionario" alignment="0" max="32767" attributes="0"/>
+                              <Component id="dataNasFuncionario" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
@@ -54,13 +54,13 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="enderecofuncionario" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="enderecoFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
                                   <Component id="endereçofun" min="-2" max="-2" attributes="0"/>
                                   <Component id="numeroresidenciafun" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="cepfuncionarios" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="residenciafuncionario" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="cepFuncionario" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="residenciaFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="123" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -86,8 +86,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="NomeFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="enderecofuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="enderecoFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -102,8 +102,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cpffuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="residenciafuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cpfFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="residenciaFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BotaoConsultarFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -113,18 +113,18 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rgfuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cepfuncionarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rgFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cepFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BotaoVoltarMenu" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="datefun" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="datadenascifuncionario" min="-2" max="-2" attributes="0"/>
+              <Component id="dataNasFuncionario" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pisfun" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="areapisfuncionario" min="-2" max="-2" attributes="0"/>
+              <Component id="pisFuncionario" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="72" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -147,9 +147,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoConsultarFuncionarioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="NomeFuncionario">
+    <Component class="javax.swing.JTextField" name="nomeFuncionario">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NomeFuncionarioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeFuncionarioActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="nomefun">
@@ -162,23 +162,23 @@
         <Property name="text" type="java.lang.String" value="RG"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="rgfuncionario">
+    <Component class="javax.swing.JTextField" name="rgFuncionario">
     </Component>
     <Component class="javax.swing.JLabel" name="cpffun">
       <Properties>
         <Property name="text" type="java.lang.String" value="CPF"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="cpffuncionario">
+    <Component class="javax.swing.JTextField" name="cpfFuncionario">
     </Component>
     <Component class="javax.swing.JLabel" name="datefun">
       <Properties>
         <Property name="text" type="java.lang.String" value="Data de Nascimento"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="datadenascifuncionario">
+    <Component class="javax.swing.JTextField" name="dataNasFuncionario">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="datadenascifuncionarioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataNasFuncionarioActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="endere&#xe7;ofun">
@@ -186,28 +186,28 @@
         <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="enderecofuncionario">
+    <Component class="javax.swing.JTextField" name="enderecoFuncionario">
     </Component>
     <Component class="javax.swing.JLabel" name="numeroresidenciafun">
       <Properties>
         <Property name="text" type="java.lang.String" value="Numero da Residencia"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="residenciafuncionario">
+    <Component class="javax.swing.JTextField" name="residenciaFuncionario">
     </Component>
     <Component class="javax.swing.JLabel" name="pisfun">
       <Properties>
         <Property name="text" type="java.lang.String" value="PIS"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="areapisfuncionario">
+    <Component class="javax.swing.JTextField" name="pisFuncionario">
     </Component>
     <Component class="javax.swing.JLabel" name="cepfun">
       <Properties>
         <Property name="text" type="java.lang.String" value="CEP"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="cepfuncionarios">
+    <Component class="javax.swing.JTextField" name="cepFuncionario">
     </Component>
     <Component class="javax.swing.JButton" name="BotaoVoltarMenu">
       <Properties>
