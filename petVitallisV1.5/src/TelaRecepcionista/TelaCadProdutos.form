@@ -32,7 +32,7 @@
                           <Component id="labelTipoDeProduto" min="-2" max="-2" attributes="0"/>
                           <Component id="cadastroTipoDeProduto" min="-2" pref="160" max="-2" attributes="0"/>
                           <Component id="labelCódigoDoProduto" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="cadastroCódigoDoProduto" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                          <Component id="cadastroCodigoDoProduto" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -60,7 +60,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cadastroCódigoDoProduto" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="cadastroCodigoDoProduto" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="cadastroNomeDoProduto" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -153,7 +153,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCadProdConfirmarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="cadastroC&#xf3;digoDoProduto">
+    <Component class="javax.swing.JTextField" name="cadastroCodigoDoProduto">
     </Component>
     <Component class="javax.swing.JLabel" name="labelC&#xf3;digoDoProduto">
       <Properties>
