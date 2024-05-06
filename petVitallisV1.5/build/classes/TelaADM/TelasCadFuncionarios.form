@@ -208,6 +208,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cepFuncionario">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cepFuncionarioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="BotaoVoltarMenu">
       <Properties>

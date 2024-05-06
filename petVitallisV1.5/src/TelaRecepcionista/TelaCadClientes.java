@@ -215,7 +215,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
         
         if (!txtCliNum.getText().isEmpty()) {
         try {
-            NumCli = Integer.parseInt(txtCliNum.getText());
+            NumCli = (int) Long.parseLong(txtCliNum.getText());
             
             cli.setNumero(NumCli);
             
@@ -230,7 +230,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
         
         if (!txtCliCpf.getText().isEmpty()) {
         try {
-            CpfCli = Integer.parseInt(txtCliCpf.getText());
+            CpfCli = (int) Long.parseLong(txtCliCpf.getText());
             
             cli.setCpf(CpfCli);
             

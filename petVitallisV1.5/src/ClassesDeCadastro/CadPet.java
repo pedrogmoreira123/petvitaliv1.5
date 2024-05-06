@@ -73,7 +73,7 @@ public class CadPet {
     }
     
     public void IncluirPet(){
-        JOptionPane.showMessageDialog(null,"Cadrastro com sucesso");
+        JOptionPane.showMessageDialog(null,"Cadastrado com sucesso");
     }
     
    

@@ -91,6 +91,12 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
 
         cepfun.setText("CEP");
 
+        cepFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cepFuncionarioActionPerformed(evt);
+            }
+        });
+
         BotaoVoltarMenu.setText("Voltar");
         BotaoVoltarMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,7 +216,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         if (!cpfFuncionario.getText().isEmpty()) {
         try {
-            cpfFun = Integer.parseInt(cpfFuncionario.getText());
+            cpfFun = (int) Long.parseLong(cpfFuncionario.getText());
             alo.setCpf(cpfFun);
             
         } catch (NumberFormatException e) {
@@ -224,7 +230,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         if (!rgFuncionario.getText().isEmpty()) {
         try {
-            rgFun = Integer.parseInt(rgFuncionario.getText());
+            rgFun = (int) Long.parseLong(rgFuncionario.getText());
             alo.setRg(rgFun);
             
         } catch (NumberFormatException e) {
@@ -357,6 +363,10 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
         CadProd.setVisible(true);
     }//GEN-LAST:event_BotaoConsultarFuncionarioActionPerformed
+
+    private void cepFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cepFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments

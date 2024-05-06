@@ -183,7 +183,7 @@ public class TelaCadPet extends javax.swing.JFrame {
         
         if (!txtIdadePet.getText().isEmpty()) {
         try {
-            IdadePet = Integer.parseInt(txtIdadePet.getText());
+            IdadePet = (int) Long.parseLong(txtIdadePet.getText());
             pet.setIdade(IdadePet);
             
         } catch (NumberFormatException e) {
@@ -197,7 +197,7 @@ public class TelaCadPet extends javax.swing.JFrame {
         
         if (!txtNumPet.getText().isEmpty()) {
         try {
-            NumPet = Integer.parseInt(txtNumPet.getText());
+            NumPet = (int) Long.parseLong(txtNumPet.getText());
          
             pet.setNum(NumPet);
             
@@ -212,7 +212,7 @@ public class TelaCadPet extends javax.swing.JFrame {
         
         if (!txtCpfTutor.getText().isEmpty()) {
         try {
-            CpfTutor = Integer.parseInt(txtCpfTutor.getText());
+            CpfTutor = (int) Long.parseLong(txtCpfTutor.getText());
          
             pet.setCpfTutor(CpfTutor);
             
