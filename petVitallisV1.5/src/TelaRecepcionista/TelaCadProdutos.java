@@ -79,7 +79,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         labelTipoDeProduto.setText("Tipo de Produto");
         labelTipoDeProduto.setAlignmentY(0.0F);
 
-        cadastroTipoDeProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Limpeza", "Medicamento", "Utencílio", "Ração" }));
+        cadastroTipoDeProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Limpeza", "Medicamento", "Utencílio", "Ração" }));
         cadastroTipoDeProduto.setAlignmentX(0.0F);
         cadastroTipoDeProduto.setAlignmentY(0.0F);
         cadastroTipoDeProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -179,23 +179,24 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         
         String nomeProd = cadastroNomeDoProduto.getText();
         String validadeProd = cadastroValidadeDeProduto.getText();
-        String tipoProd = (String) cadastroTipoDeProduto.getSelectedItem();
+        int tipoProd = cadastroTipoDeProduto.getSelectedIndex();
         String codProd = (String) cadastroCódigoDoProduto.getText();
         
-        JOptionPane.showMessageDialog(this, "Produto cadastrado!:\n\n"
+        if (!cadastroCódigoDoProduto.getText().isEmpty() && !cadastroValidadeDeProduto.getText().isEmpty() && !cadastroNomeDoProduto.getText().isEmpty() /*&& cadastroTipoDeProduto.getSelectedIndex().isEmpty()*/) {
+            JOptionPane.showMessageDialog(this, "Produto cadastrado!:\n\n"
                                         + "Cód. do Produto: " + codProd + "\n"
                                         + "Nome do Produto: " + nomeProd + "\n"
                                         + "Tipo do Produto: " + tipoProd + "\n"
                                         + "Validade do Produto: " + validadeProd)
-                                        ;
+                                        ;    
+        } else {
+           JOptionPane.showMessageDialog(null, "Produto não cadastrado!\n\nPreencha os campos corretamente.");
+        }
+        
+        
 
         
-        /*if (!cadastroTipoDeProduto.getSelectedItem().isEmpty()) {
-            tipoProduto.setTipoDeProduto((String) cadastroTipoDeProduto.getSelectedItem());
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
-        } */
+        
         
         if (!cadastroCódigoDoProduto.getText().isEmpty()) {
             codProduto.setCodProduto(cadastroCódigoDoProduto.getText());
@@ -211,12 +212,13 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
         }
         
-        /*if (!cadastroTipoDeProduto.getString().isEmpty()) {
-            tipoProduto.setNomeProduto(cadastroTipoDeProduto.getString());
+        if (cadastroTipoDeProduto == null || tipoProd == 0) {
+            JOptionPane.showMessageDialog(null, "Campo Tipo de Produto Inválido");
             
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Produto Inválido");
-        }*/
+        } else{
+            tipoProduto.setTipoDeProduto((String) cadastroTipoDeProduto.getSelectedItem());
+
+        } 
         
         if (!cadastroValidadeDeProduto.getText().isEmpty()) {
             validadeProduto.setValidadeProduto(cadastroValidadeDeProduto.getText());
