@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package TelaRecepcionista;
 
-import ClassesDoRecepcionista.CadProdutos;
+import ClassesDeCadastro.CadProdutos;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author paje9
- */
 public class TelaCadProdutos extends javax.swing.JFrame {
 
     /**
@@ -47,7 +39,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         labelTipoDeProduto = new javax.swing.JLabel();
         cadastroTipoDeProduto = new javax.swing.JComboBox<>();
         buttonCadProdConfirmar = new javax.swing.JButton();
-        cadastroCódigoDoProduto = new javax.swing.JTextField();
+        cadastroCodigoDoProduto = new javax.swing.JTextField();
         labelCódigoDoProduto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -79,7 +71,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         labelTipoDeProduto.setText("Tipo de Produto");
         labelTipoDeProduto.setAlignmentY(0.0F);
 
-        cadastroTipoDeProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Limpeza", "Medicamento", "Utencílio", "Ração" }));
+        cadastroTipoDeProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Limpeza", "Medicamento", "Utencílio", "Ração" }));
         cadastroTipoDeProduto.setAlignmentX(0.0F);
         cadastroTipoDeProduto.setAlignmentY(0.0F);
         cadastroTipoDeProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +102,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                             .addComponent(labelTipoDeProduto)
                             .addComponent(cadastroTipoDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelCódigoDoProduto)
-                            .addComponent(cadastroCódigoDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cadastroCodigoDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(buttonCadProdConfirmar)
@@ -130,7 +122,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                     .addComponent(labelCódigoDoProduto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cadastroCódigoDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastroCodigoDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastroNomeDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -171,6 +163,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                                         + "Nome do Cliente: " + nomeCliente + "\n"
                                         + "Tipo de Consulta: " + tipoConsulta); */
         
+        CadProdutos produ = new CadProdutos();
         
         CadProdutos nomeProduto = new CadProdutos();
         CadProdutos tipoProduto = new CadProdutos();
@@ -179,27 +172,19 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         
         String nomeProd = cadastroNomeDoProduto.getText();
         String validadeProd = cadastroValidadeDeProduto.getText();
-        int tipoProd = cadastroTipoDeProduto.getSelectedIndex();
-        String codProd = (String) cadastroCódigoDoProduto.getText();
+        String tipoProd = (String) cadastroTipoDeProduto.getSelectedItem();
+        String codProd = (String) cadastroCodigoDoProduto.getText();
+    
+      
+        /*if (!cadastroTipoDeProduto.getSelectedItem().isEmpty()) {
+            tipoProduto.setTipoDeProduto((String) cadastroTipoDeProduto.getSelectedItem());
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
+        } */
         
-        if (!cadastroCódigoDoProduto.getText().isEmpty() && !cadastroValidadeDeProduto.getText().isEmpty() && !cadastroNomeDoProduto.getText().isEmpty() /*&& cadastroTipoDeProduto.getSelectedIndex().isEmpty()*/) {
-            JOptionPane.showMessageDialog(this, "Produto cadastrado!:\n\n"
-                                        + "Cód. do Produto: " + codProd + "\n"
-                                        + "Nome do Produto: " + nomeProd + "\n"
-                                        + "Tipo do Produto: " + tipoProd + "\n"
-                                        + "Validade do Produto: " + validadeProd)
-                                        ;    
-        } else {
-           JOptionPane.showMessageDialog(null, "Produto não cadastrado!\n\nPreencha os campos corretamente.");
-        }
-        
-        
-
-        
-        
-        
-        if (!cadastroCódigoDoProduto.getText().isEmpty()) {
-            codProduto.setCodProduto(cadastroCódigoDoProduto.getText());
+        if (!cadastroCodigoDoProduto.getText().isEmpty()) {
+            codProduto.setCodProduto(cadastroCodigoDoProduto.getText());
             
         }else{
             JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
@@ -212,19 +197,31 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
         }
         
-        if (cadastroTipoDeProduto == null || tipoProd == 0) {
-            JOptionPane.showMessageDialog(null, "Campo Tipo de Produto Inválido");
+        /*if (!cadastroTipoDeProduto.getString().isEmpty()) {
+            tipoProduto.setNomeProduto(cadastroTipoDeProduto.getString());
             
-        } else{
-            tipoProduto.setTipoDeProduto((String) cadastroTipoDeProduto.getSelectedItem());
-
-        } 
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Produto Inválido");
+        }*/
         
         if (!cadastroValidadeDeProduto.getText().isEmpty()) {
             validadeProduto.setValidadeProduto(cadastroValidadeDeProduto.getText());
             
         }else{
             JOptionPane.showMessageDialog(null, "Campo Validade Inválido");
+        }
+        
+        if (cadastroCodigoDoProduto.getText().isEmpty()
+            || cadastroValidadeDeProduto.getText().isEmpty()
+            || cadastroNomeDoProduto.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");
+        }else {  
+            JOptionPane.showMessageDialog(this, "Produto cadastrado!:\n\n"
+                                        + "Cód. do Produto: " + codProd + "\n"
+                                        + "Nome do Produto: " + nomeProd + "\n"
+                                        + "Tipo do Produto: " + tipoProd + "\n"
+                                        + "Validade do Produto: " + validadeProd);
+            produ.IncluirProduto();
         }
     }//GEN-LAST:event_buttonCadProdConfirmarActionPerformed
 
@@ -273,7 +270,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCadProdConfirmar;
     private javax.swing.JButton buttonCadProdVoltarParaMenu;
-    private javax.swing.JTextField cadastroCódigoDoProduto;
+    private javax.swing.JTextField cadastroCodigoDoProduto;
     private javax.swing.JTextField cadastroNomeDoProduto;
     private javax.swing.JComboBox<String> cadastroTipoDeProduto;
     private javax.swing.JTextField cadastroValidadeDeProduto;

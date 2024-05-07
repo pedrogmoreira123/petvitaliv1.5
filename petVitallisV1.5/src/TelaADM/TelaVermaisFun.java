@@ -1,15 +1,16 @@
-package TelaRecepcionista;
+package TelaADM;
 
+import TelaRecepcionista.*;
 import TelaRecepcionista.TelaCadProdutos;
 import javax.swing.ImageIcon;
 import ClassesDeCadastro.CadProdutos;
 
-public class TelaConsProduto extends javax.swing.JFrame {
+public class TelaVermaisFun extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaConsProduto
      */
-    public TelaConsProduto() {
+    public TelaVermaisFun() {
         super("Produtos");
         initComponents();
         this.setLocationRelativeTo(null);
@@ -36,8 +37,7 @@ public class TelaConsProduto extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         consultaBarraDeTextoPesquisa = new javax.swing.JTextPane();
         consultaFiltroPesquisa = new javax.swing.JComboBox<>();
-        consProdCriarNovoBotao = new javax.swing.JButton();
-        consultaProdPesquisarBotao = new javax.swing.JButton();
+        BotaoSairFun = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -50,23 +50,21 @@ public class TelaConsProduto extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Código Produto", "Nome Produto", "Tipo do Produto", "Validade do Produto"
+                "Código do Funcionario", "Nome do Funcionario", "CPF", "Cargo"
             }
         ));
         jScrollPane1.setViewportView(consultaBancoProdutos);
 
         jScrollPane2.setViewportView(consultaBarraDeTextoPesquisa);
 
-        consultaFiltroPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Nome", "Tipo", "Validade" }));
+        consultaFiltroPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Nome", "CPF", "Cargo" }));
 
-        consProdCriarNovoBotao.setText("Criar Novo");
-        consProdCriarNovoBotao.addActionListener(new java.awt.event.ActionListener() {
+        BotaoSairFun.setText("Sair");
+        BotaoSairFun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consProdCriarNovoBotaoActionPerformed(evt);
+                BotaoSairFunActionPerformed(evt);
             }
         });
-
-        consultaProdPesquisarBotao.setText("Q");
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -76,11 +74,10 @@ public class TelaConsProduto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consultaProdPesquisarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consProdCriarNovoBotao))
+                .addComponent(BotaoSairFun, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
@@ -89,20 +86,17 @@ public class TelaConsProduto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(consProdCriarNovoBotao)
-                        .addComponent(consultaProdPesquisarBotao)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
+                    .addComponent(BotaoSairFun, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(7, 7, 7)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void consProdCriarNovoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consProdCriarNovoBotaoActionPerformed
-        TelaCadProdutos CadProd = new TelaCadProdutos ();
-        CadProd.setVisible(true);
-    }//GEN-LAST:event_consProdCriarNovoBotaoActionPerformed
+    private void BotaoSairFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairFunActionPerformed
+        dispose ();
+    }//GEN-LAST:event_BotaoSairFunActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,30 +115,32 @@ public class TelaConsProduto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaConsProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVermaisFun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaConsProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVermaisFun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaConsProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVermaisFun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaConsProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVermaisFun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaConsProduto().setVisible(true);
+                new TelaVermaisFun().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton consProdCriarNovoBotao;
+    private javax.swing.JButton BotaoSairFun;
     private javax.swing.JTable consultaBancoProdutos;
     private javax.swing.JTextPane consultaBarraDeTextoPesquisa;
     private javax.swing.JComboBox<String> consultaFiltroPesquisa;
-    private javax.swing.JButton consultaProdPesquisarBotao;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

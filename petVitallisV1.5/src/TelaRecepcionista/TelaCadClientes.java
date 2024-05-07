@@ -1,10 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package TelaRecepcionista;
 
-import ClassesDoRecepcionista.CadClientes;
+import ClassesDeCadastro.CadClientes;
+import TelasLogin.TelaMenu;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -38,13 +37,14 @@ public class TelaCadClientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSpinner1 = new javax.swing.JSpinner();
         CliSalvar = new javax.swing.JButton();
         txtCliSenha = new javax.swing.JPasswordField();
         txtCliConfSenha = new javax.swing.JPasswordField();
         txtCliNome = new javax.swing.JTextField();
         txtCliEmail = new javax.swing.JTextField();
         txtCliNum = new javax.swing.JTextField();
-        txtCliUsu = new javax.swing.JTextField();
+        txtCliCpf = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -53,17 +53,10 @@ public class TelaCadClientes extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         ckSenha = new javax.swing.JCheckBox();
-        ButaoVolta = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        VoltarMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastros de Clientes");
-        setPreferredSize(new java.awt.Dimension(640, 350));
 
         CliSalvar.setText("Salvar");
         CliSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +71,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
 
         jLabel5.setText("Número");
 
-        jLabel6.setText("Usuário");
+        jLabel6.setText("CPF");
 
         jLabel7.setText("Senha");
 
@@ -91,47 +84,12 @@ public class TelaCadClientes extends javax.swing.JFrame {
             }
         });
 
-        ButaoVolta.setText("Voltar");
-        ButaoVolta.addActionListener(new java.awt.event.ActionListener() {
+        VoltarMenu.setText("Voltar");
+        VoltarMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButaoVoltaActionPerformed(evt);
+                VoltarMenuActionPerformed(evt);
             }
         });
-
-        jMenu1.setText("Menu");
-
-        jMenuItem1.setText("Cadrastrar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Consultar");
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Opções");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
-            }
-        });
-
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("Fechar");
-        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jRadioButtonMenuItem1);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,14 +98,11 @@ public class TelaCadClientes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(ckSenha)
-                            .addGap(191, 191, 191))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(ButaoVolta)
-                            .addGap(118, 118, 118)
-                            .addComponent(CliSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(ckSenha)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(VoltarMenu)
+                        .addGap(114, 114, 114)
+                        .addComponent(CliSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -167,17 +122,17 @@ public class TelaCadClientes extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtCliNum)
                                 .addComponent(txtCliEmail)
-                                .addComponent(txtCliUsu)
+                                .addComponent(txtCliCpf)
                                 .addComponent(txtCliSenha)
                                 .addComponent(txtCliConfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(40, 40, 40)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -196,7 +151,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCliUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCliCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -208,17 +163,14 @@ public class TelaCadClientes extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addGap(18, 18, 18)
                         .addComponent(ckSenha)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButaoVolta))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(CliSalvar)))
-                        .addGap(61, 61, 61))))
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CliSalvar)
+                            .addComponent(VoltarMenu))
+                        .addGap(62, 62, 62))))
         );
 
-        setBounds(0, 0, 656, 428);
+        setBounds(0, 0, 448, 423);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ckSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckSenhaActionPerformed
@@ -234,10 +186,17 @@ public class TelaCadClientes extends javax.swing.JFrame {
 
     private void CliSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CliSalvarActionPerformed
       
-        CadClientes cli = new CadClientes();
-        //nome*, email*, numero*,senha, usuario*;
+         CadClientes cli = new CadClientes();
+     
+       
         String Senha, confSenha;
         
+        int NumCli, CpfCli;// essa vaviavel é para poder transformar String em número
+        
+        
+        //Os codigo de nome, usuario, email, senha e confirmar senha são praticamente iguais
+        //O que  da é o (txt) que sera usado
+        //E aonde ele vai setar as coisa(Set)
         
         if (!txtCliNome.getText().isEmpty()) {
             cli.setNome(txtCliNome.getText());
@@ -246,60 +205,105 @@ public class TelaCadClientes extends javax.swing.JFrame {
         }
         
         if (!txtCliEmail.getText().isEmpty()) {
-            cli.setNome(txtCliEmail.getText());
+            cli.setEmail(txtCliEmail.getText());
         }else{
             JOptionPane.showMessageDialog(null, "Campo Email Inválido");
         }
+  
+        //Aqui ele só permite número
+        //Aqui tambem usamos a variavel NumCli
         
         if (!txtCliNum.getText().isEmpty()) {
-            cli.setNome(txtCliNum.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Número Inválido");
+        try {
+            NumCli = (int) Long.parseLong(txtCliNum.getText());
+            
+            cli.setNumero(NumCli);
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campo número Inválido");
+           
         }
+           } else {
+        JOptionPane.showMessageDialog(null, "Campo número Inválido");
+          
+          }
+        
+        if (!txtCliCpf.getText().isEmpty()) {
+        try {
+            CpfCli = (int) Long.parseLong(txtCliCpf.getText());
+            
+            cli.setCpf(CpfCli);
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
+           
+        }
+           } else {
+        JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
+          
+          }
          
-        if (!txtCliUsu.getText().isEmpty()) {
-            cli.setNome(txtCliUsu.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Usuário Inválido");
-        }
+        
         
         Senha = txtCliSenha.getText();
         confSenha = txtCliConfSenha.getText();
         
+        
+        //Esse codigo é um pouco diferente pq ele precisa que a senha e Conf Senha sejam iguais
+        
          if (Senha.equals(confSenha) && !Senha.isEmpty()) {
-            cli.setNome(txtCliEmail.getText());
+            cli.setSenha(txtCliSenha.getText());
         }else{
             JOptionPane.showMessageDialog(null, "Campo de Senha Inválido");
         }
+         
+         
+         
+         //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
         
+         String textNum = txtCliNum.getText();
+         String textCpf = txtCliCpf.getText();
+         
+         //Define uma expressão regular para verificar se o texto contém apenas números
+         String regexNumerico = "\\d+";  
+         
+         // Cria um padrão regex 
+         //Pattern é uma classe em Java que compila uma expressão regular em um objeto de padrão.
+         //Uma expressão regular é uma sequência de caracteres que define um padrão de busca.
+         Pattern pattern = Pattern.compile(regexNumerico);
+         
+         // Cria um Matcher para aplicar o padrão ao texto do campo
+         //Matcher é uma classe que realiza a correspondência de padrões em uma sequência de caracteres. 
+         //Ela é usada para aplicar um padrão regex a uma determinada string e encontrar todas as ocorrências desse padrão na string.
+         Matcher matcherNumCli = pattern.matcher(textNum);
+         Matcher matcherCpfCli = pattern.matcher(textCpf);
        
- if (Senha.equals(confSenha) && !txtCliNome.getText().isEmpty() && !txtCliEmail.getText().isEmpty() && !txtCliNum.getText().isEmpty() && !txtCliSenha.getText().isEmpty() && !txtCliConfSenha.getText().isEmpty() && !txtCliUsu.getText().isEmpty()) {
+        if (Senha.equals(confSenha) && 
+         !txtCliNome.getText().isEmpty() && 
+         !txtCliEmail.getText().isEmpty() && 
+         !txtCliNum.getText().isEmpty() && 
+         !txtCliSenha.getText().isEmpty() &&
+         !txtCliConfSenha.getText().isEmpty() && 
+         !txtCliCpf.getText().isEmpty() &&
+          matcherNumCli.matches() &&
+          matcherCpfCli.matches()) {
             cli.IncluiCli();
         }
- else{
+        else{
             JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");
         }
-    }//GEN-LAST:event_CliSalvarActionPerformed
+    }                                         
    
-    private void ButaoVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoVoltaActionPerformed
+    private void ButaoVoltaActionPerformed(java.awt.event.ActionEvent evt) {                                           
   
         dispose();
-        
-    }//GEN-LAST:event_ButaoVoltaActionPerformed
-
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-       // Fecha a tela
-       this.dispose();
-    }//GEN-LAST:event_jMenu2ActionPerformed
-
-    private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
-      // Fecha a tela
-      this.dispose();
-    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_CliSalvarActionPerformed
+   
+    private void VoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarMenuActionPerformed
+   
+        this.dispose();
+       
+    }//GEN-LAST:event_VoltarMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,8 +348,8 @@ public class TelaCadClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButaoVolta;
     private javax.swing.JButton CliSalvar;
+    private javax.swing.JButton VoltarMenu;
     private javax.swing.JCheckBox ckSenha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -354,17 +358,12 @@ public class TelaCadClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JPasswordField txtCliConfSenha;
+    private javax.swing.JTextField txtCliCpf;
     private javax.swing.JTextField txtCliEmail;
     private javax.swing.JTextField txtCliNome;
     private javax.swing.JTextField txtCliNum;
     private javax.swing.JPasswordField txtCliSenha;
-    private javax.swing.JTextField txtCliUsu;
     // End of variables declaration//GEN-END:variables
 }

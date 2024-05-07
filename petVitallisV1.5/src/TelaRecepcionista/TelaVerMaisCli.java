@@ -1,16 +1,22 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package TelaRecepcionista;
 
-import TelaRecepcionista.TelaCadProdutos;
 import javax.swing.ImageIcon;
-import ClassesDeCadastro.CadProdutos;
 
-public class TelaConsProduto extends javax.swing.JFrame {
+/**
+ *
+ * @author kauan
+ */
+public class TelaVerMaisCli extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaConsProduto
+     * Creates new form TelaVerMaisCli
      */
-    public TelaConsProduto() {
-        super("Produtos");
+    public TelaVerMaisCli() {
+        super("Clientes");
         initComponents();
         this.setLocationRelativeTo(null);
         String caminhoImagem = "/icon/iconepet.png";
@@ -19,7 +25,6 @@ public class TelaConsProduto extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
-        
     }
 
     /**
@@ -32,17 +37,15 @@ public class TelaConsProduto extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        consultaBancoProdutos = new javax.swing.JTable();
+        consultaBancoCli = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         consultaBarraDeTextoPesquisa = new javax.swing.JTextPane();
         consultaFiltroPesquisa = new javax.swing.JComboBox<>();
-        consProdCriarNovoBotao = new javax.swing.JButton();
-        consultaProdPesquisarBotao = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        BotaoSairCli = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        consultaBancoProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        consultaBancoCli.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -50,24 +53,21 @@ public class TelaConsProduto extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Código Produto", "Nome Produto", "Tipo do Produto", "Validade do Produto"
+                "Código do Cliente", "Nome do Cliente", "Número", "Email"
             }
         ));
-        jScrollPane1.setViewportView(consultaBancoProdutos);
+        jScrollPane1.setViewportView(consultaBancoCli);
 
         jScrollPane2.setViewportView(consultaBarraDeTextoPesquisa);
 
-        consultaFiltroPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Nome", "Tipo", "Validade" }));
+        consultaFiltroPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Nome", "CPF", "Cargo" }));
 
-        consProdCriarNovoBotao.setText("Criar Novo");
-        consProdCriarNovoBotao.addActionListener(new java.awt.event.ActionListener() {
+        BotaoSairCli.setText("Sair");
+        BotaoSairCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consProdCriarNovoBotaoActionPerformed(evt);
+                BotaoSairCliActionPerformed(evt);
             }
         });
-
-        consultaProdPesquisarBotao.setText("Q");
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,11 +76,10 @@ public class TelaConsProduto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consultaProdPesquisarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consProdCriarNovoBotao))
+                .addComponent(BotaoSairCli, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
@@ -89,20 +88,17 @@ public class TelaConsProduto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(consProdCriarNovoBotao)
-                        .addComponent(consultaProdPesquisarBotao)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
+                    .addComponent(BotaoSairCli, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(7, 7, 7)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void consProdCriarNovoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consProdCriarNovoBotaoActionPerformed
-        TelaCadProdutos CadProd = new TelaCadProdutos ();
-        CadProd.setVisible(true);
-    }//GEN-LAST:event_consProdCriarNovoBotaoActionPerformed
+    private void BotaoSairCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairCliActionPerformed
+        dispose ();
+    }//GEN-LAST:event_BotaoSairCliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,31 +117,29 @@ public class TelaConsProduto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaConsProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVerMaisCli.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaConsProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVerMaisCli.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaConsProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVerMaisCli.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaConsProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVerMaisCli.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaConsProduto().setVisible(true);
+                new TelaVerMaisCli().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton consProdCriarNovoBotao;
-    private javax.swing.JTable consultaBancoProdutos;
+    private javax.swing.JButton BotaoSairCli;
+    private javax.swing.JTable consultaBancoCli;
     private javax.swing.JTextPane consultaBarraDeTextoPesquisa;
     private javax.swing.JComboBox<String> consultaFiltroPesquisa;
-    private javax.swing.JButton consultaProdPesquisarBotao;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

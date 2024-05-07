@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TelasLogin;
 
 import java.awt.event.KeyEvent;
@@ -10,11 +5,6 @@ import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-
-/**
- *
- * @author 824125665
- */
 public class TelaLogin extends javax.swing.JFrame {
 
     /**

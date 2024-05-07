@@ -1,6 +1,7 @@
-package ClassesDoRecepcionista;
+package ClassesDeCadastro;
 
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class CadProdutos {
     private String NomeProduto;
@@ -36,7 +37,6 @@ public class CadProdutos {
     public String getTipoDeProduto() {
         return TipoDeProduto;
     }
-
     public void setTipoDeProduto(String TipoDeProduto) {
         this.TipoDeProduto = TipoDeProduto;
     }
@@ -47,5 +47,9 @@ public class CadProdutos {
 
     public void setValidade(Date Validade) {
         this.Validade = Validade;
+    }
+    
+    public void IncluirProduto(){
+        JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
     }
 }
