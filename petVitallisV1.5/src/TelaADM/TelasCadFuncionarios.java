@@ -4,6 +4,7 @@ import ClassesDeCadastro.CadFuncionario;
 import TelasLogin.TelaMenu;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 
 import javax.swing.JOptionPane;
 
@@ -15,7 +16,14 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     public TelasCadFuncionarios() {
         super("Cadastro de Funcionarios");
         initComponents();
+        setResizable(false);
         this.setLocationRelativeTo(null);
+        String caminhoImagem = "/icon/logo PET VITALLI.png";        
+         // Carrega a imagem do ícone
+        ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
+        // Define o ícone da janela
+        this.setIconImage(icon.getImage());
+        
     }
 
     /**

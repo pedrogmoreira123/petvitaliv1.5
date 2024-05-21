@@ -19,7 +19,8 @@ public class TelaVerMaisPets extends javax.swing.JFrame {
         super("Pets");
         initComponents();
         this.setLocationRelativeTo(null);
-        String caminhoImagem = "/icon/iconepet.png";
+        setResizable(false);
+        String caminhoImagem = "/icon/logo PET VITALLI.png";
         
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));

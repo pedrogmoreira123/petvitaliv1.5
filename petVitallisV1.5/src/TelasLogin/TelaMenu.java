@@ -1,30 +1,31 @@
 package TelasLogin;
 
+import ClassesDeCadastro.CadConsultas;
 import TelaADM.TelaConsFuncionarios;
 import TelasLogin.TelaLogin;
 import TelaADM.TelasCadFuncionarios;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import TelaRecepcionista.TelaCadProdutos;
 import TelaRecepcionista.TelaConsProduto;
 import TelaRecepcionista.TelaCadClientes;
 import TelaRecepcionista.TelaCadPet;
 import TelaRecepcionista.TelaConsClientes;
 import TelaRecepcionista.TelaConsPets;
+import TelaRecepcionista.TiposDePagamentos;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class TelaMenu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form telaMenu
-     */
+    public double total = 0.0;
+    public int numeroDeCompras = 0;
+
     public TelaMenu() {
         super("TELA DE MENUS");
         initComponents();
+        setResizable(false);
         this.setLocationRelativeTo(null);
-        String caminhoImagem = "/icon/iconepet.png";
+        String caminhoImagem = "/icon/logo PET VITALLI.png";
         
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
@@ -43,16 +44,28 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        Painel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        CaixaDeTipodeConsultas = new javax.swing.JComboBox<>();
+        ButaoAgendarCons = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         CampoNomedoTutor = new javax.swing.JTextField();
         CampoNomedoPet = new javax.swing.JTextField();
-        CaixaDeTipodeConsultas = new javax.swing.JComboBox<>();
-        ButaoAgendarCons = new javax.swing.JButton();
-        painel2 = new javax.swing.JPanel();
-        ButaoDeCadClientes = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        consultaBancoCli = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        consultaBarraDeTextoPesquisa = new javax.swing.JTextPane();
+        TelaDeVendas = new javax.swing.JPanel();
+        CaixaDeTipoDeProdutos = new javax.swing.JComboBox<>();
+        BotaoAdicionarAoCarrinho = new javax.swing.JButton();
+        CampoDoPreco = new javax.swing.JTextField();
+        BotaoNovaComprar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        AreaDoCarrinho = new javax.swing.JTextArea();
+        Total = new javax.swing.JLabel();
+        FinalizarCarrinho = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         barraMenu = new javax.swing.JMenuBar();
         cadastros = new javax.swing.JMenu();
         MenuFuncionarios = new javax.swing.JMenu();
@@ -89,24 +102,25 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 204, 0));
-
-        Painel.setBackground(new java.awt.Color(0, 0, 0));
-        Painel.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Tipo da Consulta");
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nome do Pet");
-
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nome do Tutor");
 
         CaixaDeTipodeConsultas.setForeground(new java.awt.Color(255, 255, 255));
         CaixaDeTipodeConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Consulta de Rotina", "Vacinação", "Tratamento" }));
 
+        ButaoAgendarCons.setBackground(new java.awt.Color(255, 255, 255));
+        ButaoAgendarCons.setForeground(new java.awt.Color(0, 0, 0));
         ButaoAgendarCons.setText("Agendar Consulta");
         ButaoAgendarCons.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,77 +128,124 @@ public class TelaMenu extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout PainelLayout = new javax.swing.GroupLayout(Painel);
-        Painel.setLayout(PainelLayout);
-        PainelLayout.setHorizontalGroup(
-            PainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelLayout.createSequentialGroup()
-                .addContainerGap(146, Short.MAX_VALUE)
-                .addGroup(PainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelLayout.createSequentialGroup()
-                        .addGroup(PainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addGroup(PainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CampoNomedoTutor, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(CampoNomedoPet)
-                            .addGroup(PainelLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(54, 54, 54))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelLayout.createSequentialGroup()
-                        .addComponent(ButaoAgendarCons)
-                        .addGap(173, 173, 173))))
-        );
-        PainelLayout.setVerticalGroup(
-            PainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(PainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoNomedoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(PainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoNomedoTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(PainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
-                .addGap(38, 38, 38)
-                .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Tipo da Consulta");
 
-        painel2.setBackground(new java.awt.Color(0, 0, 0));
-        painel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Nome do Pet");
 
-        ButaoDeCadClientes.setForeground(new java.awt.Color(0, 0, 0));
-        ButaoDeCadClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/plano-de-saude-pet-beneficios-para-clinica-veterinaria.png"))); // NOI18N
-        ButaoDeCadClientes.setText("CADASTROS DE CLIENTES");
-        ButaoDeCadClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "CADASTROS DE CLIENTES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial Black", 0, 14), new java.awt.Color(0, 0, 0))); // NOI18N
-        ButaoDeCadClientes.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Nome do Tutor");
+
+        consultaBancoCli.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nome", "Numero", "Consultas"
+            }
+        ));
+        jScrollPane1.setViewportView(consultaBancoCli);
+
+        consultaBarraDeTextoPesquisa.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar Consultas", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jScrollPane2.setViewportView(consultaBarraDeTextoPesquisa);
+
+        TelaDeVendas.setForeground(new java.awt.Color(193, 171, 46));
+
+        CaixaDeTipoDeProdutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ração", "Shampoo", "Brinquedos" }));
+
+        BotaoAdicionarAoCarrinho.setText("Adicionar");
+        BotaoAdicionarAoCarrinho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButaoDeCadClientesActionPerformed(evt);
+                BotaoAdicionarAoCarrinhoActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout painel2Layout = new javax.swing.GroupLayout(painel2);
-        painel2.setLayout(painel2Layout);
-        painel2Layout.setHorizontalGroup(
-            painel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painel2Layout.createSequentialGroup()
-                .addComponent(ButaoDeCadClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 666, Short.MAX_VALUE)
+        CampoDoPreco.setBorder(javax.swing.BorderFactory.createTitledBorder("Preço"));
+        CampoDoPreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoDoPrecoActionPerformed(evt);
+            }
+        });
+
+        BotaoNovaComprar.setText("Nova Compra");
+        BotaoNovaComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoNovaComprarActionPerformed(evt);
+            }
+        });
+
+        AreaDoCarrinho.setColumns(20);
+        AreaDoCarrinho.setRows(5);
+        AreaDoCarrinho.setDropMode(javax.swing.DropMode.INSERT);
+        jScrollPane3.setViewportView(AreaDoCarrinho);
+
+        Total.setText("TOTAL : R$ 0.00");
+
+        FinalizarCarrinho.setText("Finalizar");
+        FinalizarCarrinho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FinalizarCarrinhoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout TelaDeVendasLayout = new javax.swing.GroupLayout(TelaDeVendas);
+        TelaDeVendas.setLayout(TelaDeVendasLayout);
+        TelaDeVendasLayout.setHorizontalGroup(
+            TelaDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDeVendasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(TelaDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(FinalizarCarrinho, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                    .addComponent(BotaoAdicionarAoCarrinho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(TelaDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TelaDeVendasLayout.createSequentialGroup()
+                        .addGroup(TelaDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(CampoDoPreco)
+                            .addComponent(CaixaDeTipoDeProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(BotaoNovaComprar))
+                    .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
-        painel2Layout.setVerticalGroup(
-            painel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painel2Layout.createSequentialGroup()
-                .addComponent(ButaoDeCadClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 344, Short.MAX_VALUE))
+        TelaDeVendasLayout.setVerticalGroup(
+            TelaDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TelaDeVendasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(TelaDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TelaDeVendasLayout.createSequentialGroup()
+                        .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(TelaDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(TelaDeVendasLayout.createSequentialGroup()
+                                .addGroup(TelaDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(CampoDoPreco)
+                                    .addComponent(BotaoAdicionarAoCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(TelaDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(FinalizarCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CaixaDeTipoDeProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(BotaoNovaComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Consultar Consultas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         cadastros.setText("Cadastros/Consultas");
 
@@ -319,17 +380,67 @@ public class TelaMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(painel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 508, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(CampoNomedoTutor)
+                                    .addComponent(CampoNomedoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(48, 48, 48))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(ButaoAgendarCons)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(50, 50, 50)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2))
+                .addGap(18, 18, 18))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(TelaDeVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Painel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(painel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CampoNomedoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CampoNomedoTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addGap(33, 33, 33)
+                .addComponent(TelaDeVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         pack();
@@ -352,29 +463,6 @@ public class TelaMenu extends javax.swing.JFrame {
         dispose();
 
     }//GEN-LAST:event_voltarActionPerformed
-
-    private void ButaoDeCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoDeCadClientesActionPerformed
-      
-        TelaCadClientes cadclientes = new TelaCadClientes();
-        cadclientes.setVisible(true);
-        
-    }//GEN-LAST:event_ButaoDeCadClientesActionPerformed
-
-    private void ButaoAgendarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoAgendarConsActionPerformed
-                                                       
-        String nomeAnimal = CampoNomedoPet.getText();
-        String nomeCliente = CampoNomedoTutor.getText();
-        String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
-
-        // Aqui você pode adicionar a lógica para agendar a consulta com os dados fornecidos
-
-        // Por enquanto, apenas exibimos uma mensagem com os dados
-        JOptionPane.showMessageDialog(this, "Consulta agendada:\n\n"
-                                        + "Nome do Animal: " + nomeAnimal + "\n"
-                                        + "Nome do Cliente: " + nomeCliente + "\n"
-                                        + "Tipo de Consulta: " + tipoConsulta);
-                                                       
-    }//GEN-LAST:event_ButaoAgendarConsActionPerformed
 
     private void CadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadFuncionariosActionPerformed
      
@@ -415,50 +503,93 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void ConsClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsClientesActionPerformed
-      TelaConsClientes consCli = new TelaConsClientes();
-      consCli.setVisible(true);
+     
+        TelaConsClientes consCli = new TelaConsClientes();
+        consCli.setVisible(true);
     }//GEN-LAST:event_ConsClientesActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-      TelaConsPets consPets = new TelaConsPets();
+      
+        TelaConsPets consPets = new TelaConsPets();
       consPets.setVisible(true);
+      
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void ButaoAgendarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoAgendarConsActionPerformed
+
+     
+        
+         if (!CampoNomedoPet.getText().isEmpty()) {
+            cons.setNomePet(CampoNomedoPet.getText());
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Nome Do Pet Inválido");
+        }
+        if (CampoNomedoTutor.getText().isEmpty()) {
+            cons.setNomeTutor(CampoNomedoTutor.getText());
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Email Inválido");
+        }   
+        
+        String nomeAnimal = CampoNomedoPet.getText();
+        String nomeCliente = CampoNomedoTutor.getText();
+        String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
+
+        // Aqui você pode adicionar a lógica para agendar a consulta com os dados fornecidos
+
+        // Por enquanto, apenas exibimos uma mensagem com os dados
+        JOptionPane.showMessageDialog(this, "Consulta agendada:\n\n"
+            + "Nome do Animal: " + nomeAnimal + "\n"
+            + "Nome do Cliente: " + nomeCliente + "\n"
+            + "Tipo de Consulta: " + tipoConsulta);
+    }//GEN-LAST:event_ButaoAgendarConsActionPerformed
+
+    private void BotaoAdicionarAoCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarAoCarrinhoActionPerformed
+        String tipoProdutos = (String) CaixaDeTipoDeProdutos.getSelectedItem();
+        String item = "Item"; // Lógica para obter o item a ser adicionado
+        double preco = Double.parseDouble(CampoDoPreco.getText()); // Obtém o preço do campo de texto
+        total += preco;
+        AreaDoCarrinho.append(tipoProdutos + " - R$ "  + preco + "\n");
+        CampoDoPreco.setText("");
+        atualizarTotal();
+      
+    }//GEN-LAST:event_BotaoAdicionarAoCarrinhoActionPerformed
+
+    private void BotaoNovaComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovaComprarActionPerformed
+
+        numeroDeCompras++;
+        total = 0.0;
+        AreaDoCarrinho.setText("");
+        atualizarTotal();
+        
+    }//GEN-LAST:event_BotaoNovaComprarActionPerformed
+
+    public void atualizarTotal() {
+        Total.setText("Total: R$ " + String.format("%.2f", total));
+    }
+    
+    private void CampoDoPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDoPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoDoPrecoActionPerformed
+
+    private void FinalizarCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarCarrinhoActionPerformed
+       
+       TiposDePagamentos pagar =  new TiposDePagamentos();
+       pagar.setVisible(true);
+            
+    }//GEN-LAST:event_FinalizarCarrinhoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -468,21 +599,30 @@ public class TelaMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea AreaDoCarrinho;
+    private javax.swing.JButton BotaoAdicionarAoCarrinho;
+    private javax.swing.JButton BotaoNovaComprar;
     private javax.swing.JButton ButaoAgendarCons;
-    private javax.swing.JButton ButaoDeCadClientes;
     private javax.swing.JMenuItem CadClientes;
     private javax.swing.JMenuItem CadFuncionarios;
     private javax.swing.JMenuItem CadProdutos;
+    private javax.swing.JComboBox<String> CaixaDeTipoDeProdutos;
     private javax.swing.JComboBox<String> CaixaDeTipodeConsultas;
+    private javax.swing.JTextField CampoDoPreco;
     private javax.swing.JTextField CampoNomedoPet;
     private javax.swing.JTextField CampoNomedoTutor;
     private javax.swing.JMenuItem ConsClientes;
     private javax.swing.JMenuItem ConsFuncionarios;
     private javax.swing.JMenuItem ConsProdutos;
+    private javax.swing.JButton FinalizarCarrinho;
     private javax.swing.JMenu MenuFuncionarios;
-    private javax.swing.JPanel Painel;
+    private javax.swing.JPanel TelaDeVendas;
+    private javax.swing.JLabel Total;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenu cadastros;
+    private javax.swing.JTable consultaBancoCli;
+    private javax.swing.JTextPane consultaBarraDeTextoPesquisa;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -500,9 +640,12 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu menuSair;
-    private javax.swing.JPanel painel2;
     private javax.swing.JMenu relatorios;
     private javax.swing.JMenuItem sair;
     private javax.swing.JMenuItem vendas;

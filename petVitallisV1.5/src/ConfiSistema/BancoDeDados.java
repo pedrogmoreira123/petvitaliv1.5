@@ -1,8 +1,8 @@
 package ConfiSistema;
 
 import javax.swing.JOptionPane;
-import ConfiSistema.ConfiguracaoBancoDados;
-import ConfiSistema.BancoDeDadosUtil;
+import ClassesConfig.ConfiguracaoBancoDados;
+import ClassesConfig.BancoDeDadosUtil;
 import java.sql.SQLException;
 import java.sql.Connection;
 import javax.swing.JFormattedTextField;
@@ -13,6 +13,8 @@ private ConfiguracaoBancoDados configuracao;
 
     public BancoDeDados() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setResizable(false);
         configuracao = new ConfiguracaoBancoDados();
         carregarConfiguracoes();
     }

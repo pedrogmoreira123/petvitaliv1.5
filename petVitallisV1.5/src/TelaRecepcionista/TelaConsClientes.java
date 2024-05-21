@@ -18,9 +18,9 @@ public class TelaConsClientes extends javax.swing.JFrame {
     public TelaConsClientes() {
         super("Cadastro de Clientes");
         initComponents();
-         this.setLocationRelativeTo(null);
-         String caminhoImagem = "/icon/iconepet.png";
-        
+        this.setLocationRelativeTo(null);
+        setResizable(false);
+        String caminhoImagem = "/icon/logo PET VITALLI.png";          
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela
@@ -39,7 +39,6 @@ public class TelaConsClientes extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         consultaBarraDeTextoPesquisa = new javax.swing.JTextPane();
         consultaFiltroPesquisa = new javax.swing.JComboBox<>();
-        consVerMaisClientes = new javax.swing.JButton();
         consultaProdPesquisarBotao = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         consultaBancoClientes = new javax.swing.JTable();
@@ -49,13 +48,6 @@ public class TelaConsClientes extends javax.swing.JFrame {
         jScrollPane2.setViewportView(consultaBarraDeTextoPesquisa);
 
         consultaFiltroPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Nome", "CPF", "Cargo" }));
-
-        consVerMaisClientes.setText("Ver mais");
-        consVerMaisClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consVerMaisClientesActionPerformed(evt);
-            }
-        });
 
         consultaProdPesquisarBotao.setText("+");
         consultaProdPesquisarBotao.addActionListener(new java.awt.event.ActionListener() {
@@ -87,9 +79,7 @@ public class TelaConsClientes extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(consultaProdPesquisarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consVerMaisClientes)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
@@ -98,20 +88,13 @@ public class TelaConsClientes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(consVerMaisClientes)
-                        .addComponent(consultaProdPesquisarBotao)))
+                    .addComponent(consultaProdPesquisarBotao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void consVerMaisClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consVerMaisClientesActionPerformed
-        TelaVerMaisCli verCli = new TelaVerMaisCli ();
-        verCli.setVisible(true);
-    }//GEN-LAST:event_consVerMaisClientesActionPerformed
 
     private void consultaProdPesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaProdPesquisarBotaoActionPerformed
         TelaCadClientes CadCli = new TelaCadClientes();
@@ -154,7 +137,6 @@ public class TelaConsClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton consVerMaisClientes;
     private javax.swing.JTable consultaBancoClientes;
     private javax.swing.JTextPane consultaBarraDeTextoPesquisa;
     private javax.swing.JComboBox<String> consultaFiltroPesquisa;

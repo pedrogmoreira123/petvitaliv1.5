@@ -1,5 +1,7 @@
 package TelaRecepcionista;
 
+// Teste Azure
+
 import TelaRecepcionista.TelaCadProdutos;
 import javax.swing.ImageIcon;
 import ClassesDeCadastro.CadProdutos;
@@ -13,7 +15,8 @@ public class TelaConsProduto extends javax.swing.JFrame {
         super("Produtos");
         initComponents();
         this.setLocationRelativeTo(null);
-        String caminhoImagem = "/icon/iconepet.png";
+        setResizable(false);
+        String caminhoImagem = "/icon/logo PET VITALLI.png";
         
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));

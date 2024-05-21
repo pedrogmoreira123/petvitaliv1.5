@@ -19,7 +19,8 @@ public class TelaCadClientes extends javax.swing.JFrame {
     public TelaCadClientes() {
         initComponents();
         this.setLocationRelativeTo(null);
-        String caminhoImagem = "/icon/iconepet.png";
+        setResizable(false);
+        String caminhoImagem = "/icon/logo PET VITALLI.png";
         
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
@@ -62,6 +63,12 @@ public class TelaCadClientes extends javax.swing.JFrame {
         CliSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CliSalvarActionPerformed(evt);
+            }
+        });
+
+        txtCliNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCliNomeActionPerformed(evt);
             }
         });
 
@@ -292,6 +299,7 @@ public class TelaCadClientes extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");
         }
+        
     }                                         
    
     private void ButaoVoltaActionPerformed(java.awt.event.ActionEvent evt) {                                           
@@ -304,6 +312,10 @@ public class TelaCadClientes extends javax.swing.JFrame {
         this.dispose();
        
     }//GEN-LAST:event_VoltarMenuActionPerformed
+
+    private void txtCliNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCliNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCliNomeActionPerformed
 
     /**
      * @param args the command line arguments

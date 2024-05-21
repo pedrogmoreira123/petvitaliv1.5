@@ -3,6 +3,7 @@ package TelaRecepcionista;
 import ClassesDeCadastro.CadPet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class TelaCadPet extends javax.swing.JFrame {
@@ -13,6 +14,13 @@ public class TelaCadPet extends javax.swing.JFrame {
     public TelaCadPet() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setResizable(false);
+        String caminhoImagem = "/icon/logo PET VITALLI.png";        
+         // Carrega a imagem do ícone
+        ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
+        // Define o ícone da janela
+        this.setIconImage(icon.getImage());
+        
     }
 
     /**
@@ -40,7 +48,7 @@ public class TelaCadPet extends javax.swing.JFrame {
         txtCpfTutor = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         VoltarMEnu.setText("Voltar");
         VoltarMEnu.addActionListener(new java.awt.event.ActionListener() {

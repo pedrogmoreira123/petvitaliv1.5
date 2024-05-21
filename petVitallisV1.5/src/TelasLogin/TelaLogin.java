@@ -13,10 +13,11 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
       super("PetVitallis");
         initComponents();
+        setResizable(false);
         this.setLocationRelativeTo(null);
         addEnterKeyListener();
         
-        String caminhoImagem = "/icon/iconepet.png";
+       String caminhoImagem = "/icon/logo PET VITALLI.png";
         
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));

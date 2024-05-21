@@ -18,8 +18,9 @@ public class TelaConsPets extends javax.swing.JFrame {
     public TelaConsPets() {
        super("Cadastro de Pets");
         initComponents();
-         this.setLocationRelativeTo(null);
-         String caminhoImagem = "/icon/iconepet.png";
+        this.setLocationRelativeTo(null);
+        setResizable(false);
+        String caminhoImagem = "/icon/logo PETVITALLI.png";
         
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));

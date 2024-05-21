@@ -12,9 +12,9 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     public TelaCadProdutos() {
         super("Cadastro de Produtos");
         initComponents();
-         this.setLocationRelativeTo(null);
-         String caminhoImagem = "/icon/iconepet.png";
-        
+        this.setLocationRelativeTo(null);
+        setResizable(false);
+        String caminhoImagem = "/icon/logo PET VITALLI.png";        
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela
