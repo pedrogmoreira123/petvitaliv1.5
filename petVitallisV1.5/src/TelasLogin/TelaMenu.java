@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import TelaRecepcionista.TelaCadProdutos;
 import TelaRecepcionista.TelaConsProduto;
 import TelaRecepcionista.TelaCadClientes;
+import TelaRecepcionista.TelaCadConsultas;
 import TelaRecepcionista.TelaCadPet;
 import TelaRecepcionista.TelaConsClientes;
 import TelaRecepcionista.TelaConsPets;
@@ -45,13 +46,6 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
-        CaixaDeTipodeConsultas = new javax.swing.JComboBox<>();
-        ButaoAgendarCons = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        CampoNomedoTutor = new javax.swing.JTextField();
-        CampoNomedoPet = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         consultaBancoCli = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -65,7 +59,6 @@ public class TelaMenu extends javax.swing.JFrame {
         AreaDoCarrinho = new javax.swing.JTextArea();
         Total = new javax.swing.JLabel();
         FinalizarCarrinho = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         barraMenu = new javax.swing.JMenuBar();
         cadastros = new javax.swing.JMenu();
         MenuFuncionarios = new javax.swing.JMenu();
@@ -84,6 +77,12 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
+        menuSair1 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         relatorios = new javax.swing.JMenu();
         vendas = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
@@ -115,30 +114,6 @@ public class TelaMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 204, 0));
-
-        CaixaDeTipodeConsultas.setForeground(new java.awt.Color(255, 255, 255));
-        CaixaDeTipodeConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Consulta de Rotina", "Vacinação", "Tratamento" }));
-
-        ButaoAgendarCons.setBackground(new java.awt.Color(255, 255, 255));
-        ButaoAgendarCons.setForeground(new java.awt.Color(0, 0, 0));
-        ButaoAgendarCons.setText("Agendar Consulta");
-        ButaoAgendarCons.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButaoAgendarConsActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Tipo da Consulta");
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Nome do Pet");
-
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Nome do Tutor");
 
         consultaBancoCli.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -238,19 +213,12 @@ public class TelaMenu extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Consultar Consultas");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         cadastros.setText("Cadastros/Consultas");
 
+        MenuFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconFuncionario.png"))); // NOI18N
         MenuFuncionarios.setText("Funcionarios");
 
+        CadFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCadFuncionario.png"))); // NOI18N
         CadFuncionarios.setText("Cadastrar");
         CadFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,6 +227,7 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         MenuFuncionarios.add(CadFuncionarios);
 
+        ConsFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconConsFuncionario.png"))); // NOI18N
         ConsFuncionarios.setText("Consultar");
         ConsFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,8 +239,10 @@ public class TelaMenu extends javax.swing.JFrame {
 
         cadastros.add(MenuFuncionarios);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCliente.png"))); // NOI18N
         jMenu4.setText("Clientes");
 
+        CadClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCadCleintee.png"))); // NOI18N
         CadClientes.setText("Cadastrar");
         CadClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,6 +251,7 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         jMenu4.add(CadClientes);
 
+        ConsClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconConsCliente.png"))); // NOI18N
         ConsClientes.setText("Consultar");
         ConsClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,8 +282,10 @@ public class TelaMenu extends javax.swing.JFrame {
 
         cadastros.add(jMenu9);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconProdutos.png"))); // NOI18N
         jMenu5.setText("Produtos");
 
+        CadProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCadProduto.png"))); // NOI18N
         CadProdutos.setText("Cadastrar");
         CadProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -320,6 +294,7 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         jMenu5.add(CadProdutos);
 
+        ConsProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconConsProdutos.png"))); // NOI18N
         ConsProdutos.setText("Consultar");
         ConsProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,17 +305,59 @@ public class TelaMenu extends javax.swing.JFrame {
 
         cadastros.add(jMenu5);
 
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCons.png"))); // NOI18N
         jMenu6.setText("Consultas");
 
+        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCadCons.png"))); // NOI18N
         jMenuItem10.setText("Cadastrar");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem10);
 
+        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconConsCons.png"))); // NOI18N
         jMenuItem11.setText("Consultar");
         jMenu6.add(jMenuItem11);
 
         cadastros.add(jMenu6);
 
         barraMenu.add(cadastros);
+
+        menuSair1.setText("Alterar");
+        menuSair1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSair1ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem7.setText("Funcionarios");
+        menuSair1.add(jMenuItem7);
+
+        jMenuItem6.setText("Clientes");
+        menuSair1.add(jMenuItem6);
+
+        jMenuItem8.setText("Pets");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        menuSair1.add(jMenuItem8);
+
+        jMenuItem12.setText("Produtos");
+        menuSair1.add(jMenuItem12);
+
+        jMenuItem9.setText("Consultas");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        menuSair1.add(jMenuItem9);
+
+        barraMenu.add(menuSair1);
 
         relatorios.setText("Relatorios");
 
@@ -381,29 +398,7 @@ public class TelaMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(CampoNomedoTutor)
-                                    .addComponent(CampoNomedoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(48, 48, 48))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(ButaoAgendarCons)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(50, 50, 50)))
+                .addGap(369, 369, 369)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2))
@@ -417,30 +412,12 @@ public class TelaMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CampoNomedoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CampoNomedoTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(TelaDeVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
@@ -470,11 +447,6 @@ public class TelaMenu extends javax.swing.JFrame {
         CadFuncionarios.setVisible(true);
                 
     }//GEN-LAST:event_CadFuncionariosActionPerformed
-
-    private void ConsFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsFuncionariosActionPerformed
-        TelaConsFuncionarios CadFuncionarios = new TelaConsFuncionarios();
-        CadFuncionarios.setVisible(true);
-    }//GEN-LAST:event_ConsFuncionariosActionPerformed
 
     private void CadProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadProdutosActionPerformed
         
@@ -515,34 +487,6 @@ public class TelaMenu extends javax.swing.JFrame {
       
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void ButaoAgendarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoAgendarConsActionPerformed
-
-     
-        
-         if (!CampoNomedoPet.getText().isEmpty()) {
-            cons.setNomePet(CampoNomedoPet.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Nome Do Pet Inválido");
-        }
-        if (CampoNomedoTutor.getText().isEmpty()) {
-            cons.setNomeTutor(CampoNomedoTutor.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Email Inválido");
-        }   
-        
-        String nomeAnimal = CampoNomedoPet.getText();
-        String nomeCliente = CampoNomedoTutor.getText();
-        String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
-
-        // Aqui você pode adicionar a lógica para agendar a consulta com os dados fornecidos
-
-        // Por enquanto, apenas exibimos uma mensagem com os dados
-        JOptionPane.showMessageDialog(this, "Consulta agendada:\n\n"
-            + "Nome do Animal: " + nomeAnimal + "\n"
-            + "Nome do Cliente: " + nomeCliente + "\n"
-            + "Tipo de Consulta: " + tipoConsulta);
-    }//GEN-LAST:event_ButaoAgendarConsActionPerformed
-
     private void BotaoAdicionarAoCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarAoCarrinhoActionPerformed
         String tipoProdutos = (String) CaixaDeTipoDeProdutos.getSelectedItem();
         String item = "Item"; // Lógica para obter o item a ser adicionado
@@ -578,9 +522,29 @@ public class TelaMenu extends javax.swing.JFrame {
             
     }//GEN-LAST:event_FinalizarCarrinhoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void menuSair1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSair1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuSair1ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void ConsFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsFuncionariosActionPerformed
+        TelaConsFuncionarios CadFuncionarios = new TelaConsFuncionarios();
+        CadFuncionarios.setVisible(true);
+    }//GEN-LAST:event_ConsFuncionariosActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+       
+        TelaCadConsultas cadconsultas = new TelaCadConsultas();
+        cadconsultas.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     
     /**
@@ -602,15 +566,11 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JTextArea AreaDoCarrinho;
     private javax.swing.JButton BotaoAdicionarAoCarrinho;
     private javax.swing.JButton BotaoNovaComprar;
-    private javax.swing.JButton ButaoAgendarCons;
     private javax.swing.JMenuItem CadClientes;
     private javax.swing.JMenuItem CadFuncionarios;
     private javax.swing.JMenuItem CadProdutos;
     private javax.swing.JComboBox<String> CaixaDeTipoDeProdutos;
-    private javax.swing.JComboBox<String> CaixaDeTipodeConsultas;
     private javax.swing.JTextField CampoDoPreco;
-    private javax.swing.JTextField CampoNomedoPet;
-    private javax.swing.JTextField CampoNomedoTutor;
     private javax.swing.JMenuItem ConsClientes;
     private javax.swing.JMenuItem ConsFuncionarios;
     private javax.swing.JMenuItem ConsProdutos;
@@ -622,10 +582,6 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenu cadastros;
     private javax.swing.JTable consultaBancoCli;
     private javax.swing.JTextPane consultaBarraDeTextoPesquisa;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -636,16 +592,22 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu menuSair;
+    private javax.swing.JMenu menuSair1;
     private javax.swing.JMenu relatorios;
     private javax.swing.JMenuItem sair;
     private javax.swing.JMenuItem vendas;
