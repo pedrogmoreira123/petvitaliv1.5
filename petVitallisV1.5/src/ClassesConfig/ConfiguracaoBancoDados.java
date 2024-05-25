@@ -1,15 +1,17 @@
 package ClassesConfig;
 
+import java.sql.Connection;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
+import ClassesConfig.BancoDeDadosUtil;
 
 public class ConfiguracaoBancoDados {
 
     private Properties propriedades;
     private final String arquivoConfiguracao = "ConfiSistema/config.properties";
-
+    
     public ConfiguracaoBancoDados() {
         propriedades = new Properties();
         carregarConfiguracoes();
@@ -45,5 +47,5 @@ public class ConfiguracaoBancoDados {
         } catch (IOException ex) {
             ex.printStackTrace(); // Trate a exceção apropriadamente para seu caso
         }
-    }
+    }  
 }

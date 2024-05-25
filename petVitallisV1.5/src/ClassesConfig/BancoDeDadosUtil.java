@@ -10,7 +10,7 @@ public class BancoDeDadosUtil {
         String url = "jdbc:mysql://" + servidor + "/" + banco;
         return DriverManager.getConnection(url, usuario, senha);
     }
-
+    
     // Método para desconectar do banco de dados
     public static void desconectar(Connection connection) throws SQLException {
         if (connection != null && !connection.isClosed()) {

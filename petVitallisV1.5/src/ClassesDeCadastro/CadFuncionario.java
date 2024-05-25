@@ -1,5 +1,8 @@
 package ClassesDeCadastro;
 
+import DAO.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 public class CadFuncionario {
@@ -9,10 +12,10 @@ public class CadFuncionario {
     private String Endereco;
     private int Rg;
     private int Cpf;
-    private int Datadenascimento;
+    private int DataDeNascimento;
     private int Pis;
     private int Cep;
-    private int Numero;
+    private int NumeroDaResidencia;
 
     public String getNome() {
         return Nome;
@@ -46,12 +49,12 @@ public class CadFuncionario {
         this.Cpf = Cpf;
     }
 
-    public int getDatadenascimento() {
-        return Datadenascimento;
+    public int getDataDeNascimento() {
+        return DataDeNascimento;
     }
 
-    public void setDatadenascimento(int Datadenascimento) {
-        this.Datadenascimento = Datadenascimento;
+    public void setDataDeNascimento(int DataDeNascimento) {
+        this.DataDeNascimento = DataDeNascimento;
     }
 
     public int getPis() {
@@ -70,16 +73,39 @@ public class CadFuncionario {
         this.Cep = Cep;
     }
 
-    public int getNumero() {
-        return Numero;
+    public int getNumeroDaResidencia() {
+        return NumeroDaResidencia;
     }
 
-    public void setNumero(int Numero) {
-        this.Numero = Numero;
+    public void setNumeroDaResidencia(int NumeroDaResidencia) {
+        this.NumeroDaResidencia = NumeroDaResidencia;
     }
     
     public void IncluirFun(){
         JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
     }
     
+     public void inserir(){
+    
+    String sql = "INSERT INTO tb_cadfuncionario(Nome, Cpf, Rg, Datadeascimento, Pis, Endereco, NumeroDaResidencia, Cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    ConnectionFactory factory = new ConnectionFactory();
+    
+    try (Connection c = factory.obtemConexao()){
+        PreparedStatement ps = c.prepareStatement(sql);
+        ps.setString(1, Nome);
+        ps.setInt(2, Cpf);
+        ps.setInt(3, Rg);
+        ps.setInt(4, DataDeNascimento);
+        ps.setInt(5, Pis);
+        ps.setString(6, Endereco);
+        ps.setInt(7, NumeroDaResidencia);
+        ps.setInt(8, Cep);
+        ps.execute();
+        
+        JOptionPane.showMessageDialog(null, "Usuário Incluído com Sucesso!");
+    }
+    catch (Exception e){
+        e.printStackTrace();
+    }
+    }
 }

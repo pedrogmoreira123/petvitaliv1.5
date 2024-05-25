@@ -81,7 +81,19 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
 
         rgfun.setText("RG");
 
+        rgFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rgFuncionarioActionPerformed(evt);
+            }
+        });
+
         cpffun.setText("CPF");
+
+        cpfFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpfFuncionarioActionPerformed(evt);
+            }
+        });
 
         datefun.setText("Data de Nascimento");
 
@@ -93,9 +105,27 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
 
         endereçofun.setText("Endereço");
 
+        enderecoFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enderecoFuncionarioActionPerformed(evt);
+            }
+        });
+
         numeroresidenciafun.setText("Numero da Residencia");
 
+        residenciaFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                residenciaFuncionarioActionPerformed(evt);
+            }
+        });
+
         pisfun.setText("PIS");
+
+        pisFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pisFuncionarioActionPerformed(evt);
+            }
+        });
 
         cepfun.setText("CEP");
 
@@ -281,7 +311,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         if (!dataNasFuncionario.getText().isEmpty()) {
         try {
             dataNasFun = Integer.parseInt(dataNasFuncionario.getText());
-            alo.setDatadenascimento(dataNasFun);
+            alo.setDataDeNascimento(dataNasFun);
             
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
@@ -295,7 +325,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         if (!residenciaFuncionario.getText().isEmpty()) {
         try {
             numResFun = Integer.parseInt(residenciaFuncionario.getText());
-            alo.setNumero(numResFun);
+            alo.setNumeroDaResidencia(numResFun);
             
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Campo Número de Residencia Inválido");
@@ -305,6 +335,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Campo Número de Residencia Inválido");
             //mostra para o usuario aonde está errado
           }
+        
         
         //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
         
@@ -353,6 +384,21 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
         }
         
+        // só copiei oq o kaua fez kk
+        int cpfCli, rgCli, dataNasCli, pisCli, numResidenciaCli, cepCli;
+        
+        CadFuncionario cadfun = new CadFuncionario();
+        
+        cadfun.setNome(nomeFuncionario.getText());
+        cadfun.setCpf(cpfCli = (int) Long.parseLong (cpfFuncionario.getText()));
+        cadfun.setRg(rgCli = (int)Long.parseLong(rgFuncionario.getText()));
+        cadfun.setDataDeNascimento(dataNasCli = (int) Long.parseLong (dataNasFuncionario.getText()));
+        cadfun.setPis(pisCli = (int) Long.parseLong (pisFuncionario.getText()));
+        cadfun.setEndereco(enderecoFuncionario.getText());
+        cadfun.setNumeroDaResidencia(numResidenciaCli = (int) Long.parseLong(residenciaFuncionario.getText()));
+        cadfun.setCep(cepCli = (int) Long.parseLong(cepFuncionario.getText()));
+        
+        cadfun.inserir();
     }//GEN-LAST:event_BotaoCadFuncionarioActionPerformed
 
     private void dataNasFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNasFuncionarioActionPerformed
@@ -375,6 +421,26 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     private void cepFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cepFuncionarioActionPerformed
+
+    private void cpfFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpfFuncionarioActionPerformed
+
+    private void rgFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rgFuncionarioActionPerformed
+
+    private void pisFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pisFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pisFuncionarioActionPerformed
+
+    private void enderecoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enderecoFuncionarioActionPerformed
+
+    private void residenciaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residenciaFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_residenciaFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
