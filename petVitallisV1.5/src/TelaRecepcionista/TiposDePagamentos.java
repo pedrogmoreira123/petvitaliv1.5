@@ -113,12 +113,15 @@ public class TiposDePagamentos extends javax.swing.JFrame {
 
         TelaMenu menu = new TelaMenu();
         
+       //Ta errado alguem resolve 
        
-        menu.AreaDoCarrinho.setText("");
+       
+      /*  menu.AreaDoCarrinho.setText("");
         menu.atualizarTotal();
         dispose();
         
-        
+        */
+      
     }//GEN-LAST:event_BotaoNovaComprarActionPerformed
 
     /**

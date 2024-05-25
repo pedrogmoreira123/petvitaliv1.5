@@ -517,8 +517,11 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void ButaoAgendarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoAgendarConsActionPerformed
 
-     
+        // ta errado alguem resolve, quem fez isso no caso
         
+        
+        
+        /*
          if (!CampoNomedoPet.getText().isEmpty()) {
             cons.setNomePet(CampoNomedoPet.getText());
         }else{
@@ -541,6 +544,8 @@ public class TelaMenu extends javax.swing.JFrame {
             + "Nome do Animal: " + nomeAnimal + "\n"
             + "Nome do Cliente: " + nomeCliente + "\n"
             + "Tipo de Consulta: " + tipoConsulta);
+        
+        */
     }//GEN-LAST:event_ButaoAgendarConsActionPerformed
 
     private void BotaoAdicionarAoCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarAoCarrinhoActionPerformed
