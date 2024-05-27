@@ -9,6 +9,7 @@ public class CadClientes {
    
     private String Nome;
     private String Email;
+    private String Senha;
     private int Numero;
     private int Cpf;
 
@@ -19,6 +20,7 @@ public class CadClientes {
        this.Nome = Nome;
        this.Email = Email;
        this.Cpf = Cpf;
+       this.Senha = Senha;
        this.Numero = Numero;
      }
     
@@ -44,6 +46,14 @@ public class CadClientes {
 
     public void setCpf(int Cpf) {
         this.Cpf = Cpf;
+    }
+
+    public String getSenha() {
+        return Senha;
+    }
+
+    public void setSenha(String Senha) {
+        this.Senha = Senha;
     }
 
     public int getNumero() {

@@ -1,14 +1,39 @@
 package ClassesDeCadastro;
 
-import java.util.Date;
+import DAO.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 public class CadProdutos {
+    private String CodProduto;
     private String NomeProduto;
     private String  TipoDeProduto;
-    private String CodProduto;
     private String validadeProduto;
+    
+    public String getCodProduto() {
+        return CodProduto;
+    }
 
+    public void setCodProduto(String CodProduto) {
+        this.CodProduto = CodProduto;
+    }
+    
+    public String getNomeProduto() {
+        return NomeProduto;
+    }
+
+    public void setNomeProduto(String NomeProduto) {
+        this.NomeProduto = NomeProduto;
+    } 
+    
+    public String getTipoDeProduto() {
+        return TipoDeProduto;
+    }
+    public void setTipoDeProduto(String TipoDeProduto) {
+        this.TipoDeProduto = TipoDeProduto;
+    } 
+    
     public String getValidadeProduto() {
         return validadeProduto;
     }
@@ -17,39 +42,24 @@ public class CadProdutos {
         this.validadeProduto = validadeProduto;
     }
 
-    public String getCodProduto() {
-        return CodProduto;
+    //CRUDs
+    public void IncluirProduto(){        
+        String sql = "INSERT INTO tb_cadproduto (nomeProduto, tipoProduto, validadeProduto) VALUES (?, ?, ?)";
+        
+        ConnectionFactory factory = new ConnectionFactory();
+
+        try (Connection c = factory.obtemConexao()){
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setString(1, NomeProduto);
+            ps.setString(2, TipoDeProduto);
+            ps.setString(3, validadeProduto);
+            ps.execute();
+
+            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+            
+    } catch (Exception e){
+        e.printStackTrace();
     }
 
-    public void setCodProduto(String CodProduto) {
-        this.CodProduto = CodProduto;
-    }
-    private Date Validade;
-
-    public String getNomeProduto() {
-        return NomeProduto;
-    }
-
-    public void setNomeProduto(String NomeProduto) {
-        this.NomeProduto = NomeProduto;
-    }
-
-    public String getTipoDeProduto() {
-        return TipoDeProduto;
-    }
-    public void setTipoDeProduto(String TipoDeProduto) {
-        this.TipoDeProduto = TipoDeProduto;
-    }
-
-    public Date getValidade() {
-        return Validade;
-    }
-
-    public void setValidade(Date Validade) {
-        this.Validade = Validade;
-    }
-    
-    public void IncluirProduto(){
-        JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
     }
 }

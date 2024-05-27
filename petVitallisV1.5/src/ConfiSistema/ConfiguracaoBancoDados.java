@@ -1,4 +1,4 @@
-package ClassesConfig;
+package ConfiSistema;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
