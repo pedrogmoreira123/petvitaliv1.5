@@ -487,40 +487,6 @@ public class TelaMenu extends javax.swing.JFrame {
       
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-
-    private void ButaoAgendarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoAgendarConsActionPerformed
-
-        // ta errado alguem resolve, quem fez isso no caso
-        
-        
-        
-        /*
-         if (!CampoNomedoPet.getText().isEmpty()) {
-            cons.setNomePet(CampoNomedoPet.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Nome Do Pet Inválido");
-        }
-        if (CampoNomedoTutor.getText().isEmpty()) {
-            cons.setNomeTutor(CampoNomedoTutor.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Email Inválido");
-        }   
-        
-        String nomeAnimal = CampoNomedoPet.getText();
-        String nomeCliente = CampoNomedoTutor.getText();
-        String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
-
-        // Aqui você pode adicionar a lógica para agendar a consulta com os dados fornecidos
-
-        // Por enquanto, apenas exibimos uma mensagem com os dados
-        JOptionPane.showMessageDialog(this, "Consulta agendada:\n\n"
-            + "Nome do Animal: " + nomeAnimal + "\n"
-            + "Nome do Cliente: " + nomeCliente + "\n"
-            + "Tipo de Consulta: " + tipoConsulta);
-        
-        */
-    }//GEN-LAST:event_ButaoAgendarConsActionPerformed
-
     private void BotaoAdicionarAoCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarAoCarrinhoActionPerformed
         String tipoProdutos = (String) CaixaDeTipoDeProdutos.getSelectedItem();
         String item = "Item"; // Lógica para obter o item a ser adicionado

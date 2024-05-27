@@ -5,10 +5,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class TelaCadProdutos extends javax.swing.JFrame {
+    //Creates new form TelaDeCadPro
 
-    /**
-     * Creates new form TelaDeCadPro
-     */
     public TelaCadProdutos() {
         super("Cadastro de Produtos");
         initComponents();
@@ -18,8 +16,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela
-        this.setIconImage(icon.getImage());
-        
+        this.setIconImage(icon.getImage());       
     }
 
     /**
@@ -71,7 +68,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         labelTipoDeProduto.setText("Tipo de Produto");
         labelTipoDeProduto.setAlignmentY(0.0F);
 
-        cadastroTipoDeProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Limpeza", "Medicamento", "Utencílio", "Ração" }));
+        cadastroTipoDeProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Limpeza", "Medicamento", "Utencílio", "Ração" }));
         cadastroTipoDeProduto.setAlignmentX(0.0F);
         cadastroTipoDeProduto.setAlignmentY(0.0F);
         cadastroTipoDeProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +81,12 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         buttonCadProdConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCadProdConfirmarActionPerformed(evt);
+            }
+        });
+
+        cadastroCodigoDoProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroCodigoDoProdutoActionPerformed(evt);
             }
         });
 
@@ -143,7 +146,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastroTipoDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroTipoDeProdutoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_cadastroTipoDeProdutoActionPerformed
 
     private void buttonCadProdVoltarParaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadProdVoltarParaMenuActionPerformed
@@ -151,45 +154,25 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCadProdVoltarParaMenuActionPerformed
 
     private void buttonCadProdConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadProdConfirmarActionPerformed
-        /*String nomeAnimal = CampoNomedoPet.getText();
-        String nomeCliente = CampoNomedoTutor.getText();
-        String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
-
-        // Aqui você pode adicionar a lógica para agendar a consulta com os dados fornecidos
-
-        // Por enquanto, apenas exibimos uma mensagem com os dados
-        JOptionPane.showMessageDialog(this, "Consulta agendada:\n\n"
-                                        + "Nome do Animal: " + nomeAnimal + "\n"
-                                        + "Nome do Cliente: " + nomeCliente + "\n"
-                                        + "Tipo de Consulta: " + tipoConsulta); */
-        
-        CadProdutos produ = new CadProdutos();
+        CadProdutos produtos = new CadProdutos();
         
         CadProdutos nomeProduto = new CadProdutos();
         CadProdutos tipoProduto = new CadProdutos();
         CadProdutos validadeProduto = new CadProdutos();
         CadProdutos codProduto = new CadProdutos ();
         
-        String nomeProd = cadastroNomeDoProduto.getText();
-        String validadeProd = cadastroValidadeDeProduto.getText();
-        String tipoProd = (String) cadastroTipoDeProduto.getSelectedItem();
         String codProd = (String) cadastroCodigoDoProduto.getText();
-    
-      
-        /*if (!cadastroTipoDeProduto.getSelectedItem().isEmpty()) {
-            tipoProduto.setTipoDeProduto((String) cadastroTipoDeProduto.getSelectedItem());
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
-        } */
+        String nomeProd = cadastroNomeDoProduto.getText();
+        String tipoProd = (String) cadastroTipoDeProduto.getSelectedItem();
+        String validadeProd = cadastroValidadeDeProduto.getText();        
         
         if (!cadastroCodigoDoProduto.getText().isEmpty()) {
             codProduto.setCodProduto(cadastroCodigoDoProduto.getText());
             
         }else{
             JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
-        }
-               
+        }  
+        
         if (!cadastroNomeDoProduto.getText().isEmpty()) {
             nomeProduto.setNomeProduto(cadastroNomeDoProduto.getText());
             
@@ -197,13 +180,13 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
         }
         
-        /*if (!cadastroTipoDeProduto.getString().isEmpty()) {
-            tipoProduto.setNomeProduto(cadastroTipoDeProduto.getString());
+        /*if (!cadastroTipoDeProduto.getSelectedItem().isEmpty()) {
+            tipoProduto.setTipoDeProduto((String) cadastroTipoDeProduto.getSelectedItem());
             
         }else{
-            JOptionPane.showMessageDialog(null, "Campo Produto Inválido");
-        }*/
-        
+            JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
+        } */                       
+                     
         if (!cadastroValidadeDeProduto.getText().isEmpty()) {
             validadeProduto.setValidadeProduto(cadastroValidadeDeProduto.getText());
             
@@ -214,24 +197,28 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         if (cadastroCodigoDoProduto.getText().isEmpty()
             || cadastroValidadeDeProduto.getText().isEmpty()
             || cadastroNomeDoProduto.getText().isEmpty()) {
+            
             JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");
-        }else {  
+            
+        } else {  
             JOptionPane.showMessageDialog(this, "Produto cadastrado!:\n\n"
                                         + "Cód. do Produto: " + codProd + "\n"
                                         + "Nome do Produto: " + nomeProd + "\n"
                                         + "Tipo do Produto: " + tipoProd + "\n"
                                         + "Validade do Produto: " + validadeProd);
-            produ.IncluirProduto();
+            
+            produtos.IncluirProduto();
         }
     }//GEN-LAST:event_buttonCadProdConfirmarActionPerformed
 
     private void cadastroValidadeDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroValidadeDeProdutoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_cadastroValidadeDeProdutoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void cadastroCodigoDoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroCodigoDoProdutoActionPerformed
+        
+    }//GEN-LAST:event_cadastroCodigoDoProdutoActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

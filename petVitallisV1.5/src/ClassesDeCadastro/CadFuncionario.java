@@ -87,7 +87,7 @@ public class CadFuncionario {
     
      public void inserir(){
     
-    String sql = "INSERT INTO tb_cadfuncionario(Nome, Cpf, Rg, Datadeascimento, Pis, Endereco, NumeroDaResidencia, Cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    String sql = "INSERT INTO tb_cadfuncionario(Nome, Cpf, Rg, DataDeNascimento, Pis, Endereco, NumeroDaResidencia, Cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     ConnectionFactory factory = new ConnectionFactory();
     
     try (Connection c = factory.obtemConexao()){
