@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class TelaCadProdutos extends javax.swing.JFrame {
     //Creates new form TelaDeCadPro
-
+    
     public TelaCadProdutos() {
         super("Cadastro de Produtos");
         initComponents();
@@ -159,19 +159,19 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         CadProdutos nomeProduto = new CadProdutos();
         CadProdutos tipoProduto = new CadProdutos();
         CadProdutos validadeProduto = new CadProdutos();
-        CadProdutos codProduto = new CadProdutos ();
+        //CadProdutos codProduto = new CadProdutos ();
         
-        String codProd = (String) cadastroCodigoDoProduto.getText();
+        //String codProd = (String) cadastroCodigoDoProduto.getText();
         String nomeProd = cadastroNomeDoProduto.getText();
         String tipoProd = (String) cadastroTipoDeProduto.getSelectedItem();
         String validadeProd = cadastroValidadeDeProduto.getText();        
         
-        if (!cadastroCodigoDoProduto.getText().isEmpty()) {
+        /*if (!cadastroCodigoDoProduto.getText().isEmpty()) {
             codProduto.setCodProduto(cadastroCodigoDoProduto.getText());
             
         }else{
             JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
-        }  
+        } */
         
         if (!cadastroNomeDoProduto.getText().isEmpty()) {
             nomeProduto.setNomeProduto(cadastroNomeDoProduto.getText());
@@ -180,12 +180,13 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
         }
         
-        /*if (!cadastroTipoDeProduto.getSelectedItem().isEmpty()) {
+        if (!cadastroTipoDeProduto.getSelectedItem().toString().isEmpty()) {
+            //tipoProduto.setTipoDeProduto(cadastroTipoDeProduto.getSelectedItem().toString());
             tipoProduto.setTipoDeProduto((String) cadastroTipoDeProduto.getSelectedItem());
             
         }else{
-            JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
-        } */                       
+            JOptionPane.showMessageDialog(null, "Campo Tipo de Produto Inválido");
+        }                      
                      
         if (!cadastroValidadeDeProduto.getText().isEmpty()) {
             validadeProduto.setValidadeProduto(cadastroValidadeDeProduto.getText());
@@ -194,23 +195,28 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo Validade Inválido");
         }
         
-        if (cadastroCodigoDoProduto.getText().isEmpty()
-            || cadastroValidadeDeProduto.getText().isEmpty()
+        if (/*cadastroCodigoDoProduto.getText().isEmpty()
+            || */cadastroValidadeDeProduto.getText().isEmpty()
             || cadastroNomeDoProduto.getText().isEmpty()) {
             
             JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");
             
         } else {  
             JOptionPane.showMessageDialog(this, "Produto cadastrado!:\n\n"
-                                        + "Cód. do Produto: " + codProd + "\n"
+                                        + "Cód. do Produto: " + /*codProd + */ "\n"
                                         + "Nome do Produto: " + nomeProd + "\n"
                                         + "Tipo do Produto: " + tipoProd + "\n"
                                         + "Validade do Produto: " + validadeProd);
             
-            produtos.IncluirProduto();
+            produtos.setNomeProduto(cadastroNomeDoProduto.getText());
+            produtos.setTipoDeProduto (cadastroTipoDeProduto.getSelectedItem().toString());
+            produtos.setValidadeProduto (cadastroValidadeDeProduto.getText());
+            
+            produtos.IncluirProduto();            
         }
     }//GEN-LAST:event_buttonCadProdConfirmarActionPerformed
-
+       
+    
     private void cadastroValidadeDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroValidadeDeProdutoActionPerformed
 
     }//GEN-LAST:event_cadastroValidadeDeProdutoActionPerformed

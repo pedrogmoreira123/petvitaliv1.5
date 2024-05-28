@@ -318,7 +318,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             //mostra para o usuario aonde está errado
         }
            } else {
-        JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
+            JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
             //mostra para o usuario aonde está errado
           }
         
