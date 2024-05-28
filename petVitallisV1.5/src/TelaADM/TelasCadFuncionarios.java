@@ -237,7 +237,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         CadFuncionario alo = new CadFuncionario();
         //nome, endereco, cfp, rg, cep, pis, data de nascimento, numero da resdencia
         
-        int cpfFun, rgFun, cepFun, pisFun, dataNasFun, numResFun;
+        String cpfFun, rgFun, cepFun, pisFun, dataNasFun, numResFun;
                
         if (!nomeFuncionario.getText().isEmpty()) {
             alo.setNome(nomeFuncionario.getText());
@@ -254,7 +254,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         if (!cpfFuncionario.getText().isEmpty()) {
         try {
-            cpfFun = (int) Long.parseLong(cpfFuncionario.getText());
+            cpfFun = (cpfFuncionario.getText());
             alo.setCpf(cpfFun);
             
         } catch (NumberFormatException e) {
@@ -268,7 +268,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         if (!rgFuncionario.getText().isEmpty()) {
         try {
-            rgFun = (int) Long.parseLong(rgFuncionario.getText());
+            rgFun = (rgFuncionario.getText());
             alo.setRg(rgFun);
             
         } catch (NumberFormatException e) {
@@ -282,7 +282,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         if (!cepFuncionario.getText().isEmpty()) {
         try {
-            cepFun = Integer.parseInt(cepFuncionario.getText());
+            cepFun = (cepFuncionario.getText());
             alo.setCep(cepFun);
             
         } catch (NumberFormatException e) {
@@ -296,7 +296,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         if (!pisFuncionario.getText().isEmpty()) {
         try {
-            pisFun = Integer.parseInt(pisFuncionario.getText());
+            pisFun = (pisFuncionario.getText());
             alo.setPis(pisFun);
             
         } catch (NumberFormatException e) {
@@ -310,7 +310,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         if (!dataNasFuncionario.getText().isEmpty()) {
         try {
-            dataNasFun = Integer.parseInt(dataNasFuncionario.getText());
+            dataNasFun = (dataNasFuncionario.getText());
             alo.setDataDeNascimento(dataNasFun);
             
         } catch (NumberFormatException e) {
@@ -324,7 +324,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         if (!residenciaFuncionario.getText().isEmpty()) {
         try {
-            numResFun = Integer.parseInt(residenciaFuncionario.getText());
+            numResFun = (residenciaFuncionario.getText());
             alo.setNumeroDaResidencia(numResFun);
             
         } catch (NumberFormatException e) {
@@ -384,19 +384,18 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
         }
         
-        // só copiei oq o kaua fez kk
-        int cpfCli, rgCli, dataNasCli, pisCli, numResidenciaCli, cepCli;
         
+        // mudamos a invocação do mal que o kauan tinha feito. By: Kayrom
         CadFuncionario cadfun = new CadFuncionario();
         
         cadfun.setNome(nomeFuncionario.getText());
-        cadfun.setCpf(cpfCli = (int) Long.parseLong (cpfFuncionario.getText()));
-        cadfun.setRg(rgCli = (int)Long.parseLong(rgFuncionario.getText()));
-        cadfun.setDataDeNascimento(dataNasCli = (int) Long.parseLong (dataNasFuncionario.getText()));
-        cadfun.setPis(pisCli = (int) Long.parseLong (pisFuncionario.getText()));
+        cadfun.setCpf(cpfFuncionario.getText());
+        cadfun.setRg(rgFuncionario.getText());
+        cadfun.setDataDeNascimento(dataNasFuncionario.getText());
+        cadfun.setPis(pisFuncionario.getText());
         cadfun.setEndereco(enderecoFuncionario.getText());
-        cadfun.setNumeroDaResidencia(numResidenciaCli = (int) Long.parseLong(residenciaFuncionario.getText()));
-        cadfun.setCep(cepCli = (int) Long.parseLong(cepFuncionario.getText()));
+        cadfun.setNumeroDaResidencia(residenciaFuncionario.getText());
+        cadfun.setCep(cepFuncionario.getText());
         
         cadfun.inserir();
     }//GEN-LAST:event_BotaoCadFuncionarioActionPerformed

@@ -10,12 +10,12 @@ public class CadFuncionario {
     
     private String Nome;
     private String Endereco;
-    private int Rg;
-    private int Cpf;
-    private int DataDeNascimento;
-    private int Pis;
-    private int Cep;
-    private int NumeroDaResidencia;
+    private String Rg;
+    private String Cpf;
+    private String DataDeNascimento;
+    private String Pis;
+    private String Cep;
+    private String NumeroDaResidencia;
 
     public String getNome() {
         return Nome;
@@ -33,51 +33,51 @@ public class CadFuncionario {
         this.Endereco = Endereco;
     }
 
-    public int getRg() {
+    public String getRg() {
         return Rg;
     }
 
-    public void setRg(int Rg) {
+    public void setRg(String Rg) {
         this.Rg = Rg;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return Cpf;
     }
 
-    public void setCpf(int Cpf) {
+    public void setCpf(String Cpf) {
         this.Cpf = Cpf;
     }
 
-    public int getDataDeNascimento() {
+    public String getDataDeNascimento() {
         return DataDeNascimento;
     }
 
-    public void setDataDeNascimento(int DataDeNascimento) {
+    public void setDataDeNascimento(String DataDeNascimento) {
         this.DataDeNascimento = DataDeNascimento;
     }
 
-    public int getPis() {
+    public String getPis() {
         return Pis;
     }
 
-    public void setPis(int Pis) {
+    public void setPis(String Pis) {
         this.Pis = Pis;
     }
 
-    public int getCep() {
+    public String getCep() {
         return Cep;
     }
 
-    public void setCep(int Cep) {
+    public void setCep(String Cep) {
         this.Cep = Cep;
     }
 
-    public int getNumeroDaResidencia() {
+    public String getNumeroDaResidencia() {
         return NumeroDaResidencia;
     }
 
-    public void setNumeroDaResidencia(int NumeroDaResidencia) {
+    public void setNumeroDaResidencia(String NumeroDaResidencia) {
         this.NumeroDaResidencia = NumeroDaResidencia;
     }
     
@@ -93,13 +93,13 @@ public class CadFuncionario {
     try (Connection c = factory.obtemConexao()){
         PreparedStatement ps = c.prepareStatement(sql);
         ps.setString(1, Nome);
-        ps.setInt(2, Cpf);
-        ps.setInt(3, Rg);
-        ps.setInt(4, DataDeNascimento);
-        ps.setInt(5, Pis);
+        ps.setString(2, Cpf);
+        ps.setString(3, Rg);
+        ps.setString(4, DataDeNascimento);
+        ps.setString(5, Pis);
         ps.setString(6, Endereco);
-        ps.setInt(7, NumeroDaResidencia);
-        ps.setInt(8, Cep);
+        ps.setString(7, NumeroDaResidencia);
+        ps.setString(8, Cep);
         ps.execute();
         
         JOptionPane.showMessageDialog(null, "Usuário Incluído com Sucesso!");
