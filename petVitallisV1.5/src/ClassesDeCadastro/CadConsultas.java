@@ -1,16 +1,21 @@
 package ClassesDeCadastro;
 
+
+import DAO.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
+
 public class CadConsultas {
         
     private String NomePet;
-    private String NomeTutor;
-    private String TipoCOnsultas;
+    private String CpfTutor;
+    private String TipoConsultas;
+    private Date DiaDaConsulta;
+    private int HoraDaConsulta;
 
-    public CadConsultas(String NomePet, String NomeTutor, String TipoCOnsultas) {
-        this.NomePet = NomePet;
-        this.NomeTutor = NomeTutor;
-        this.TipoCOnsultas = TipoCOnsultas;
-    }
 
     public String getNomePet() {
         return NomePet;
@@ -20,26 +25,55 @@ public class CadConsultas {
         this.NomePet = NomePet;
     }
 
-    public String getNomeTutor() {
-        return NomeTutor;
+    public String getCpfTutor() {
+        return CpfTutor;
     }
 
-    public void setNomeTutor(String NomeTutor) {
-        this.NomeTutor = NomeTutor;
+    public void setCpfTutor(String CpfTutor) {
+        this.CpfTutor = CpfTutor;
     }
 
-    public String getTipoCOnsultas() {
-        return TipoCOnsultas;
+    public String getTipoConsultas() {
+        return TipoConsultas;
     }
 
-    public void setTipoCOnsultas(String TipoCOnsultas) {
-        this.TipoCOnsultas = TipoCOnsultas;
+    public void setTipoConsultas(String TipoConsultas) {
+        this.TipoConsultas = TipoConsultas;
     }
 
-    public void setVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+     public Date getDiaDaConsulta() {
+        return DiaDaConsulta;
+    }
+
+    public void setDiaDaConsulta(Date DiaDaConsulta) {
+        this.DiaDaConsulta = DiaDaConsulta;
     }
     
+     public int getHoraDaConsulta() {
+        return HoraDaConsulta;
+    }
+
+    public void setHoraDaConsulta(int HoraDaConsulta) {
+        this.HoraDaConsulta = HoraDaConsulta;
+    }
+
+public void inserir(){
     
+    String sql = "INSERT INTO tb_cadfuncionario(Nome, Cpf, Rg, DataDeNascimento, Pis, Endereco, NumeroDaResidencia, Cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    ConnectionFactory factory = new ConnectionFactory();
     
+    try (Connection c = factory.obtemConexao()){
+        PreparedStatement ps = c.prepareStatement(sql);
+        ps.setString(1, CpfTutor);
+        ps.setString(2,NomePet);
+        ps.setString(3,TipoConsultas);
+        ps.setDate(4, (java.sql.Date) DiaDaConsulta);
+        
+        JOptionPane.showMessageDialog(null, "Usuário Incluído com Sucesso!");
+    }
+    catch (Exception e){
+        e.printStackTrace();
+    }
+    }
 }

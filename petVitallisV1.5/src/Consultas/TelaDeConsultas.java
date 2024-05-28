@@ -1,4 +1,4 @@
-package TelaVeterinario;
+package Consultas;
 
 public class TelaDeConsultas extends javax.swing.JFrame {
 
