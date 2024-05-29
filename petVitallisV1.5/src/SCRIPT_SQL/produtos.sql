@@ -1,6 +1,4 @@
-USE db_pessoas;
-
-select * from tb_cadfuncionario;
+use db_pessoas;
 
 create table tb_cadproduto (
 	codigoProduto INT PRIMARY KEY AUTO_INCREMENT,
