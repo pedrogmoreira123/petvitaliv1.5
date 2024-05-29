@@ -1,17 +1,17 @@
 package TelasLogin;
 
-import ClassesDeCadastro.CadConsultas;
-import TelaADM.TelaConsFuncionarios;
+import ClassesCadastro.CadConsultas;
+import TelaFuncionario.TelaConsFuncionarios;
 import TelasLogin.TelaLogin;
-import TelaADM.TelasCadFuncionarios;
+import TelaFuncionario.TelasCadFuncionarios;
 import javax.swing.ImageIcon;
-import TelaRecepcionista.TelaCadProdutos;
-import TelaRecepcionista.TelaConsProduto;
+import TelaProdutos.TelaCadProdutos;
+import TelaProdutos.TelaConsProduto;
 import TelaRecepcionista.TelaCadClientes;
 import TelaRecepcionista.TelaCadConsultas;
-import TelaRecepcionista.TelaCadPet;
-import TelaRecepcionista.TelaConsClientes;
-import TelaRecepcionista.TelaConsPets;
+import TelaCliente.TelaCadPet;
+import TelaCliente.TelaConsClientes;
+import TelaCliente.TelaConsPets;
 import TelaRecepcionista.TiposDePagamentos;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
