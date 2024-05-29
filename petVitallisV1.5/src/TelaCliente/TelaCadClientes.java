@@ -1,4 +1,4 @@
-package TelaRecepcionista;
+package TelaCliente;
 
 import ClassesCadastro.CadClientes;
 import TelasLogin.TelaMenu;

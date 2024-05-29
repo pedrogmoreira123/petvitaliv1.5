@@ -4,7 +4,7 @@
  */
 package TelaCliente;
 
-import TelaRecepcionista.TelaCadClientes;
+import TelaCliente.TelaCadClientes;
 import javax.swing.ImageIcon;
 
 /**
