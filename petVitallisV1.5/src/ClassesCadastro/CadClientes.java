@@ -66,7 +66,7 @@ public class CadClientes {
         
     }
     
-    public void inserir(){
+    public void Inserir(){
     String sql = "INSERT INTO tb_clientes(nome,email,"+"número, cpf)VALUES (?,?,?,?)";
     ConnectionFactory factory = new ConnectionFactory();
     
@@ -89,7 +89,7 @@ public class CadClientes {
     
     
     
-    public void alterar(){
+    public void AlterarCli(){
     
     String querry = "UPDATE tb_clientes SET nome = ?, email= ?, número= ?, WHERE cpf= ?";
     ConnectionFactory factory = new ConnectionFactory();
@@ -105,15 +105,42 @@ public class CadClientes {
         JOptionPane.showMessageDialog(null,"Cadastrado com sucesso!"); 
     
      }  
-    
-    
-    // apostila 10 e 11
-    
+  
     catch(Exception e)
     {
         System.out.println("");
     } 
     
+    }
+    
+   public void listaCliente(){
+    
+    String sql = "SELECT * FROM tb_pessoa";
+    ConnectionFactory factory = new ConnectionFactory();
+    
+    try (Connection c = factory.obtemConexao()){
+        
+            PreparedStatement ps = c.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                int codigo = rs.getInt("codigo");
+                String nome = rs.getString("nome");
+                String email = rs.getString("email");
+                String numero = rs.getString("numero");
+                String cpf = rs.getString("cpf");
+                String aux = String.format(
+                    "Código: %d, Nome: %s, Email: %s, Numero: %s, Cpf: %s",
+                    codigo,
+                    nome,   // Corrigido para a variável correta
+                    email,  // Corrigido para a variável correta
+                    numero, // Corrigido para a variável correta
+                    cpf     // Corrigido para a variável correta
+                );
+                JOptionPane.showMessageDialog(null, aux);
+            }
+        } catch(Exception e) {
+            e.printStackTrace(); // Imprimir a stack trace para depuração
+        } 
     }
 
     

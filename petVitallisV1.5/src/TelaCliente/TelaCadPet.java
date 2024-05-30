@@ -83,33 +83,34 @@ public class TelaCadPet extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(VoltarMEnu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(71, 324, Short.MAX_VALUE)
                 .addComponent(SalvarPet)
                 .addGap(93, 93, 93))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNomeTutor, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                            .addComponent(txtNomePet)
-                            .addComponent(txtIdadePet)
-                            .addComponent(txtRacaPet)
-                            .addComponent(txtNumPet)
-                            .addComponent(txtCpfTutor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(VoltarMEnu)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNomeTutor, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                    .addComponent(txtNomePet)
+                                    .addComponent(txtIdadePet)
+                                    .addComponent(txtRacaPet)
+                                    .addComponent(txtNumPet)
+                                    .addComponent(txtCpfTutor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))))))
                 .addContainerGap(105, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -158,7 +159,7 @@ public class TelaCadPet extends javax.swing.JFrame {
         CadPet pet = new CadPet(); 
         
         //Variavies feitas para poder fazer alguns TextField funcionar somente com numeros ex: Idade
-        int NumPet, IdadePet, CpfTutor; 
+        String NumPet, IdadePet, CpfTutor; 
         
         //Nome do tutor, nome e raça são preaticamente iguais
         //Só muda o campo de onde vão puxar as Informações(getText)
@@ -191,7 +192,7 @@ public class TelaCadPet extends javax.swing.JFrame {
         
         if (!txtIdadePet.getText().isEmpty()) {
         try {
-            IdadePet = (int) Long.parseLong(txtIdadePet.getText());
+            IdadePet =(txtIdadePet.getText());
             pet.setIdade(IdadePet);
             
         } catch (NumberFormatException e) {
@@ -205,7 +206,7 @@ public class TelaCadPet extends javax.swing.JFrame {
         
         if (!txtNumPet.getText().isEmpty()) {
         try {
-            NumPet = (int) Long.parseLong(txtNumPet.getText());
+            NumPet =(txtNumPet.getText());
          
             pet.setNum(NumPet);
             
@@ -220,7 +221,7 @@ public class TelaCadPet extends javax.swing.JFrame {
         
         if (!txtCpfTutor.getText().isEmpty()) {
         try {
-            CpfTutor = (int) Long.parseLong(txtCpfTutor.getText());
+            CpfTutor =(txtCpfTutor.getText());
          
             pet.setCpfTutor(CpfTutor);
             
@@ -268,6 +269,7 @@ public class TelaCadPet extends javax.swing.JFrame {
             && matcherNumPet.matches()
             && matcherCpfTutor.matches())  { 
             pet.IncluirPet();
+            this.dispose();
         }else{
              JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
         }
