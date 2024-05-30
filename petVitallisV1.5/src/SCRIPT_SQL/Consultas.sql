@@ -3,7 +3,7 @@
 use db_pessoas;
 
 create table tb_cadconsultas(
-     CPF int primary key,
+     CPF varchar(200),
      NomePet varchar(15),
      Consulta varchar(100),
      Dia varchar (11),

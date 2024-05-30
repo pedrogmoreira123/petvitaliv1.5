@@ -84,8 +84,7 @@ public void inserir(){
     }
     catch (Exception e){
         e.printStackTrace();
-    }
-    
+        }
     }
     
     public void atualizar (){

@@ -53,13 +53,36 @@ public class CadProdutos {
             ps.setString(1, NomeProduto);
             ps.setString(2, TipoDeProduto);
             ps.setString(3, validadeProduto);
+            
             ps.execute();
 
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
             
     } catch (Exception e){
         e.printStackTrace();
+        }
+    }
+        public void atualizar (){
+            String sql = "UPDATE tb_pessoa SET nome = ?, fone = ?, email = ? WHERE codigo = ?";
+        
+            ConnectionFactory factory = new ConnectionFactory();
+            try (Connection c = factory.obtemConexao()){
+        
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setString(1, NomeProduto);
+            ps.setString(2, TipoDeProduto);
+            ps.setString(3, validadeProduto);
+      
+            ps.execute();
+        }
+        catch (Exception e){
+        e.printStackTrace();
+        }
+        
+        
+        
+        
+        
+        }
     }
 
-    }
-}

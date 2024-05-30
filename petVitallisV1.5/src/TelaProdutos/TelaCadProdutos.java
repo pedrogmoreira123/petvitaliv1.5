@@ -212,7 +212,8 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             produtos.setTipoDeProduto (cadastroTipoDeProduto.getSelectedItem().toString());
             produtos.setValidadeProduto (cadastroValidadeDeProduto.getText());
             
-            produtos.IncluirProduto();            
+            produtos.IncluirProduto();
+            produtos.atualizar();
         }
     }//GEN-LAST:event_buttonCadProdConfirmarActionPerformed
        
