@@ -48,25 +48,33 @@
                               <Component id="dataNasFuncionario" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cepfun" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="cepfun" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="enderecoFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Component id="endereçofun" min="-2" max="-2" attributes="0"/>
+                                          <Component id="numeroresidenciafun" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="cepFuncionario" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="residenciaFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="123" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="enderecoFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <Component id="endereçofun" min="-2" max="-2" attributes="0"/>
-                                  <Component id="numeroresidenciafun" min="-2" max="-2" attributes="0"/>
+                                  <Component id="BotaoCadFuncionario" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="BotaoConsultarFuncionario" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="BotaoVoltarMenu" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="cepFuncionario" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="residenciaFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="123" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="BotaoCadFuncionario" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="BotaoConsultarFuncionario" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="BotaoVoltarMenu" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="BotaoAlterarCadastro" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
@@ -120,12 +128,15 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="datefun" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="dataNasFuncionario" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="dataNasFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BotaoAlterarCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pisfun" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pisFuncionario" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="72" max="32767" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -233,6 +244,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoVoltarMenuActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="BotaoAlterarCadastro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alterar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAlterarCadastroActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

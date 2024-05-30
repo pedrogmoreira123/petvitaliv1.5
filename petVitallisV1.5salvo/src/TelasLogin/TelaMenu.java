@@ -12,7 +12,6 @@ import TelaConsultas.TelaCadConsultas;
 import TelaCliente.TelaCadPet;
 import TelaCliente.TelaConsClientes;
 import TelaCliente.TelaConsPets;
-import TelaRecepcionista.TiposDePagamentos;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -517,8 +516,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void FinalizarCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarCarrinhoActionPerformed
        
-       TiposDePagamentos pagar =  new TiposDePagamentos();
-       pagar.setVisible(true);
+       
             
     }//GEN-LAST:event_FinalizarCarrinhoActionPerformed
 
