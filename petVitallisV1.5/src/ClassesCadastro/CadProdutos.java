@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class CadProdutos {
     private String CodProduto;
     private String NomeProduto;
-    private String  TipoDeProduto;
+    private String TipoDeProduto;
     private String validadeProduto;
     
     public String getCodProduto() {
@@ -53,6 +53,7 @@ public class CadProdutos {
             ps.setString(1, NomeProduto);
             ps.setString(2, TipoDeProduto);
             ps.setString(3, validadeProduto);
+            ps.setString(4, CodProduto);
             
             ps.execute();
 
@@ -73,7 +74,8 @@ public class CadProdutos {
             ps.setString(1, NomeProduto);
             ps.setString(2, TipoDeProduto);
             ps.setString(3, validadeProduto);
-            ps.setString(4, CodProduto);
+            ps.setString(4,CodProduto);
+
       
             ps.execute();
         } catch (Exception e){

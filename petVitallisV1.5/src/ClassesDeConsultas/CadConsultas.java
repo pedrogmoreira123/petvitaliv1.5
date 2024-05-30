@@ -1,4 +1,4 @@
-package ClassesCadastro;
+package ClassesDeConsultas;
 
 
 import Conexao_SQL.ConnectionFactory;
@@ -60,7 +60,7 @@ public class CadConsultas {
         this.Hora = Hora;
     }
 
-public void inserir(){
+public void inserirConsultas(){
     
     String sql = "INSERT INTO tb_cadconsultas (CPF, NomePet , Consulta, Dia, Hora) VALUES (?, ?, ?, ?, ?)";
         ConnectionFactory factory = new ConnectionFactory();
@@ -87,21 +87,21 @@ public void inserir(){
         }
     }
     
-    public void atualizar (){
-        //1: Definir o comando SQL
-        String sql = "UPDATE tb_pessoa SET NomePet = ?, Consulta = ?, Dia = ?, Hora = ? WHERE CPF = ?";
-        //2: Abrir uma conexão
+    public void atualizarConsultas (){
+        
+        String sql = "UPDATE tb_cadconsultas SET NomePet = ?, Consulta = ?, Dia = ?, Hora = ? WHERE CPF = ?";
+        
         ConnectionFactory factory = new ConnectionFactory();
         try (Connection c = factory.obtemConexao()){
-        //3: Pré compila o comando
+        
         PreparedStatement ps = c.prepareStatement(sql);
-        //4: Preenche os dados faltantes
+        
         ps.setString(1, NomePet);
         ps.setString(2, Consulta);
         ps.setString(3, Dia);
         ps.setString(4, Hora);
         ps.setString(5, CPF);
-        //5: Executa o comando
+        
         ps.execute();
         }
         catch (Exception e){
@@ -109,5 +109,5 @@ public void inserir(){
         
         }
     }
-
+   
 }
