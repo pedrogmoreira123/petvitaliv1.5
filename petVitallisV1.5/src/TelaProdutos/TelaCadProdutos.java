@@ -35,9 +35,10 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         labelValidadeDoProduto = new javax.swing.JLabel();
         labelTipoDeProduto = new javax.swing.JLabel();
         cadastroTipoDeProduto = new javax.swing.JComboBox<>();
-        buttonCadProdConfirmar = new javax.swing.JButton();
+        buttonInserirProd = new javax.swing.JButton();
         cadastroCodigoDoProduto = new javax.swing.JTextField();
         labelCódigoDoProduto = new javax.swing.JLabel();
+        buttonAtualizarProd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,10 +78,10 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             }
         });
 
-        buttonCadProdConfirmar.setText("Confirmar");
-        buttonCadProdConfirmar.addActionListener(new java.awt.event.ActionListener() {
+        buttonInserirProd.setText("Inserir");
+        buttonInserirProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadProdConfirmarActionPerformed(evt);
+                buttonInserirProdActionPerformed(evt);
             }
         });
 
@@ -91,6 +92,13 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         });
 
         labelCódigoDoProduto.setText("Código do Produto");
+
+        buttonAtualizarProd.setText("jButton1");
+        buttonAtualizarProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAtualizarProdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,7 +116,10 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                             .addComponent(cadastroCodigoDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonCadProdConfirmar)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(buttonAtualizarProd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonInserirProd))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(cadastroValidadeDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelValidadeDoProduto)
@@ -138,7 +149,8 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCadProdVoltarParaMenu)
-                    .addComponent(buttonCadProdConfirmar))
+                    .addComponent(buttonInserirProd)
+                    .addComponent(buttonAtualizarProd))
                 .addGap(85, 85, 85))
         );
 
@@ -153,7 +165,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_buttonCadProdVoltarParaMenuActionPerformed
 
-    private void buttonCadProdConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadProdConfirmarActionPerformed
+    private void buttonInserirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInserirProdActionPerformed
         CadProdutos produtos = new CadProdutos();
         
         CadProdutos nomeProduto = new CadProdutos();
@@ -213,9 +225,9 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             produtos.setValidadeProduto (cadastroValidadeDeProduto.getText());
             
             produtos.IncluirProduto();
-            produtos.atualizar();
+            produtos.atualizarProduto();
         }
-    }//GEN-LAST:event_buttonCadProdConfirmarActionPerformed
+    }//GEN-LAST:event_buttonInserirProdActionPerformed
        
     
     private void cadastroValidadeDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroValidadeDeProdutoActionPerformed
@@ -225,6 +237,69 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     private void cadastroCodigoDoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroCodigoDoProdutoActionPerformed
         
     }//GEN-LAST:event_cadastroCodigoDoProdutoActionPerformed
+
+    private void buttonAtualizarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtualizarProdActionPerformed
+        CadProdutos produtos = new CadProdutos();
+        
+        CadProdutos nomeProduto = new CadProdutos();
+        CadProdutos tipoProduto = new CadProdutos();
+        CadProdutos validadeProduto = new CadProdutos();
+        //CadProdutos codProduto = new CadProdutos ();
+        
+        //String codProd = (String) cadastroCodigoDoProduto.getText();
+        String nomeProd = cadastroNomeDoProduto.getText();
+        String tipoProd = (String) cadastroTipoDeProduto.getSelectedItem();
+        String validadeProd = cadastroValidadeDeProduto.getText();        
+        
+        /*if (!cadastroCodigoDoProduto.getText().isEmpty()) {
+            codProduto.setCodProduto(cadastroCodigoDoProduto.getText());
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
+        } */
+        
+        if (!cadastroNomeDoProduto.getText().isEmpty()) {
+            nomeProduto.setNomeProduto(cadastroNomeDoProduto.getText());
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
+        }
+        
+        if (!cadastroTipoDeProduto.getSelectedItem().toString().isEmpty()) {
+            //tipoProduto.setTipoDeProduto(cadastroTipoDeProduto.getSelectedItem().toString());
+            tipoProduto.setTipoDeProduto((String) cadastroTipoDeProduto.getSelectedItem());
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Tipo de Produto Inválido");
+        }                      
+                     
+        if (!cadastroValidadeDeProduto.getText().isEmpty()) {
+            validadeProduto.setValidadeProduto(cadastroValidadeDeProduto.getText());
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Validade Inválido");
+        }
+        
+        if (/*cadastroCodigoDoProduto.getText().isEmpty()
+            || */cadastroValidadeDeProduto.getText().isEmpty()
+            || cadastroNomeDoProduto.getText().isEmpty()) {
+            
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");
+            
+        } else {  
+            JOptionPane.showMessageDialog(this, "Produto atualizado!:\n\n"
+                                        + "Cód. do Produto: " + /*codProd + */ "\n"
+                                        + "Nome do Produto: " + nomeProd + "\n"
+                                        + "Tipo do Produto: " + tipoProd + "\n"
+                                        + "Validade do Produto: " + validadeProd);
+            
+            produtos.setNomeProduto(cadastroNomeDoProduto.getText());
+            produtos.setTipoDeProduto (cadastroTipoDeProduto.getSelectedItem().toString());
+            produtos.setValidadeProduto (cadastroValidadeDeProduto.getText());
+            
+            produtos.atualizarProduto();
+        }
+    }//GEN-LAST:event_buttonAtualizarProdActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -262,8 +337,9 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCadProdConfirmar;
+    private javax.swing.JButton buttonAtualizarProd;
     private javax.swing.JButton buttonCadProdVoltarParaMenu;
+    private javax.swing.JButton buttonInserirProd;
     private javax.swing.JTextField cadastroCodigoDoProduto;
     private javax.swing.JTextField cadastroNomeDoProduto;
     private javax.swing.JComboBox<String> cadastroTipoDeProduto;

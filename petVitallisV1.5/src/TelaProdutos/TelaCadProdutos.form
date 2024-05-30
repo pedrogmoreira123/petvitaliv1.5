@@ -36,7 +36,11 @@
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="buttonCadProdConfirmar" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="buttonAtualizarProd" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="buttonInserirProd" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Component id="cadastroValidadeDeProduto" min="-2" pref="160" max="-2" attributes="0"/>
                               <Component id="labelValidadeDoProduto" min="-2" max="-2" attributes="0"/>
@@ -76,7 +80,8 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonCadProdVoltarParaMenu" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonCadProdConfirmar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonInserirProd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonAtualizarProd" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
           </Group>
@@ -146,12 +151,12 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonCadProdConfirmar">
+    <Component class="javax.swing.JButton" name="buttonInserirProd">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Confirmar"/>
+        <Property name="text" type="java.lang.String" value="Inserir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCadProdConfirmarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonInserirProdActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cadastroCodigoDoProduto">
@@ -163,6 +168,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#xf3;digo do Produto"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonAtualizarProd">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jButton1"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAtualizarProdActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

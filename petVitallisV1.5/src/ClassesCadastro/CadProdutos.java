@@ -53,7 +53,7 @@ public class CadProdutos {
             ps.setString(1, NomeProduto);
             ps.setString(2, TipoDeProduto);
             ps.setString(3, validadeProduto);
-            ps.setString(4,CodProduto);
+            ps.setString(4, CodProduto);
             
             ps.execute();
 
@@ -63,8 +63,9 @@ public class CadProdutos {
         e.printStackTrace();
         }
     }
-        public void atualizar (){
-            String sql = "UPDATE tb_pessoa SET nome = ?, fone = ?, email = ? WHERE codigo = ?";
+    
+        public void atualizarProduto (){
+            String sql = "UPDATE tb_cadproduto SET nomeProduto = ?, tipoProduto = ?, validadeProduto = ? WHERE codigoProduto = ?";
         
             ConnectionFactory factory = new ConnectionFactory();
             try (Connection c = factory.obtemConexao()){
@@ -74,17 +75,12 @@ public class CadProdutos {
             ps.setString(2, TipoDeProduto);
             ps.setString(3, validadeProduto);
             ps.setString(4,CodProduto);
+
       
             ps.execute();
-        }
-        catch (Exception e){
+        } catch (Exception e){
         e.printStackTrace();
         }
-        
-        
-        
-        
-        
-        }
     }
+}
 
