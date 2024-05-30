@@ -4,7 +4,7 @@
  */
 package TelaConsultas;
 
-import ClassesDeConsultas.CadConsultatt;
+import ClassesCadastro.CadConsultatt;
 import java.awt.event.FocusEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
