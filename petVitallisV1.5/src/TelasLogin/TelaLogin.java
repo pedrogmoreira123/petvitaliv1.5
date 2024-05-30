@@ -88,8 +88,8 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        campoLogin.setBackground(new java.awt.Color(255, 255, 255));
-        campoLogin.setForeground(new java.awt.Color(0, 0, 0));
+        campoLogin.setBackground(new java.awt.Color(102, 102, 102));
+        campoLogin.setForeground(new java.awt.Color(255, 255, 255));
         campoLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         campoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,8 +97,8 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        campoSenha.setBackground(new java.awt.Color(255, 255, 255));
-        campoSenha.setForeground(new java.awt.Color(0, 0, 0));
+        campoSenha.setBackground(new java.awt.Color(102, 102, 102));
+        campoSenha.setForeground(new java.awt.Color(255, 255, 255));
         campoSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         campoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
