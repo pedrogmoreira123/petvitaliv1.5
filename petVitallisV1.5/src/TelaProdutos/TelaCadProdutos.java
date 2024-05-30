@@ -93,7 +93,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
 
         labelCódigoDoProduto.setText("Código do Produto");
 
-        buttonAtualizarProd.setText("jButton1");
+        buttonAtualizarProd.setText("Atualizar");
         buttonAtualizarProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAtualizarProdActionPerformed(evt);
@@ -244,19 +244,19 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         CadProdutos nomeProduto = new CadProdutos();
         CadProdutos tipoProduto = new CadProdutos();
         CadProdutos validadeProduto = new CadProdutos();
-        //CadProdutos codProduto = new CadProdutos ();
+        CadProdutos codProduto = new CadProdutos ();
         
-        //String codProd = (String) cadastroCodigoDoProduto.getText();
+        String codProd = (String) cadastroCodigoDoProduto.getText();
         String nomeProd = cadastroNomeDoProduto.getText();
         String tipoProd = (String) cadastroTipoDeProduto.getSelectedItem();
         String validadeProd = cadastroValidadeDeProduto.getText();        
-        
-        /*if (!cadastroCodigoDoProduto.getText().isEmpty()) {
+                       
+        if (!cadastroCodigoDoProduto.getText().isEmpty()) {
             codProduto.setCodProduto(cadastroCodigoDoProduto.getText());
             
         }else{
             JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
-        } */
+        }
         
         if (!cadastroNomeDoProduto.getText().isEmpty()) {
             nomeProduto.setNomeProduto(cadastroNomeDoProduto.getText());
@@ -280,19 +280,20 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo Validade Inválido");
         }
         
-        if (/*cadastroCodigoDoProduto.getText().isEmpty()
-            || */cadastroValidadeDeProduto.getText().isEmpty()
+        if (cadastroCodigoDoProduto.getText().isEmpty()
+            || cadastroValidadeDeProduto.getText().isEmpty()
             || cadastroNomeDoProduto.getText().isEmpty()) {
             
             JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");
             
         } else {  
             JOptionPane.showMessageDialog(this, "Produto atualizado!:\n\n"
-                                        + "Cód. do Produto: " + /*codProd + */ "\n"
+                                        + "Cód. do Produto: " + codProd + "\n"
                                         + "Nome do Produto: " + nomeProd + "\n"
                                         + "Tipo do Produto: " + tipoProd + "\n"
                                         + "Validade do Produto: " + validadeProd);
             
+            produtos.setCodProduto(cadastroCodigoDoProduto.getText());
             produtos.setNomeProduto(cadastroNomeDoProduto.getText());
             produtos.setTipoDeProduto (cadastroTipoDeProduto.getSelectedItem().toString());
             produtos.setValidadeProduto (cadastroValidadeDeProduto.getText());
