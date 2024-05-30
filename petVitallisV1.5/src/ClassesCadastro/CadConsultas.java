@@ -87,4 +87,28 @@ public void inserir(){
     }
     
     }
+    
+    public void atualizar (){
+        //1: Definir o comando SQL
+        String sql = "UPDATE tb_pessoa SET NomePet = ?, Consulta = ?, Dia = ?, Hora = ? WHERE CPF = ?";
+        //2: Abrir uma conexão
+        ConnectionFactory factory = new ConnectionFactory();
+        try (Connection c = factory.obtemConexao()){
+        //3: Pré compila o comando
+        PreparedStatement ps = c.prepareStatement(sql);
+        //4: Preenche os dados faltantes
+        ps.setString(1, NomePet);
+        ps.setString(2, Consulta);
+        ps.setString(3, Dia);
+        ps.setString(4, Hora);
+        ps.setString(5, CPF);
+        //5: Executa o comando
+        ps.execute();
+        }
+        catch (Exception e){
+        e.printStackTrace();
+        
+        }
+    }
+
 }

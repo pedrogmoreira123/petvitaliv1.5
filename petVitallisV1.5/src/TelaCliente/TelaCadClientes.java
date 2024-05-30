@@ -7,10 +7,6 @@ import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author kauan
- */
 public class TelaCadClientes extends javax.swing.JFrame {
 
     /*
