@@ -58,7 +58,7 @@ public class TelaCadConsultas extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Consultar");
+        jButton1.setText("Alterar ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -106,9 +106,9 @@ public class TelaCadConsultas extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ButaoAgendarCons))
+                        .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,7 +157,7 @@ public class TelaCadConsultas extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CampoDiaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,7 +168,62 @@ public class TelaCadConsultas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        
+         CadConsultas alo = new CadConsultas();
+        
+        
+        if (!CampoNomeDoPet.getText().isEmpty()) {
+            alo.setNomePet(CampoNomeDoPet.getText()); 
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Nome Do Pet Inválido");
+        }
+        
+        if (!CampoDoCpf.getText().isEmpty()) {
+            alo.setCPF(CampoDoCpf.getText());
+        }else{
+           JOptionPane.showMessageDialog(null, "Campo Cpf do Tutor Inválido");
+        }
+        if (!CaixaDeTipodeConsultas.getSelectedItem().toString().isEmpty()) {
+            alo.setConsulta(CaixaDeTipodeConsultas.getSelectedItem().toString());
+            
+        }
+       if (!CampoDiaConsulta.getText().isEmpty()) {
+           alo.setDia(CampoDiaConsulta.getText());
+        }else {
+          JOptionPane.showMessageDialog(null, "Campo dia da Consulta Inválido"); 
+        }
+        
+        
+        if (!CaixaDeHorasConsultas.getSelectedItem().toString().isEmpty()) {
+            alo.setHora(CaixaDeHorasConsultas.getSelectedItem().toString());
+        } else {
+           JOptionPane.showMessageDialog(null, "Campo Hora Esta Inválido"); 
+        }
+        
+        
+        
+        
+        
+        String nomeAnimal = CampoDoCpf.getText();
+        String nomeCliente = CampoNomeDoPet.getText();
+        String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
+        String Diaconsulta = CampoDiaConsulta.getText();
+        String tipoHoras = (String) CaixaDeHorasConsultas.getSelectedItem();
+       
+        // Aqui você pode adicionar a lógica para agendar a consulta com os dados fornecidos
+
+        // Por enquanto, apenas exibimos uma mensagem com os dados
+        JOptionPane.showMessageDialog(this, "Consulta agendada:\n\n"
+            + "-CPF do Cliente: " + nomeCliente + "\n"
+            + "-Nome do Animal:  " + nomeAnimal  + "\n"
+            + "-Tipo de Consulta: " + tipoConsulta + "\n"
+            + "-Dia da Consulta: " + Diaconsulta + "\n" 
+            + "-Hora da Consulta: " + tipoHoras);
+        
+        alo.atualizarConsultas();
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ButaoAgendarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoAgendarConsActionPerformed
@@ -225,7 +280,7 @@ public class TelaCadConsultas extends javax.swing.JFrame {
             + "-Dia da Consulta: " + Diaconsulta + "\n" 
             + "-Hora da Consulta: " + tipoHoras);
         
-        alo.inserir();
+        alo.inserirConsultas();
         
     }//GEN-LAST:event_ButaoAgendarConsActionPerformed
 
