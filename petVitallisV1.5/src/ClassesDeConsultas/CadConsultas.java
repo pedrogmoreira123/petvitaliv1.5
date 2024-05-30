@@ -1,4 +1,4 @@
-package ClassesCadastro;
+package ClassesDeConsultas;
 
 
 import Conexao_SQL.ConnectionFactory;
@@ -109,5 +109,5 @@ public void inserirConsultas(){
         
         }
     }
-
-    }
+   
+}

@@ -93,7 +93,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
 
         labelCódigoDoProduto.setText("Código do Produto");
 
-        buttonAtualizarProd.setText("jButton1");
+        buttonAtualizarProd.setText("Atualizar");
         buttonAtualizarProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAtualizarProdActionPerformed(evt);
