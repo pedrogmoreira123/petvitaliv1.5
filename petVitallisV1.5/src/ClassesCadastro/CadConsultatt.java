@@ -1,4 +1,4 @@
-package ClassesDeConsultas;
+ package ClassesCadastro;
 
 import Conexao_SQL.ConnectionFactory;
 import java.sql.Connection;
@@ -132,4 +132,19 @@ public class CadConsultatt {
         }
         return null;
     }
-}
+    
+    
+        public ResultSet TodosDados() {
+        String query = "SELECT cpf, nomePet, consulta, dia, hora FROM tb_cadconsultas";
+        try {
+            Connection conn = connect.obtemConexao();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            return pstmt.executeQuery();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+        
+        }
+     }

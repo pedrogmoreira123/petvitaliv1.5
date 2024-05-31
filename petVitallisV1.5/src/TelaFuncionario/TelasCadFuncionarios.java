@@ -1,4 +1,4 @@
-package TelaFuncionario;
+    package TelaFuncionario;
 
 import ClassesCadastro.CadFuncionario;
 import TelasLogin.TelaMenu;
@@ -369,6 +369,8 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
         }
         
+        alo.inserir();
+        
         //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
         
         String RgFun = rgFuncionario.getText();
@@ -439,6 +441,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         cadfun.setEndereco(enderecoFuncionario.getText());
         cadfun.setNumeroDaResidencia(numResidenciaCli = (int) Long.parseLong(residenciaFuncionario.getText()));
         cadfun.setCep(cepCli = (int) Long.parseLong(cepFuncionario.getText()));
+        
         
         cadfun.inserir();
     }//GEN-LAST:event_BotaoCadFuncionarioActionPerformed

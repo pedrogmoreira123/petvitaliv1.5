@@ -4,6 +4,7 @@ import Conexao_SQL.ConnectionFactory;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 
 public class CadClientes {

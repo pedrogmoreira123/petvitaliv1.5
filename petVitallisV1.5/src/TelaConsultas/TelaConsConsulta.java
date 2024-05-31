@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package TelaConsultas;
+import ClassesCadastro.CadConsultatt;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
-import ClassesCadastro.CadConsultatt;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.FocusEvent;
 
 
@@ -23,15 +25,17 @@ public class TelaConsConsulta extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setResizable(false);
+        CampoDePesquisaCPFFocusLost(null);
         String caminhoImagem = "/icon/logo PET VITALLI.png";        
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
         
-            consultaBancoConsultas.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-            CampoDoCpfFocusLost(evt);
+             CampoDePesquisaCPF.addFocusListener(new java.awt.event.FocusAdapter() {
+             public void focusLost(java.awt.event.FocusEvent evt) {
+             CampoDePesquisaCPFFocusLost(evt);
+
             }
         });
     }
@@ -114,14 +118,75 @@ public class TelaConsConsulta extends javax.swing.JFrame {
       
     }//GEN-LAST:event_CampoDePesquisaCPFActionPerformed
 
-    private void CampoDoCpfFocusLost(java.awt.event.FocusEvent evt) {
+    private void CampoDePesquisaCPFFocusLost(java.awt.event.FocusEvent evt) {
         
-    }
-   
+         String cpf = CampoDePesquisaCPF.getText().trim();
+
+    if (cpf.isEmpty()) {
+        // Se o campo de pesquisa estiver vazio, mostramos todos os registros
+        showAllRecords();
+    } else {
+        // Caso contrário, pesquisamos por um CPF específico
+        searchByCPF(cpf);
+        }
+    }        
+
+  
+    private void searchByCPF(String cpf) {
+            CadConsultatt consulta = new CadConsultatt();
+            CadConsultatt rs = consulta.loadByCPF(cpf);
+
+            if (rs != null) {
+                DefaultTableModel model = new DefaultTableModel();
+                model.addColumn("CPF do Cliente");
+                model.addColumn("Nome do Pet");
+                model.addColumn("Tipo de Consulta");
+                model.addColumn("Dia e Hora");
+
+            String cpfCliente = rs.getCPF();
+            String nomePet = rs.getNomePet();
+            String tipoConsulta = rs.getConsulta();
+            String diaHora = rs.getDia() + " " + rs.getHora();
+            model.addRow(new Object[]{cpfCliente, nomePet, tipoConsulta, diaHora});
+
+
+                consultaBancoConsultas.setModel(model);
+            } else {
+                JOptionPane.showMessageDialog(null, "CPF não encontrado.");
+            }
+        }
+
+        private void showAllRecords() {
+            
+            CadConsultatt consulta = new CadConsultatt();
+            ResultSet rs = consulta.TodosDados();
+
+            if (rs != null) {
+                DefaultTableModel model = new DefaultTableModel();
+                model.addColumn("CPF do Cliente");
+                model.addColumn("Nome do Pet");
+                model.addColumn("Tipo de Consulta");
+                model.addColumn("Dia e Hora");
+
+                try {
+                    while (rs.next()) {
+                        String cpfCliente = rs.getString("cpf");
+                        String nomePet = rs.getString("nomePet");
+                        String tipoConsulta = rs.getString("consulta");
+                        String diaHora = rs.getString("dia") + " " + rs.getString("hora");
+                        model.addRow(new Object[]{cpfCliente, nomePet, tipoConsulta, diaHora});
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                consultaBancoConsultas.setModel(model);
+            } else {
+                JOptionPane.showMessageDialog(null, "Não há registros no banco de dados.");
+            }
+        }
     
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

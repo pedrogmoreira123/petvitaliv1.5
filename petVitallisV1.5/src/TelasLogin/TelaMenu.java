@@ -1,6 +1,5 @@
 package TelasLogin;
 
-import ClassesCadastro.CadConsultatt;
 import TelaFuncionario.TelaConsFuncionarios;
 import TelasLogin.TelaLogin;
 import TelaFuncionario.TelasCadFuncionarios;
