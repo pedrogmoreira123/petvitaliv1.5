@@ -368,7 +368,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         } else {
            JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
         }
-        
+        alo.inserir();
         //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
         
         String RgFun = rgFuncionario.getText();
@@ -427,7 +427,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         }
         
         // só copiei oq o kaua fez kk
-        int cpfCli, rgCli, dataNasCli, pisCli, numResidenciaCli, cepCli;
+        int cpfCli, rgCli, dataNasCli, pisCli, numResidenciaCli, cepCli, CargoFun;
         
         CadFuncionario cadfun = new CadFuncionario();
         
@@ -439,6 +439,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         cadfun.setEndereco(enderecoFuncionario.getText());
         cadfun.setNumeroDaResidencia(numResidenciaCli = (int) Long.parseLong(residenciaFuncionario.getText()));
         cadfun.setCep(cepCli = (int) Long.parseLong(cepFuncionario.getText()));
+        cadfun.setCargoFun(Cargofun);
         
         cadfun.inserir();
     }//GEN-LAST:event_BotaoCadFuncionarioActionPerformed
