@@ -26,29 +26,29 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pisfun" min="-2" max="-2" attributes="0"/>
-                          <Component id="datefun" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="nomefun" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="nomeFuncionario" pref="120" max="32767" attributes="0"/>
+                      <Component id="cpffun" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cpfFuncionario" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="nomefun" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="nomeFuncionario" pref="120" max="32767" attributes="0"/>
-                              <Component id="cpffun" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cpfFuncionario" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="pisFuncionario" alignment="0" pref="120" max="32767" attributes="0"/>
-                              <Component id="rgFuncionario" alignment="0" max="32767" attributes="0"/>
-                              <Component id="rgfun" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="dataNasFuncionario" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                  <Component id="datefun" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="pisFuncionario" alignment="0" pref="120" max="32767" attributes="0"/>
+                          <Component id="rgFuncionario" alignment="0" max="32767" attributes="0"/>
+                          <Component id="rgfun" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataNasFuncionario" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="pisfun" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="104" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="65" pref="65" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="cepfun" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
@@ -62,38 +62,40 @@
                           <Component id="cepFuncionario" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                           <Component id="residenciaFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="123" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="BotaoCadFuncionario" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="BotaoConsultarFuncionario" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="BotaoVoltarMenu" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="BotaoCadFuncionario" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
+                          <Component id="BotaoConsultarFuncionario" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="BotaoAlterar" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="CargoFun" min="-2" pref="200" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                      <Component id="BotaoVoltarMenu" min="-2" pref="131" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nomefun" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="endereçofun" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nomeFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="enderecoFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="BotaoCadFuncionario" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="nomefun" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="endereçofun" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="nomeFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="enderecoFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BotaoCadFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -115,17 +117,24 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="rgFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cepFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BotaoVoltarMenu" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BotaoAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="datefun" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="datefun" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="dataNasFuncionario" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="dataNasFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BotaoVoltarMenu" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CargoFun" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pisfun" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pisFuncionario" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="72" max="32767" attributes="0"/>
+              <EmptySpace pref="70" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -234,6 +243,47 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoVoltarMenuActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="BotaoAlterar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alterar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAlterarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="CargoFun">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="14">
+            <StringItem index="0" value="Veterin&#xe1;rio"/>
+            <StringItem index="1" value="T&#xe9;cnico Veterin&#xe1;rio / Auxiliar de Veterin&#xe1;rio"/>
+            <StringItem index="2" value="Recepcionista"/>
+            <StringItem index="3" value="Gerente de Cl&#xed;nica"/>
+            <StringItem index="4" value="Assistente de Limpeza"/>
+            <StringItem index="5" value="Especialista em Comportamento Animal"/>
+            <StringItem index="6" value="Nutricionista Animal"/>
+            <StringItem index="7" value="Enfermeiro Veterin&#xe1;rio"/>
+            <StringItem index="8" value="Esteticista Animal / Tosador"/>
+            <StringItem index="9" value="Assistente Administrativo"/>
+            <StringItem index="10" value="Radiologista Veterin&#xe1;rio"/>
+            <StringItem index="11" value="Farmac&#xea;utico Veterin&#xe1;rio"/>
+            <StringItem index="12" value="Especialista em Reabilita&#xe7;&#xe3;o Animal"/>
+            <StringItem index="13" value=" "/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CargoFunActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cargos Funcionarios"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

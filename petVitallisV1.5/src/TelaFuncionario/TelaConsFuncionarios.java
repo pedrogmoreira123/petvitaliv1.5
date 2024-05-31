@@ -37,7 +37,7 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         consultaBarraDeTextoPesquisa = new javax.swing.JTextPane();
         consultaFiltroPesquisa = new javax.swing.JComboBox<>();
-        consProdCriarNovoBotao = new javax.swing.JButton();
+        BotaoSairAlterar = new javax.swing.JButton();
         consultaProdPesquisarBotao = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
@@ -60,10 +60,10 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
 
         consultaFiltroPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Nome", "CPF", "Cargo" }));
 
-        consProdCriarNovoBotao.setText("Ver mais");
-        consProdCriarNovoBotao.addActionListener(new java.awt.event.ActionListener() {
+        BotaoSairAlterar.setText("Sair");
+        BotaoSairAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consProdCriarNovoBotaoActionPerformed(evt);
+                BotaoSairAlterarActionPerformed(evt);
             }
         });
 
@@ -86,7 +86,7 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(consultaProdPesquisarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consProdCriarNovoBotao)
+                .addComponent(BotaoSairAlterar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
@@ -97,7 +97,7 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
                     .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(consProdCriarNovoBotao)
+                        .addComponent(BotaoSairAlterar)
                         .addComponent(consultaProdPesquisarBotao)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
@@ -106,10 +106,9 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void consProdCriarNovoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consProdCriarNovoBotaoActionPerformed
-        TelaVermaisFun CadProd = new TelaVermaisFun ();
-        CadProd.setVisible(true);
-    }//GEN-LAST:event_consProdCriarNovoBotaoActionPerformed
+    private void BotaoSairAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairAlterarActionPerformed
+        dispose();
+    }//GEN-LAST:event_BotaoSairAlterarActionPerformed
 
     private void consultaProdPesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaProdPesquisarBotaoActionPerformed
         TelasCadFuncionarios CadProd = new TelasCadFuncionarios ();
@@ -153,7 +152,7 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton consProdCriarNovoBotao;
+    private javax.swing.JButton BotaoSairAlterar;
     private javax.swing.JTable consultaBancoProdutos;
     private javax.swing.JTextPane consultaBarraDeTextoPesquisa;
     private javax.swing.JComboBox<String> consultaFiltroPesquisa;

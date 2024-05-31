@@ -16,6 +16,7 @@ public class CadFuncionario {
     private int Pis;
     private int Cep;
     private int NumeroDaResidencia;
+    private String CargoFun;
 
     public String getNome() {
         return Nome;
@@ -85,9 +86,17 @@ public class CadFuncionario {
         JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
     }
     
+    public String getCargoFun() {
+        return CargoFun;
+    }
+
+    public void setCargoFun(String CargoFun) {
+        this.CargoFun = CargoFun;
+    }
+    
      public void inserir(){
     
-    String sql = "INSERT INTO tb_cadfuncionario(Nome, Cpf, Rg, DataDeNascimento, Pis, Endereco, NumeroDaResidencia, Cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    String sql = "INSERT INTO tb_cadfuncionario(Nome, Cpf, Rg, DataDeNascimento, Pis, Endereco, NumeroDaResidencia, Cep, CargoFuncionario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     ConnectionFactory factory = new ConnectionFactory();
     
     try (Connection c = factory.obtemConexao()){
@@ -100,6 +109,7 @@ public class CadFuncionario {
         ps.setString(6, Endereco);
         ps.setInt(7, NumeroDaResidencia);
         ps.setInt(8, Cep);
+        ps.setString(9, CargoFun);
         ps.execute();
         
         JOptionPane.showMessageDialog(null, "Usuário Incluído com Sucesso!");

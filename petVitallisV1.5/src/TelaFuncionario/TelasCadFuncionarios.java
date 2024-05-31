@@ -54,6 +54,9 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         cepfun = new javax.swing.JLabel();
         cepFuncionario = new javax.swing.JTextField();
         BotaoVoltarMenu = new javax.swing.JButton();
+        BotaoAlterar = new javax.swing.JButton();
+        CargoFun = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -142,6 +145,22 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             }
         });
 
+        BotaoAlterar.setText("Alterar");
+        BotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAlterarActionPerformed(evt);
+            }
+        });
+
+        CargoFun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinário", "Técnico Veterinário / Auxiliar de Veterinário", "Recepcionista", "Gerente de Clínica", "Assistente de Limpeza", "Especialista em Comportamento Animal", "Nutricionista Animal", "Enfermeiro Veterinário", "Esteticista Animal / Tosador", "Assistente Administrativo", "Radiologista Veterinário", "Farmacêutico Veterinário", "Especialista em Reabilitação Animal", " " }));
+        CargoFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargoFunActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Cargos Funcionarios");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -149,24 +168,24 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nomefun)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(nomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                        .addComponent(cpffun, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cpfFuncionario, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(datefun)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(pisFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(rgFuncionario, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rgfun, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dataNasFuncionario, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(layout.createSequentialGroup()
                             .addComponent(pisfun)
-                            .addComponent(datefun))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomefun)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(nomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                .addComponent(cpffun, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cpfFuncionario, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(pisFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                .addComponent(rgFuncionario, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(rgfun, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(dataNasFuncionario, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(65, 65, 65)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE))))
+                .addGap(65, 65, 65)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cepfun)
                             .addGroup(layout.createSequentialGroup()
@@ -177,29 +196,32 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
                                     .addComponent(numeroresidenciafun)))
                             .addComponent(cepFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(residenciaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotaoCadFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotaoConsultarFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotaoVoltarMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(45, 45, 45))))
+                            .addComponent(BotaoCadFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotaoConsultarFuncionario, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BotaoAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(CargoFun, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(130, 130, 130)
+                        .addComponent(BotaoVoltarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(13, 13, 13))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nomefun)
-                            .addComponent(endereçofun))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(enderecoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(BotaoCadFuncionario)))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomefun)
+                    .addComponent(endereçofun))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enderecoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoCadFuncionario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpffun)
@@ -217,16 +239,21 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rgFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cepFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoVoltarMenu))
+                    .addComponent(BotaoAlterar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(datefun)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(datefun)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dataNasFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dataNasFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoVoltarMenu)
+                    .addComponent(CargoFun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pisfun)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pisFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,7 +262,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     private void BotaoCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadFuncionarioActionPerformed
                 
         CadFuncionario alo = new CadFuncionario();
-        //nome, endereco, cfp, rg, cep, pis, data de nascimento, numero da resdencia
+        //nome, endereco, cpf, rg, cep, pis, data de nascimento, numero da residencia
         
         int cpfFun, rgFun, cepFun, pisFun, dataNasFun, numResFun;
                
@@ -336,6 +363,11 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             //mostra para o usuario aonde está errado
           }
         
+        if (!CargoFun.getSelectedItem().toString().isEmpty()) {
+            alo.setCargoFun(CargoFun.getSelectedItem().toString());
+        } else {
+           JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
+        }
         
         //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
         
@@ -345,6 +377,16 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         String DataNasFun = dataNasFuncionario.getText();
         String NumResFun = residenciaFuncionario.getText();
         String CpfFun = cpfFuncionario.getText();
+        String Cargofun = (String) CargoFun.getSelectedItem();
+        
+        JOptionPane.showMessageDialog(this, "Campos Inválidos:\n\n"
+            + "-RG Funcionario: " + RgFun + "\n"
+            + "-Cep Funcionario:  " + CepFun  + "\n"
+            + "-Pis do Funcionarioa: " + PisFun + "\n"
+            + "-Data de Nascimento Funcionario: " + DataNasFun + "\n" 
+            + "-Numero da residencia Funcionario: " + NumResFun + "\n"
+            + "-CPF Funcionario: " + CpfFun + "\n"
+            + "-Cargo Funcionario: " + Cargofun);
         
         //Define uma expressão regular para verificar se o texto contém apenas números
         String regexNumerico = "\\d+";  
@@ -442,6 +484,15 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_residenciaFuncionarioActionPerformed
 
+    private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
+        TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
+        CadProd.setVisible(true);
+    }//GEN-LAST:event_BotaoAlterarActionPerformed
+
+    private void CargoFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargoFunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CargoFunActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -478,9 +529,11 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoAlterar;
     private javax.swing.JButton BotaoCadFuncionario;
     private javax.swing.JButton BotaoConsultarFuncionario;
     private javax.swing.JButton BotaoVoltarMenu;
+    private javax.swing.JComboBox<String> CargoFun;
     private javax.swing.JTextField cepFuncionario;
     private javax.swing.JLabel cepfun;
     private javax.swing.JTextField cpfFuncionario;
@@ -489,6 +542,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     private javax.swing.JLabel datefun;
     private javax.swing.JTextField enderecoFuncionario;
     private javax.swing.JLabel endereçofun;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nomeFuncionario;
     private javax.swing.JLabel nomefun;
     private javax.swing.JLabel numeroresidenciafun;
