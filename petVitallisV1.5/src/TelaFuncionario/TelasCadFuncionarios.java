@@ -371,6 +371,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         alo.inserir();
         
+        
         //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
         
         String RgFun = rgFuncionario.getText();
@@ -381,7 +382,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         String CpfFun = cpfFuncionario.getText();
         String Cargofun = (String) CargoFun.getSelectedItem();
         
-        JOptionPane.showMessageDialog(this, "Campos Inválidos:\n\n"
+        JOptionPane.showMessageDialog(this, "Cadastrado com Sucesso:\n\n"
             + "-RG Funcionario: " + RgFun + "\n"
             + "-Cep Funcionario:  " + CepFun  + "\n"
             + "-Pis do Funcionarioa: " + PisFun + "\n"
@@ -427,23 +428,6 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         }else{
              JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
         }
-        
-        // só copiei oq o kaua fez kk
-        int cpfCli, rgCli, dataNasCli, pisCli, numResidenciaCli, cepCli;
-        
-        CadFuncionario cadfun = new CadFuncionario();
-        
-        cadfun.setNome(nomeFuncionario.getText());
-        cadfun.setCpf(cpfCli = (int) Long.parseLong (cpfFuncionario.getText()));
-        cadfun.setRg(rgCli = (int)Long.parseLong(rgFuncionario.getText()));
-        cadfun.setDataDeNascimento(dataNasCli = (int) Long.parseLong (dataNasFuncionario.getText()));
-        cadfun.setPis(pisCli = (int) Long.parseLong (pisFuncionario.getText()));
-        cadfun.setEndereco(enderecoFuncionario.getText());
-        cadfun.setNumeroDaResidencia(numResidenciaCli = (int) Long.parseLong(residenciaFuncionario.getText()));
-        cadfun.setCep(cepCli = (int) Long.parseLong(cepFuncionario.getText()));
-        
-        
-        cadfun.inserir();
     }//GEN-LAST:event_BotaoCadFuncionarioActionPerformed
 
     private void dataNasFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNasFuncionarioActionPerformed
@@ -488,8 +472,117 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_residenciaFuncionarioActionPerformed
 
     private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
-        TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
-        CadProd.setVisible(true);
+        /*TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
+        CadProd.setVisible(true);*/
+        
+        CadFuncionario alo = new CadFuncionario();
+        //nome, endereco, cpf, rg, cep, pis, data de nascimento, numero da residencia
+        
+        int cpfFun, rgFun, cepFun, pisFun, dataNasFun, numResFun;
+               
+        if (!nomeFuncionario.getText().isEmpty()) {
+            alo.setNome(nomeFuncionario.getText());
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
+        }
+        
+        if (!enderecoFuncionario.getText().isEmpty()) {
+            alo.setEndereco(enderecoFuncionario.getText());
+        }else{
+           JOptionPane.showMessageDialog(null, "Campo Endereço Inválido");
+        }
+        
+        if (!cpfFuncionario.getText().isEmpty()) {
+        try {
+            cpfFun = (int) Long.parseLong(cpfFuncionario.getText());
+            alo.setCpf(cpfFun);
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
+            //mostra para o usuario aonde está errado
+        }
+           } else {
+        JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
+            //mostra para o usuario aonde está errado
+          }
+        
+        if (!rgFuncionario.getText().isEmpty()) {
+        try {
+            rgFun = (int) Long.parseLong(rgFuncionario.getText());
+            alo.setRg(rgFun);
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campo RG Inválido");
+            //mostra para o usuario aonde está errado
+        }
+           } else {
+        JOptionPane.showMessageDialog(null, "Campo RG Inválido");
+            //mostra para o usuario aonde está errado
+          }
+        
+        if (!cepFuncionario.getText().isEmpty()) {
+        try {
+            cepFun = Integer.parseInt(cepFuncionario.getText());
+            alo.setCep(cepFun);
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campo CEP Inválido");
+            //mostra para o usuario aonde está errado
+        }
+           } else {
+        JOptionPane.showMessageDialog(null, "Campo CEP Inválido");
+            //mostra para o usuario aonde está errado
+          }
+        
+        if (!pisFuncionario.getText().isEmpty()) {
+        try {
+            pisFun = Integer.parseInt(pisFuncionario.getText());
+            alo.setPis(pisFun);
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campo PIS Inválido");
+            //mostra para o usuario aonde está errado
+        }
+           } else {
+        JOptionPane.showMessageDialog(null, "Campo PIS Inválido");
+            //mostra para o usuario aonde está errado
+          }
+        
+        if (!dataNasFuncionario.getText().isEmpty()) {
+        try {
+            dataNasFun = Integer.parseInt(dataNasFuncionario.getText());
+            alo.setDataDeNascimento(dataNasFun);
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
+            //mostra para o usuario aonde está errado
+        }
+           } else {
+            JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
+            //mostra para o usuario aonde está errado
+          }
+        
+        if (!residenciaFuncionario.getText().isEmpty()) {
+        try {
+            numResFun = Integer.parseInt(residenciaFuncionario.getText());
+            alo.setNumeroDaResidencia(numResFun);
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campo Número de Residencia Inválido");
+            //mostra para o usuario aonde está errado
+        }
+           } else {
+        JOptionPane.showMessageDialog(null, "Campo Número de Residencia Inválido");
+            //mostra para o usuario aonde está errado
+          }
+        
+        if (!CargoFun.getSelectedItem().toString().isEmpty()) {
+            alo.setCargoFun(CargoFun.getSelectedItem().toString());
+        } else {
+           JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
+        }
+        
     }//GEN-LAST:event_BotaoAlterarActionPerformed
 
     private void CargoFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargoFunActionPerformed

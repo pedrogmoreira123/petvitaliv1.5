@@ -118,4 +118,27 @@ public class CadFuncionario {
         e.printStackTrace();
     }
     }
+     
+     public void atualizarProduto (){
+        String sql = "UPDATE tb_cadfuncionario SET DataDeNascimento = ?, Cpf = ?, Rg = ? Pis = ?, Endereco = ?, NumeroDeResidencia = ?, Cep = ?, CargoFuncionario = ? WHERE Nome = ? ";
+
+        ConnectionFactory factory = new ConnectionFactory();
+        try (Connection c = factory.obtemConexao()){
+
+        PreparedStatement ps = c.prepareStatement(sql);
+        ps.setString(1, Nome);
+        ps.setInt(2, Cpf);
+        ps.setInt(3, Rg);
+        ps.setInt(4, DataDeNascimento);
+        ps.setInt(5, Pis);
+        ps.setString(6, Endereco);
+        ps.setInt(7, NumeroDaResidencia);
+        ps.setInt(8, Cep);
+        ps.setString(9, CargoFun);
+        ps.execute();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+     
 }
