@@ -1,14 +1,17 @@
 package TelasLogin;
 
+import ClassesDeConsultas.CadConsultatt;
 import TelaFuncionario.TelaConsFuncionarios;
 import TelasLogin.TelaLogin;
 import TelaFuncionario.TelasCadFuncionarios;
 import javax.swing.ImageIcon;
 import TelaProdutos.TelaCadProdutos;
 import TelaProdutos.TelaConsProduto;
+import TelaCliente.TelaCadClientes;
 import TelaConsultas.TelaCadConsultas;
 import TelaCliente.TelaCadPet;
 import TelaCliente.TelaConsClientes;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class TelaMenu extends javax.swing.JFrame {
@@ -251,6 +254,11 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconConsCons.png"))); // NOI18N
         jMenuItem11.setText("Consultar");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem11);
 
         cadastros.add(jMenu6);
@@ -420,6 +428,8 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void CadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClientesActionPerformed
         
+        TelaCadClientes CadClientes = new TelaCadClientes();
+        CadClientes.setVisible(true);
         
     }//GEN-LAST:event_CadClientesActionPerformed
 
@@ -435,7 +445,10 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsClientesActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-           
+      
+        TelaConsPets consPets = new TelaConsPets();
+      consPets.setVisible(true);
+      
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void BotaoAdicionarAoCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarAoCarrinhoActionPerformed
@@ -495,6 +508,13 @@ public class TelaMenu extends javax.swing.JFrame {
         cadconsultas.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        
+        TelaCadConsultas CadConsulta = new TelaCadConsultas();
+        CadConsulta.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     
     /**

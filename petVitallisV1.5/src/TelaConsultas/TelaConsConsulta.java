@@ -57,6 +57,11 @@ public class TelaConsConsulta extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         consultaProdPesquisarBotao.setText("...");
+        consultaProdPesquisarBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultaProdPesquisarBotaoActionPerformed(evt);
+            }
+        });
 
         consultaBancoConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -70,12 +75,6 @@ public class TelaConsConsulta extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(consultaBancoConsultas);
-        if (consultaBancoConsultas.getColumnModel().getColumnCount() > 0) {
-            consultaBancoConsultas.getColumnModel().getColumn(0).setHeaderValue("CPF Do Cliente");
-            consultaBancoConsultas.getColumnModel().getColumn(1).setHeaderValue("Nome Do Pet");
-            consultaBancoConsultas.getColumnModel().getColumn(2).setHeaderValue("Tipo de Consulta");
-            consultaBancoConsultas.getColumnModel().getColumn(3).setHeaderValue("Dia e Hora");
-        }
 
         jLabel1.setText("Digite o CPF");
 
@@ -117,6 +116,10 @@ public class TelaConsConsulta extends javax.swing.JFrame {
     private void CampoDePesquisaCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDePesquisaCPFActionPerformed
       
     }//GEN-LAST:event_CampoDePesquisaCPFActionPerformed
+
+    private void consultaProdPesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaProdPesquisarBotaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultaProdPesquisarBotaoActionPerformed
 
     private void CampoDePesquisaCPFFocusLost(java.awt.event.FocusEvent evt) {
         

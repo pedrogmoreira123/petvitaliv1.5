@@ -55,7 +55,7 @@ public class TelaConsProduto extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Código Produto", "Nome Produto", "Tipo do Produto", "Validade do Produto"
+                "Código_do_Produto", "Nome Produto", "Tipo do Produto", "Validade do Produto"
             }
         ));
         jScrollPane1.setViewportView(consultaBancoProdutos);
@@ -70,12 +70,6 @@ public class TelaConsProduto extends javax.swing.JFrame {
         });
 
         consultaProdPesquisarBotao.setText("Q");
-
-        consultaBarraDeTextoPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultaBarraDeTextoPesquisaActionPerformed(evt);
-            }
-        });
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -85,10 +79,10 @@ public class TelaConsProduto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consultaBarraDeTextoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(consultaBarraDeTextoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(consultaProdPesquisarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(consProdCriarNovoBotao))
             .addComponent(jScrollPane1)
         );
@@ -96,14 +90,13 @@ public class TelaConsProduto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(consultaBarraDeTextoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(consProdCriarNovoBotao)
-                        .addComponent(consultaProdPesquisarBotao)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
+                        .addComponent(consultaProdPesquisarBotao)
+                        .addComponent(consultaBarraDeTextoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,10 +106,6 @@ public class TelaConsProduto extends javax.swing.JFrame {
         TelaCadProdutos CadProd = new TelaCadProdutos ();
         CadProd.setVisible(true);
     }//GEN-LAST:event_consProdCriarNovoBotaoActionPerformed
-
-    private void consultaBarraDeTextoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaBarraDeTextoPesquisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_consultaBarraDeTextoPesquisaActionPerformed
 
     private void consultaBarraDeTextoPesquisaFocusLost(java.awt.event.FocusEvent evt) {        
         String NomeProduto = consultaBarraDeTextoPesquisa.getText().trim();
@@ -136,10 +125,10 @@ public class TelaConsProduto extends javax.swing.JFrame {
 
         if (rs != null) {
             DefaultTableModel model = new DefaultTableModel();
-            model.addColumn("CPF do Cliente");
-            model.addColumn("Nome do Pet");
-            model.addColumn("Tipo de Consulta");
-            model.addColumn("Dia e Hora");
+            model.addColumn("Código_do_Produto");
+            model.addColumn("Nome do Produto");
+            model.addColumn("Tipo de Produto");
+            model.addColumn("Validade de Produto");
 
             String codProduto = rs.getCodProduto();
             String nomeProduto = rs.getNomeProduto();
@@ -155,33 +144,33 @@ public class TelaConsProduto extends javax.swing.JFrame {
     }
 
     private void TodosRegistrosProdutos() {
-        CadProdutos consultaProd = new CadProdutos();        
-        ResultSet rs = consultaProd.TodosDadosProdutos();
+    CadProdutos consultaProd = new CadProdutos();        
+    ResultSet rs = consultaProd.TodosDadosProdutos();
 
-        if (rs != null) {
-            DefaultTableModel model = new DefaultTableModel();
-            model.addColumn("Código do Produto");
-            model.addColumn("Nome do Produto");
-            model.addColumn("Tipo de Produto");
-            model.addColumn("Validade de Produto");
+    if (rs != null) {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Código_do_Produto");
+        model.addColumn("Nome Produto");
+        model.addColumn("Tipo do Produto");
+        model.addColumn("Validade do Produto");
 
-            try {
-                while (rs.next()) {
-                    String codProd = rs.getString("Código do Produto");
-                    String nomeProd = rs.getString("Nome do Produto");
-                    String tipoProd = rs.getString("Tipo do Produto");
-                    String validadeProd = rs.getString("Validade do Produto");
-                    model.addRow(new Object[]{codProd, nomeProd, tipoProd, validadeProd});
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+        try {
+            while (rs.next()) {
+                String codProd = rs.getString("codigoProduto");
+                String nomeProd = rs.getString("nomeProduto");
+                String tipoProd = rs.getString("tipoProduto");
+                String validadeProd = rs.getString("validadeProduto");
+                model.addRow(new Object[]{codProd, nomeProd, tipoProd, validadeProd});
             }
-
-            consultaBancoProdutos.setModel(model);
-        } else {
-            JOptionPane.showMessageDialog(null, "Não há registros no banco de dados.");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
+        consultaBancoProdutos.setModel(model);
+    } else {
+        JOptionPane.showMessageDialog(null, "Não há registros no banco de dados.");
     }
+}
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

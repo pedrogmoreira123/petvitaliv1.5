@@ -9,19 +9,10 @@ import javax.swing.JOptionPane;
 
 public class CadProdutos {
     private String CodProduto;
-    //int CodigoProdutoInt = Integer.parseInt(CodProduto);    
     private String NomeProduto;
     private String TipoDeProduto;
     private String validadeProduto;
 
-    /*public int getCodigoProdutoInt() {
-        return CodigoProdutoInt;
-    }
-
-    public void setCodigoProdutoInt(int CodigoProdutoInt) {
-        this.CodigoProdutoInt = CodigoProdutoInt;
-    }*/
-        
     public String getCodProduto() {
         return CodProduto;
     }
@@ -29,22 +20,23 @@ public class CadProdutos {
     public void setCodProduto(String CodProduto) {
         this.CodProduto = CodProduto;
     }
-    
+
     public String getNomeProduto() {
         return NomeProduto;
     }
 
     public void setNomeProduto(String NomeProduto) {
         this.NomeProduto = NomeProduto;
-    } 
-    
+    }
+
     public String getTipoDeProduto() {
         return TipoDeProduto;
     }
+
     public void setTipoDeProduto(String TipoDeProduto) {
         this.TipoDeProduto = TipoDeProduto;
-    } 
-    
+    }
+
     public String getValidadeProduto() {
         return validadeProduto;
     }
@@ -52,27 +44,28 @@ public class CadProdutos {
     public void setValidadeProduto(String validadeProduto) {
         this.validadeProduto = validadeProduto;
     }
-    
+
     ConnectionFactory connect = new ConnectionFactory();
-    
-    //Salvar ou Atualizar Produto...
-    public String produtoExiste() {
-        String query = "SELECT COUNT(*) FROM tb_cadproduto WHERE nomeProduto = ?";        
-                
+
+    // Verificar se o produto existe
+    public boolean produtoExiste() {
+        String query = "SELECT COUNT(*) FROM tb_cadproduto WHERE nomeProduto = ?";
+
         try (Connection conn = connect.obtemConexao();
-            PreparedStatement pstmt = conn.prepareStatement(query)) {
-            //pstmt.setString(1, nomeProduto);
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, NomeProduto);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    return rs.getString(NomeProduto);
+                    int count = rs.getInt(1);
+                    return count > 0;
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return boolean;
+        return false;
     }
-    
+
     public void salvarOuAtualizarProdutos() {
         if (produtoExiste()) {
             atualizarProduto();
@@ -80,13 +73,13 @@ public class CadProdutos {
             IncluirProduto();
         }
     }
-    
-    public CadProdutos carregarPorNome (String NomeProduto) {
+
+    public CadProdutos carregarPorNome(String NomeProduto) {
         String query = "SELECT * FROM tb_cadproduto WHERE nomeProduto = ?";
         try (Connection conn = connect.obtemConexao();
-            PreparedStatement pstmt = conn.prepareStatement(query)) {
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, NomeProduto);
-            
+
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
                     this.CodProduto = rs.getString("Codigo Produto");
@@ -102,52 +95,46 @@ public class CadProdutos {
         return null;
     }
 
-    
-    //CRUDs
-    public void IncluirProduto(){        
+    // CRUDs
+    public void IncluirProduto() {
         String sql = "INSERT INTO tb_cadproduto (codigoProduto, nomeProduto, tipoProduto, validadeProduto) VALUES (?, ?, ?, ?)";
-        
-        ConnectionFactory factory = new ConnectionFactory();
 
-        try (Connection c = factory.obtemConexao()){
+        try (Connection c = connect.obtemConexao()) {
             PreparedStatement ps = c.prepareStatement(sql);
             ps.setString(1, CodProduto);
             ps.setString(2, NomeProduto);
             ps.setString(3, TipoDeProduto);
             ps.setString(4, validadeProduto);
-            
-            
+
             ps.execute();
 
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
-            
-        } catch (Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-    public void atualizarProduto (){
+
+    public void atualizarProduto() {
         String sql = "UPDATE tb_cadproduto SET codigoProduto = ?, tipoProduto = ?, validadeProduto = ? WHERE nomeProduto = ?";
 
-        ConnectionFactory factory = new ConnectionFactory();
-        try (Connection c = factory.obtemConexao()){
+        try (Connection c = connect.obtemConexao()) {
 
-        PreparedStatement ps = c.prepareStatement(sql);
-        ps.setString(1, NomeProduto);
-        ps.setString(2, TipoDeProduto);
-        ps.setString(3, validadeProduto);
-        ps.setString(4,CodProduto);
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setString(1, CodProduto);
+            ps.setString(2, TipoDeProduto);
+            ps.setString(3, validadeProduto);
+            ps.setString(4, NomeProduto);
 
-
-        ps.execute();
-        } catch (Exception e){
+            ps.execute();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     // Puxar Banco de Dados Completo
     public ResultSet TodosDadosProdutos() {
-        String query = "SELECT codigoProduto, nomeProduto, tipoProduto, validadeProduto";
+        String query = "SELECT codigoProduto, nomeProduto, tipoProduto, validadeProduto FROM tb_cadproduto";
         try {
             Connection conn = connect.obtemConexao();
             PreparedStatement pstmt = conn.prepareStatement(query);
@@ -155,9 +142,7 @@ public class CadProdutos {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
-        return null;        
-    }
-    
-}
 
+        return null;
+    }
+}
