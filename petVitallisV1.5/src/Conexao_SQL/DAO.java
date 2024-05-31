@@ -1,4 +1,4 @@
-package Conexao_SQL;
+/*package Conexao_SQL;
 
 
 
@@ -19,7 +19,6 @@ package Conexao_SQL;
 
 
 import ClassesCadastro.CadProdutos;
-import TelaProdutos.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -57,3 +56,4 @@ public class DAO {
         }
     }
 }
+*/

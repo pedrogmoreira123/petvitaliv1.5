@@ -147,7 +147,7 @@ public class CadProdutos {
     
     // Puxar Banco de Dados Completo
     public ResultSet TodosDadosProdutos() {
-        String query = "SELECT nomeProduto, tipoProduto, validadeProduto, codigoProduto";
+        String query = "SELECT codigoProduto, nomeProduto, tipoProduto, validadeProduto";
         try {
             Connection conn = connect.obtemConexao();
             PreparedStatement pstmt = conn.prepareStatement(query);
