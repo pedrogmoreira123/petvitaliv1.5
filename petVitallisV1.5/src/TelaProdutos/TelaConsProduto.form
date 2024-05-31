@@ -31,10 +31,10 @@
           <Group type="102" attributes="0">
               <Component id="consultaFiltroPesquisa" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="581" max="-2" attributes="0"/>
+              <Component id="consultaBarraDeTextoPesquisa" min="-2" pref="579" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="consultaProdPesquisarBotao" min="-2" pref="29" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="8" max="32767" attributes="0"/>
               <Component id="consProdCriarNovoBotao" min="-2" max="-2" attributes="0"/>
           </Group>
           <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -44,8 +44,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="consultaFiltroPesquisa" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="consultaFiltroPesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="consultaBarraDeTextoPesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="consProdCriarNovoBotao" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="consultaProdPesquisarBotao" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -106,23 +108,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextPane" name="consultaBarraDeTextoPesquisa">
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JComboBox" name="consultaFiltroPesquisa">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="C&#xf3;digo"/>
-            <StringItem index="1" value="Nome"/>
+            <StringItem index="0" value="Nome"/>
+            <StringItem index="1" value="C&#xf3;digo"/>
             <StringItem index="2" value="Tipo"/>
             <StringItem index="3" value="Validade"/>
           </StringArray>
@@ -144,6 +135,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Q"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="consultaBarraDeTextoPesquisa">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultaBarraDeTextoPesquisaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
