@@ -112,7 +112,7 @@ public class CadPet {
             ps.setString(1, NomeTutor);
             ps.setString(2, CpfTutor);
             ps.setString(3, Nome);
-            ps.setString(4, );
+            ps.setString(4, Idade);
             ps.execute(); 
 
             JOptionPane.showMessageDialog(null,"Cadastrado com sucesso!"); 
