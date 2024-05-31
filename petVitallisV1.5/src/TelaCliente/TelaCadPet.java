@@ -1,7 +1,6 @@
 package TelaCliente;
 
-import ClassesCadastro.CadClientes;
-import ClassesCadastro.CadPet;
+import ClassesCadastro.CadPets;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
@@ -52,7 +51,7 @@ public class TelaCadPet extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        VoltarMEnu.setText("Voltar");
+        VoltarMEnu.setText("Fechar");
         VoltarMEnu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VoltarMEnuActionPerformed(evt);
@@ -76,11 +75,11 @@ public class TelaCadPet extends javax.swing.JFrame {
 
         jLabel5.setText("Número de contato");
 
-        jLabel6.setText("Cadastro de Cliente");
+        jLabel6.setText("Cadastro de Pet");
 
         jLabel7.setText("CPF do Tutor");
 
-        BotaoMaisPet.setText("+");
+        BotaoMaisPet.setText("Limpar");
         BotaoMaisPet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoMaisPetActionPerformed(evt);
@@ -92,7 +91,7 @@ public class TelaCadPet extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 106, Short.MAX_VALUE)
+                .addGap(0, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,10 +115,10 @@ public class TelaCadPet extends javax.swing.JFrame {
                             .addComponent(txtNumTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCpfTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(VoltarMEnu)
                         .addGap(160, 160, 160)
-                        .addComponent(SalvarPet)))
+                        .addComponent(SalvarPet, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(BotaoMaisPet)
                 .addGap(41, 41, 41))
@@ -133,7 +132,7 @@ public class TelaCadPet extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -149,7 +148,7 @@ public class TelaCadPet extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(BotaoMaisPet, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BotaoMaisPet, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdadePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,10 +171,9 @@ public class TelaCadPet extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //Variavel pet para conversar com a classe
-        CadClientes pet = new CadClientes();
+        CadPets pet = new CadPets();
         
-        DesejaCadPet Cadpet = new DesejaCadPet();
-        //Variavies feitas para poder fazer alguns TextField funcionar somente com numeros ex: Idade
+        
         String NumPet, IdadePet, CpfTutor; 
         
         //Nome do tutor, nome e raça são preaticamente iguais
@@ -271,7 +269,7 @@ public class TelaCadPet extends javax.swing.JFrame {
         //Matcher é uma classe que realiza a correspondência de padrões em uma sequência de caracteres. 
         //Ela é usada para aplicar um padrão regex a uma determinada string e encontrar todas as ocorrências desse padrão na string.
          Matcher matcherIdade = pattern.matcher(textIdaPet);
-         Matcher matcherNumPet = pattern.matcher(textNumPet);
+         Matcher matcherNumTutor = pattern.matcher(textNumPet);
          Matcher matcherCpfTutor = pattern.matcher(textCpfTutor);
         
         //Aqui basicamente é só para confirmar se todos os dados foram preenchidos
@@ -282,17 +280,14 @@ public class TelaCadPet extends javax.swing.JFrame {
             && !txtRacaPet.getText().isEmpty()
             && !txtIdadePet.getText().isEmpty()
             && !txtNumTutor.getText().isEmpty()
+            && !txtCpfTutor.getText().isEmpty()
             && matcherIdade.matches()
-            && matcherNumPet.matches()
+            && matcherNumTutor.matches()
             && matcherCpfTutor.matches())  { 
             pet.Inserir();
-            this.dispose();
         }else{
              JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
-        }
-            Cadpet.setVisible(true);
-            
-        
+        }     
         
     }//GEN-LAST:event_SalvarPetActionPerformed
 
@@ -301,8 +296,19 @@ public class TelaCadPet extends javax.swing.JFrame {
     }//GEN-LAST:event_VoltarMEnuActionPerformed
 
     private void BotaoMaisPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoMaisPetActionPerformed
- // Coleta os dados dos campos
-    String nomePet = txtNomePet.getText();
+ 
+
+//Limpa dados dos pets
+
+    txtNomePet.setText("");
+    txtIdadePet.setText("");
+    txtRacaPet.setText("");
+
+
+
+// Coleta os dados dos campos
+
+   /* String nomePet = txtNomePet.getText();
     String idadePet = txtIdadePet.getText();
     String racaPet = txtRacaPet.getText();
     String cpfTutor = txtCpfTutor.getText();
@@ -314,7 +320,7 @@ public class TelaCadPet extends javax.swing.JFrame {
     }
 
     // Insere os dados do novo animal de estimação no banco de dados
-    CadClientes pet = new CadClientes();
+    CadPets pet = new CadPets();
     pet.setNomePet(nomePet);
     pet.setIdade(idadePet);
     pet.setraca(racaPet);
@@ -324,7 +330,7 @@ public class TelaCadPet extends javax.swing.JFrame {
     txtNomePet.setText("");
     txtIdadePet.setText("");
     txtRacaPet.setText("");
-               
+      */         
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoMaisPetActionPerformed
 
