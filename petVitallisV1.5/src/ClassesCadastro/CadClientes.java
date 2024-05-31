@@ -9,37 +9,22 @@ import java.sql.ResultSet;
 
 public class CadClientes {
     
-    //Nome, Email, Usuario, Senha, Numero;
+    //Nome, raca, Usuario, Senha, Numero;
     
    
     private String Nome;
-    private String Email;
-    private String Numero;
     private String Cpf;
-
-
+    private String Numero;
+    private String NomePet;
+    private String Idade;
+    private String raca;
+    
     public String getNome() {
         return Nome;
     }
 
     public void setNome(String Nome) {
         this.Nome = Nome;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String Email) {
-        this.Email = Email;
-    }
-
-    public String getNumero() {
-        return Numero;
-    }
-
-    public void setNumero(String Numero) {
-        this.Numero = Numero;
     }
 
     public String getCpf() {
@@ -50,33 +35,51 @@ public class CadClientes {
         this.Cpf = Cpf;
     }
 
-    public CadClientes() {
+    public String getNumero() {
+        return Numero;
     }
 
-    public CadClientes(String Nome, String Email, String Numero, String Cpf) {
-        this.Nome = Nome;
-        this.Email = Email;
+    public void setNumero(String Numero) {
         this.Numero = Numero;
-        this.Cpf = Cpf;
     }
-    
-    
 
-    
-    public void IncluiCli(){
-        
+    public String getNomePet() {
+        return NomePet;
     }
-    
+
+    public void setNomePet(String NomePet) {
+        this.NomePet = NomePet;
+    }
+
+    public String getIdade() {
+        return Idade;
+    }
+
+    public void setIdade(String Idade) {
+        this.Idade = Idade;
+    }
+
+    public String getraca() {
+        return raca;
+    }
+
+    public void setraca(String raca) {
+        this.raca = raca;
+    }
+
+ 
     public void Inserir(){
-    String sql = "INSERT INTO tb_clientes(nome,email,"+"número, cpf)VALUES (?,?,?,?)";
+    String sql = "INSERT INTO tb_clientes( nome, cpf , número, nomepet, idade, raca )VALUES (?,?,?,?,?,?)";
     ConnectionFactory factory = new ConnectionFactory();
     
     try (Connection c = factory.obtemConexao()){
         PreparedStatement ps = c.prepareStatement(sql);
         ps.setString(1, Nome);
-        ps.setString(2, Email);
+        ps.setString(2,Cpf);
         ps.setString(3, Numero);
-        ps.setString(4, Cpf);
+        ps.setString(4, NomePet);
+        ps.setString(5, Idade);
+        ps.setString(6, raca);
         ps.execute(); 
 
        JOptionPane.showMessageDialog(null,"Cadastrado com sucesso!"); 
@@ -92,15 +95,17 @@ public class CadClientes {
     
     public void AlterarCli(){
     
-    String querry = "UPDATE tb_clientes SET nome = ?, email= ?, número= ?, WHERE cpf= ?";
+    String querry = "UPDATE tb_clientes SET nome = ?, raca= ?, número= ?, WHERE cpf= ?";
     ConnectionFactory factory = new ConnectionFactory();
     
     try (Connection c = factory.obtemConexao()){
         PreparedStatement ps = c.prepareStatement(querry);
         ps.setString(1, Nome);
-        ps.setString(2, Email);
+        ps.setString(2,Cpf);
         ps.setString(3, Numero);
-        ps.setString(4, Cpf);
+        ps.setString(4, NomePet);
+        ps.setString(5, Idade);
+        ps.setString(6, raca);
         ps.execute(); 
 
         JOptionPane.showMessageDialog(null,"Cadastrado com sucesso!"); 
@@ -126,14 +131,14 @@ public class CadClientes {
             while (rs.next()){
                 int codigo = rs.getInt("codigo");
                 String nome = rs.getString("nome");
-                String email = rs.getString("email");
+                String raca = rs.getString("raca");
                 String numero = rs.getString("numero");
                 String cpf = rs.getString("cpf");
                 String aux = String.format(
-                    "Código: %d, Nome: %s, Email: %s, Numero: %s, Cpf: %s",
+                    "Código: %d, Nome: %s, raca: %s, Numero: %s, Cpf: %s",
                     codigo,
                     nome,   // Corrigido para a variável correta
-                    email,  // Corrigido para a variável correta
+                    raca,  // Corrigido para a variável correta
                     numero, // Corrigido para a variável correta
                     cpf     // Corrigido para a variável correta
                 );
