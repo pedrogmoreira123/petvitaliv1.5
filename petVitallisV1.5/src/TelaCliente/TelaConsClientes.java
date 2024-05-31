@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package TelaCliente;
 
-import TelaCliente.TelaCadClientes;
+
 import javax.swing.ImageIcon;
 
 /**
@@ -44,7 +41,7 @@ public class TelaConsClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         consultaBancoClientes = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jScrollPane2.setViewportView(consultaBarraDeTextoPesquisa);
 
@@ -80,7 +77,7 @@ public class TelaConsClientes extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(consultaProdPesquisarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
@@ -98,8 +95,7 @@ public class TelaConsClientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void consultaProdPesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaProdPesquisarBotaoActionPerformed
-        TelaCadClientes CadCli = new TelaCadClientes();
-        CadCli.setVisible(true);
+      
     }//GEN-LAST:event_consultaProdPesquisarBotaoActionPerformed
 
     /**
