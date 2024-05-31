@@ -56,7 +56,7 @@ public class CadProdutos {
     ConnectionFactory connect = new ConnectionFactory();
     
     //Salvar ou Atualizar Produto...
-    public boolean produtoExiste() {
+    public String produtoExiste() {
         String query = "SELECT COUNT(*) FROM tb_cadproduto WHERE nomeProduto = ?";        
                 
         try (Connection conn = connect.obtemConexao();
@@ -64,13 +64,13 @@ public class CadProdutos {
             //pstmt.setString(1, nomeProduto);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    return rs.getInt(1) > 0;
+                    return rs.getString(NomeProduto);
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return boolean;
     }
     
     public void salvarOuAtualizarProdutos() {

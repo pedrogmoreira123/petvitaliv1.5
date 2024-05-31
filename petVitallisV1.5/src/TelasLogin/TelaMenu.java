@@ -1,18 +1,14 @@
 package TelasLogin;
 
-import ClassesDeConsultas.CadConsultatt;
 import TelaFuncionario.TelaConsFuncionarios;
 import TelasLogin.TelaLogin;
 import TelaFuncionario.TelasCadFuncionarios;
 import javax.swing.ImageIcon;
 import TelaProdutos.TelaCadProdutos;
 import TelaProdutos.TelaConsProduto;
-import TelaCliente.TelaCadClientes;
 import TelaConsultas.TelaCadConsultas;
 import TelaCliente.TelaCadPet;
 import TelaCliente.TelaConsClientes;
-import TelaCliente.TelaConsPets;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class TelaMenu extends javax.swing.JFrame {
@@ -424,8 +420,6 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void CadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClientesActionPerformed
         
-        TelaCadClientes CadClientes = new TelaCadClientes();
-        CadClientes.setVisible(true);
         
     }//GEN-LAST:event_CadClientesActionPerformed
 
@@ -441,10 +435,7 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsClientesActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-      
-        TelaConsPets consPets = new TelaConsPets();
-      consPets.setVisible(true);
-      
+           
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void BotaoAdicionarAoCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarAoCarrinhoActionPerformed
