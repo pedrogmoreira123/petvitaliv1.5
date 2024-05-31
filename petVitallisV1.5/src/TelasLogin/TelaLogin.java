@@ -4,12 +4,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+    
 public class TelaLogin extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Login
-     */
     public TelaLogin() {
       super("PetVitallis");
         initComponents();

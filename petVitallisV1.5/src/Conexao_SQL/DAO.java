@@ -1,5 +1,23 @@
 package Conexao_SQL;
 
+
+
+
+
+
+
+// IGNORAR. Teteu estava testando......................
+//
+//
+//
+//
+
+
+
+
+
+
+
 import ClassesCadastro.CadProdutos;
 import TelaProdutos.Produto;
 import java.sql.Connection;
@@ -22,7 +40,7 @@ public class DAO {
              ResultSet rs = ps.executeQuery()) {
             int totalDeProdutos = rs.last() ? rs.getRow() : 0;
 
-            CadProdutos[] produtos = new CadProdutos[totalDeProdutos];
+            CadProdutos[] produto = new CadProdutos[totalDeProdutos];
             rs.beforeFirst();
 
             int contador = 0;
@@ -33,9 +51,9 @@ public class DAO {
                 String NomeProduto = rs.getString("Nome Produto");
                 String TipoDeProduto = rs.getString("Tipo Produto");
 
-                produtos[contador++] = new CadProdutos(CodigoProdutoInt, NomeProduto, TipoDeProduto);
+                produto[contador++] = new CadProdutos(CodigoProdutoInt, NomeProduto, TipoDeProduto);
             }
-            return produtos;
+            return produto;
         }
     }
 }
