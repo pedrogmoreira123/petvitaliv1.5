@@ -5,9 +5,12 @@ import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class CadPets {
+    
+    ConnectionFactory factory = new ConnectionFactory();
     
     //Nome, raca, Usuario, Senha, Numero;
     
@@ -70,7 +73,7 @@ public class CadPets {
  
     public void Inserir(){
     String sql = "INSERT INTO tb_clientes( nome, cpf , número, nomepet, idade, raca )VALUES (?,?,?,?,?,?)";
-    ConnectionFactory factory = new ConnectionFactory();
+    
     
     try (Connection c = factory.obtemConexao()){
         PreparedStatement ps = c.prepareStatement(sql);
@@ -119,34 +122,28 @@ public class CadPets {
     
     }
     
-   public void listaCliente(){
-    
-    String sql = "SELECT * FROM tb_pessoa";
-    ConnectionFactory factory = new ConnectionFactory();
-    
-    try (Connection c = factory.obtemConexao()){
+   public CadPets LerCPF(String cpf) {
+        String query = "SELECT * FROM tb_clientes WHERE cpf = ?";
         
-            PreparedStatement ps = c.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-                int codigo = rs.getInt("codigo");
-                String nome = rs.getString("nome");
-                String raca = rs.getString("raca");
-                String numero = rs.getString("numero");
-                String cpf = rs.getString("cpf");
-                String aux = String.format(
-                    "Código: %d, Nome: %s, raca: %s, Numero: %s, Cpf: %s",
-                    codigo,
-                    nome,   // Corrigido para a variável correta
-                    raca,  // Corrigido para a variável correta
-                    numero, // Corrigido para a variável correta
-                    cpf     // Corrigido para a variável correta
-                );
-                JOptionPane.showMessageDialog(null, aux);
+        try (Connection conn = factory.obtemConexao();
+            PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, cpf);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    this.Nome = rs.getString("nome");
+                    this.Cpf = rs.getString("cpf");
+                    this.Numero = rs.getString("número");
+                    this.NomePet = rs.getString("nomePet");
+                    this.Idade = rs.getString("idade");
+                    this.raca = rs.getString("raca");
+                    
+                    return this;
+                }
             }
-        } catch(Exception e) {
-            e.printStackTrace(); // Imprimir a stack trace para depuração
-        } 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     

@@ -1,13 +1,12 @@
 package TelasLogin;
 
-import ClassesDeConsultas.CadConsultatt;
+
 import TelaFuncionario.TelaConsFuncionarios;
 import TelasLogin.TelaLogin;
 import TelaFuncionario.TelasCadFuncionarios;
 import javax.swing.ImageIcon;
 import TelaProdutos.TelaCadProdutos;
 import TelaProdutos.TelaConsProduto;
-import TelaCliente.TelaCadClientes;
 import TelaConsultas.TelaCadConsultas;
 import TelaCliente.TelaCadPet;
 import TelaCliente.TelaConsClientes;

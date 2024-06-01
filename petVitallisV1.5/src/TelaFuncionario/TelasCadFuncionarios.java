@@ -1,7 +1,9 @@
     package TelaFuncionario;
 
+import ClassesCadastro.CadConsultatt;
 import ClassesCadastro.CadFuncionario;
 import TelasLogin.TelaMenu;
+import java.awt.event.FocusEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
@@ -24,6 +26,12 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
         
+            cpfFuncionario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+            cpfFuncionarioFocusLost(evt);
+            
+                }
+            });
     }
 
     /**
@@ -198,9 +206,11 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
                             .addComponent(residenciaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotaoCadFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotaoConsultarFuncionario, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BotaoAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(BotaoAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(BotaoCadFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -261,119 +271,63 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
 
     private void BotaoCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadFuncionarioActionPerformed
                 
-        CadFuncionario alo = new CadFuncionario();
-        //nome, endereco, cpf, rg, cep, pis, data de nascimento, numero da residencia
-        
-        int cpfFun, rgFun, cepFun, pisFun, dataNasFun, numResFun;
+        CadFuncionario funcionario = new CadFuncionario();
+  
                
-        if (!nomeFuncionario.getText().isEmpty()) {
-            alo.setNome(nomeFuncionario.getText());
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
-        }
+    if (!nomeFuncionario.getText().isEmpty()) {
+        funcionario.setNome(nomeFuncionario.getText());
+    } else {
+        JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
+    }
         
-        if (!enderecoFuncionario.getText().isEmpty()) {
-            alo.setEndereco(enderecoFuncionario.getText());
-        }else{
-           JOptionPane.showMessageDialog(null, "Campo Endereço Inválido");
-        }
+    if (!enderecoFuncionario.getText().isEmpty()) {
+        funcionario.setEndereco(enderecoFuncionario.getText());
+    } else {
+        JOptionPane.showMessageDialog(null, "Campo Endereço Inválido");
+    }
         
-        if (!cpfFuncionario.getText().isEmpty()) {
-        try {
-            cpfFun = (int) Long.parseLong(cpfFuncionario.getText());
-            alo.setCpf(cpfFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
+    if (!cpfFuncionario.getText().isEmpty()) {
+        funcionario.setCpf(cpfFuncionario.getText());
+    } else {
         JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    }
         
-        if (!rgFuncionario.getText().isEmpty()) {
-        try {
-            rgFun = (int) Long.parseLong(rgFuncionario.getText());
-            alo.setRg(rgFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo RG Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
+    if (!rgFuncionario.getText().isEmpty()) {
+        funcionario.setRg(rgFuncionario.getText());
+    } else {
         JOptionPane.showMessageDialog(null, "Campo RG Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    }
         
-        if (!cepFuncionario.getText().isEmpty()) {
-        try {
-            cepFun = Integer.parseInt(cepFuncionario.getText());
-            alo.setCep(cepFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo CEP Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
+    if (!cepFuncionario.getText().isEmpty()) {
+        funcionario.setCep(cepFuncionario.getText());
+    } else {
         JOptionPane.showMessageDialog(null, "Campo CEP Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    }
         
-        if (!pisFuncionario.getText().isEmpty()) {
-        try {
-            pisFun = Integer.parseInt(pisFuncionario.getText());
-            alo.setPis(pisFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo PIS Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
+    if (!pisFuncionario.getText().isEmpty()) {
+        funcionario.setPis(pisFuncionario.getText());
+    } else {
         JOptionPane.showMessageDialog(null, "Campo PIS Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    }
         
-        if (!dataNasFuncionario.getText().isEmpty()) {
-        try {
-            dataNasFun = Integer.parseInt(dataNasFuncionario.getText());
-            alo.setDataDeNascimento(dataNasFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
-            JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    if (!dataNasFuncionario.getText().isEmpty()) {
+        funcionario.setDataDeNascimento(dataNasFuncionario.getText());
+    } else {
+        JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
+    }
         
-        if (!residenciaFuncionario.getText().isEmpty()) {
-        try {
-            numResFun = Integer.parseInt(residenciaFuncionario.getText());
-            alo.setNumeroDaResidencia(numResFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo Número de Residencia Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
-        JOptionPane.showMessageDialog(null, "Campo Número de Residencia Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    if (!residenciaFuncionario.getText().isEmpty()) {
+        funcionario.setNumeroDaResidencia(residenciaFuncionario.getText());
+    } else {
+        JOptionPane.showMessageDialog(null, "Campo Número de Residência Inválido");
+    }
         
-        if (!CargoFun.getSelectedItem().toString().isEmpty()) {
-            alo.setCargoFun(CargoFun.getSelectedItem().toString());
-        } else {
-           JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
-        }
-        
-        alo.inserir();
-        
-        
-        //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
-        
+    if (!CargoFun.getSelectedItem().toString().isEmpty()) {
+        funcionario.setCargoFun(CargoFun.getSelectedItem().toString());
+    } else {
+        JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
+    }
+    
         String RgFun = rgFuncionario.getText();
         String CepFun = cepFuncionario.getText();
         String PisFun = pisFuncionario.getText();
@@ -390,44 +344,12 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             + "-Numero da residencia Funcionario: " + NumResFun + "\n"
             + "-CPF Funcionario: " + CpfFun + "\n"
             + "-Cargo Funcionario: " + Cargofun);
+       
         
-        //Define uma expressão regular para verificar se o texto contém apenas números
-        String regexNumerico = "\\d+";  
-         
-        // Cria um padrão regex 
-        //Pattern é uma classe em Java que compila uma expressão regular em um objeto de padrão.
-        //Uma expressão regular é uma sequência de caracteres que define um padrão de busca.
-        Pattern pattern = Pattern.compile(regexNumerico);
-         
-        // Cria um Matcher para aplicar o padrão ao texto do campo
-        //Matcher é uma classe que realiza a correspondência de padrões em uma sequência de caracteres. 
-        //Ela é usada para aplicar um padrão regex a uma determinada string e encontrar todas as ocorrências desse padrão na string.
-         Matcher matcherCpfFun = pattern.matcher(CpfFun);
-         Matcher matcherRgFun = pattern.matcher(RgFun);
-         Matcher matcherPisFun = pattern.matcher(PisFun);
-         Matcher matcherDataNasFun = pattern.matcher(DataNasFun);
-         Matcher matcherCepFun = pattern.matcher(CepFun);
-         Matcher matcherNumResFun = pattern.matcher(NumResFun);
+            funcionario.atualizareInserirFuncionario();
+             
+             
         
-        //Aqui basicamente é só para confirmar se todos os dados foram preenchidos
-        //Se tiverem sido preechidos corretamente ai finaliza o cadrastro
-        
-        if (!cpfFuncionario.getText().isEmpty()
-            && !rgFuncionario.getText().isEmpty()
-            && !pisFuncionario.getText().isEmpty()
-            && !cepFuncionario.getText().isEmpty()
-            && !residenciaFuncionario.getText().isEmpty()
-            && !dataNasFuncionario.getText().isEmpty()    
-            && matcherCpfFun.matches()
-            && matcherNumResFun.matches()
-            && matcherRgFun.matches()
-            && matcherCepFun.matches()
-            && matcherDataNasFun.matches()
-            && matcherPisFun.matches())  { 
-            alo.IncluirFun();
-        }else{
-             JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
-        }
     }//GEN-LAST:event_BotaoCadFuncionarioActionPerformed
 
     private void dataNasFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNasFuncionarioActionPerformed
@@ -454,7 +376,30 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     private void cpfFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpfFuncionarioActionPerformed
-
+    
+    private void cpfFuncionarioFocusLost(java.awt.event.FocusEvent evt) {
+        
+    String cpf = cpfFuncionario.getText();
+    if (!cpf.isEmpty()) {
+        CadFuncionario funcionario = new CadFuncionario();
+        funcionario = funcionario.lerCPF(cpf);
+        if (funcionario != null) {
+            
+            cpfFuncionario.setText(funcionario.getCpf());
+            nomeFuncionario.setText(funcionario.getNome());
+            rgFuncionario.setText(funcionario.getRg());
+            dataNasFuncionario.setText(funcionario.getDataDeNascimento());
+            pisFuncionario.setText(funcionario.getPis());
+            enderecoFuncionario.setText(funcionario.getEndereco());
+            residenciaFuncionario.setText(funcionario.getNumeroDaResidencia());
+            cepFuncionario.setText(funcionario.getCep());
+            CargoFun.setSelectedItem(funcionario.getCargoFun());
+     
+        } else {
+            JOptionPane.showMessageDialog(null, "CPF não encontrado.");
+            }
+        }
+    }
     private void rgFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rgFuncionarioActionPerformed
@@ -472,117 +417,72 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_residenciaFuncionarioActionPerformed
 
     private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
-        /*TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
-        CadProd.setVisible(true);*/
-        
-        CadFuncionario alo = new CadFuncionario();
-        //nome, endereco, cpf, rg, cep, pis, data de nascimento, numero da residencia
-        
-        int cpfFun, rgFun, cepFun, pisFun, dataNasFun, numResFun;
+        TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
+        CadProd.setVisible(true);
+      
+                    
+        CadFuncionario funcionario = new CadFuncionario();
+  
                
-        if (!nomeFuncionario.getText().isEmpty()) {
-            alo.setNome(nomeFuncionario.getText());
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
-        }
+    if (!nomeFuncionario.getText().isEmpty()) {
+        funcionario.setNome(nomeFuncionario.getText());
+    } else {
+        JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
+    }
         
-        if (!enderecoFuncionario.getText().isEmpty()) {
-            alo.setEndereco(enderecoFuncionario.getText());
-        }else{
-           JOptionPane.showMessageDialog(null, "Campo Endereço Inválido");
-        }
+    if (!enderecoFuncionario.getText().isEmpty()) {
+        funcionario.setEndereco(enderecoFuncionario.getText());
+    } else {
+        JOptionPane.showMessageDialog(null, "Campo Endereço Inválido");
+    }
         
-        if (!cpfFuncionario.getText().isEmpty()) {
-        try {
-            cpfFun = (int) Long.parseLong(cpfFuncionario.getText());
-            alo.setCpf(cpfFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
+    if (!cpfFuncionario.getText().isEmpty()) {
+        funcionario.setCpf(cpfFuncionario.getText());
+    } else {
         JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    }
         
-        if (!rgFuncionario.getText().isEmpty()) {
-        try {
-            rgFun = (int) Long.parseLong(rgFuncionario.getText());
-            alo.setRg(rgFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo RG Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
+    if (!rgFuncionario.getText().isEmpty()) {
+        funcionario.setRg(rgFuncionario.getText());
+    } else {
         JOptionPane.showMessageDialog(null, "Campo RG Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    }
         
-        if (!cepFuncionario.getText().isEmpty()) {
-        try {
-            cepFun = Integer.parseInt(cepFuncionario.getText());
-            alo.setCep(cepFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo CEP Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
+    if (!cepFuncionario.getText().isEmpty()) {
+        funcionario.setCep(cepFuncionario.getText());
+    } else {
         JOptionPane.showMessageDialog(null, "Campo CEP Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    }
         
-        if (!pisFuncionario.getText().isEmpty()) {
-        try {
-            pisFun = Integer.parseInt(pisFuncionario.getText());
-            alo.setPis(pisFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo PIS Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
+    if (!pisFuncionario.getText().isEmpty()) {
+        funcionario.setPis(pisFuncionario.getText());
+    } else {
         JOptionPane.showMessageDialog(null, "Campo PIS Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    }
         
-        if (!dataNasFuncionario.getText().isEmpty()) {
-        try {
-            dataNasFun = Integer.parseInt(dataNasFuncionario.getText());
-            alo.setDataDeNascimento(dataNasFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
-            JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    if (!dataNasFuncionario.getText().isEmpty()) {
+        funcionario.setDataDeNascimento(dataNasFuncionario.getText());
+    } else {
+        JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
+    }
         
-        if (!residenciaFuncionario.getText().isEmpty()) {
-        try {
-            numResFun = Integer.parseInt(residenciaFuncionario.getText());
-            alo.setNumeroDaResidencia(numResFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo Número de Residencia Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
-        JOptionPane.showMessageDialog(null, "Campo Número de Residencia Inválido");
-            //mostra para o usuario aonde está errado
-          }
+    if (!residenciaFuncionario.getText().isEmpty()) {
+        funcionario.setNumeroDaResidencia(residenciaFuncionario.getText());
+    } else {
+        JOptionPane.showMessageDialog(null, "Campo Número de Residência Inválido");
+    }
         
-        if (!CargoFun.getSelectedItem().toString().isEmpty()) {
-            alo.setCargoFun(CargoFun.getSelectedItem().toString());
-        } else {
-           JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
-        }
+    if (!CargoFun.getSelectedItem().toString().isEmpty()) {
+        funcionario.setCargoFun(CargoFun.getSelectedItem().toString());
+    } else {
+        JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
+    }
+    
         
+        funcionario.atualizarFuncionario();
+        
+     
+       
     }//GEN-LAST:event_BotaoAlterarActionPerformed
 
     private void CargoFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargoFunActionPerformed

@@ -9,13 +9,14 @@ import java.sql.SQLException;
 
 public class CadConsultatt {
     
+    ConnectionFactory connect = new ConnectionFactory();
+    
     private String nomePet;
     private String CPF;
     private String consulta;
     private String dia;
     private String hora;
-
-    // Getters and setters
+    
     public String getNomePet() {
         return nomePet;
     }
@@ -56,7 +57,7 @@ public class CadConsultatt {
         this.hora = hora;
     }
 
-    ConnectionFactory connect = new ConnectionFactory();
+    
 
     public boolean cpfExists() {
         String query = "SELECT COUNT(*) FROM tb_cadconsultas  WHERE cpf = ?";
@@ -71,7 +72,25 @@ public class CadConsultatt {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
         return false;
+        
+    }
+    
+    
+    public void inserirConsultas() {
+        String query = "INSERT INTO tb_cadconsultas  (cpf, nomePet, consulta, dia, hora) VALUES (?, ?, ?, ?, ?)";
+        try (Connection conn = connect.obtemConexao();
+            PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, CPF);
+            pstmt.setString(2, nomePet);
+            pstmt.setString(3, consulta);
+            pstmt.setString(4, dia);
+            pstmt.setString(5, hora);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void alterarConsultas() {
@@ -89,33 +108,13 @@ public class CadConsultatt {
         }
     }
 
-    public void inserirConsultas() {
-        String query = "INSERT INTO tb_cadconsultas  (cpf, nomePet, consulta, dia, hora) VALUES (?, ?, ?, ?, ?)";
-        try (Connection conn = connect.obtemConexao();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, CPF);
-            pstmt.setString(2, nomePet);
-            pstmt.setString(3, consulta);
-            pstmt.setString(4, dia);
-            pstmt.setString(5, hora);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public void saveOrUpdateConsultas() {
-        if (cpfExists()) {
-            alterarConsultas();
-        } else {
-            inserirConsultas();
-        }
-    }
+   
 
     public CadConsultatt loadByCPF(String cpf) {
         String query = "SELECT * FROM tb_cadconsultas WHERE cpf = ?";
         try (Connection conn = connect.obtemConexao();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, cpf);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
@@ -147,4 +146,12 @@ public class CadConsultatt {
         return null;
         
         }
+        
+         public void saveOrUpdateConsultas() {
+        if (cpfExists()) {
+            alterarConsultas();
+        } else {
+            inserirConsultas();
+            }
+         }
      }
