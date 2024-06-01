@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import static javax.management.remote.JMXConnectorFactory.connect;
 
 
 public class CadPets {
@@ -21,7 +22,17 @@ public class CadPets {
     private String NomePet;
     private String Idade;
     private String raca;
+    private String Sexo;
+
     
+    public String getSexo() {
+        return Sexo;
+    }
+
+    public void setSexo(String Sexo) {
+        this.Sexo = Sexo;
+    }
+  
     public String getNome() {
         return Nome;
     }
@@ -69,20 +80,35 @@ public class CadPets {
     public void setraca(String raca) {
         this.raca = raca;
     }
-
- 
+    
+    public CadPets(){
+    
+    }
+    
+    public CadPets(String Nome, String Cpf, String Numero, String NomePet, String Idade, String raca, String Sexo) {
+        this.Nome = Nome;
+        this.Cpf = Cpf;
+        this.Numero = Numero;
+        this.NomePet = NomePet;
+        this.Idade = Idade;
+        this.raca = raca;
+        this.Sexo = Sexo;
+    }
+    
+    
     public void Inserir(){
-    String sql = "INSERT INTO tb_clientes( nome, cpf , número, nomepet, idade, raca )VALUES (?,?,?,?,?,?)";
+    String sql = "INSERT INTO tb_pets( nome, cpf , número, nomepet, idade, especie_raça, sexo  )VALUES (?,?,?,?,?,?,?)";
     
     
     try (Connection c = factory.obtemConexao()){
         PreparedStatement ps = c.prepareStatement(sql);
         ps.setString(1, Nome);
-        ps.setString(2,Cpf);
+        ps.setString(2, Cpf);
         ps.setString(3, Numero);
         ps.setString(4, NomePet);
         ps.setString(5, Idade);
         ps.setString(6, raca);
+        ps.setString(7, Sexo);
         ps.execute(); 
 
        JOptionPane.showMessageDialog(null,NomePet +", Cadastrado com sucesso!"); 
@@ -96,22 +122,22 @@ public class CadPets {
     
     
     
-    public void AlterarCli(){
+    public void AlterarPet(){
     
-    String querry = "UPDATE tb_clientes SET nome = ?, raca= ?, número= ?, WHERE cpf= ?";
+    String querry = "UPDATE tb_pets SET nome = ?,número = ?, nomepet = ?, idade = ?, especie_raça = ?, WHERE cpf= ?";
     ConnectionFactory factory = new ConnectionFactory();
     
     try (Connection c = factory.obtemConexao()){
         PreparedStatement ps = c.prepareStatement(querry);
         ps.setString(1, Nome);
-        ps.setString(2,Cpf);
-        ps.setString(3, Numero);
-        ps.setString(4, NomePet);
-        ps.setString(5, Idade);
-        ps.setString(6, raca);
+        ps.setString(2,Numero);
+        ps.setString(3, NomePet);
+        ps.setString(4, Idade);
+        ps.setString(5, raca);
+        ps.setString(6, Cpf);
         ps.execute(); 
 
-        JOptionPane.showMessageDialog(null,"Cadastrado com sucesso!"); 
+        JOptionPane.showMessageDialog(null,"Alterado com sucesso!"); 
     
      }  
   
@@ -120,6 +146,24 @@ public class CadPets {
         System.out.println("");
     } 
     
+    }
+    
+    public boolean cpfExists() {
+        String query = "SELECT COUNT(*) FROM tb_pets  WHERE cpf = ?";
+        try (Connection conn = factory.obtemConexao();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, Cpf);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return false;
+        
     }
     
    public CadPets LerCPF(String cpf) {
@@ -135,7 +179,7 @@ public class CadPets {
                     this.Numero = rs.getString("número");
                     this.NomePet = rs.getString("nomePet");
                     this.Idade = rs.getString("idade");
-                    this.raca = rs.getString("raca");
+                    this.raca = rs.getString("especie_raça ");
                     
                     return this;
                 }
@@ -145,6 +189,43 @@ public class CadPets {
         }
         return null;
     }
+   
+   public CadPets CarregaCpf(String cpf) {
+        String query = "SELECT * FROM tb_pets WHERE cpf = ?";
+        try (Connection conn = factory.obtemConexao();
+            PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, Cpf);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    this.Nome = rs.getString("nome");
+                    this.Cpf = rs.getString("cpf");
+                    this.NomePet = rs.getString("nomepet");
+                    this.Numero = rs.getString("numero");
+                    this.Idade = rs.getString("idade");
+                    this.raca = rs.getString("especie_raça");
+                    this.Sexo = rs.getString("sexo");
+                    return this;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+   
+   public ResultSet TodosDados() {
+        String query = "SELECT nome, cpf, número, nomepet, idade, especie_raça, sexo FROM tb_pets";
+        try {
+            Connection conn = factory.obtemConexao();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            return pstmt.executeQuery();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+        
+        }
 
     
 }

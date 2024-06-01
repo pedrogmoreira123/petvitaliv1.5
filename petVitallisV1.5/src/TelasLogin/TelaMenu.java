@@ -8,8 +8,8 @@ import javax.swing.ImageIcon;
 import TelaProdutos.TelaCadProdutos;
 import TelaProdutos.TelaConsProduto;
 import TelaConsultas.TelaCadConsultas;
-import TelaCliente.TelaCadPet;
-import TelaCliente.TelaConsClientes;
+import TelaPet.TelaCadPet;
+import TelaPet.TelaConsClientes;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
