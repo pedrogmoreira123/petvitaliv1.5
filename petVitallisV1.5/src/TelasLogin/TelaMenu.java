@@ -61,9 +61,6 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         CadClientes = new javax.swing.JMenuItem();
         ConsClientes = new javax.swing.JMenuItem();
-        jMenu9 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         CadProdutos = new javax.swing.JMenuItem();
         ConsProdutos = new javax.swing.JMenuItem();
@@ -72,7 +69,6 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         menuSair1 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
@@ -174,7 +170,7 @@ public class TelaMenu extends javax.swing.JFrame {
         cadastros.add(MenuFuncionarios);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCliente.png"))); // NOI18N
-        jMenu4.setText("Clientes");
+        jMenu4.setText("Pets");
 
         CadClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCadCleintee.png"))); // NOI18N
         CadClientes.setText("Cadastrar");
@@ -195,26 +191,6 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu4.add(ConsClientes);
 
         cadastros.add(jMenu4);
-
-        jMenu9.setText("Pets");
-
-        jMenuItem4.setText("Cadastrar");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu9.add(jMenuItem4);
-
-        jMenuItem5.setText("Consultar");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu9.add(jMenuItem5);
-
-        cadastros.add(jMenu9);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconProdutos.png"))); // NOI18N
         jMenu5.setText("Produtos");
@@ -273,9 +249,6 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenuItem7.setText("Funcionarios");
         menuSair1.add(jMenuItem7);
-
-        jMenuItem6.setText("Clientes");
-        menuSair1.add(jMenuItem6);
 
         jMenuItem8.setText("Pets");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
@@ -427,8 +400,8 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void CadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClientesActionPerformed
         
-        TelaCadClientes CadClientes = new TelaCadClientes();
-        CadClientes.setVisible(true);
+        TelaCadPet CadPet = new TelaCadPet();
+        CadPet.setVisible(true);
         
     }//GEN-LAST:event_CadClientesActionPerformed
 
@@ -444,9 +417,7 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsClientesActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-      
-        TelaConsPets consPets = new TelaConsPets();
-      consPets.setVisible(true);
+
       
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
@@ -554,7 +525,6 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
@@ -562,9 +532,6 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;

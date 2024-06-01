@@ -213,7 +213,7 @@ public class TelaLogin extends javax.swing.JFrame {
         senha = campoSenha.getText();
 
         if (login.equals("adm") && senha.equals("adm")) {
-            TelaMenu  telaMenu = new TelaMenu();
+            TelaMenu telaMenu = new TelaMenu();
             telaMenu.setVisible(true);
             JOptionPane.showMessageDialog(null, "Seja Bem vindo Adm");
             dispose();
