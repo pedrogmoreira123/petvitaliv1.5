@@ -85,7 +85,7 @@ public class CadProdutos {
     }
 
     public void salvarOuAtualizarProdutos() {
-        if (nomeProdutoExiste() && codigoProdutoExiste()) {
+        if (codigoProdutoExiste()) {
             atualizarProduto();
         } else {
             IncluirProduto();
@@ -146,9 +146,6 @@ public class CadProdutos {
             ps.setString(4, validadeProduto);
 
             ps.execute();
-
-            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
-
         } catch (Exception e) {
             e.printStackTrace();
         }
