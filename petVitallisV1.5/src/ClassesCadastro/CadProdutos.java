@@ -48,7 +48,7 @@ public class CadProdutos {
     ConnectionFactory connect = new ConnectionFactory();
 
     // Verificar se o produto existe
-    public boolean produtoExiste() {
+    public boolean nomeProdutoExiste() {
         String query = "SELECT COUNT(*) FROM tb_cadproduto WHERE nomeProduto = ?";
 
         try (Connection conn = connect.obtemConexao();
@@ -65,27 +65,66 @@ public class CadProdutos {
         }
         return false;
     }
+    
+    public boolean codigoProdutoExiste() {
+        String query = "SELECT COUNT(*) FROM tb_cadproduto WHERE codigoProduto = ?";
+
+        try (Connection conn = connect.obtemConexao();
+            PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, CodProduto);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {                    
+                    int count = rs.getInt(1);
+                    return count > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     public void salvarOuAtualizarProdutos() {
-        if (produtoExiste()) {
+        if (nomeProdutoExiste() && codigoProdutoExiste()) {
             atualizarProduto();
         } else {
             IncluirProduto();
         }
     }
 
-    public CadProdutos carregarPorNome(String NomeProduto) {
+    public CadProdutos carregarPorNome(String produto) {
         String query = "SELECT * FROM tb_cadproduto WHERE nomeProduto = ?";
         try (Connection conn = connect.obtemConexao();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, NomeProduto);
+            pstmt.setString(1, produto);
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    this.CodProduto = rs.getString("Codigo Produto");
-                    this.NomeProduto = rs.getString("Nome Produto");
-                    this.TipoDeProduto = rs.getString("Tipo de Produto");
-                    this.validadeProduto = rs.getString("Validade do Produto");
+                    this.CodProduto = rs.getString("codigoProduto");
+                    this.NomeProduto = rs.getString("nomeProduto");
+                    this.TipoDeProduto = rs.getString("tipoProduto");
+                    this.validadeProduto = rs.getString("validadeProduto");
+                    return this;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public CadProdutos carregarPorCodigoProduto(String produto) {
+        String query = "SELECT * FROM tb_cadproduto WHERE codigoProduto = ?";
+        try (Connection conn = connect.obtemConexao();
+            PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, produto);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    this.CodProduto = rs.getString("codigoProduto");
+                    this.NomeProduto = rs.getString("nomeProduto");
+                    this.TipoDeProduto = rs.getString("tipoProduto");
+                    this.validadeProduto = rs.getString("validadeProduto");
                     return this;
                 }
             }
@@ -116,17 +155,17 @@ public class CadProdutos {
     }
 
     public void atualizarProduto() {
-        String sql = "UPDATE tb_cadproduto SET codigoProduto = ?, tipoProduto = ?, validadeProduto = ? WHERE nomeProduto = ?";
+        String sql = "UPDATE tb_cadproduto SET nomeProduto = ?, tipoProduto = ?, validadeProduto = ? WHERE codigoProduto = ?;";
 
         try (Connection c = connect.obtemConexao()) {
 
-            PreparedStatement ps = c.prepareStatement(sql);
-            ps.setString(1, CodProduto);
+            PreparedStatement ps = c.prepareStatement(sql);            
+            ps.setString(1, NomeProduto);
             ps.setString(2, TipoDeProduto);
             ps.setString(3, validadeProduto);
-            ps.setString(4, NomeProduto);
+            ps.setString(4, CodProduto);
 
-            ps.execute();
+            ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
