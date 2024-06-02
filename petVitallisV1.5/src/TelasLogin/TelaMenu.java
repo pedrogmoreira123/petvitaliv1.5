@@ -32,7 +32,7 @@ public class TelaMenu extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
-         configurarVisibilidadeItensMenu(cargo);
+        configurarVisibilidadeItensMenu(cargo);
         
          
          }
