@@ -42,7 +42,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         labelValidadeDoProduto = new javax.swing.JLabel();
         labelTipoDeProduto = new javax.swing.JLabel();
         cadastroTipoDeProduto = new javax.swing.JComboBox<>();
-        buttonInserirProd = new javax.swing.JButton();
+        buttonConfirmarProd = new javax.swing.JButton();
         cadastroCodigoDoProduto = new javax.swing.JTextField();
         labelCódigoDoProduto = new javax.swing.JLabel();
         buttonAtualizarProd1 = new javax.swing.JButton();
@@ -90,10 +90,10 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             }
         });
 
-        buttonInserirProd.setText("Inserir");
-        buttonInserirProd.addActionListener(new java.awt.event.ActionListener() {
+        buttonConfirmarProd.setText("Confirmar");
+        buttonConfirmarProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonInserirProdActionPerformed(evt);
+                buttonConfirmarProdActionPerformed(evt);
             }
         });
 
@@ -130,7 +130,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonAtualizarProd1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonInserirProd))
+                                .addComponent(buttonConfirmarProd))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(cadastroValidadeDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelValidadeDoProduto)
@@ -139,7 +139,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(buttonCadProdVoltarParaMenu)))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +162,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                     .addComponent(cadastroTipoDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonInserirProd)
+                    .addComponent(buttonConfirmarProd)
                     .addComponent(buttonAtualizarProd1))
                 .addGap(41, 41, 41)
                 .addComponent(buttonCadProdVoltarParaMenu)
@@ -180,7 +180,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_buttonCadProdVoltarParaMenuActionPerformed
 
-    private void buttonInserirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInserirProdActionPerformed
+    private void buttonConfirmarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConfirmarProdActionPerformed
         CadProdutos produtos = new CadProdutos();          
         
         if (!cadastroCodigoDoProduto.getText().isEmpty()) {
@@ -237,7 +237,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         }
         
         
-    }//GEN-LAST:event_buttonInserirProdActionPerformed
+    }//GEN-LAST:event_buttonConfirmarProdActionPerformed
       
     
     private void cadastroValidadeDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroValidadeDeProdutoActionPerformed
@@ -285,7 +285,11 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     }     
     
     private void buttonAtualizarProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtualizarProd1ActionPerformed
-        // TODO add your handling code here:
+        CadProdutos produto = new CadProdutos ();
+        
+        String codProd = (String) cadastroCodigoDoProduto.getText();
+        
+        produto.excluirProduto(codProd);
     }//GEN-LAST:event_buttonAtualizarProd1ActionPerformed
       
     public static void main(String args[]) {
@@ -326,7 +330,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAtualizarProd1;
     private javax.swing.JButton buttonCadProdVoltarParaMenu;
-    private javax.swing.JButton buttonInserirProd;
+    private javax.swing.JButton buttonConfirmarProd;
     private javax.swing.JTextField cadastroCodigoDoProduto;
     private javax.swing.JTextField cadastroNomeDoProduto;
     private javax.swing.JComboBox<String> cadastroTipoDeProduto;

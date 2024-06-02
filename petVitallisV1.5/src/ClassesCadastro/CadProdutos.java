@@ -167,6 +167,22 @@ public class CadProdutos {
             e.printStackTrace();
         }
     }
+    
+    public void excluirProduto(String CodProduto) {
+        String sql = "DELETE FROM tb_cadproduto WHERE codigoProduto = ?;";
+
+        try (Connection c = connect.obtemConexao()) {
+
+            PreparedStatement ps = c.prepareStatement(sql);            
+            ps.setString(1, CodProduto);            
+
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Produto excluído com sucesso!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     // Puxar Banco de Dados Completo
     public ResultSet TodosDadosProdutos() {
