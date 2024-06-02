@@ -1,15 +1,17 @@
  package ClassesCadastro;
-
+ 
 import Conexao_SQL.ConnectionFactory;
+import javax.swing.JOptionPane;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+
 public class CadConsultatt {
     
-    ConnectionFactory connect = new ConnectionFactory();
+    ConnectionFactory factory = new ConnectionFactory();
     
     private String nomePet;
     private String CPF;
@@ -61,7 +63,7 @@ public class CadConsultatt {
 
     public boolean cpfExists() {
         String query = "SELECT COUNT(*) FROM tb_cadconsultas  WHERE cpf = ?";
-        try (Connection conn = connect.obtemConexao();
+        try (Connection conn = factory.obtemConexao();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, CPF);
             try (ResultSet rs = pstmt.executeQuery()) {
@@ -80,7 +82,7 @@ public class CadConsultatt {
     
     public void inserirConsultas() {
         String query = "INSERT INTO tb_cadconsultas  (cpf, nomePet, consulta, dia, hora) VALUES (?, ?, ?, ?, ?)";
-        try (Connection conn = connect.obtemConexao();
+        try (Connection conn = factory.obtemConexao();
             PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, CPF);
             pstmt.setString(2, nomePet);
@@ -95,7 +97,7 @@ public class CadConsultatt {
 
     public void alterarConsultas() {
         String query = "UPDATE tb_cadconsultas  SET nomePet = ?, consulta = ?, dia = ?, hora = ? WHERE cpf = ?";
-        try (Connection conn = connect.obtemConexao();
+        try (Connection conn = factory.obtemConexao();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, nomePet);
             pstmt.setString(2, consulta);
@@ -113,7 +115,7 @@ public class CadConsultatt {
 
     public CadConsultatt loadByCPF(String cpf) {
         String query = "SELECT * FROM tb_cadconsultas WHERE cpf = ?";
-        try (Connection conn = connect.obtemConexao();
+        try (Connection conn = factory.obtemConexao();
             PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, cpf);
             try (ResultSet rs = pstmt.executeQuery()) {
@@ -136,7 +138,7 @@ public class CadConsultatt {
         public ResultSet TodosDados() {
         String query = "SELECT cpf, nomePet, consulta, dia, hora FROM tb_cadconsultas";
         try {
-            Connection conn = connect.obtemConexao();
+            Connection conn = factory.obtemConexao();
             PreparedStatement pstmt = conn.prepareStatement(query);
             return pstmt.executeQuery();
         }catch (SQLException e) {

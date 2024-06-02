@@ -126,7 +126,7 @@ private void CampoDePesquisaCPFFocusLost(java.awt.event.FocusEvent evt) {
   
     private void ProcuraCpf(String cpf) {
             CadPets pet = new CadPets();
-            CadPets rs = pet.CarregaCpf(cpf);
+            CadPets rs = pet.LerCPF(cpf);
 
             if (rs != null) {
                 DefaultTableModel model = new DefaultTableModel();

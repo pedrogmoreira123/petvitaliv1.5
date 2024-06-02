@@ -272,14 +272,14 @@ public class TelaCadConsultas extends javax.swing.JFrame {
 
     
     private void CampoDoCpfFocusLost(java.awt.event.FocusEvent evt) {
-        
-        
-        
+    
     String cpf = CampoDoCpf.getText();
     if (!cpf.isEmpty()) {
-        CadPets pets = new CadPets ();
+        CadPets pets = new CadPets();
         pets = pets.LerCPF(cpf);
         if (pets != null) {
+            
+            
             CampoNomeDoPet.setText(pets.getNomePet());
             CampoIdade.setText(pets.getIdade());
             CampoDaRaca.setText(pets.getraca());

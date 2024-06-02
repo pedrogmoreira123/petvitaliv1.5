@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import static javax.management.remote.JMXConnectorFactory.connect;
 
 
 public class CadPets {
@@ -167,7 +166,7 @@ public class CadPets {
     }
     
    public CadPets LerCPF(String cpf) {
-        String query = "SELECT * FROM tb_clientes WHERE cpf = ?";
+        String query = "SELECT * FROM tb_pets WHERE cpf = ?";
         
         try (Connection conn = factory.obtemConexao();
             PreparedStatement pstmt = conn.prepareStatement(query)) {
@@ -179,29 +178,6 @@ public class CadPets {
                     this.Numero = rs.getString("número");
                     this.NomePet = rs.getString("nomePet");
                     this.Idade = rs.getString("idade");
-                    this.raca = rs.getString("especie_raça ");
-                    
-                    return this;
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-   
-   public CadPets CarregaCpf(String cpf) {
-        String query = "SELECT * FROM tb_pets WHERE cpf = ?";
-        try (Connection conn = factory.obtemConexao();
-            PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, Cpf);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    this.Nome = rs.getString("nome");
-                    this.Cpf = rs.getString("cpf");
-                    this.NomePet = rs.getString("nomepet");
-                    this.Numero = rs.getString("numero");
-                    this.Idade = rs.getString("idade");
                     this.raca = rs.getString("especie_raça");
                     this.Sexo = rs.getString("sexo");
                     return this;
@@ -212,6 +188,8 @@ public class CadPets {
         }
         return null;
     }
+   
+   
    
    public ResultSet TodosDados() {
         String query = "SELECT nome, cpf, número, nomepet, idade, especie_raça, sexo FROM tb_pets";

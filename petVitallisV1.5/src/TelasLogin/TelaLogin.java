@@ -18,7 +18,7 @@ public class TelaLogin extends javax.swing.JFrame {
    private String cargo;
     
     public TelaLogin() {
-      super("PetVitallis");
+        super("PetVitallis");
         initComponents();
         setResizable(false);
         this.setLocationRelativeTo(null);

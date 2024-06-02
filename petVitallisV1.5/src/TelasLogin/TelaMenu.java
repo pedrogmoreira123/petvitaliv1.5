@@ -418,14 +418,14 @@ public class TelaMenu extends javax.swing.JFrame {
        
         if (!"adm".equals(cargo)) {
             // Não é administrador, oculta os itens
-            MenuFuncionarios.setVisible(true);
-            MenuPets.setVisible(false);
-            MenuProdutos.setVisible(true);
-            MenuConsultas.setVisible(false);
+            MenuFuncionarios.setVisible(false);
+            MenuPets.setVisible(true);
+            MenuProdutos.setVisible(false);
+            MenuConsultas.setVisible(true);
       
         } else  {
             // Se for administrador, tudo é visível
-            MenuFuncionarios.setVisible(false);
+            MenuFuncionarios.setVisible(true);
             MenuPets.setVisible(true);
             MenuProdutos.setVisible(true);
             MenuConsultas.setVisible(true);
