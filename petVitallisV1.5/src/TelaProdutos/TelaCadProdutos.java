@@ -242,7 +242,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_buttonInserirProdActionPerformed
-       
+      
     
     private void cadastroValidadeDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroValidadeDeProdutoActionPerformed
 

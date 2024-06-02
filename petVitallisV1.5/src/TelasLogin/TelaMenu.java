@@ -1,6 +1,10 @@
 package TelasLogin;
 
+<<<<<<< Updated upstream
 
+=======
+import ClassesCadastro.CadConsultatt;
+>>>>>>> Stashed changes
 import TelaFuncionario.TelaConsFuncionarios;
 import TelasLogin.TelaLogin;
 import TelaFuncionario.TelasCadFuncionarios;
@@ -8,9 +12,14 @@ import javax.swing.ImageIcon;
 import TelaProdutos.TelaCadProdutos;
 import TelaProdutos.TelaConsProduto;
 import TelaConsultas.TelaCadConsultas;
+<<<<<<< Updated upstream
 import TelaPet.TelaCadPet;
 import TelaPet.TelaConsClientes;
 import javax.swing.JOptionPane;
+=======
+import TelaCliente.TelaCadPet;
+import TelaCliente.TelaConsClientes;
+>>>>>>> Stashed changes
 import javax.swing.JPanel;
 
 public class TelaMenu extends javax.swing.JFrame {
@@ -399,10 +408,14 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsProdutosActionPerformed
 
     private void CadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClientesActionPerformed
+<<<<<<< Updated upstream
         
         TelaCadPet CadPet = new TelaCadPet();
         CadPet.setVisible(true);
         
+=======
+       
+>>>>>>> Stashed changes
     }//GEN-LAST:event_CadClientesActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -417,7 +430,10 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsClientesActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
       
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
