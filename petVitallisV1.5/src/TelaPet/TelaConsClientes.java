@@ -29,7 +29,7 @@ public class TelaConsClientes extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela
         this.setIconImage(icon.getImage());  
-                     CampoCpfPet.addFocusListener(new java.awt.event.FocusAdapter() {
+                     CampoDePesquisa.addFocusListener(new java.awt.event.FocusAdapter() {
              public void focusLost(java.awt.event.FocusEvent evt) {
              CampoDePesquisaCPFFocusLost(evt);
 
@@ -46,16 +46,13 @@ public class TelaConsClientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        CampoCpfPet = new javax.swing.JTextPane();
         ConsultarCpf = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         consultaBancoPets = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        CampoDePesquisa = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jScrollPane2.setViewportView(CampoCpfPet);
 
         ConsultarCpf.setText("Consultar");
         ConsultarCpf.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +76,12 @@ public class TelaConsClientes extends javax.swing.JFrame {
 
         jLabel1.setText("Digite o CPF");
 
+        CampoDePesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoDePesquisaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,9 +89,9 @@ public class TelaConsClientes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(7, 7, 7)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(CampoDePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ConsultarCpf))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
@@ -96,10 +99,12 @@ public class TelaConsClientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ConsultarCpf)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel1)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ConsultarCpf)
+                        .addComponent(CampoDePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
         );
@@ -110,9 +115,13 @@ public class TelaConsClientes extends javax.swing.JFrame {
     private void ConsultarCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarCpfActionPerformed
  
     }//GEN-LAST:event_ConsultarCpfActionPerformed
+
+    private void CampoDePesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDePesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoDePesquisaActionPerformed
 private void CampoDePesquisaCPFFocusLost(java.awt.event.FocusEvent evt) {
         
-         String cpf = CampoCpfPet.getText().trim();
+         String cpf = CampoDePesquisa.getText().trim();
 
     if (cpf.isEmpty()) {
         // Se o campo de pesquisa estiver vazio, mostramos todos os registros
@@ -225,11 +234,10 @@ private void CampoDePesquisaCPFFocusLost(java.awt.event.FocusEvent evt) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextPane CampoCpfPet;
+    private javax.swing.JTextField CampoDePesquisa;
     private javax.swing.JButton ConsultarCpf;
     private javax.swing.JTable consultaBancoPets;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
