@@ -160,7 +160,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             }
         });
 
-        CargoFun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinário", "Técnico Veterinário / Auxiliar de Veterinário", "Recepcionista", "Gerente de Clínica", "Assistente de Limpeza", "Especialista em Comportamento Animal", "Nutricionista Animal", "Enfermeiro Veterinário", "Esteticista Animal / Tosador", "Assistente Administrativo", "Radiologista Veterinário", "Farmacêutico Veterinário", "Especialista em Reabilitação Animal", " " }));
+        CargoFun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinário", "Recepcionista" }));
         CargoFun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CargoFunActionPerformed(evt);
@@ -336,6 +336,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         String CpfFun = cpfFuncionario.getText();
         String Cargofun = (String) CargoFun.getSelectedItem();
         
+        
         JOptionPane.showMessageDialog(this, "Cadastrado com Sucesso:\n\n"
             + "-RG Funcionario: " + RgFun + "\n"
             + "-Cep Funcionario:  " + CepFun  + "\n"
@@ -365,8 +366,10 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeFuncionarioActionPerformed
 
     private void BotaoConsultarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConsultarFuncionarioActionPerformed
+        
         TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
         CadProd.setVisible(true);
+        
     }//GEN-LAST:event_BotaoConsultarFuncionarioActionPerformed
 
     private void cepFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepFuncionarioActionPerformed
@@ -478,6 +481,11 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
     }
     
+    JOptionPane.showMessageDialog(this, "Atualizado com Sucesso:\n\n" +
+      
+                "-Cep Funcionario: " + funcionario.getCep() + "\n" +
+                "-Numero da residencia Funcionario: " + funcionario.getNumeroDaResidencia() + "\n" +
+                "-Cargo Funcionario: " + funcionario.getCargoFun());
         
         funcionario.atualizarFuncionario();
         
@@ -486,7 +494,9 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoAlterarActionPerformed
 
     private void CargoFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargoFunActionPerformed
-        // TODO add your handling code here:
+        
+        
+        
     }//GEN-LAST:event_CargoFunActionPerformed
 
     /**

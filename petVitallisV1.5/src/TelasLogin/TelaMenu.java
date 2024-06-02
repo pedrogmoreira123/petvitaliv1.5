@@ -2,47 +2,48 @@ package TelasLogin;
 
 
 import TelaFuncionario.TelaConsFuncionarios;
-import TelasLogin.TelaLogin;
 import TelaFuncionario.TelasCadFuncionarios;
 import javax.swing.ImageIcon;
 import TelaProdutos.TelaCadProdutos;
 import TelaProdutos.TelaConsProduto;
 import TelaConsultas.TelaCadConsultas;
+import TelaConsultas.TelaConsConsulta;
 import TelaPet.TelaCadPet;
 import TelaPet.TelaConsClientes;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class TelaMenu extends javax.swing.JFrame {
 
+public class TelaMenu extends javax.swing.JFrame {
+ 
     public double total = 0.0;
     public int numeroDeCompras = 0;
+    private String cargo;
 
-    public TelaMenu() {
+
+    public TelaMenu(String cargo) {
         super("TELA DE MENUS");
         initComponents();
         setResizable(false);
         this.setLocationRelativeTo(null);
+        this.cargo=cargo;
         String caminhoImagem = "/icon/logo PET VITALLI.png";
-        
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
+         configurarVisibilidadeItensMenu(cargo);
         
+         
          }
+    
+    
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BotaoNovaComprar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -53,53 +54,25 @@ public class TelaMenu extends javax.swing.JFrame {
         BotaoAdicionarAoCarrinho = new javax.swing.JButton();
         CampoDoPreco = new javax.swing.JTextField();
         barraMenu = new javax.swing.JMenuBar();
-        cadastros = new javax.swing.JMenu();
+        cadastrosConsultas = new javax.swing.JMenu();
         MenuFuncionarios = new javax.swing.JMenu();
         CadFuncionarios = new javax.swing.JMenuItem();
         ConsFuncionarios = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenu4 = new javax.swing.JMenu();
+        MenuPets = new javax.swing.JMenu();
         CadClientes = new javax.swing.JMenuItem();
         ConsClientes = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        MenuProdutos = new javax.swing.JMenu();
         CadProdutos = new javax.swing.JMenuItem();
         ConsProdutos = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        MenuConsultas = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
-        menuSair1 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
         relatorios = new javax.swing.JMenu();
         vendas = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
         voltar = new javax.swing.JMenuItem();
         sair = new javax.swing.JMenuItem();
-
-        jMenuItem1.setText("jMenuItem1");
-
-        jMenuItem2.setText("jMenuItem2");
-
-        jMenuItem3.setText("jMenuItem3");
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 204, 0));
@@ -143,7 +116,7 @@ public class TelaMenu extends javax.swing.JFrame {
             }
         });
 
-        cadastros.setText("Cadastros/Consultas");
+        cadastrosConsultas.setText("Cadastros/Consultas");
 
         MenuFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconFuncionario.png"))); // NOI18N
         MenuFuncionarios.setText("Funcionarios");
@@ -167,10 +140,10 @@ public class TelaMenu extends javax.swing.JFrame {
         MenuFuncionarios.add(ConsFuncionarios);
         MenuFuncionarios.add(jSeparator1);
 
-        cadastros.add(MenuFuncionarios);
+        cadastrosConsultas.add(MenuFuncionarios);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCliente.png"))); // NOI18N
-        jMenu4.setText("Pets");
+        MenuPets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCliente.png"))); // NOI18N
+        MenuPets.setText("Pets");
 
         CadClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCadCleintee.png"))); // NOI18N
         CadClientes.setText("Cadastrar");
@@ -179,7 +152,7 @@ public class TelaMenu extends javax.swing.JFrame {
                 CadClientesActionPerformed(evt);
             }
         });
-        jMenu4.add(CadClientes);
+        MenuPets.add(CadClientes);
 
         ConsClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconConsCliente.png"))); // NOI18N
         ConsClientes.setText("Consultar");
@@ -188,12 +161,12 @@ public class TelaMenu extends javax.swing.JFrame {
                 ConsClientesActionPerformed(evt);
             }
         });
-        jMenu4.add(ConsClientes);
+        MenuPets.add(ConsClientes);
 
-        cadastros.add(jMenu4);
+        cadastrosConsultas.add(MenuPets);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconProdutos.png"))); // NOI18N
-        jMenu5.setText("Produtos");
+        MenuProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconProdutos.png"))); // NOI18N
+        MenuProdutos.setText("Produtos");
 
         CadProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCadProduto.png"))); // NOI18N
         CadProdutos.setText("Cadastrar");
@@ -202,7 +175,7 @@ public class TelaMenu extends javax.swing.JFrame {
                 CadProdutosActionPerformed(evt);
             }
         });
-        jMenu5.add(CadProdutos);
+        MenuProdutos.add(CadProdutos);
 
         ConsProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconConsProdutos.png"))); // NOI18N
         ConsProdutos.setText("Consultar");
@@ -211,12 +184,12 @@ public class TelaMenu extends javax.swing.JFrame {
                 ConsProdutosActionPerformed(evt);
             }
         });
-        jMenu5.add(ConsProdutos);
+        MenuProdutos.add(ConsProdutos);
 
-        cadastros.add(jMenu5);
+        cadastrosConsultas.add(MenuProdutos);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCons.png"))); // NOI18N
-        jMenu6.setText("Consultas");
+        MenuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCons.png"))); // NOI18N
+        MenuConsultas.setText("Consultas");
 
         jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconCadCons.png"))); // NOI18N
         jMenuItem10.setText("Cadastrar");
@@ -225,7 +198,7 @@ public class TelaMenu extends javax.swing.JFrame {
                 jMenuItem10ActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem10);
+        MenuConsultas.add(jMenuItem10);
 
         jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconConsCons.png"))); // NOI18N
         jMenuItem11.setText("Consultar");
@@ -234,42 +207,11 @@ public class TelaMenu extends javax.swing.JFrame {
                 jMenuItem11ActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem11);
+        MenuConsultas.add(jMenuItem11);
 
-        cadastros.add(jMenu6);
+        cadastrosConsultas.add(MenuConsultas);
 
-        barraMenu.add(cadastros);
-
-        menuSair1.setText("Alterar");
-        menuSair1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuSair1ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem7.setText("Funcionarios");
-        menuSair1.add(jMenuItem7);
-
-        jMenuItem8.setText("Pets");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        menuSair1.add(jMenuItem8);
-
-        jMenuItem12.setText("Produtos");
-        menuSair1.add(jMenuItem12);
-
-        jMenuItem9.setText("Consultas");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        menuSair1.add(jMenuItem9);
-
-        barraMenu.add(menuSair1);
+        barraMenu.add(cadastrosConsultas);
 
         relatorios.setText("Relatorios");
 
@@ -359,8 +301,8 @@ public class TelaMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+     
+   
     private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
         dispose();
     }//GEN-LAST:event_menuSairActionPerformed
@@ -451,25 +393,13 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void FinalizarCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarCarrinhoActionPerformed
        
-       
-            
     }//GEN-LAST:event_FinalizarCarrinhoActionPerformed
 
-    private void menuSair1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSair1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menuSair1ActionPerformed
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
     private void ConsFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsFuncionariosActionPerformed
+
         TelaConsFuncionarios CadFuncionarios = new TelaConsFuncionarios();
         CadFuncionarios.setVisible(true);
+        
     }//GEN-LAST:event_ConsFuncionariosActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
@@ -481,11 +411,30 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         
-        TelaCadConsultas CadConsulta = new TelaCadConsultas();
-        CadConsulta.setVisible(true);
+        TelaConsConsulta CansConsulta = new TelaConsConsulta();
+        CansConsulta.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
+    private void configurarVisibilidadeItensMenu(String cargo) {
+       
+        if (!"adm".equals(cargo)) {
+            // Não é administrador, oculta os itens
+            MenuFuncionarios.setVisible(true);
+            MenuPets.setVisible(false);
+            MenuProdutos.setVisible(true);
+            MenuConsultas.setVisible(false);
+      
+        } else  {
+            // Se for administrador, tudo é visível
+            MenuFuncionarios.setVisible(false);
+            MenuPets.setVisible(true);
+            MenuProdutos.setVisible(true);
+            MenuConsultas.setVisible(true);
+            
+            }
+       
+    }
     
     /**
      * @param args the command line arguments
@@ -497,7 +446,7 @@ public class TelaMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaMenu().setVisible(true);
+                new TelaMenu("cargo").setVisible(true);
             }
         });
     }
@@ -515,31 +464,19 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem ConsFuncionarios;
     private javax.swing.JMenuItem ConsProdutos;
     private javax.swing.JButton FinalizarCarrinho;
+    private javax.swing.JMenu MenuConsultas;
     private javax.swing.JMenu MenuFuncionarios;
+    private javax.swing.JMenu MenuPets;
+    private javax.swing.JMenu MenuProdutos;
     private javax.swing.JLabel Total;
     private javax.swing.JMenuBar barraMenu;
-    private javax.swing.JMenu cadastros;
+    private javax.swing.JMenu cadastrosConsultas;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu menuSair;
-    private javax.swing.JMenu menuSair1;
     private javax.swing.JMenu relatorios;
     private javax.swing.JMenuItem sair;
     private javax.swing.JMenuItem vendas;
