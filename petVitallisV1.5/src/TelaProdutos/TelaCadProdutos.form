@@ -26,26 +26,17 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelTipoDeProduto" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cadastroTipoDeProduto" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="labelCódigoDoProduto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cadastroCodigoDoProduto" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonAtualizarProd1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="labelTipoDeProduto" min="-2" max="-2" attributes="0"/>
+                          <Component id="cadastroTipoDeProduto" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="labelCódigoDoProduto" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="cadastroCodigoDoProduto" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="buttonAtualizarProd" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonAtualizarProd1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="buttonInserirProd" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -92,7 +83,6 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonInserirProd" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonAtualizarProd" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonAtualizarProd1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
@@ -184,14 +174,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#xf3;digo do Produto"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonAtualizarProd">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Atualizar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAtualizarProdActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonAtualizarProd1">
       <Properties>

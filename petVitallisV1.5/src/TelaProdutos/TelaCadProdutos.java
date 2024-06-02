@@ -45,7 +45,6 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         buttonInserirProd = new javax.swing.JButton();
         cadastroCodigoDoProduto = new javax.swing.JTextField();
         labelCódigoDoProduto = new javax.swing.JLabel();
-        buttonAtualizarProd = new javax.swing.JButton();
         buttonAtualizarProd1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -106,13 +105,6 @@ public class TelaCadProdutos extends javax.swing.JFrame {
 
         labelCódigoDoProduto.setText("Código do Produto");
 
-        buttonAtualizarProd.setText("Atualizar");
-        buttonAtualizarProd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAtualizarProdActionPerformed(evt);
-            }
-        });
-
         buttonAtualizarProd1.setText("Excluir");
         buttonAtualizarProd1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,22 +119,16 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(135, 135, 135)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelTipoDeProduto)
-                                    .addComponent(cadastroTipoDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelCódigoDoProduto)
-                                    .addComponent(cadastroCodigoDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(32, 32, 32))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(buttonAtualizarProd1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(labelTipoDeProduto)
+                            .addComponent(cadastroTipoDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCódigoDoProduto)
+                            .addComponent(cadastroCodigoDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(buttonAtualizarProd)
+                                .addComponent(buttonAtualizarProd1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonInserirProd))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +163,6 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonInserirProd)
-                    .addComponent(buttonAtualizarProd)
                     .addComponent(buttonAtualizarProd1))
                 .addGap(41, 41, 41)
                 .addComponent(buttonCadProdVoltarParaMenu)
@@ -248,7 +233,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             produtos.setTipoDeProduto (cadastroTipoDeProduto.getSelectedItem().toString());
             produtos.setValidadeProduto (cadastroValidadeDeProduto.getText());
             
-            produtos.IncluirProduto();          
+            produtos.salvarOuAtualizarProdutos();          
         }
         
         
@@ -279,64 +264,6 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         }
     }     
     
-    private void buttonAtualizarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtualizarProdActionPerformed
-        CadProdutos produtos = new CadProdutos();         
-        
-        String codProd = (String) cadastroCodigoDoProduto.getText();
-        String nomeProd = cadastroNomeDoProduto.getText();
-        String tipoProd = (String) cadastroTipoDeProduto.getSelectedItem();
-        String validadeProd = cadastroValidadeDeProduto.getText();        
-                       
-        if (!cadastroCodigoDoProduto.getText().isEmpty()) {
-            produtos.setCodProduto(cadastroCodigoDoProduto.getText());
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Código do Produto Inválido");
-        }
-        
-        if (!cadastroNomeDoProduto.getText().isEmpty()) {
-            produtos.setNomeProduto(cadastroNomeDoProduto.getText());
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
-        }
-        
-        if (!cadastroTipoDeProduto.getSelectedItem().toString().isEmpty()) {
-            //tipoProduto.setTipoDeProduto(cadastroTipoDeProduto.getSelectedItem().toString());
-            produtos.setTipoDeProduto((String) cadastroTipoDeProduto.getSelectedItem());
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Tipo de Produto Inválido");
-        }                      
-                     
-        if (!cadastroValidadeDeProduto.getText().isEmpty()) {
-            produtos.setValidadeProduto(cadastroValidadeDeProduto.getText());
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Validade Inválido");
-        }
-        
-        if (cadastroCodigoDoProduto.getText().isEmpty()
-            || cadastroValidadeDeProduto.getText().isEmpty()
-            || cadastroNomeDoProduto.getText().isEmpty()) {
-            
-            //JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");
-            
-        } else {  
-            JOptionPane.showMessageDialog(this, "Produto atualizado!:\n\n"
-                                        + "Cód. do Produto: " + codProd + "\n"
-                                        + "Nome do Produto: " + nomeProd + "\n"
-                                        + "Tipo do Produto: " + tipoProd + "\n"
-                                        + "Validade do Produto: " + validadeProd);
-                      
-            produtos.setNomeProduto(cadastroNomeDoProduto.getText());
-            produtos.setTipoDeProduto (cadastroTipoDeProduto.getSelectedItem().toString());
-            produtos.setValidadeProduto (cadastroValidadeDeProduto.getText());
-            
-            produtos.salvarOuAtualizarProdutos();
-        }
-    }//GEN-LAST:event_buttonAtualizarProdActionPerformed
-
     private void cadastroNomeDoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroNomeDoProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastroNomeDoProdutoActionPerformed
@@ -397,7 +324,6 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAtualizarProd;
     private javax.swing.JButton buttonAtualizarProd1;
     private javax.swing.JButton buttonCadProdVoltarParaMenu;
     private javax.swing.JButton buttonInserirProd;
