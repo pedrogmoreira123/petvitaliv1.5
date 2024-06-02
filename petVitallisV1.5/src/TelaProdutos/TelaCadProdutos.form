@@ -26,13 +26,9 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="buttonApagarProd" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="labelTipoDeProduto" min="-2" max="-2" attributes="0"/>
                                   <Component id="cadastroTipoDeProduto" min="-2" pref="160" max="-2" attributes="0"/>
@@ -40,19 +36,24 @@
                                   <Component id="cadastroCodigoDoProduto" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="buttonAtualizarProd" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="buttonInserirProd" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="cadastroValidadeDeProduto" min="-2" pref="160" max="-2" attributes="0"/>
-                                      <Component id="labelValidadeDoProduto" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelNomeDoProduto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cadastroNomeDoProduto" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="buttonAtualizarProd1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="buttonAtualizarProd" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="buttonInserirProd" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Component id="cadastroValidadeDeProduto" min="-2" pref="160" max="-2" attributes="0"/>
+                              <Component id="labelValidadeDoProduto" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelNomeDoProduto" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="cadastroNomeDoProduto" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -68,7 +69,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="87" max="32767" attributes="0"/>
+              <EmptySpace pref="86" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelNomeDoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelCódigoDoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -92,9 +93,9 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonInserirProd" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonAtualizarProd" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonApagarProd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonAtualizarProd1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Component id="buttonCadProdVoltarParaMenu" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
@@ -115,6 +116,9 @@
         <Property name="alignmentX" type="float" value="0.0"/>
         <Property name="alignmentY" type="float" value="0.0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastroNomeDoProdutoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cadastroValidadeDeProduto">
       <Properties>
@@ -146,12 +150,11 @@
     <Component class="javax.swing.JComboBox" name="cadastroTipoDeProduto">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value=""/>
-            <StringItem index="1" value="Limpeza"/>
-            <StringItem index="2" value="Medicamento"/>
-            <StringItem index="3" value="Utenc&#xed;lio"/>
-            <StringItem index="4" value="Ra&#xe7;&#xe3;o"/>
+          <StringArray count="4">
+            <StringItem index="0" value="Limpeza"/>
+            <StringItem index="1" value="Medicamento"/>
+            <StringItem index="2" value="Utenc&#xed;lio"/>
+            <StringItem index="3" value="Ra&#xe7;&#xe3;o"/>
           </StringArray>
         </Property>
         <Property name="alignmentX" type="float" value="0.0"/>
@@ -190,10 +193,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAtualizarProdActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonApagarProd">
+    <Component class="javax.swing.JButton" name="buttonAtualizarProd1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Apagar"/>
+        <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAtualizarProd1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

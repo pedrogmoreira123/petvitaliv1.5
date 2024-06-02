@@ -3,6 +3,8 @@ package TelaProdutos;
 import TelaProdutos.TelaCadProdutos;
 import javax.swing.ImageIcon;
 import ClassesCadastro.CadProdutos;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -27,11 +29,11 @@ public class TelaConsProduto extends javax.swing.JFrame {
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
         
-        consultaBarraDeTextoPesquisa.addFocusListener(new java.awt.event.FocusAdapter() {
+        consultaBarraDeTextoPesquisa.addFocusListener(new java.awt.event.FocusAdapter() {        
             public void focusLost(java.awt.event.FocusEvent evt) {
                 consultaBarraDeTextoPesquisaFocusLost(evt);
-            }
-        });       
+                }
+        });     
     }
 
     /**
@@ -61,7 +63,7 @@ public class TelaConsProduto extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Código do Produto", "Nome Produto", "Tipo do Produto", "Validade do Produto"
+                "Código do Produto", "Nome do Produto", "Tipo do Produto", "Validade do Produto"
             }
         ));
         jScrollPane1.setViewportView(consultaBancoProdutos);
@@ -137,23 +139,23 @@ public class TelaConsProduto extends javax.swing.JFrame {
 
         if (produto.isEmpty()) {
             // Se o campo de pesquisa estiver vazio, mostramos todos os registros
-            TodosRegistrosProdutos();
+            todosRegistrosProdutos();
         } else {
             // Caso contrário, pesquisamos por um Produto específico
             procurarPorNomeProduto(produto);
         }
     }        
     
-    private void procurarPorNomeProduto(String NomeProduto) {
+    private void procurarPorNomeProduto(String produto) {
         CadProdutos consultaProdNome = new CadProdutos();
-        CadProdutos rs = consultaProdNome.carregarPorNome(NomeProduto);
+        CadProdutos rs = consultaProdNome.carregarPorNome(produto);
 
         if (rs != null) {
             DefaultTableModel model = new DefaultTableModel();
             model.addColumn("Código do Produto");
             model.addColumn("Nome do Produto");
-            model.addColumn("Tipo de Produto");
-            model.addColumn("Validade de Produto");
+            model.addColumn("Tipo do Produto");
+            model.addColumn("Validade do Produto");
 
             String codProduto = rs.getCodProduto();
             String nomeProduto = rs.getNomeProduto();
@@ -164,18 +166,18 @@ public class TelaConsProduto extends javax.swing.JFrame {
 
             consultaBancoProdutos.setModel(model);
         } else {
-            JOptionPane.showMessageDialog(null, "Produto não existente.");
+            JOptionPane.showMessageDialog(null, "O produto digitado não existe.");
         }
     }
 
-    private void TodosRegistrosProdutos() {
+    private void todosRegistrosProdutos() {
     CadProdutos consultaProd = new CadProdutos();        
     ResultSet rs = consultaProd.TodosDadosProdutos();
 
     if (rs != null) {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Código do Produto");
-        model.addColumn("Nome Produto");
+        model.addColumn("Nome do Produto");
         model.addColumn("Tipo do Produto");
         model.addColumn("Validade do Produto");
 
