@@ -1,29 +1,15 @@
 package TelasLogin;
 
-<<<<<<< Updated upstream
-
-=======
-import ClassesCadastro.CadConsultatt;
->>>>>>> Stashed changes
 import TelaFuncionario.TelaConsFuncionarios;
 import TelaFuncionario.TelasCadFuncionarios;
 import javax.swing.ImageIcon;
 import TelaProdutos.TelaCadProdutos;
 import TelaProdutos.TelaConsProduto;
 import TelaConsultas.TelaCadConsultas;
-<<<<<<< Updated upstream
 import TelaConsultas.TelaConsConsulta;
+
 import TelaPet.TelaCadPet;
 import TelaPet.TelaConsClientes;
-import javax.swing.JOptionPane;
-=======
-import TelaPet.TelaCadPet;
-import TelaPet.TelaConsClientes;
-import javax.swing.JOptionPane;
-import TelaCliente.TelaCadPet;
-import TelaCliente.TelaConsClientes;
->>>>>>> Stashed changes
-import javax.swing.JPanel;
 
 
 public class TelaMenu extends javax.swing.JFrame {
@@ -494,5 +480,5 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem vendas;
     private javax.swing.JMenuItem voltar;
     // End of variables declaration//GEN-END:variables
-    private JPanel painelDoAdm;
+   
 }
