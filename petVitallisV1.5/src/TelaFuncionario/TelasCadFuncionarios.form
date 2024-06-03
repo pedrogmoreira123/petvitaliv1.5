@@ -40,9 +40,6 @@
                           <Component id="rgfun" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="dataNasFuncionario" alignment="0" max="32767" attributes="0"/>
                       </Group>
-<<<<<<<< HEAD:petVitallisV1.5salvo/src/TelaFuncionario/TelasCadFuncionarios.form
-                      <Group type="103" groupAlignment="0" attributes="0">
-========
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="pisfun" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="104" max="32767" attributes="0"/>
@@ -54,34 +51,14 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="cepfun" min="-2" max="-2" attributes="0"/>
->>>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.form
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="cepfun" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="enderecoFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
-                                          <Component id="endereçofun" min="-2" max="-2" attributes="0"/>
-                                          <Component id="numeroresidenciafun" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="cepFuncionario" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <Component id="residenciaFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="123" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="BotaoCadFuncionario" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <Component id="BotaoConsultarFuncionario" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <Component id="BotaoVoltarMenu" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="enderecoFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="endereçofun" min="-2" max="-2" attributes="0"/>
+                                  <Component id="numeroresidenciafun" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-<<<<<<<< HEAD:petVitallisV1.5salvo/src/TelaFuncionario/TelasCadFuncionarios.form
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="BotaoAlterarCadastro" min="-2" pref="150" max="-2" attributes="0"/>
-========
                           <Component id="cepFuncionario" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                           <Component id="residenciaFuncionario" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
@@ -92,7 +69,6 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="BotaoCadFuncionario" min="-2" pref="131" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
->>>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.form
                           </Group>
                       </Group>
                   </Group>
@@ -154,22 +130,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="dataNasFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-<<<<<<<< HEAD:petVitallisV1.5salvo/src/TelaFuncionario/TelasCadFuncionarios.form
-                  <Component id="BotaoAlterarCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
-========
                   <Component id="BotaoVoltarMenu" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="CargoFun" alignment="3" min="-2" max="-2" attributes="0"/>
->>>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.form
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pisfun" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pisFuncionario" min="-2" max="-2" attributes="0"/>
-<<<<<<<< HEAD:petVitallisV1.5salvo/src/TelaFuncionario/TelasCadFuncionarios.form
-              <EmptySpace pref="71" max="32767" attributes="0"/>
-========
               <EmptySpace pref="70" max="32767" attributes="0"/>
->>>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.form
           </Group>
       </Group>
     </DimensionLayout>
@@ -279,20 +247,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoVoltarMenuActionPerformed"/>
       </Events>
     </Component>
-<<<<<<<< HEAD:petVitallisV1.5salvo/src/TelaFuncionario/TelasCadFuncionarios.form
-    <Component class="javax.swing.JButton" name="BotaoAlterarCadastro">
-========
     <Component class="javax.swing.JButton" name="BotaoAlterar">
->>>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.form
       <Properties>
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
       <Events>
-<<<<<<<< HEAD:petVitallisV1.5salvo/src/TelaFuncionario/TelasCadFuncionarios.form
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAlterarCadastroActionPerformed"/>
-      </Events>
-    </Component>
-========
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAlterarActionPerformed"/>
       </Events>
     </Component>
@@ -317,6 +276,5 @@
         <Property name="text" type="java.lang.String" value="Cargos Funcionarios"/>
       </Properties>
     </Component>
->>>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.form
   </SubComponents>
 </Form>

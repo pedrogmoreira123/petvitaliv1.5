@@ -271,15 +271,8 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
 
     private void BotaoCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadFuncionarioActionPerformed
                 
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
-        CadFuncionario alo = new CadFuncionario();
-        //nome, endereco, cfp, rg, cep, pis, data de nascimento, numero da resdencia
-        
-        String cpfFun, rgFun, cepFun, pisFun, dataNasFun, numResFun;
-=======
         CadFuncionario funcionario = new CadFuncionario();
   
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
                
     if (!nomeFuncionario.getText().isEmpty()) {
         funcionario.setNome(nomeFuncionario.getText());
@@ -293,114 +286,30 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Campo Endereço Inválido");
     }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
-        if (!cpfFuncionario.getText().isEmpty()) {
-        try {
-            cpfFun = (cpfFuncionario.getText());
-            alo.setCpf(cpfFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
-=======
     if (!cpfFuncionario.getText().isEmpty()) {
         funcionario.setCpf(cpfFuncionario.getText());
     } else {
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
         JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
     }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
-        if (!rgFuncionario.getText().isEmpty()) {
-        try {
-            rgFun = (rgFuncionario.getText());
-            alo.setRg(rgFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo RG Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
-=======
     if (!rgFuncionario.getText().isEmpty()) {
         funcionario.setRg(rgFuncionario.getText());
     } else {
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
         JOptionPane.showMessageDialog(null, "Campo RG Inválido");
     }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
-        if (!cepFuncionario.getText().isEmpty()) {
-        try {
-            cepFun = (cepFuncionario.getText());
-            alo.setCep(cepFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo CEP Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
-=======
     if (!cepFuncionario.getText().isEmpty()) {
         funcionario.setCep(cepFuncionario.getText());
     } else {
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
         JOptionPane.showMessageDialog(null, "Campo CEP Inválido");
     }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
-        if (!pisFuncionario.getText().isEmpty()) {
-        try {
-            pisFun = (pisFuncionario.getText());
-            alo.setPis(pisFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo PIS Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
-=======
     if (!pisFuncionario.getText().isEmpty()) {
         funcionario.setPis(pisFuncionario.getText());
     } else {
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
         JOptionPane.showMessageDialog(null, "Campo PIS Inválido");
     }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
-        if (!dataNasFuncionario.getText().isEmpty()) {
-        try {
-            dataNasFun = (dataNasFuncionario.getText());
-            alo.setDataDeNascimento(dataNasFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
-            JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
-            //mostra para o usuario aonde está errado
-          }
-        
-        if (!residenciaFuncionario.getText().isEmpty()) {
-        try {
-            numResFun = (residenciaFuncionario.getText());
-            alo.setNumeroDaResidencia(numResFun);
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campo Número de Residencia Inválido");
-            //mostra para o usuario aonde está errado
-        }
-           } else {
-        JOptionPane.showMessageDialog(null, "Campo Número de Residencia Inválido");
-            //mostra para o usuario aonde está errado
-          }
-        
-        
-        //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
-=======
     if (!dataNasFuncionario.getText().isEmpty()) {
         funcionario.setDataDeNascimento(dataNasFuncionario.getText());
     } else {
@@ -412,7 +321,6 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     } else {
         JOptionPane.showMessageDialog(null, "Campo Número de Residência Inválido");
     }
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
         
     if (!CargoFun.getSelectedItem().toString().isEmpty()) {
         funcionario.setCargoFun(CargoFun.getSelectedItem().toString());
@@ -443,23 +351,6 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
              
              
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
-        
-        // mudamos a invocação do mal que o kauan tinha feito. By: Kayrom
-        CadFuncionario cadfun = new CadFuncionario();
-        
-        cadfun.setNome(nomeFuncionario.getText());
-        cadfun.setCpf(cpfFuncionario.getText());
-        cadfun.setRg(rgFuncionario.getText());
-        cadfun.setDataDeNascimento(dataNasFuncionario.getText());
-        cadfun.setPis(pisFuncionario.getText());
-        cadfun.setEndereco(enderecoFuncionario.getText());
-        cadfun.setNumeroDaResidencia(residenciaFuncionario.getText());
-        cadfun.setCep(cepFuncionario.getText());
-        
-        cadfun.inserir();
-=======
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
     }//GEN-LAST:event_BotaoCadFuncionarioActionPerformed
 
     private void dataNasFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNasFuncionarioActionPerformed
