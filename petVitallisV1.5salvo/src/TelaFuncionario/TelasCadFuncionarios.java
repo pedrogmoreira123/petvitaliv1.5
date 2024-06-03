@@ -1,9 +1,7 @@
-    package TelaFuncionario;
+package TelaFuncionario;
 
-import ClassesCadastro.CadConsultatt;
 import ClassesCadastro.CadFuncionario;
 import TelasLogin.TelaMenu;
-import java.awt.event.FocusEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
@@ -26,12 +24,6 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
         
-            cpfFuncionario.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-            cpfFuncionarioFocusLost(evt);
-            
-                }
-            });
     }
 
     /**
@@ -62,9 +54,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         cepfun = new javax.swing.JLabel();
         cepFuncionario = new javax.swing.JTextField();
         BotaoVoltarMenu = new javax.swing.JButton();
-        BotaoAlterar = new javax.swing.JButton();
-        CargoFun = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        BotaoAlterarCadastro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -153,21 +143,12 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             }
         });
 
-        BotaoAlterar.setText("Alterar");
-        BotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
+        BotaoAlterarCadastro.setText("Alterar");
+        BotaoAlterarCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoAlterarActionPerformed(evt);
+                BotaoAlterarCadastroActionPerformed(evt);
             }
         });
-
-        CargoFun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Veterinário", "Recepcionista" }));
-        CargoFun.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CargoFunActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Cargos Funcionarios");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,62 +157,62 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nomefun)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(nomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                        .addComponent(cpffun, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cpfFuncionario, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(datefun)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(pisFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                            .addComponent(rgFuncionario, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rgfun, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dataNasFuncionario, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(pisfun)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE))))
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cepfun)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(enderecoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(endereçofun)
-                                    .addComponent(numeroresidenciafun)))
-                            .addComponent(cepFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(residenciaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotaoConsultarFuncionario, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BotaoAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(BotaoCadFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                            .addComponent(pisfun)
+                            .addComponent(datefun))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(CargoFun, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(130, 130, 130)
-                        .addComponent(BotaoVoltarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(13, 13, 13))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomefun)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(nomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                .addComponent(cpffun, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cpfFuncionario, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(pisFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                .addComponent(rgFuncionario, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rgfun, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(dataNasFuncionario, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cepfun)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(enderecoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(endereçofun)
+                                            .addComponent(numeroresidenciafun)))
+                                    .addComponent(cepFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residenciaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BotaoCadFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(BotaoConsultarFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(BotaoVoltarMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BotaoAlterarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(45, 45, 45))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomefun)
-                    .addComponent(endereçofun))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enderecoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoCadFuncionario))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nomefun)
+                            .addComponent(endereçofun))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(enderecoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(BotaoCadFuncionario)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpffun)
@@ -249,21 +230,18 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rgFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cepFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoAlterar))
+                    .addComponent(BotaoVoltarMenu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(datefun)
-                    .addComponent(jLabel1))
+                .addComponent(datefun)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataNasFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoVoltarMenu)
-                    .addComponent(CargoFun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BotaoAlterarCadastro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pisfun)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pisFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
@@ -271,32 +249,27 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
 
     private void BotaoCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadFuncionarioActionPerformed
                 
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
         CadFuncionario alo = new CadFuncionario();
         //nome, endereco, cfp, rg, cep, pis, data de nascimento, numero da resdencia
         
-        String cpfFun, rgFun, cepFun, pisFun, dataNasFun, numResFun;
-=======
-        CadFuncionario funcionario = new CadFuncionario();
-  
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
+        int cpfFun, rgFun, cepFun, pisFun, dataNasFun, numResFun;
                
-    if (!nomeFuncionario.getText().isEmpty()) {
-        funcionario.setNome(nomeFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
-    }
+        if (!nomeFuncionario.getText().isEmpty()) {
+            alo.setNome(nomeFuncionario.getText());
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
+        }
         
-    if (!enderecoFuncionario.getText().isEmpty()) {
-        funcionario.setEndereco(enderecoFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo Endereço Inválido");
-    }
+        if (!enderecoFuncionario.getText().isEmpty()) {
+            alo.setEndereco(enderecoFuncionario.getText());
+        }else{
+           JOptionPane.showMessageDialog(null, "Campo Endereço Inválido");
+        }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
         if (!cpfFuncionario.getText().isEmpty()) {
         try {
-            cpfFun = (cpfFuncionario.getText());
+            cpfFun = (int) Long.parseLong(cpfFuncionario.getText());
             alo.setCpf(cpfFun);
             
         } catch (NumberFormatException e) {
@@ -304,18 +277,13 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             //mostra para o usuario aonde está errado
         }
            } else {
-=======
-    if (!cpfFuncionario.getText().isEmpty()) {
-        funcionario.setCpf(cpfFuncionario.getText());
-    } else {
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
         JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
-    }
+            //mostra para o usuario aonde está errado
+          }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
         if (!rgFuncionario.getText().isEmpty()) {
         try {
-            rgFun = (rgFuncionario.getText());
+            rgFun = (int) Long.parseLong(rgFuncionario.getText());
             alo.setRg(rgFun);
             
         } catch (NumberFormatException e) {
@@ -323,18 +291,13 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             //mostra para o usuario aonde está errado
         }
            } else {
-=======
-    if (!rgFuncionario.getText().isEmpty()) {
-        funcionario.setRg(rgFuncionario.getText());
-    } else {
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
         JOptionPane.showMessageDialog(null, "Campo RG Inválido");
-    }
+            //mostra para o usuario aonde está errado
+          }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
         if (!cepFuncionario.getText().isEmpty()) {
         try {
-            cepFun = (cepFuncionario.getText());
+            cepFun = Integer.parseInt(cepFuncionario.getText());
             alo.setCep(cepFun);
             
         } catch (NumberFormatException e) {
@@ -342,18 +305,13 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             //mostra para o usuario aonde está errado
         }
            } else {
-=======
-    if (!cepFuncionario.getText().isEmpty()) {
-        funcionario.setCep(cepFuncionario.getText());
-    } else {
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
         JOptionPane.showMessageDialog(null, "Campo CEP Inválido");
-    }
+            //mostra para o usuario aonde está errado
+          }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
         if (!pisFuncionario.getText().isEmpty()) {
         try {
-            pisFun = (pisFuncionario.getText());
+            pisFun = Integer.parseInt(pisFuncionario.getText());
             alo.setPis(pisFun);
             
         } catch (NumberFormatException e) {
@@ -361,18 +319,13 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
             //mostra para o usuario aonde está errado
         }
            } else {
-=======
-    if (!pisFuncionario.getText().isEmpty()) {
-        funcionario.setPis(pisFuncionario.getText());
-    } else {
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
         JOptionPane.showMessageDialog(null, "Campo PIS Inválido");
-    }
+            //mostra para o usuario aonde está errado
+          }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
         if (!dataNasFuncionario.getText().isEmpty()) {
         try {
-            dataNasFun = (dataNasFuncionario.getText());
+            dataNasFun = Integer.parseInt(dataNasFuncionario.getText());
             alo.setDataDeNascimento(dataNasFun);
             
         } catch (NumberFormatException e) {
@@ -386,7 +339,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         if (!residenciaFuncionario.getText().isEmpty()) {
         try {
-            numResFun = (residenciaFuncionario.getText());
+            numResFun = Integer.parseInt(residenciaFuncionario.getText());
             alo.setNumeroDaResidencia(numResFun);
             
         } catch (NumberFormatException e) {
@@ -400,66 +353,67 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         
         
         //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
-=======
-    if (!dataNasFuncionario.getText().isEmpty()) {
-        funcionario.setDataDeNascimento(dataNasFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
-    }
         
-    if (!residenciaFuncionario.getText().isEmpty()) {
-        funcionario.setNumeroDaResidencia(residenciaFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo Número de Residência Inválido");
-    }
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
-        
-    if (!CargoFun.getSelectedItem().toString().isEmpty()) {
-        funcionario.setCargoFun(CargoFun.getSelectedItem().toString());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
-    }
-    
         String RgFun = rgFuncionario.getText();
         String CepFun = cepFuncionario.getText();
         String PisFun = pisFuncionario.getText();
         String DataNasFun = dataNasFuncionario.getText();
         String NumResFun = residenciaFuncionario.getText();
         String CpfFun = cpfFuncionario.getText();
-        String Cargofun = (String) CargoFun.getSelectedItem();
         
+        //Define uma expressão regular para verificar se o texto contém apenas números
+        String regexNumerico = "\\d+";  
+         
+        // Cria um padrão regex 
+        //Pattern é uma classe em Java que compila uma expressão regular em um objeto de padrão.
+        //Uma expressão regular é uma sequência de caracteres que define um padrão de busca.
+        Pattern pattern = Pattern.compile(regexNumerico);
+         
+        // Cria um Matcher para aplicar o padrão ao texto do campo
+        //Matcher é uma classe que realiza a correspondência de padrões em uma sequência de caracteres. 
+        //Ela é usada para aplicar um padrão regex a uma determinada string e encontrar todas as ocorrências desse padrão na string.
+         Matcher matcherCpfFun = pattern.matcher(CpfFun);
+         Matcher matcherRgFun = pattern.matcher(RgFun);
+         Matcher matcherPisFun = pattern.matcher(PisFun);
+         Matcher matcherDataNasFun = pattern.matcher(DataNasFun);
+         Matcher matcherCepFun = pattern.matcher(CepFun);
+         Matcher matcherNumResFun = pattern.matcher(NumResFun);
         
-        JOptionPane.showMessageDialog(this, "Cadastrado com Sucesso:\n\n"
-            + "-RG Funcionario: " + RgFun + "\n"
-            + "-Cep Funcionario:  " + CepFun  + "\n"
-            + "-Pis do Funcionarioa: " + PisFun + "\n"
-            + "-Data de Nascimento Funcionario: " + DataNasFun + "\n" 
-            + "-Numero da residencia Funcionario: " + NumResFun + "\n"
-            + "-CPF Funcionario: " + CpfFun + "\n"
-            + "-Cargo Funcionario: " + Cargofun);
-       
+        //Aqui basicamente é só para confirmar se todos os dados foram preenchidos
+        //Se tiverem sido preechidos corretamente ai finaliza o cadrastro
         
-            funcionario.atualizareInserirFuncionario();
-             
-             
+        if (!cpfFuncionario.getText().isEmpty()
+            && !rgFuncionario.getText().isEmpty()
+            && !pisFuncionario.getText().isEmpty()
+            && !cepFuncionario.getText().isEmpty()
+            && !residenciaFuncionario.getText().isEmpty()
+            && !dataNasFuncionario.getText().isEmpty()    
+            && matcherCpfFun.matches()
+            && matcherNumResFun.matches()
+            && matcherRgFun.matches()
+            && matcherCepFun.matches()
+            && matcherDataNasFun.matches()
+            && matcherPisFun.matches())  { 
+            alo.IncluirFun();
+        }else{
+             JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
+        }
         
-<<<<<<< HEAD:petVitallisV1.5/src/TelaADM/TelasCadFuncionarios.java
+        // só copiei oq o kaua fez kk
+        int cpfCli, rgCli, dataNasCli, pisCli, numResidenciaCli, cepCli;
         
-        // mudamos a invocação do mal que o kauan tinha feito. By: Kayrom
         CadFuncionario cadfun = new CadFuncionario();
         
         cadfun.setNome(nomeFuncionario.getText());
-        cadfun.setCpf(cpfFuncionario.getText());
-        cadfun.setRg(rgFuncionario.getText());
-        cadfun.setDataDeNascimento(dataNasFuncionario.getText());
-        cadfun.setPis(pisFuncionario.getText());
+        cadfun.setCpf(cpfCli = (int) Long.parseLong (cpfFuncionario.getText()));
+        cadfun.setRg(rgCli = (int)Long.parseLong(rgFuncionario.getText()));
+        cadfun.setDataDeNascimento(dataNasCli = (int) Long.parseLong (dataNasFuncionario.getText()));
+        cadfun.setPis(pisCli = (int) Long.parseLong (pisFuncionario.getText()));
         cadfun.setEndereco(enderecoFuncionario.getText());
-        cadfun.setNumeroDaResidencia(residenciaFuncionario.getText());
-        cadfun.setCep(cepFuncionario.getText());
+        cadfun.setNumeroDaResidencia(numResidenciaCli = (int) Long.parseLong(residenciaFuncionario.getText()));
+        cadfun.setCep(cepCli = (int) Long.parseLong(cepFuncionario.getText()));
         
         cadfun.inserir();
-=======
->>>>>>> Matheus:petVitallisV1.5/src/TelaFuncionario/TelasCadFuncionarios.java
     }//GEN-LAST:event_BotaoCadFuncionarioActionPerformed
 
     private void dataNasFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNasFuncionarioActionPerformed
@@ -475,10 +429,8 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeFuncionarioActionPerformed
 
     private void BotaoConsultarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConsultarFuncionarioActionPerformed
-        
         TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
         CadProd.setVisible(true);
-        
     }//GEN-LAST:event_BotaoConsultarFuncionarioActionPerformed
 
     private void cepFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepFuncionarioActionPerformed
@@ -488,30 +440,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     private void cpfFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpfFuncionarioActionPerformed
-    
-    private void cpfFuncionarioFocusLost(java.awt.event.FocusEvent evt) {
-        
-    String cpf = cpfFuncionario.getText();
-    if (!cpf.isEmpty()) {
-        CadFuncionario funcionario = new CadFuncionario();
-        funcionario = funcionario.lerCPF(cpf);
-        if (funcionario != null) {
-            
-            cpfFuncionario.setText(funcionario.getCpf());
-            nomeFuncionario.setText(funcionario.getNome());
-            rgFuncionario.setText(funcionario.getRg());
-            dataNasFuncionario.setText(funcionario.getDataDeNascimento());
-            pisFuncionario.setText(funcionario.getPis());
-            enderecoFuncionario.setText(funcionario.getEndereco());
-            residenciaFuncionario.setText(funcionario.getNumeroDaResidencia());
-            cepFuncionario.setText(funcionario.getCep());
-            CargoFun.setSelectedItem(funcionario.getCargoFun());
-     
-        } else {
-            JOptionPane.showMessageDialog(null, "CPF não encontrado.");
-            }
-        }
-    }
+
     private void rgFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rgFuncionarioActionPerformed
@@ -528,85 +457,10 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_residenciaFuncionarioActionPerformed
 
-    private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
+    private void BotaoAlterarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarCadastroActionPerformed
         TelaConsFuncionarios CadProd = new TelaConsFuncionarios ();
         CadProd.setVisible(true);
-      
-                    
-        CadFuncionario funcionario = new CadFuncionario();
-  
-               
-    if (!nomeFuncionario.getText().isEmpty()) {
-        funcionario.setNome(nomeFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo Nome Inválido");
-    }
-        
-    if (!enderecoFuncionario.getText().isEmpty()) {
-        funcionario.setEndereco(enderecoFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo Endereço Inválido");
-    }
-        
-    if (!cpfFuncionario.getText().isEmpty()) {
-        funcionario.setCpf(cpfFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo CPF Inválido");
-    }
-        
-    if (!rgFuncionario.getText().isEmpty()) {
-        funcionario.setRg(rgFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo RG Inválido");
-    }
-        
-    if (!cepFuncionario.getText().isEmpty()) {
-        funcionario.setCep(cepFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo CEP Inválido");
-    }
-        
-    if (!pisFuncionario.getText().isEmpty()) {
-        funcionario.setPis(pisFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo PIS Inválido");
-    }
-        
-    if (!dataNasFuncionario.getText().isEmpty()) {
-        funcionario.setDataDeNascimento(dataNasFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo Data de Nascimento Inválido");
-    }
-        
-    if (!residenciaFuncionario.getText().isEmpty()) {
-        funcionario.setNumeroDaResidencia(residenciaFuncionario.getText());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo Número de Residência Inválido");
-    }
-        
-    if (!CargoFun.getSelectedItem().toString().isEmpty()) {
-        funcionario.setCargoFun(CargoFun.getSelectedItem().toString());
-    } else {
-        JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
-    }
-    
-    JOptionPane.showMessageDialog(this, "Atualizado com Sucesso:\n\n" +
-      
-                "-Cep Funcionario: " + funcionario.getCep() + "\n" +
-                "-Numero da residencia Funcionario: " + funcionario.getNumeroDaResidencia() + "\n" +
-                "-Cargo Funcionario: " + funcionario.getCargoFun());
-        
-        funcionario.atualizarFuncionario();
-        
-     
-       
-    }//GEN-LAST:event_BotaoAlterarActionPerformed
-
-    private void CargoFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargoFunActionPerformed
-        
-        
-        
-    }//GEN-LAST:event_CargoFunActionPerformed
+    }//GEN-LAST:event_BotaoAlterarCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -644,11 +498,10 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoAlterar;
+    private javax.swing.JButton BotaoAlterarCadastro;
     private javax.swing.JButton BotaoCadFuncionario;
     private javax.swing.JButton BotaoConsultarFuncionario;
     private javax.swing.JButton BotaoVoltarMenu;
-    private javax.swing.JComboBox<String> CargoFun;
     private javax.swing.JTextField cepFuncionario;
     private javax.swing.JLabel cepfun;
     private javax.swing.JTextField cpfFuncionario;
@@ -657,7 +510,6 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     private javax.swing.JLabel datefun;
     private javax.swing.JTextField enderecoFuncionario;
     private javax.swing.JLabel endereçofun;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nomeFuncionario;
     private javax.swing.JLabel nomefun;
     private javax.swing.JLabel numeroresidenciafun;
