@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CadPets {
@@ -22,7 +24,16 @@ public class CadPets {
     private String Idade;
     private String raca;
     private String Sexo;
+    private int Codigo;
+   
+    
+    public int getCodigo() {
+        return Codigo;
+    }
 
+    public void setCodigo(int Codigo) {
+        this.Codigo = Codigo;
+    }
     
     public String getSexo() {
         return Sexo;
@@ -84,7 +95,8 @@ public class CadPets {
     
     }
     
-    public CadPets(String Nome, String Cpf, String Numero, String NomePet, String Idade, String raca, String Sexo) {
+    public CadPets(int Codigo, String Nome, String Cpf, String Numero, String NomePet, String Idade, String raca, String Sexo) {
+        this.Codigo = Codigo;
         this.Nome = Nome;
         this.Cpf = Cpf;
         this.Numero = Numero;
@@ -123,8 +135,7 @@ public class CadPets {
     
     public void AlterarPet(){
     
-    String querry = "UPDATE tb_pets SET nome = ?,número = ?, nomepet = ?, idade = ?, especie_raça = ?, WHERE cpf= ?";
-    ConnectionFactory factory = new ConnectionFactory();
+    String querry = "UPDATE tb_pets SET nome = ?,número = ?, nomepet = ?, idade = ?, especie_raça = ?, WHERE codigo = ?";
     
     try (Connection c = factory.obtemConexao()){
         PreparedStatement ps = c.prepareStatement(querry);
@@ -133,7 +144,7 @@ public class CadPets {
         ps.setString(3, NomePet);
         ps.setString(4, Idade);
         ps.setString(5, raca);
-        ps.setString(6, Cpf);
+        ps.setInt(6, Codigo);
         ps.execute(); 
 
         JOptionPane.showMessageDialog(null,"Alterado com sucesso!"); 
@@ -205,5 +216,39 @@ public class CadPets {
         
         }
 
+   
+   //Lista dos pets
+   
+   public List<CadPets> ListarPets(){
+       try{
+           List<CadPets> lista=new ArrayList<CadPets>();
+           String sql= "SELECT*FROM tb_pets";
+           
+           Connection conn = factory.obtemConexao();
+           PreparedStatement pstmt = conn.prepareStatement(sql);
+           
+           ResultSet rs= pstmt.executeQuery();
+           
+           while(rs.next()){
+            CadPets pets = new CadPets();
+            pets.setCodigo(rs.getInt("codigo"));
+            pets.setNome(rs.getString("nome"));
+            pets.setCpf(rs.getString("cpf"));
+            pets.setNumero(rs.getString("número"));
+            pets.setNomePet(rs.getString("nomepet"));
+            pets.setIdade(rs.getString("idade"));
+            pets.setraca(rs.getString("especie_raça"));
+            pets.setSexo(rs.getString("sexo"));
+           
+            lista.add(pets);
+           }
+           return lista;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+   
+   }
     
 }

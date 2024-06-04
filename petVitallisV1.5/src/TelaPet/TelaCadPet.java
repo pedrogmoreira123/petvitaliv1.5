@@ -303,6 +303,10 @@ public class TelaCadPet extends javax.swing.JFrame {
             && matcherNumTutor.matches()
             && matcherCpfTutor.matches())  { 
             pet.Inserir();
+            txtNomePet.setText("");
+            txtIdadePet.setText("");
+            txtRacaPet.setText("");
+            txtSexoPet.setText("");
         }else{
              JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");   
         }     
@@ -317,7 +321,7 @@ public class TelaCadPet extends javax.swing.JFrame {
  
 
 //Limpa dados dos pets
-
+    
     txtNomePet.setText("");
     txtIdadePet.setText("");
     txtRacaPet.setText("");

@@ -3,6 +3,7 @@ create database	db_pessoas;
 use db_pessoas;
 
 create table tb_pets(
+    codigo int auto_increment primary key,
     nome varchar(200),
     cpf varchar(200),
     número varchar(200),
