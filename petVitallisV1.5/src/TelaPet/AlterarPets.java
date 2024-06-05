@@ -167,6 +167,12 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
             }
         });
 
+        txtConsultaPet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtConsultaPetActionPerformed(evt);
+            }
+        });
+
         jLabel10.setText("CPF do Tutor");
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -386,6 +392,10 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
         txtSexoPet.setText("");
         
     }//GEN-LAST:event_LimparDadosActionPerformed
+
+    private void txtConsultaPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsultaPetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtConsultaPetActionPerformed
 
     
     

@@ -19,7 +19,7 @@ public class CadConsultatt {
     private String consulta;
     private String dia;
     private String hora;
-    private String valor;
+    private int valor;
     
     public String getNomePet() {
         return nomePet;
@@ -61,16 +61,62 @@ public class CadConsultatt {
         this.hora = hora;
     }
     
-    public String getvalor() {
+    public int getvalor() {
         return valor;
     }
 
-    public void setvalor(String valor) {
+    public void setvalor(int valor) {
         this.valor = valor;
     }
+    
+    public CadConsultatt(){
+    
+    }
 
+     public CadConsultatt(String nomePet, String CPF, String consulta, String dia, String hora, int valor) {
+        this.nomePet = nomePet;
+        this.CPF = CPF;
+        this.consulta = consulta;
+        this.dia = dia;
+        this.hora = hora;
+        this.valor = valor;
+    }
     
     
+       public void inserirConsultas() {
+        String query = "INSERT INTO tb_cadconsultas  (cpf, nomePet, consulta, dia, hora) VALUES (?, ?, ?, ?, ?)";
+        try (Connection conn = factory.obtemConexao();
+            PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, CPF);
+            pstmt.setString(2, nomePet);
+            pstmt.setString(3, consulta);
+            pstmt.setString(4, dia);
+            pstmt.setString(5, hora);
+            pstmt.executeUpdate();
+            
+           JOptionPane.showMessageDialog(null,nomePet +", Consulta Registrada com sucesso!"); 
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+       
+       
+        public void alterarConsultas() {
+        String query = "UPDATE tb_cadconsultas  SET consulta = ?, dia = ?, hora = ? WHERE cpf = ?";
+        try (Connection conn = factory.obtemConexao();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, consulta);
+            pstmt.setString(2, dia);
+            pstmt.setString(3, hora);
+            pstmt.setString(4, CPF);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+        
+        
     public boolean cpfExists() {
         String query = "SELECT COUNT(*) FROM tb_cadconsultas  WHERE cpf = ?";
         try (Connection conn = factory.obtemConexao();
@@ -89,41 +135,9 @@ public class CadConsultatt {
         
     }
     
-    
-    public void inserirConsultas() {
-        String query = "INSERT INTO tb_cadconsultas  (cpf, nomePet, consulta, dia, hora) VALUES (?, ?, ?, ?, ?)";
-        try (Connection conn = factory.obtemConexao();
-            PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, CPF);
-            pstmt.setString(2, nomePet);
-            pstmt.setString(3, consulta);
-            pstmt.setString(4, dia);
-            pstmt.setString(5, hora);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void alterarConsultas() {
-        String query = "UPDATE tb_cadconsultas  SET nomePet = ?, consulta = ?, dia = ?, hora = ? WHERE cpf = ?";
-        try (Connection conn = factory.obtemConexao();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, nomePet);
-            pstmt.setString(2, consulta);
-            pstmt.setString(3, dia);
-            pstmt.setString(4, hora);
-            pstmt.setString(5, CPF);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
 
-   
-
-    public CadConsultatt loadByCPF(String cpf) {
+    public CadConsultatt LerCPF(String cpf) {
         String query = "SELECT * FROM tb_cadconsultas WHERE cpf = ?";
         try (Connection conn = factory.obtemConexao();
             PreparedStatement pstmt = conn.prepareStatement(query)) {

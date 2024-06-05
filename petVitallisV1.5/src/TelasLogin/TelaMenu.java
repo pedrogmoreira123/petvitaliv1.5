@@ -407,9 +407,8 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+     
         
-        TelaConsConsulta CansConsulta = new TelaConsConsulta();
-        CansConsulta.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 

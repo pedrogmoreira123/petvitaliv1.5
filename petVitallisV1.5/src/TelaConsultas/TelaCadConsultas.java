@@ -6,8 +6,6 @@ import ClassesCadastro.CadPets;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -24,6 +22,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
     public TelaCadConsultas() {
         super("Cadastro de Consultas");
         initComponents();
+        addWindowListener(this);
         this.setLocationRelativeTo(null);
         setResizable(false);
         String caminhoImagem = "/icon/logo PET VITALLI.png";        
@@ -65,6 +64,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         jLabel9 = new javax.swing.JLabel();
         CampoDoCpf = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        BotaoAlterar = new javax.swing.JButton();
 
         consultaProdPesquisarBotao.setText("...");
         consultaProdPesquisarBotao.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +137,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "CPF Do Cliente", "Nome Do Pet", "Sexo", "Tipo de Consulta", "Dia e Hora"
+                "Códigos", "CPF Do Cliente", "Nome Do Pet  /  Sexo", "Raça  /  Idade(Anos) ", "Tipo de Consulta", "Dia e Hora"
             }
         ));
         consultaBancoConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -156,7 +156,22 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Sexo");
 
+        CampoDoCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoDoCpfActionPerformed(evt);
+            }
+        });
+
         jLabel8.setText("Digite o Cpf");
+
+        BotaoAlterar.setBackground(new java.awt.Color(255, 255, 255));
+        BotaoAlterar.setForeground(new java.awt.Color(0, 0, 0));
+        BotaoAlterar.setText("Alterar");
+        BotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAlterarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,30 +193,25 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(CampoDaRaca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(CampoDaRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(CampoIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(CampoNomeDoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(84, 84, 84))))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(CampoSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                        .addComponent(jLabel9)
+                                                        .addGap(23, 23, 23))))))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addGap(14, 14, 14))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(2, 2, 2)))))
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(16, 16, 16)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(47, 47, 47)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(CampoDiaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(CaixaDeHorasConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(40, 40, 40)
                                         .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -209,25 +219,31 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
                                         .addGap(85, 85, 85)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(88, 88, 88)
-                                        .addComponent(jLabel5))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(41, 41, 41)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(CampoDiaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(CaixaDeHorasConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(82, 82, 82)
+                                                .addComponent(jLabel5))))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(35, 35, 35))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(CampoSexo, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(CampoIdade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(209, 209, 209))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(209, 209, 209))))
+                                .addGap(35, 35, 35))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addContainerGap()
                         .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CampoDoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(130, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,41 +259,40 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jLabel5))
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(CampoNomeDoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CampoIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(CampoDiaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(CampoDiaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(CampoSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabel9)
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CampoSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(CampoDaRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CampoIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(41, 41, 41)
-                .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CampoDoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1))
         );
@@ -288,15 +303,17 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
   
     private void ButaoAgendarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoAgendarConsActionPerformed
 
-         CadConsultatt alo = new CadConsultatt ();
+         CadConsultatt alo = new CadConsultatt();
         
         
         if (!CampoNomeDoPet.getText().isEmpty()) {
             alo.setNomePet(CampoNomeDoPet.getText()); 
+           
         }else{
             JOptionPane.showMessageDialog(null, "Campo Nome Do Pet Inválido");
         }
         
+       
         if (!CampoCodigoPet.getText().isEmpty()) {
             alo.setCPF(CampoCodigoPet.getText());
         }else{
@@ -316,6 +333,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         } else {
            JOptionPane.showMessageDialog(null, "Campo Hora Esta Inválido"); 
         }
+     
         
         String nomeAnimal = CampoCodigoPet.getText();
         String nomeCliente = CampoNomeDoPet.getText();
@@ -333,10 +351,9 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
             + "-Dia da Consulta: " + Diaconsulta + "\n" 
             + "-Hora da Consulta: " + tipoHoras);
         
-        alo.saveOrUpdateConsultas();
+        alo.inserirConsultas();
         
-        
-        
+    
     }//GEN-LAST:event_ButaoAgendarConsActionPerformed
 
     private void CampoCodigoPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoCodigoPetActionPerformed
@@ -356,8 +373,80 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
     }//GEN-LAST:event_CaixaDeTipodeConsultasActionPerformed
 
     private void consultaBancoConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consultaBancoConsultasMouseClicked
-   
+                                       
+        //Funciona pra clicar
+        CampoCodigoPet.setText(consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 0).toString());
+        String nomePetESexo = consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 2).toString();
+        String[] partes = nomePetESexo.split("  /  ");
+        CampoNomeDoPet.setText(partes[0]);
+        CampoSexo.setText(partes[1]);
+        String racaIdade = consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 3).toString();
+        String[] parte = racaIdade.split("  /  ");
+        CampoDaRaca.setText(parte[0]);
+        CampoIdade.setText(parte [1]);
+        
+        
+        
+          
     }//GEN-LAST:event_consultaBancoConsultasMouseClicked
+
+    private void CampoDoCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDoCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoDoCpfActionPerformed
+
+    private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
+       
+         CadConsultatt alo = new CadConsultatt();
+        
+        
+        if (!CampoNomeDoPet.getText().isEmpty()) {
+            alo.setNomePet(CampoNomeDoPet.getText()); 
+           
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo Nome Do Pet Inválido");
+        }
+        
+       
+        if (!CampoCodigoPet.getText().isEmpty()) {
+            alo.setCPF(CampoCodigoPet.getText());
+        }else{
+           JOptionPane.showMessageDialog(null, "Campo Cpf do Tutor Inválido");
+        }
+        if (!CaixaDeTipodeConsultas.getSelectedItem().toString().isEmpty()) {
+            alo.setConsulta(CaixaDeTipodeConsultas.getSelectedItem().toString());
+            
+        }
+       if (!CampoDiaConsulta.getText().isEmpty()) {
+           alo.setDia(CampoDiaConsulta.getText());
+        }else {
+          JOptionPane.showMessageDialog(null, "Campo dia da Consulta Inválido"); 
+        }
+        if (!CaixaDeHorasConsultas.getSelectedItem().toString().isEmpty()) {
+            alo.setHora(CaixaDeHorasConsultas.getSelectedItem().toString());
+        } else {
+           JOptionPane.showMessageDialog(null, "Campo Hora Esta Inválido"); 
+        }
+     
+        
+        String nomeAnimal = CampoCodigoPet.getText();
+        String nomeCliente = CampoNomeDoPet.getText();
+        String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
+        String Diaconsulta = CampoDiaConsulta.getText();
+        String tipoHoras = (String) CaixaDeHorasConsultas.getSelectedItem();
+       
+        // Aqui você pode adicionar a lógica para agendar a consulta com os dados fornecidos
+
+        // Por enquanto, apenas exibimos uma mensagem com os dados
+        JOptionPane.showMessageDialog(this, "Consulta agendada:\n\n"
+            + "-CPF do Cliente: " + nomeCliente + "\n"
+            + "-Nome do Animal:  " + nomeAnimal  + "\n"
+            + "-Tipo de Consulta: " + tipoConsulta + "\n"
+            + "-Dia da Consulta: " + Diaconsulta + "\n" 
+            + "-Hora da Consulta: " + tipoHoras);
+        
+        alo.alterarConsultas();
+        
+    }//GEN-LAST:event_BotaoAlterarActionPerformed
 
     
       public void Listar(){
@@ -372,8 +461,8 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
                model.addRow(new Object[]{
                v.getCodigo(),
                v.getCpf(),
-               v.getNomePet() + "//" + v.getSexo(),
-               v.getraca() + "//" + v.getIdade()  ,
+               v.getNomePet() + "    /    " + v.getSexo(),
+               v.getraca() + "    /    " + v.getIdade()  ,
              
               
                
@@ -383,15 +472,51 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
        }catch(Exception e){
             e.printStackTrace();
 
-    }
+       }
    }
     
-    
     private void CampoDoCpfFocusLost(java.awt.event.FocusEvent evt) {
-    
-        
+         
+         String cpf = CampoDoCpf.getText().trim();
+
+        if (cpf.isEmpty()) {
+            
+            Listar();
+        } else {
+            // Caso contrario, pesquisamos por um Cpf especifico
+            Ler(cpf);
+        }
         
     }
+    
+    
+    private void Ler(String cpf) {
+         CadPets c = new CadPets();
+         CadPets rs = c.LerCPF(cpf);
+
+        if (rs != null) {
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("Código");
+            model.addColumn("CPF Do Tutor");
+            model.addColumn("Nome Do Pet  /  Sexo");
+            model.addColumn("Raça  /  Idade(Anos) ");
+            model.addColumn("Tipo de Consulta ");
+            model.addColumn("Dia e Hora");
+
+            int cod = rs.getCodigo();
+            String cp = rs.getCpf();
+            String nomeSexo = rs.getNomePet() + "    /    " + rs.getSexo();
+            String racaIdade = rs.getraca() + "    /    " + rs.getIdade();
+
+            model.addRow(new Object[]{cod, cp, nomeSexo, racaIdade});
+
+            consultaBancoConsultas.setModel(model);
+        } else {
+            JOptionPane.showMessageDialog(null, "CPF digitado não existe.");
+        }
+    }
+    
+    
     
      public void windowActivated(WindowEvent e) {
         this.Listar();
@@ -432,6 +557,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoAlterar;
     private javax.swing.JButton ButaoAgendarCons;
     private javax.swing.JComboBox<String> CaixaDeHorasConsultas;
     private javax.swing.JComboBox<String> CaixaDeTipodeConsultas;
@@ -458,32 +584,26 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
 
 @Override
     public void windowOpened(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void windowClosing(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void windowClosed(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void windowIconified(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
