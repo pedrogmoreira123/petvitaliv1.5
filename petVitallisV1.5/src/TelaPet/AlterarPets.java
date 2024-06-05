@@ -14,11 +14,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
-
-
-
-
+/**
+ *
+ * @author kauan
+ */
 public class AlterarPets extends javax.swing.JFrame implements java.awt.event.WindowListener {
 
    public void Listar(){
@@ -85,9 +84,9 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
         jLabel6 = new javax.swing.JLabel();
         txtNomePet = new javax.swing.JTextField();
         txtIdadePet = new javax.swing.JTextField();
-        VoltarMEnu = new javax.swing.JButton();
+        Deletar = new javax.swing.JButton();
         txtNumTutor = new javax.swing.JTextField();
-        SalvarPet = new javax.swing.JButton();
+        AlterarDados = new javax.swing.JButton();
         txtRacaPet = new javax.swing.JTextField();
         txtNomeTutor = new javax.swing.JTextField();
         txtCpfTutor = new javax.swing.JTextField();
@@ -97,6 +96,13 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaPets = new javax.swing.JTable();
+        txtCodigo = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        LimparDados = new javax.swing.JButton();
+        txtConsultaPet = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,19 +112,23 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
 
         jLabel5.setText("Número de contato");
 
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Alterar Cliente Pet");
+        jLabel6.setToolTipText("");
+        jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        VoltarMEnu.setText("Fechar");
-        VoltarMEnu.addActionListener(new java.awt.event.ActionListener() {
+        Deletar.setText("Deletar");
+        Deletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VoltarMEnuActionPerformed(evt);
+                DeletarActionPerformed(evt);
             }
         });
 
-        SalvarPet.setText("Alterar");
-        SalvarPet.addActionListener(new java.awt.event.ActionListener() {
+        AlterarDados.setText("Alterar");
+        AlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalvarPetActionPerformed(evt);
+                AlterarDadosActionPerformed(evt);
             }
         });
 
@@ -141,191 +151,175 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
                 "Código", "Nome", "Cpf", "Número", "Nome do Pet", "Idade", "Especie - Raça", "Sexo"
             }
         ));
+        TabelaPets.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelaPetsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TabelaPets);
+
+        jLabel9.setText("Código");
+
+        LimparDados.setText("Limpar");
+        LimparDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimparDadosActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("CPF do Tutor");
+
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Consultar Pet");
+        jLabel11.setToolTipText("");
+        jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLabel12.setText("<- por favor informe o CPF para consultar o dados do pet no banco de dados");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(AlterarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(197, 197, 197)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(172, 172, 172)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Deletar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(75, 75, 75))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNumTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCpfTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtSexoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtRacaPet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtIdadePet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtNomePet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel5))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtCpfTutor)
-                                            .addComponent(txtNomeTutor)
-                                            .addComponent(txtNumTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(VoltarMEnu)
-                                        .addGap(160, 160, 160)
-                                        .addComponent(SalvarPet, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE))
-                .addContainerGap())
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNomePet)
+                                    .addComponent(txtRacaPet)
+                                    .addComponent(txtSexoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtIdadePet, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtConsultaPet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                                .addComponent(jLabel12)))
+                        .addGap(75, 75, 75))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtConsultaPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel12))
+                .addGap(49, 49, 49)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNomePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
                     .addComponent(txtNomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel3)
+                    .addComponent(txtIdadePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
                     .addComponent(txtCpfTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel4)
+                    .addComponent(txtRacaPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
                     .addComponent(txtNumTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdadePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRacaPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSexoPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SalvarPet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(VoltarMEnu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8)
+                    .addComponent(txtSexoPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AlterarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Deletar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void VoltarMEnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarMEnuActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_VoltarMEnuActionPerformed
+    private void DeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarActionPerformed
+        CadPets pet = new CadPets();
 
-    private void SalvarPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarPetActionPerformed
+     
+        
+        pet.setCodigo(Integer.parseInt(txtCodigo.getText()));
+
+        if (!txtCodigo.getText().isEmpty())
+             {
+            pet.AlterarPet();
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");
+        }
+
+    }//GEN-LAST:event_DeletarActionPerformed
+
+    private void AlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarDadosActionPerformed
         // TODO add your handling code here:
 
         //Variavel pet para conversar com a classe
         CadPets pet = new CadPets();
 
         String NumPet, IdadePet, CpfTutor;
-
-        //Nome do tutor, nome e raça são preaticamente iguais
-        //Só muda o campo de onde vão puxar as Informações(getText)
-        //E aonde vão setar a informação(setNome)(setRaca)
-
-        if (!txtNomeTutor.getText().isEmpty()) {
-            pet.setNome(txtNomeTutor.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo do tutor inválido!");
-        }
-
-        if (!txtNomePet.getText().isEmpty()) {
-            pet.setNomePet(txtNomePet.getText());
-        } else {
-            JOptionPane.showMessageDialog(null, "Campo do Nome do pet esta inválido!");
-
-        }
-
-        if (!txtRacaPet.getText().isEmpty()) {
-            pet.setraca(txtRacaPet.getText());
-        } else {
-            JOptionPane.showMessageDialog(null, "Campo do raça inválido!");
-
-        }
-
-        //Para as informações em número o codigo é um pouco diferente
-        //Tem a mesma base, mas precia de mais comandos
-        //Aqui usaremos as variaveis que criamos la em cima como (IdadePet)
-        //E aqui tambem mudamos a varievel de String para Int!!
-
-        if (!txtIdadePet.getText().isEmpty()) {
-            try {
-                IdadePet =(txtIdadePet.getText());
-                pet.setIdade(IdadePet);
-
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Campo idade Inválido");
-                //mostra para o usuario aonde está errado
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Campo idade Inválido");
-            //mostra para o usuario aonde está errado
-        }
-
-        if (!txtNumTutor.getText().isEmpty()) {
-            try {
-                NumPet =(txtNumTutor.getText());
-
-                pet.setNumero(NumPet);
-
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Campo número Inválido");
-                // mostra para o usuario aonde está errado
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Campo número Inválido");
-            //  mostra para o usuario aonde está errado
-        }
-
-        if (!txtCpfTutor.getText().isEmpty()) {
-            try {
-                CpfTutor =(txtCpfTutor.getText());
-
-                pet.setCpf(CpfTutor);
-
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Campo CPF do Tutor Inválido");
-                // mostra para o usuario aonde está errado
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Campo CPF do Tutor Inválido");
-            //  mostra para o usuario aonde está errado
-        }
-        if (!txtSexoPet.getText().isEmpty()) {
-            pet.setSexo(txtSexoPet.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo do Sexo do pet esta inválido!");
-        }
-
+       
+        pet.setNome(txtNomeTutor.getText());
+        pet.setCpf(txtCpfTutor.getText());
+        pet.setNumero(txtNumTutor.getText());
+        pet.setNomePet(txtNomePet.getText());
+        pet.setIdade(txtIdadePet.getText());
+        pet.setraca(txtRacaPet.getText());
+        pet.setSexo(txtSexoPet.getText());
+        pet.setCodigo(Integer.parseInt(txtCodigo.getText()));
+        
+        
+        
         //Isso aqui em baixo é só para poder fazer aquele negocio de só aceitar número funcionar certo
 
         String textIdaPet = txtIdadePet.getText();
@@ -357,15 +351,41 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
             && !txtNumTutor.getText().isEmpty()
             && !txtCpfTutor.getText().isEmpty()
             && !txtSexoPet.getText().isEmpty()
+            && !txtCodigo.getText().isEmpty()
             && matcherIdade.matches()
             && matcherNumTutor.matches()
             && matcherCpfTutor.matches())  {
-            pet.AlterarPet();
+            pet.DeletarPet();
         }else{
             JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");
         }
 
-    }//GEN-LAST:event_SalvarPetActionPerformed
+    }//GEN-LAST:event_AlterarDadosActionPerformed
+
+    private void TabelaPetsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaPetsMouseClicked
+        //Funciona pra clicar
+        txtCodigo.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 0).toString());
+        txtNomeTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 1).toString());
+        txtCpfTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 2).toString());
+        txtNumTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 3).toString());
+        txtNomePet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 4).toString());
+        txtIdadePet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 5).toString());
+        txtRacaPet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 6).toString());
+        txtSexoPet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 7).toString());
+        
+    }//GEN-LAST:event_TabelaPetsMouseClicked
+
+    private void LimparDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparDadosActionPerformed
+        txtCodigo.setText("");
+        txtNomeTutor.setText("");
+        txtCpfTutor.setText("");
+        txtNumTutor.setText("");
+        txtNomePet.setText("");
+        txtIdadePet.setText("");
+        txtRacaPet.setText("");
+        txtSexoPet.setText("");
+        
+    }//GEN-LAST:event_LimparDadosActionPerformed
 
     
     
@@ -392,6 +412,9 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
             java.util.logging.Logger.getLogger(AlterarPets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -402,10 +425,14 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton SalvarPet;
+    private javax.swing.JButton AlterarDados;
+    private javax.swing.JButton Deletar;
+    private javax.swing.JButton LimparDados;
     private javax.swing.JTable TabelaPets;
-    private javax.swing.JButton VoltarMEnu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -413,7 +440,10 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtConsultaPet;
     private javax.swing.JTextField txtCpfTutor;
     private javax.swing.JTextField txtIdadePet;
     private javax.swing.JTextField txtNomePet;
@@ -425,31 +455,25 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
 
     @Override
     public void windowOpened(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+      }
 
     @Override
     public void windowClosing(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+      }
 
     @Override
     public void windowClosed(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        }
 
     @Override
     public void windowIconified(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+       }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+       }
 }

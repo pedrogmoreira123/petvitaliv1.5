@@ -6,7 +6,6 @@ import javax.swing.ImageIcon;
 import TelaProdutos.TelaCadProdutos;
 import TelaProdutos.TelaConsProduto;
 import TelaConsultas.TelaCadConsultas;
-import TelaConsultas.TelaConsConsulta;
 
 import TelaPet.TelaCadPet;
 import TelaPet.TelaConsClientes;

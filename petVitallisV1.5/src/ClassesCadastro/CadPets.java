@@ -135,7 +135,7 @@ public class CadPets {
     
     public void AlterarPet(){
     
-    String querry = "UPDATE tb_pets SET nome = ?,número = ?, nomepet = ?, idade = ?, especie_raça = ?, WHERE codigo = ?";
+    String querry = "UPDATE tb_pets SET nome=?, número=?, nomepet=?, idade=?, especie_raça=?, sexo=?, cpf=? WHERE codigo=?";
     
     try (Connection c = factory.obtemConexao()){
         PreparedStatement ps = c.prepareStatement(querry);
@@ -144,10 +144,32 @@ public class CadPets {
         ps.setString(3, NomePet);
         ps.setString(4, Idade);
         ps.setString(5, raca);
-        ps.setInt(6, Codigo);
+        ps.setString(6, Sexo);
+        ps.setString(7, Cpf);
+        ps.setInt(8, Codigo);
         ps.execute(); 
 
-        JOptionPane.showMessageDialog(null,"Alterado com sucesso!"); 
+        JOptionPane.showMessageDialog(null,NomePet +", alterado com sucesso!"); 
+    
+     }  
+  
+    catch(Exception e)
+    {
+        System.out.println("");
+    } 
+    
+    }
+    
+    public void DeletarPet(){
+    
+    String querry = "DELETE FROM tb_pets WHERE codigo = ?";
+    
+    try (Connection c = factory.obtemConexao()){
+        PreparedStatement ps = c.prepareStatement(querry);
+        ps.setInt(1, Codigo);
+        ps.execute(); 
+
+        JOptionPane.showMessageDialog(null,"Deletado com sucesso!"); 
     
      }  
   
@@ -221,7 +243,7 @@ public class CadPets {
    
    public List<CadPets> ListarPets(){
        try{
-           List<CadPets> lista = new ArrayList<CadPets>();
+           List<CadPets> lista=new ArrayList<CadPets>();
            String sql= "SELECT*FROM tb_pets";
            
            Connection conn = factory.obtemConexao();
