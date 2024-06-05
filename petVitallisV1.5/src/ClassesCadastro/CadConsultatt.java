@@ -1,12 +1,13 @@
  package ClassesCadastro;
- 
+
 import Conexao_SQL.ConnectionFactory;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CadConsultatt {
@@ -18,6 +19,7 @@ public class CadConsultatt {
     private String consulta;
     private String dia;
     private String hora;
+    private String valor;
     
     public String getNomePet() {
         return nomePet;
@@ -58,9 +60,17 @@ public class CadConsultatt {
     public void setHora(String hora) {
         this.hora = hora;
     }
+    
+    public String getvalor() {
+        return valor;
+    }
+
+    public void setvalor(String valor) {
+        this.valor = valor;
+    }
 
     
-
+    
     public boolean cpfExists() {
         String query = "SELECT COUNT(*) FROM tb_cadconsultas  WHERE cpf = ?";
         try (Connection conn = factory.obtemConexao();
@@ -134,20 +144,37 @@ public class CadConsultatt {
         return null;
     }
     
-    
-        public ResultSet TodosDados() {
-        String query = "SELECT cpf, nomePet, consulta, dia, hora FROM tb_cadconsultas";
-        try {
-            Connection conn = factory.obtemConexao();
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            return pstmt.executeQuery();
+     public List<CadPets> ListarPets(){
+       try{
+           List<CadPets> lista = new ArrayList<CadPets>();
+           String sql= "SELECT*FROM tb_pets";
+           
+           Connection conn = factory.obtemConexao();
+           PreparedStatement pstmt = conn.prepareStatement(sql);
+           
+           ResultSet rs= pstmt.executeQuery();
+           
+           while(rs.next()){
+            CadPets pets = new CadPets();
+            pets.setCodigo(rs.getInt("codigo"));
+            pets.setNome(rs.getString("nome"));
+            pets.setCpf(rs.getString("cpf"));
+            pets.setNumero(rs.getString("número"));
+            pets.setNomePet(rs.getString("nomepet"));
+            pets.setIdade(rs.getString("idade"));
+            pets.setraca(rs.getString("especie_raça"));
+            pets.setSexo(rs.getString("sexo"));
+           
+            lista.add(pets);
+           }
+           return lista;
         }catch (SQLException e) {
             e.printStackTrace();
         }
         
         return null;
-        
-        }
+   
+   }
         
          public void saveOrUpdateConsultas() {
         if (cpfExists()) {

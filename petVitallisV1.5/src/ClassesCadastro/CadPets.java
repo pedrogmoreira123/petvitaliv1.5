@@ -221,7 +221,7 @@ public class CadPets {
    
    public List<CadPets> ListarPets(){
        try{
-           List<CadPets> lista=new ArrayList<CadPets>();
+           List<CadPets> lista = new ArrayList<CadPets>();
            String sql= "SELECT*FROM tb_pets";
            
            Connection conn = factory.obtemConexao();
