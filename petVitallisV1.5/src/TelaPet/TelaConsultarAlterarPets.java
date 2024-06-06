@@ -379,8 +379,8 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
         txtCodigo.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 0).toString());
         txtNomeTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 1).toString());
         txtCpfTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 2).toString());
-        txtNumTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 4).toString());
-        txtNomePet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 3).toString());
+        txtNumTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 3).toString());
+        txtNomePet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 4).toString());
         txtIdadePet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 5).toString());
         txtRacaPet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 6).toString());
         txtSexoPet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 7).toString());
