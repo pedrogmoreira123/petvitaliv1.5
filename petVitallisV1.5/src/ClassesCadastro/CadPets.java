@@ -180,24 +180,6 @@ public class CadPets {
     
     }
     
-    public boolean cpfExists() {
-        String query = "SELECT COUNT(*) FROM tb_pets  WHERE cpf = ?";
-        try (Connection conn = factory.obtemConexao();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, Cpf);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getInt(1) > 0;
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        
-        return false;
-        
-    }
-    
    public CadPets LerCPF(String cpf) {
         String query = "SELECT * FROM tb_pets WHERE cpf = ?";
         
@@ -222,23 +204,7 @@ public class CadPets {
         return null;
     }
    
-   
-   
-   public ResultSet TodosDados() {
-        String query = "SELECT nome, cpf, número, nomepet, idade, especie_raça, sexo FROM tb_pets";
-        try {
-            Connection conn = factory.obtemConexao();
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            return pstmt.executeQuery();
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        
-        return null;
-        
-        }
 
-   
    //Lista dos pets
    
    public List<CadPets> ListarPets(){
@@ -272,5 +238,39 @@ public class CadPets {
         return null;
    
    }
+   
+   public List<CadPets> ListarPetsPorCpf(String Cpf){
+       try{
+           List<CadPets> lista=new ArrayList<CadPets>();
+           String sql= "SELECT*FROM tb_pets WHERE cpf=?";
+           
+           Connection conn = factory.obtemConexao();
+           PreparedStatement pstmt = conn.prepareStatement(sql);
+           pstmt.setString(1, Cpf);
+           
+           ResultSet rs= pstmt.executeQuery();
+           
+           while(rs.next()){
+            CadPets pets = new CadPets();
+            pets.setCodigo(rs.getInt("codigo"));
+            pets.setNome(rs.getString("nome"));
+            pets.setCpf(rs.getString("cpf"));
+            pets.setNumero(rs.getString("número"));
+            pets.setNomePet(rs.getString("nomepet"));
+            pets.setIdade(rs.getString("idade"));
+            pets.setraca(rs.getString("especie_raça"));
+            pets.setSexo(rs.getString("sexo"));
+           
+            lista.add(pets);
+           }
+           return lista;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+   
+   }
+   
     
 }

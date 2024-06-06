@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author kauan
  */
-public class AlterarPets extends javax.swing.JFrame implements java.awt.event.WindowListener {
+public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java.awt.event.WindowListener {
 
    public void Listar(){
        try{
@@ -47,7 +47,7 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
     }
    }
    
-    public AlterarPets() {
+    public TelaConsultarAlterarPets() {
         initComponents();
         addWindowListener((WindowListener) this);
         this.setLocationRelativeTo(null);
@@ -65,8 +65,7 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
         this.Listar();
         
     }
-
-  
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -98,11 +97,11 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
         TabelaPets = new javax.swing.JTable();
         txtCodigo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        LimparDados = new javax.swing.JButton();
+        Consultar = new javax.swing.JButton();
         txtConsultaPet = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        LimparDados1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,10 +159,10 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
 
         jLabel9.setText("Código");
 
-        LimparDados.setText("Limpar");
-        LimparDados.addActionListener(new java.awt.event.ActionListener() {
+        Consultar.setText("Consultar");
+        Consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LimparDadosActionPerformed(evt);
+                ConsultarActionPerformed(evt);
             }
         });
 
@@ -181,7 +180,12 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
         jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel12.setText("<- por favor informe o CPF para consultar o dados do pet no banco de dados");
+        LimparDados1.setText("Limpar");
+        LimparDados1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimparDados1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,21 +199,6 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(AlterarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(197, 197, 197)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Deletar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(75, 75, 75))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel7)
@@ -219,12 +208,14 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNumTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCpfTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(LimparDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNumTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCpfTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,26 +226,41 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
                                     .addComponent(txtNomePet)
                                     .addComponent(txtRacaPet)
                                     .addComponent(txtSexoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdadePet, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtIdadePet, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(75, 75, 75))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtConsultaPet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                                .addComponent(jLabel12)))
-                        .addGap(75, 75, 75))))
+                                .addGap(48, 48, 48)
+                                .addComponent(Consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(AlterarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(197, 197, 197)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(Deletar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(75, 75, 75))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtConsultaPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel12))
-                .addGap(49, 49, 49)
+                    .addComponent(Consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,7 +288,7 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AlterarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Deletar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LimparDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -373,16 +379,53 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
         txtCodigo.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 0).toString());
         txtNomeTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 1).toString());
         txtCpfTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 2).toString());
-        txtNumTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 3).toString());
-        txtNomePet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 4).toString());
+        txtNumTutor.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 4).toString());
+        txtNomePet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 3).toString());
         txtIdadePet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 5).toString());
         txtRacaPet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 6).toString());
         txtSexoPet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 7).toString());
         
     }//GEN-LAST:event_TabelaPetsMouseClicked
 
-    private void LimparDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparDadosActionPerformed
-        txtCodigo.setText("");
+    private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
+    
+        
+       try{
+           
+           String cpf = txtConsultaPet.getText();
+           
+           
+           CadPets pets = new CadPets();
+           List<CadPets> listadepets = pets.ListarPetsPorCpf(cpf);
+
+           DefaultTableModel model = (DefaultTableModel) TabelaPets.getModel();
+           model.setNumRows(0);
+           
+           for(CadPets v : listadepets ){
+               model.addRow(new Object[]{
+               v.getCodigo(),
+               v.getNome(),
+               v.getCpf(),
+               v.getNumero(),
+               v.getNomePet(),
+               v.getIdade(),
+               v.getraca(),
+               v.getSexo(),
+               
+               });
+           }
+       
+       }catch(Exception e){
+
+    }
+    }//GEN-LAST:event_ConsultarActionPerformed
+
+    private void txtConsultaPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsultaPetActionPerformed
+  
+    }//GEN-LAST:event_txtConsultaPetActionPerformed
+
+    private void LimparDados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparDados1ActionPerformed
+     txtCodigo.setText("");
         txtNomeTutor.setText("");
         txtCpfTutor.setText("");
         txtNumTutor.setText("");
@@ -391,11 +434,8 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
         txtRacaPet.setText("");
         txtSexoPet.setText("");
         
-    }//GEN-LAST:event_LimparDadosActionPerformed
-
-    private void txtConsultaPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsultaPetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtConsultaPetActionPerformed
+    
+    }//GEN-LAST:event_LimparDados1ActionPerformed
 
     
     
@@ -413,14 +453,18 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AlterarPets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConsultarAlterarPets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AlterarPets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConsultarAlterarPets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AlterarPets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConsultarAlterarPets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AlterarPets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConsultarAlterarPets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -429,20 +473,20 @@ public class AlterarPets extends javax.swing.JFrame implements java.awt.event.Wi
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AlterarPets().setVisible(true);
+                new TelaConsultarAlterarPets().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlterarDados;
+    private javax.swing.JButton Consultar;
     private javax.swing.JButton Deletar;
-    private javax.swing.JButton LimparDados;
+    private javax.swing.JButton LimparDados1;
     private javax.swing.JTable TabelaPets;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -8,8 +8,7 @@ import TelaProdutos.TelaConsProduto;
 import TelaConsultas.TelaCadConsultas;
 
 import TelaPet.TelaCadPet;
-import TelaPet.TelaConsClientes;
-
+import TelaPet.TelaConsultarAlterarPets;
 
 public class TelaMenu extends javax.swing.JFrame {
  
@@ -152,7 +151,7 @@ public class TelaMenu extends javax.swing.JFrame {
         MenuPets.add(CadClientes);
 
         ConsClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/IconConsCliente.png"))); // NOI18N
-        ConsClientes.setText("Consultar");
+        ConsClientes.setText("Consultar/Alterar");
         ConsClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsClientesActionPerformed(evt);
@@ -351,7 +350,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void ConsClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsClientesActionPerformed
      
-        TelaConsClientes consCli = new TelaConsClientes();
+        TelaConsultarAlterarPets consCli = new TelaConsultarAlterarPets();
         consCli.setVisible(true);
     }//GEN-LAST:event_ConsClientesActionPerformed
 
