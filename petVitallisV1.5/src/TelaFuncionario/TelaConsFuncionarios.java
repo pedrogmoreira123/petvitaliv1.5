@@ -1,8 +1,10 @@
 package TelaFuncionario;
 
-import TelaProdutos.TelaCadProdutos;
+import ClassesCadastro.CadFuncionario;
 import javax.swing.ImageIcon;
 import ClassesCadastro.CadProdutos;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class TelaConsFuncionarios extends javax.swing.JFrame {
 
@@ -20,6 +22,12 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
         
+        consultaBarraDeTextoPesquisa.addFocusListener(new java.awt.event.FocusAdapter() {        
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                consultaBarraDeTextoPesquisaFocusLost(evt);
+                }
+        });     
+        
         
     }
 
@@ -33,17 +41,16 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        consultaBancoProdutos = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        consultaBarraDeTextoPesquisa = new javax.swing.JTextPane();
+        consultaBancoFuncionarios = new javax.swing.JTable();
         consultaFiltroPesquisa = new javax.swing.JComboBox<>();
         BotaoSairAlterar = new javax.swing.JButton();
         consultaProdPesquisarBotao = new javax.swing.JButton();
+        consultaBarraDeTextoPesquisa = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        consultaBancoProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        consultaBancoFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -54,11 +61,14 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
                 "Código do Funcionario", "Nome do Funcionario", "CPF", "Cargo"
             }
         ));
-        jScrollPane1.setViewportView(consultaBancoProdutos);
+        jScrollPane1.setViewportView(consultaBancoFuncionarios);
 
-        jScrollPane2.setViewportView(consultaBarraDeTextoPesquisa);
-
-        consultaFiltroPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Nome", "CPF", "Cargo" }));
+        consultaFiltroPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CPF" }));
+        consultaFiltroPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultaFiltroPesquisaActionPerformed(evt);
+            }
+        });
 
         BotaoSairAlterar.setText("Sair");
         BotaoSairAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +83,12 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
                 consultaProdPesquisarBotaoActionPerformed(evt);
             }
         });
+
+        consultaBarraDeTextoPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultaBarraDeTextoPesquisaActionPerformed(evt);
+            }
+        });
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -82,20 +98,21 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(consultaBarraDeTextoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(consultaProdPesquisarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotaoSairAlterar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(consultaBarraDeTextoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(BotaoSairAlterar)
                         .addComponent(consultaProdPesquisarBotao)))
@@ -115,6 +132,52 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
         CadProd.setVisible(true);
     }//GEN-LAST:event_consultaProdPesquisarBotaoActionPerformed
 
+    private void consultaFiltroPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaFiltroPesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultaFiltroPesquisaActionPerformed
+
+    private void consultaBarraDeTextoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaBarraDeTextoPesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultaBarraDeTextoPesquisaActionPerformed
+
+    private void consultaBarraDeTextoPesquisaFocusLost(java.awt.event.FocusEvent evt) {        
+        String produto = consultaBarraDeTextoPesquisa.getText().trim();
+        
+        CadFuncionario func = new CadFuncionario();
+
+        if (produto.isEmpty()) {
+            // Se o campo de pesquisa estiver vazio, mostramos todos os registros
+            func.();
+        } else {
+            // Caso contrário, pesquisamos por um Produto específico
+            procurarPorNomeProduto(produto);
+        }
+    }   
+    
+    private void procurarPorNomeProduto(String funcionario) {
+        CadFuncionario consultaProdNome = new CadFuncionario();
+        CadFuncionario rs = consultaProdNome.lerCPF(funcionario);
+
+        if (rs != null) {
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("Código do Funcionario");
+            model.addColumn("Nome do Funcionario");
+            model.addColumn("CPF");
+            model.addColumn("Cargo");
+
+            String codFunc = rs.getCodFunc();
+            String nomeFunc = rs.getNome();
+            String CPFFunc = rs.getCpf();
+            String cargoFunc = rs.getCargoFun();
+
+            model.addRow(new Object[]{codFunc, nomeFunc, CPFFunc, cargoFunc});
+
+            consultaBancoFuncionarios.setModel(model);
+        } else {
+            JOptionPane.showMessageDialog(null, "O funcionário digitado não existe.");
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -153,12 +216,11 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoSairAlterar;
-    private javax.swing.JTable consultaBancoProdutos;
-    private javax.swing.JTextPane consultaBarraDeTextoPesquisa;
+    private javax.swing.JTable consultaBancoFuncionarios;
+    private javax.swing.JTextField consultaBarraDeTextoPesquisa;
     private javax.swing.JComboBox<String> consultaFiltroPesquisa;
     private javax.swing.JButton consultaProdPesquisarBotao;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

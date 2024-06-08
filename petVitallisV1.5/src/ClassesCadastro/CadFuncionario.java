@@ -12,6 +12,15 @@ public class CadFuncionario {
     
   ConnectionFactory factory = new ConnectionFactory();
     
+    private String codFunc;
+
+    public String getCodFunc() {
+        return codFunc;
+    }
+
+    public void setCodFunc(String codFunc) {
+        this.codFunc = codFunc;
+    }
     private String Nome;
     private String Endereco;
     private String Rg;
