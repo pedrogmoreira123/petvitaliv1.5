@@ -11,7 +11,7 @@ public class CadProdutos {
     private String CodProduto;
     private String NomeProduto;
     private String TipoDeProduto;
-    private String validadeProduto;
+    private String QuantidadeProduto;
 
     public String getCodProduto() {
         return CodProduto;
@@ -37,12 +37,12 @@ public class CadProdutos {
         this.TipoDeProduto = TipoDeProduto;
     }
 
-    public String getValidadeProduto() {
-        return validadeProduto;
+    public String getQuantidadeProduto() {
+        return QuantidadeProduto;
     }
 
-    public void setValidadeProduto(String validadeProduto) {
-        this.validadeProduto = validadeProduto;
+    public void setQuantidadeProduto(String QuantidadeProduto) {
+        this.QuantidadeProduto = QuantidadeProduto;
     }
 
     ConnectionFactory connect = new ConnectionFactory();
@@ -103,7 +103,7 @@ public class CadProdutos {
                     this.CodProduto = rs.getString("codigoProduto");
                     this.NomeProduto = rs.getString("nomeProduto");
                     this.TipoDeProduto = rs.getString("tipoProduto");
-                    this.validadeProduto = rs.getString("validadeProduto");
+                    this.QuantidadeProduto = rs.getString("quantidadeProduto");
                     return this;
                 }
             }
@@ -124,7 +124,7 @@ public class CadProdutos {
                     this.CodProduto = rs.getString("codigoProduto");
                     this.NomeProduto = rs.getString("nomeProduto");
                     this.TipoDeProduto = rs.getString("tipoProduto");
-                    this.validadeProduto = rs.getString("validadeProduto");
+                    this.QuantidadeProduto = rs.getString("quantidadeProduto");
                     return this;
                 }
             }
@@ -136,14 +136,14 @@ public class CadProdutos {
 
     // CRUDs
     public void IncluirProduto() {
-        String sql = "INSERT INTO tb_cadproduto (codigoProduto, nomeProduto, tipoProduto, validadeProduto) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO tb_cadproduto (codigoProduto, nomeProduto, tipoProduto, quantidadeProduto) VALUES (?, ?, ?, ?)";
 
         try (Connection c = connect.obtemConexao()) {
             PreparedStatement ps = c.prepareStatement(sql);
             ps.setString(1, CodProduto);
             ps.setString(2, NomeProduto);
             ps.setString(3, TipoDeProduto);
-            ps.setString(4, validadeProduto);
+            ps.setString(4, QuantidadeProduto);
 
             ps.execute();
         } catch (Exception e) {
@@ -152,14 +152,14 @@ public class CadProdutos {
     }
 
     public void atualizarProduto() {
-        String sql = "UPDATE tb_cadproduto SET nomeProduto = ?, tipoProduto = ?, validadeProduto = ? WHERE codigoProduto = ?;";
+        String sql = "UPDATE tb_cadproduto SET nomeProduto = ?, tipoProduto = ?, quantidadeProduto = ? WHERE codigoProduto = ?;";
 
         try (Connection c = connect.obtemConexao()) {
 
             PreparedStatement ps = c.prepareStatement(sql);            
             ps.setString(1, NomeProduto);
             ps.setString(2, TipoDeProduto);
-            ps.setString(3, validadeProduto);
+            ps.setString(3, QuantidadeProduto);
             ps.setString(4, CodProduto);
 
             ps.executeUpdate();
@@ -186,7 +186,7 @@ public class CadProdutos {
 
     // Puxar Banco de Dados Completo
     public ResultSet TodosDadosProdutos() {
-        String query = "SELECT codigoProduto, nomeProduto, tipoProduto, validadeProduto FROM tb_cadproduto";
+        String query = "SELECT codigoProduto, nomeProduto, tipoProduto, quantidadeProduto FROM tb_cadproduto";
         try {
             Connection conn = connect.obtemConexao();
             PreparedStatement pstmt = conn.prepareStatement(query);

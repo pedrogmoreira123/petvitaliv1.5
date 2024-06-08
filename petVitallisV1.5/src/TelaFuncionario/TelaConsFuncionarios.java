@@ -2,7 +2,6 @@ package TelaFuncionario;
 
 import ClassesCadastro.CadFuncionario;
 import javax.swing.ImageIcon;
-import ClassesCadastro.CadProdutos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 

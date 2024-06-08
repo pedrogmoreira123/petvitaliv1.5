@@ -3,8 +3,6 @@ package TelaProdutos;
 import TelaProdutos.TelaCadProdutos;
 import javax.swing.ImageIcon;
 import ClassesCadastro.CadProdutos;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -63,9 +61,10 @@ public class TelaConsProduto extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Código do Produto", "Nome do Produto", "Tipo do Produto", "Validade do Produto"
+                "Código do Produto", "Nome do Produto", "Tipo do Produto", "Quantidade do Produto"
             }
         ));
+        consultaBancoProdutos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(consultaBancoProdutos);
 
         consultaFiltroPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome" }));
@@ -155,14 +154,14 @@ public class TelaConsProduto extends javax.swing.JFrame {
             model.addColumn("Código do Produto");
             model.addColumn("Nome do Produto");
             model.addColumn("Tipo do Produto");
-            model.addColumn("Validade do Produto");
+            model.addColumn("Quantidade do Produto");
 
             String codProduto = rs.getCodProduto();
             String nomeProduto = rs.getNomeProduto();
             String tipoProduto = rs.getTipoDeProduto();
-            String validadeProduto = rs.getValidadeProduto();
+            String quantidadeProduto = rs.getQuantidadeProduto();
 
-            model.addRow(new Object[]{codProduto, nomeProduto, tipoProduto, validadeProduto});
+            model.addRow(new Object[]{codProduto, nomeProduto, tipoProduto, quantidadeProduto});
 
             consultaBancoProdutos.setModel(model);
         } else {
@@ -179,15 +178,15 @@ public class TelaConsProduto extends javax.swing.JFrame {
         model.addColumn("Código do Produto");
         model.addColumn("Nome do Produto");
         model.addColumn("Tipo do Produto");
-        model.addColumn("Validade do Produto");
+        model.addColumn("Quantidade do Produto");
 
         try {
             while (rs.next()) {
                 String codProd = rs.getString("codigoProduto");
                 String nomeProd = rs.getString("nomeProduto");
                 String tipoProd = rs.getString("tipoProduto");
-                String validadeProd = rs.getString("validadeProduto");
-                model.addRow(new Object[]{codProd, nomeProd, tipoProd, validadeProd});
+                String quantidadeProd = rs.getString("quantidadeProduto");
+                model.addRow(new Object[]{codProd, nomeProd, tipoProd, quantidadeProd});
             }
         } catch (SQLException e) {
             e.printStackTrace();

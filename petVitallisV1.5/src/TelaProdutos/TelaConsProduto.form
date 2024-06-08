@@ -72,7 +72,7 @@
                 <Column editable="true" title="C&#xf3;digo do Produto" type="java.lang.Object"/>
                 <Column editable="true" title="Nome do Produto" type="java.lang.Object"/>
                 <Column editable="true" title="Tipo do Produto" type="java.lang.Object"/>
-                <Column editable="true" title="Validade do Produto" type="java.lang.Object"/>
+                <Column editable="true" title="Quantidade do Produto" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -100,7 +100,7 @@
               </TableColumnModel>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+              <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
             </Property>
           </Properties>
         </Component>

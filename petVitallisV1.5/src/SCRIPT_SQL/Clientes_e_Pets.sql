@@ -25,7 +25,7 @@ create table tb_cadproduto (
 	codigoProduto INT PRIMARY KEY AUTO_INCREMENT,
 	nomeProduto VARCHAR(200),
 	tipoProduto VARCHAR(200),
-	validadeProduto VARCHAR(200)
+	quantidadeProduto VARCHAR(200)
 );
 
 create table tb_cadfuncionario(
@@ -45,3 +45,5 @@ select * from tb_cadproduto;
 select*from tb_cadconsultas;
 select * from tb_pets;
 select * from tb_cadfuncionario;
+
+drop table tb_;

@@ -37,9 +37,9 @@ public class TelaCadProdutos extends javax.swing.JFrame {
 
         buttonCadProdVoltarParaMenu = new javax.swing.JButton();
         cadastroNomeDoProduto = new javax.swing.JTextField();
-        cadastroValidadeDeProduto = new javax.swing.JTextField();
+        cadastroQuantidadeDeProduto = new javax.swing.JTextField();
         labelNomeDoProduto = new javax.swing.JLabel();
-        labelValidadeDoProduto = new javax.swing.JLabel();
+        labelQuantidadeDoProduto = new javax.swing.JLabel();
         labelTipoDeProduto = new javax.swing.JLabel();
         cadastroTipoDeProduto = new javax.swing.JComboBox<>();
         buttonConfirmarProd = new javax.swing.JButton();
@@ -64,24 +64,24 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             }
         });
 
-        cadastroValidadeDeProduto.setAlignmentX(0.0F);
-        cadastroValidadeDeProduto.setAlignmentY(0.0F);
-        cadastroValidadeDeProduto.addActionListener(new java.awt.event.ActionListener() {
+        cadastroQuantidadeDeProduto.setAlignmentX(0.0F);
+        cadastroQuantidadeDeProduto.setAlignmentY(0.0F);
+        cadastroQuantidadeDeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastroValidadeDeProdutoActionPerformed(evt);
+                cadastroQuantidadeDeProdutoActionPerformed(evt);
             }
         });
 
         labelNomeDoProduto.setText("Nome do Produto");
         labelNomeDoProduto.setAlignmentY(0.0F);
 
-        labelValidadeDoProduto.setText("Validade");
-        labelValidadeDoProduto.setAlignmentY(0.0F);
+        labelQuantidadeDoProduto.setText("Quantidade");
+        labelQuantidadeDoProduto.setAlignmentY(0.0F);
 
         labelTipoDeProduto.setText("Tipo de Produto");
         labelTipoDeProduto.setAlignmentY(0.0F);
 
-        cadastroTipoDeProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Limpeza", "Medicamento", "Utencílio", "Ração" }));
+        cadastroTipoDeProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Higiene", "Medicamento", "Acessório", "Alimentação" }));
         cadastroTipoDeProduto.setAlignmentX(0.0F);
         cadastroTipoDeProduto.setAlignmentY(0.0F);
         cadastroTipoDeProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -132,8 +132,8 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonConfirmarProd))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cadastroValidadeDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelValidadeDoProduto)
+                                .addComponent(cadastroQuantidadeDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelQuantidadeDoProduto)
                                 .addComponent(labelNomeDoProduto)
                                 .addComponent(cadastroNomeDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
@@ -154,11 +154,11 @@ public class TelaCadProdutos extends javax.swing.JFrame {
                     .addComponent(cadastroNomeDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelValidadeDoProduto)
+                    .addComponent(labelQuantidadeDoProduto)
                     .addComponent(labelTipoDeProduto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cadastroValidadeDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastroQuantidadeDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastroTipoDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -205,15 +205,15 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo Tipo de Produto Inválido");
         }                      
                      
-        if (!cadastroValidadeDeProduto.getText().isEmpty()) {
-            produtos.setValidadeProduto(cadastroValidadeDeProduto.getText());
+        if (!cadastroQuantidadeDeProduto.getText().isEmpty()) {
+            produtos.setQuantidadeProduto(cadastroQuantidadeDeProduto.getText());
             
         }else{
-            JOptionPane.showMessageDialog(null, "Campo Validade Inválido");
+            JOptionPane.showMessageDialog(null, "Campo Quantidade Inválido");
         }
         
         if (/*cadastroCodigoDoProduto.getText().isEmpty()
-            || */cadastroValidadeDeProduto.getText().isEmpty()
+            || */cadastroQuantidadeDeProduto.getText().isEmpty()
             || cadastroNomeDoProduto.getText().isEmpty()) {
 
             //JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente");                 
@@ -221,17 +221,17 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             String codProd = (String) cadastroCodigoDoProduto.getText();
             String nomeProd = cadastroNomeDoProduto.getText();
             String tipoProd = (String) cadastroTipoDeProduto.getSelectedItem();
-            String validadeProd = cadastroValidadeDeProduto.getText(); 
+            String quantidadeProd = cadastroQuantidadeDeProduto.getText(); 
                         
             JOptionPane.showMessageDialog(this, "Produto cadastrado!:\n\n"
                                         + "Cód. do Produto: " + codProd + "\n"
                                         + "Nome do Produto: " + nomeProd + "\n"
                                         + "Tipo do Produto: " + tipoProd + "\n"
-                                        + "Validade do Produto: " + validadeProd);
+                                        + "Quantidade do Produto: " + quantidadeProd);
             
             produtos.setNomeProduto(cadastroNomeDoProduto.getText());
             produtos.setTipoDeProduto (cadastroTipoDeProduto.getSelectedItem().toString());
-            produtos.setValidadeProduto (cadastroValidadeDeProduto.getText());
+            produtos.setQuantidadeProduto (cadastroQuantidadeDeProduto.getText());
             
             produtos.salvarOuAtualizarProdutos();          
         }
@@ -240,9 +240,9 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonConfirmarProdActionPerformed
       
     
-    private void cadastroValidadeDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroValidadeDeProdutoActionPerformed
+    private void cadastroQuantidadeDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroQuantidadeDeProdutoActionPerformed
 
-    }//GEN-LAST:event_cadastroValidadeDeProdutoActionPerformed
+    }//GEN-LAST:event_cadastroQuantidadeDeProdutoActionPerformed
 
     private void cadastroCodigoDoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroCodigoDoProdutoActionPerformed
         
@@ -258,7 +258,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             if (produtos != null) {
                 cadastroNomeDoProduto.setText(produtos.getNomeProduto());
                 cadastroTipoDeProduto.setSelectedItem(produtos.getTipoDeProduto());
-                cadastroValidadeDeProduto.setText(produtos.getValidadeProduto());
+                cadastroQuantidadeDeProduto.setText(produtos.getQuantidadeProduto());
             }
             
         }
@@ -278,7 +278,7 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             if (produtos != null) {
                 cadastroCodigoDoProduto.setText(produtos.getCodProduto());
                 cadastroTipoDeProduto.setSelectedItem(produtos.getTipoDeProduto());
-                cadastroValidadeDeProduto.setText(produtos.getValidadeProduto());
+                cadastroQuantidadeDeProduto.setText(produtos.getQuantidadeProduto());
             }
             
         }
@@ -333,11 +333,11 @@ public class TelaCadProdutos extends javax.swing.JFrame {
     private javax.swing.JButton buttonConfirmarProd;
     private javax.swing.JTextField cadastroCodigoDoProduto;
     private javax.swing.JTextField cadastroNomeDoProduto;
+    private javax.swing.JTextField cadastroQuantidadeDeProduto;
     private javax.swing.JComboBox<String> cadastroTipoDeProduto;
-    private javax.swing.JTextField cadastroValidadeDeProduto;
     private javax.swing.JLabel labelCódigoDoProduto;
     private javax.swing.JLabel labelNomeDoProduto;
+    private javax.swing.JLabel labelQuantidadeDoProduto;
     private javax.swing.JLabel labelTipoDeProduto;
-    private javax.swing.JLabel labelValidadeDoProduto;
     // End of variables declaration//GEN-END:variables
 }
