@@ -328,6 +328,7 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Campo de Cargo Inválido"); 
     }
     
+        String NomeFun = nomeFuncionario.getText();
         String RgFun = rgFuncionario.getText();
         String CepFun = cepFuncionario.getText();
         String PisFun = pisFuncionario.getText();
@@ -335,15 +336,20 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
         String NumResFun = residenciaFuncionario.getText();
         String CpfFun = cpfFuncionario.getText();
         String Cargofun = (String) CargoFun.getSelectedItem();
+        String enderecofun = enderecoFuncionario.getText();
         
         
-        JOptionPane.showMessageDialog(this, "Cadastrado com Sucesso:\n\n"
+        JOptionPane.showMessageDialog(this, """
+                                            Cadastrado com Sucesso:
+                                            
+                                            -Nome Funcionario: """ + NomeFun + "\n"
+            + "-CPF Funcionario: " + CpfFun + "\n"                                        
             + "-RG Funcionario: " + RgFun + "\n"
+            + "-Data de Nascimento Funcionario: " + DataNasFun + "\n"
+            + "-Pis do Funcionario: " + PisFun + "\n"
+            + "-Endereco do Funcionario: " + enderecofun + "\n"
             + "-Cep Funcionario:  " + CepFun  + "\n"
-            + "-Pis do Funcionarioa: " + PisFun + "\n"
-            + "-Data de Nascimento Funcionario: " + DataNasFun + "\n" 
             + "-Numero da residencia Funcionario: " + NumResFun + "\n"
-            + "-CPF Funcionario: " + CpfFun + "\n"
             + "-Cargo Funcionario: " + Cargofun);
        
         

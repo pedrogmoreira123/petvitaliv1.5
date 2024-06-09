@@ -146,7 +146,7 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
 
         if (produto.isEmpty()) {
             // Se o campo de pesquisa estiver vazio, mostramos todos os registros
-            func.();
+            func();
         } else {
             // Caso contrário, pesquisamos por um Produto específico
             procurarPorNomeProduto(produto);
