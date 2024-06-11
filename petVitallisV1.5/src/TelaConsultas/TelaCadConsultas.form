@@ -73,7 +73,7 @@
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="CampoCpfPet" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="CampoCpf" min="-2" pref="170" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -129,7 +129,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CampoCpfPet" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="CampoCpf" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
@@ -263,9 +263,9 @@
     </Component>
     <Component class="javax.swing.JTextField" name="CampoNomeDoPet">
     </Component>
-    <Component class="javax.swing.JTextField" name="CampoCpfPet">
+    <Component class="javax.swing.JTextField" name="CampoCpf">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoCpfPetActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoCpfActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="CaixaDeHorasConsultas">

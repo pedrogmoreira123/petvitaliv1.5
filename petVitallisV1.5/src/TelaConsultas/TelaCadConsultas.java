@@ -58,7 +58,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         CampoNomeDoPet = new javax.swing.JTextField();
-        CampoCpfPet = new javax.swing.JTextField();
+        CampoCpf = new javax.swing.JTextField();
         CaixaDeHorasConsultas = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -112,9 +112,9 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("CPF");
 
-        CampoCpfPet.addActionListener(new java.awt.event.ActionListener() {
+        CampoCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoCpfPetActionPerformed(evt);
+                CampoCpfActionPerformed(evt);
             }
         });
 
@@ -193,7 +193,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(10, 10, 10))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(CampoCpfPet, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CampoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(90, 90, 90)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
@@ -232,7 +232,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CampoCpfPet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CampoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,9 +289,9 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         
     }//GEN-LAST:event_BotaoDeConsultarActionPerformed
 
-    private void CampoCpfPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoCpfPetActionPerformed
+    private void CampoCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoCpfActionPerformed
        
-    }//GEN-LAST:event_CampoCpfPetActionPerformed
+    }//GEN-LAST:event_CampoCpfActionPerformed
 
     private void consultaProdPesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaProdPesquisarBotaoActionPerformed
         // TODO add your handling code here:
@@ -318,8 +318,8 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         }
         
        
-        if (!CampoCpfPet.getText().isEmpty()) {
-            alo.setCPF(CampoCpfPet.getText());
+        if (!CampoCpf.getText().isEmpty()) {
+            alo.setCPF(CampoCpf.getText());
         }else{
            JOptionPane.showMessageDialog(null, "Campo Cpf do Tutor Inválido");
         }
@@ -339,7 +339,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         }
      
         
-        String nomeAnimal = CampoCpfPet.getText();
+        String nomeAnimal = CampoCpf.getText();
         String nomeCliente = CampoNomeDoPet.getText();
         String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
         String Diaconsulta = CampoDiaConsulta.getText();
@@ -372,7 +372,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         
     try {
         // Obter CPF e nome do pet digitados
-        String cpf = CampoCpfPet.getText();
+        String cpf = CampoCpf.getText();
         String nomePet = CampoNomeDoPet.getText();
         
         // Verificar se ambos os campos estão preenchidos
@@ -383,7 +383,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
 
             if (!listadepets.isEmpty()) {
                 CadPets pet = listadepets.get(0);
-                CampoCpfPet.setText(pet.getCpf());
+                CampoCpf.setText(pet.getCpf());
                 CampoNomeDoPet.setText(pet.getNomePet());
                 CampoIdade.setText(pet.getIdade());
                 CampoDaRaca.setText(pet.getraca());
@@ -452,7 +452,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
     private javax.swing.JButton BotaoDeConsultar;
     private javax.swing.JComboBox<String> CaixaDeHorasConsultas;
     private javax.swing.JComboBox<String> CaixaDeTipodeConsultas;
-    private javax.swing.JTextField CampoCpfPet;
+    private javax.swing.JTextField CampoCpf;
     private javax.swing.JTextField CampoDaRaca;
     private javax.swing.JTextField CampoDiaConsulta;
     private javax.swing.JTextField CampoIdade;
