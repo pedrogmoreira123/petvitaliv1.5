@@ -38,7 +38,7 @@
                           <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="LimparDados1" min="-2" pref="92" max="-2" attributes="0"/>
@@ -62,8 +62,8 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="txtNomePet" max="32767" attributes="0"/>
                                           <Component id="txtRacaPet" max="32767" attributes="0"/>
-                                          <Component id="txtSexoPet" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtIdadePet" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                                          <Component id="txtSexoPet" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -73,15 +73,18 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="txtConsultaPet" min="-2" pref="136" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="txtConsultaPet" min="-2" pref="452" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="Consultar" min="-2" pref="137" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel11" max="32767" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="Consultar" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" alignment="0" pref="137" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="313" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="313" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -156,8 +159,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Esp&#xe9;cie - Ra&#xe7;a"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtSexoPet">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -349,6 +350,22 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LimparDados1ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="txtSexoPet">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Macho"/>
+            <StringItem index="1" value="F&#xea;mea"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSexoPetActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

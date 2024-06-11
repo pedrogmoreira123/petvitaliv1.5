@@ -78,7 +78,6 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
 
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtSexoPet = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtNomePet = new javax.swing.JTextField();
@@ -102,6 +101,7 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         LimparDados1 = new javax.swing.JButton();
+        txtSexoPet = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 153));
@@ -188,6 +188,13 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
             }
         });
 
+        txtSexoPet.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Macho", "Fêmea" }));
+        txtSexoPet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSexoPetActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -203,7 +210,7 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
                             .addComponent(jLabel9)
                             .addComponent(jLabel10))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(LimparDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,20 +231,22 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txtNomePet)
                                             .addComponent(txtRacaPet)
-                                            .addComponent(txtSexoPet)
-                                            .addComponent(txtIdadePet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txtIdadePet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtSexoPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(Deletar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(23, 23, 23))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(txtConsultaPet, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtConsultaPet, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
+                                .addGap(184, 184, 184)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                                .addGap(313, 313, 313))))
                     .addComponent(AlterarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 32, Short.MAX_VALUE))
@@ -319,7 +328,7 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
         pet.setNomePet(txtNomePet.getText());
         pet.setIdade(txtIdadePet.getText());
         pet.setraca(txtRacaPet.getText());
-        pet.setSexo(txtSexoPet.getText());
+        pet.setSexo(txtSexoPet.getSelectedItem().toString());
         pet.setCodigo(Integer.parseInt(txtCodigo.getText()));
         
         
@@ -354,7 +363,6 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
             && !txtIdadePet.getText().isEmpty()
             && !txtNumTutor.getText().isEmpty()
             && !txtCpfTutor.getText().isEmpty()
-            && !txtSexoPet.getText().isEmpty()
             && !txtCodigo.getText().isEmpty()
             && matcherIdade.matches()
             && matcherNumTutor.matches()
@@ -375,7 +383,7 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
         txtNomePet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 4).toString());
         txtIdadePet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 5).toString());
         txtRacaPet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 6).toString());
-        txtSexoPet.setText(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 7).toString());
+        txtSexoPet.setSelectedItem(TabelaPets.getValueAt(TabelaPets.getSelectedRow(), 7).toString());
         
     }//GEN-LAST:event_TabelaPetsMouseClicked
 
@@ -423,11 +431,13 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
         txtNumTutor.setText("");
         txtNomePet.setText("");
         txtIdadePet.setText("");
-        txtRacaPet.setText("");
-        txtSexoPet.setText("");
-        
+        txtRacaPet.setText("");   
     
     }//GEN-LAST:event_LimparDados1ActionPerformed
+
+    private void txtSexoPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoPetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSexoPetActionPerformed
 
     
     
@@ -496,7 +506,7 @@ public class TelaConsultarAlterarPets extends javax.swing.JFrame implements java
     private javax.swing.JTextField txtNomeTutor;
     private javax.swing.JTextField txtNumTutor;
     private javax.swing.JTextField txtRacaPet;
-    private javax.swing.JTextField txtSexoPet;
+    private javax.swing.JComboBox<String> txtSexoPet;
     // End of variables declaration//GEN-END:variables
 
     @Override
