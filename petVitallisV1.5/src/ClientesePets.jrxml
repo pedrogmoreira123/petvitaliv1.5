@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ClientesePets" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d27023b5-afd9-4519-9ea7-3296d5fd715c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="db_pessoas"/>
+	<queryString language="SQL">
+		<![CDATA[select * from tb_pets;]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_pets"/>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.label" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_pets"/>
+	</field>
+	<field name="número" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="número"/>
+		<property name="com.jaspersoft.studio.field.label" value="número"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_pets"/>
+	</field>
+	<field name="nomepet" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomepet"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomepet"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_pets"/>
+	</field>
+	<field name="idade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idade"/>
+		<property name="com.jaspersoft.studio.field.label" value="idade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_pets"/>
+	</field>
+	<field name="especie_raça" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="especie_raça"/>
+		<property name="com.jaspersoft.studio.field.label" value="especie_raça"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_pets"/>
+	</field>
+	<field name="sexo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sexo"/>
+		<property name="com.jaspersoft.studio.field.label" value="sexo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_pets"/>
+	</field>
+	<group name="nome">
+		<groupExpression><![CDATA[$F{nome}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="122" y="20" width="310" height="30" uuid="672acaf8-4e3a-4670-ae38-9d4913e3b7d3"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatórios de Clientes e Pets]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="480" y="0" width="100" height="30" uuid="a2643749-2e58-4f3e-9f79-46f9f24f5f78"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-40" y="0" width="710" height="20" uuid="48aa39e9-fbd2-487d-8c27-b0429e93f996"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="3" width="40" height="20" uuid="b2a1e742-f021-488c-a7bd-341e99e7a0a8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="3" width="40" height="20" uuid="8792ec3a-b756-4139-9701-bdcb543b5da8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TEL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="3" width="40" height="20" uuid="3366cea5-7a61-4f72-adc1-aec7dfb6b5a7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="3" width="70" height="20" uuid="9689c41d-8074-4708-814f-7315c114baf1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME PET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="3" width="60" height="20" uuid="77e059d0-31a8-4e77-9f41-6ac62a92acbb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IDADE PET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="3" width="80" height="20" uuid="251b1f88-a530-4572-b0ad-3f5de1bafcca"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPÉCIE/RAÇA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="3" width="70" height="20" uuid="e4c78601-e626-4612-b825-01e576fb8738"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEXO PET]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="0" width="74" height="20" uuid="6ddb1b7d-dc31-44f5-8ae3-a5af53411e89"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="70" height="20" uuid="722a9bc1-c7e7-49f3-993a-6b3281f00468"/>
+				<textFieldExpression><![CDATA[$F{número}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="70" height="20" uuid="d3aae905-a548-4095-9a37-788a7a4e8157"/>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="70" height="20" uuid="7500690e-4361-4074-b4e7-232064fb003f"/>
+				<textFieldExpression><![CDATA[$F{nomepet}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="60" height="20" uuid="02969c25-9211-4d89-b0ae-46aef1e32a9d"/>
+				<textFieldExpression><![CDATA[$F{idade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="20" uuid="7709adad-b2f0-4185-863c-01ffdb69c640"/>
+				<textFieldExpression><![CDATA[$F{especie_raça}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="54" height="20" uuid="8db5423e-ca25-4437-8c6a-378f4be4d2ed"/>
+				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="59">
+			<image>
+				<reportElement x="0" y="0" width="60" height="59" uuid="4ecc8d37-991b-4ea5-bfab-99c4467b223f"/>
+				<imageExpression><![CDATA["C:/Users/pedro/OneDrive/Área de Trabalho/logo 100.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="520" y="39" width="100" height="20" uuid="eeec67e3-43ae-4468-845b-03f598adfd37"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
