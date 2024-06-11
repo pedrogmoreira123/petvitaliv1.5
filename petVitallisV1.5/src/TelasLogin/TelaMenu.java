@@ -5,6 +5,7 @@ import TelaFuncionario.TelasCadFuncionarios;
 import javax.swing.ImageIcon;
 import TelaProdutos.TelaCadProdutos;
 import TelaProdutos.TelaConsProduto;
+import TelaConsultas.TelaAlterarDeleteConsulta;
 import TelaConsultas.TelaCadConsultas;
 
 import TelaPet.TelaCadPet;
@@ -344,8 +345,10 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_CadClientesActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        
         TelaCadPet CadPet = new TelaCadPet();
         CadPet.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void ConsClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsClientesActionPerformed
@@ -407,7 +410,8 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
      
-        
+        TelaAlterarDeleteConsulta cons = new TelaAlterarDeleteConsulta();
+        cons.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 

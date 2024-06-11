@@ -1,6 +1,11 @@
+/*drop database db_pessoas;*/
+
+
 
 create database	db_pessoas;
 use db_pessoas;
+
+
 
 create table tb_pets(
     codigo int auto_increment primary key,
@@ -14,7 +19,7 @@ create table tb_pets(
 );
 
 create table tb_cadconsultas(
-     CPF varchar(200),
+     Código varchar(200),
      NomePet varchar(15),
      Consulta varchar(100),
      Dia varchar (11),
@@ -42,8 +47,12 @@ create table tb_cadfuncionario(
 
 
 select * from tb_cadproduto;
+
 select*from tb_cadconsultas;
+
 select * from tb_pets;
+
 select * from tb_cadfuncionario;
 
-drop table tb_;
+
+

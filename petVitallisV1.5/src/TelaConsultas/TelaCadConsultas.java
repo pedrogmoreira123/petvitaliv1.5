@@ -1,7 +1,7 @@
 
 package TelaConsultas;
 
-import ClassesCadastro.CadConsultatt;
+import ClassesCadastro.CadConsulta;
 import ClassesCadastro.CadPets;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -11,18 +11,16 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
+public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.event.WindowListener {
+    
 /*
  * @author Andre Alves
  */
-public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.event.WindowListener {
-
-    /**
-     * Creates new form TelaCadConsultas
-     */
-    public TelaCadConsultas() {
+    
+    public  TelaCadConsultas() {
         super("Cadastro de Consultas");
         initComponents();
-        addWindowListener(this);
+        addWindowListener((WindowListener) this);
         this.setLocationRelativeTo(null);
         setResizable(false);
         String caminhoImagem = "/icon/logo PET VITALLI.png";        
@@ -31,12 +29,23 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
         
-            CampoDoCpf.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-            CampoDoCpfFocusLost(evt);
-            }
-        });
+        
+        
+        
+             CampoNomeDoPet.addFocusListener(new java.awt.event.FocusAdapter() {
+             @Override
+             public void focusLost(java.awt.event.FocusEvent evt) {
+             CampoNomeDoPetFocusLost(evt);
+            
+                }
+            });
+         
     }
+    
+    
+ public void windowActivated(WindowEvent e) {
+    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -44,12 +53,12 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
 
         consultaProdPesquisarBotao = new javax.swing.JButton();
         CaixaDeTipodeConsultas = new javax.swing.JComboBox<>();
-        ButaoAgendarCons = new javax.swing.JButton();
+        BotaoDeConsultar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         CampoNomeDoPet = new javax.swing.JTextField();
-        CampoCodigoPet = new javax.swing.JTextField();
+        CampoCpfPet = new javax.swing.JTextField();
         CaixaDeHorasConsultas = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -58,13 +67,10 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         CampoIdade = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         CampoDaRaca = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        consultaBancoConsultas = new javax.swing.JTable();
         CampoSexo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        CampoDoCpf = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        BotaoAlterar = new javax.swing.JButton();
+        BotaoCadastrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         consultaProdPesquisarBotao.setText("...");
         consultaProdPesquisarBotao.addActionListener(new java.awt.event.ActionListener() {
@@ -85,12 +91,12 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
             }
         });
 
-        ButaoAgendarCons.setBackground(new java.awt.Color(255, 255, 255));
-        ButaoAgendarCons.setForeground(new java.awt.Color(0, 0, 0));
-        ButaoAgendarCons.setText("Agendar");
-        ButaoAgendarCons.addActionListener(new java.awt.event.ActionListener() {
+        BotaoDeConsultar.setBackground(new java.awt.Color(255, 255, 255));
+        BotaoDeConsultar.setForeground(new java.awt.Color(0, 0, 0));
+        BotaoDeConsultar.setText("Consultar");
+        BotaoDeConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButaoAgendarConsActionPerformed(evt);
+                BotaoDeConsultarActionPerformed(evt);
             }
         });
 
@@ -104,11 +110,11 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Codigo do Pet");
+        jLabel3.setText("CPF");
 
-        CampoCodigoPet.addActionListener(new java.awt.event.ActionListener() {
+        CampoCpfPet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoCodigoPetActionPerformed(evt);
+                CampoCpfPetActionPerformed(evt);
             }
         });
 
@@ -129,24 +135,6 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Raca");
 
-        consultaBancoConsultas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Códigos", "CPF Do Cliente", "Nome Do Pet  /  Sexo", "Raça  /  Idade(Anos) ", "Tipo de Consulta", "Dia e Hora"
-            }
-        ));
-        consultaBancoConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                consultaBancoConsultasMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(consultaBancoConsultas);
-
         CampoSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoSexoActionPerformed(evt);
@@ -156,20 +144,20 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Sexo");
 
-        CampoDoCpf.addActionListener(new java.awt.event.ActionListener() {
+        BotaoCadastrar.setBackground(new java.awt.Color(255, 255, 255));
+        BotaoCadastrar.setForeground(new java.awt.Color(0, 0, 0));
+        BotaoCadastrar.setText("Cadastrar");
+        BotaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoDoCpfActionPerformed(evt);
+                BotaoCadastrarActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("Digite o Cpf");
-
-        BotaoAlterar.setBackground(new java.awt.Color(255, 255, 255));
-        BotaoAlterar.setForeground(new java.awt.Color(0, 0, 0));
-        BotaoAlterar.setText("Alterar");
-        BotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("+");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoAlterarActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -177,188 +165,133 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
+                        .addGap(83, 83, 83)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(CampoNomeDoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(CampoSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                    .addComponent(jLabel9)
+                                                    .addGap(23, 23, 23))))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(CampoDaRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(CampoIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(CampoCpfPet, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(90, 90, 90)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(CampoCodigoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(CampoDaRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(CampoIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(CampoNomeDoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(CampoSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(jLabel9)
-                                                        .addGap(23, 23, 23))))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(16, 16, 16)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(40, 40, 40)
-                                        .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(85, 85, 85)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(41, 41, 41)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(CampoDiaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(CaixaDeHorasConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(82, 82, 82)
-                                                .addComponent(jLabel5))))))
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(205, 205, 205)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(BotaoDeConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(44, 44, 44)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(CampoDiaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CaixaDeHorasConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(41, 41, 41)
+                                    .addComponent(jLabel5))
+                                .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(35, 35, 35))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CampoDoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(130, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BotaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152))
+                                .addGap(35, 35, 35)))
+                        .addGap(84, 84, 84))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(BotaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(121, 121, 121))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CampoCodigoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CaixaDeHorasConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(CampoNomeDoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CampoDiaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(CampoSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CampoCpfPet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(CampoNomeDoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CampoSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(20, 20, 20)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(CampoDaRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CampoIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(CampoIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CaixaDeHorasConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(35, 35, 35)
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(CampoDiaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(47, 47, 47)
+                                        .addComponent(CaixaDeTipodeConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButaoAgendarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoDoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1))
+                    .addComponent(BotaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoDeConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
   
-    private void ButaoAgendarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButaoAgendarConsActionPerformed
+    private void BotaoDeConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoDeConsultarActionPerformed
 
-         CadConsultatt alo = new CadConsultatt();
+        TelaAlterarDeleteConsulta cons = new TelaAlterarDeleteConsulta();
+        cons.setVisible(true);
         
-        
-        if (!CampoNomeDoPet.getText().isEmpty()) {
-            alo.setNomePet(CampoNomeDoPet.getText()); 
-           
-        }else{
-            JOptionPane.showMessageDialog(null, "Campo Nome Do Pet Inválido");
-        }
-        
-       
-        if (!CampoCodigoPet.getText().isEmpty()) {
-            alo.setCPF(CampoCodigoPet.getText());
-        }else{
-           JOptionPane.showMessageDialog(null, "Campo Cpf do Tutor Inválido");
-        }
-        if (!CaixaDeTipodeConsultas.getSelectedItem().toString().isEmpty()) {
-            alo.setConsulta(CaixaDeTipodeConsultas.getSelectedItem().toString());
-            
-        }
-       if (!CampoDiaConsulta.getText().isEmpty()) {
-           alo.setDia(CampoDiaConsulta.getText());
-        }else {
-          JOptionPane.showMessageDialog(null, "Campo dia da Consulta Inválido"); 
-        }
-        if (!CaixaDeHorasConsultas.getSelectedItem().toString().isEmpty()) {
-            alo.setHora(CaixaDeHorasConsultas.getSelectedItem().toString());
-        } else {
-           JOptionPane.showMessageDialog(null, "Campo Hora Esta Inválido"); 
-        }
-     
-        
-        String nomeAnimal = CampoCodigoPet.getText();
-        String nomeCliente = CampoNomeDoPet.getText();
-        String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
-        String Diaconsulta = CampoDiaConsulta.getText();
-        String tipoHoras = (String) CaixaDeHorasConsultas.getSelectedItem();
-       
-        // Aqui você pode adicionar a lógica para agendar a consulta com os dados fornecidos
+    }//GEN-LAST:event_BotaoDeConsultarActionPerformed
 
-        // Por enquanto, apenas exibimos uma mensagem com os dados
-        JOptionPane.showMessageDialog(this, "Consulta agendada:\n\n"
-            + "-CPF do Cliente: " + nomeCliente + "\n"
-            + "-Nome do Animal:  " + nomeAnimal  + "\n"
-            + "-Tipo de Consulta: " + tipoConsulta + "\n"
-            + "-Dia da Consulta: " + Diaconsulta + "\n" 
-            + "-Hora da Consulta: " + tipoHoras);
-        
-        alo.inserirConsultas();
-        
-    
-    }//GEN-LAST:event_ButaoAgendarConsActionPerformed
-
-    private void CampoCodigoPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoCodigoPetActionPerformed
+    private void CampoCpfPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoCpfPetActionPerformed
        
-    }//GEN-LAST:event_CampoCodigoPetActionPerformed
+    }//GEN-LAST:event_CampoCpfPetActionPerformed
 
     private void consultaProdPesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaProdPesquisarBotaoActionPerformed
         // TODO add your handling code here:
@@ -372,48 +305,26 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         // TODO add your handling code here:
     }//GEN-LAST:event_CaixaDeTipodeConsultasActionPerformed
 
-    private void consultaBancoConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consultaBancoConsultasMouseClicked
-                                       
-        //Funciona pra clicar
-        CampoCodigoPet.setText(consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 0).toString());
-        String nomePetESexo = consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 2).toString();
-        String[] partes = nomePetESexo.split("  /  ");
-        CampoNomeDoPet.setText(partes[0]);
-        CampoSexo.setText(partes[1]);
-        String racaIdade = consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 3).toString();
-        String[] parte = racaIdade.split("  /  ");
-        CampoDaRaca.setText(parte[0]);
-        CampoIdade.setText(parte [1]);
-        
-        
-        
-          
-    }//GEN-LAST:event_consultaBancoConsultasMouseClicked
-
-    private void CampoDoCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDoCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoDoCpfActionPerformed
-
-    private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
+    private void BotaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastrarActionPerformed
        
-         CadConsultatt alo = new CadConsultatt();
+         CadConsulta alo = new CadConsulta();
         
         
         if (!CampoNomeDoPet.getText().isEmpty()) {
-            alo.setNomePet(CampoNomeDoPet.getText()); 
+            alo.setnomePet(CampoNomeDoPet.getText()); 
            
         }else{
             JOptionPane.showMessageDialog(null, "Campo Nome Do Pet Inválido");
         }
         
        
-        if (!CampoCodigoPet.getText().isEmpty()) {
-            alo.setCPF(CampoCodigoPet.getText());
+        if (!CampoCpfPet.getText().isEmpty()) {
+            alo.setCPF(CampoCpfPet.getText());
         }else{
            JOptionPane.showMessageDialog(null, "Campo Cpf do Tutor Inválido");
         }
         if (!CaixaDeTipodeConsultas.getSelectedItem().toString().isEmpty()) {
-            alo.setConsulta(CaixaDeTipodeConsultas.getSelectedItem().toString());
+            alo.setconsulta(CaixaDeTipodeConsultas.getSelectedItem().toString());
             
         }
        if (!CampoDiaConsulta.getText().isEmpty()) {
@@ -428,7 +339,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         }
      
         
-        String nomeAnimal = CampoCodigoPet.getText();
+        String nomeAnimal = CampoCpfPet.getText();
         String nomeCliente = CampoNomeDoPet.getText();
         String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
         String Diaconsulta = CampoDiaConsulta.getText();
@@ -444,85 +355,62 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
             + "-Dia da Consulta: " + Diaconsulta + "\n" 
             + "-Hora da Consulta: " + tipoHoras);
         
-        alo.alterarConsultas();
+       alo.inserirConsultas();
+     
+    }//GEN-LAST:event_BotaoCadastrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void CampoNomeDoPetFocusLost(java.awt.event.FocusEvent evt) {
+        buscarInformacoesPets();
+    }
+
+    
+    private void buscarInformacoesPets() {
         
-    }//GEN-LAST:event_BotaoAlterarActionPerformed
+    try {
+        // Obter CPF e nome do pet digitados
+        String cpf = CampoCpfPet.getText();
+        String nomePet = CampoNomeDoPet.getText();
+        
+        // Verificar se ambos os campos estão preenchidos
+        if (!cpf.isEmpty() && !nomePet.isEmpty()) {
+            // Instanciar a classe CadPets e obter a lista de pets por CPF e nome do pet
+            CadPets pets = new CadPets();
+            List<CadPets> listadepets = pets.ListarPetsPorCpfeNome(cpf, nomePet);
 
-    
-      public void Listar(){
-       try{
-           CadPets pets = new CadPets();
-           List<CadPets> listadepets = pets.ListarPets();
-
-           DefaultTableModel model = (DefaultTableModel) consultaBancoConsultas.getModel();
-           model.setNumRows(0);
-           
-           for(CadPets v : listadepets ){
-               model.addRow(new Object[]{
-               v.getCodigo(),
-               v.getCpf(),
-               v.getNomePet() + "    /    " + v.getSexo(),
-               v.getraca() + "    /    " + v.getIdade()  ,
-             
-              
-               
-               });
-           }
-       
-       }catch(Exception e){
-            e.printStackTrace();
-
-       }
-   }
-    
-    private void CampoDoCpfFocusLost(java.awt.event.FocusEvent evt) {
-         
-         String cpf = CampoDoCpf.getText().trim();
-
-        if (cpf.isEmpty()) {
-            
-            Listar();
+            if (!listadepets.isEmpty()) {
+                CadPets pet = listadepets.get(0);
+                CampoCpfPet.setText(pet.getCpf());
+                CampoNomeDoPet.setText(pet.getNomePet());
+                CampoIdade.setText(pet.getIdade());
+                CampoDaRaca.setText(pet.getraca());
+                CampoSexo.setText(pet.getSexo());
+            } else {
+                // Se nenhum pet for encontrado, mostrar mensagem de erro
+                JOptionPane.showMessageDialog(null, "Nenhum pet encontrado com o CPF e nome fornecidos.");
+            }
         } else {
-            // Caso contrario, pesquisamos por um Cpf especifico
-            Ler(cpf);
+            if (cpf.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor, digite o CPF.");
+            }
+            if (nomePet.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor, digite o nome.");
+            }
         }
-        
+    } catch (Exception e) {
+        e.printStackTrace();
     }
-    
-    
-    private void Ler(String cpf) {
-         CadPets c = new CadPets();
-         CadPets rs = c.LerCPF(cpf);
-
-        if (rs != null) {
-            DefaultTableModel model = new DefaultTableModel();
-            model.addColumn("Código");
-            model.addColumn("CPF Do Tutor");
-            model.addColumn("Nome Do Pet  /  Sexo");
-            model.addColumn("Raça  /  Idade(Anos) ");
-            model.addColumn("Tipo de Consulta ");
-            model.addColumn("Dia e Hora");
-
-            int cod = rs.getCodigo();
-            String cp = rs.getCpf();
-            String nomeSexo = rs.getNomePet() + "    /    " + rs.getSexo();
-            String racaIdade = rs.getraca() + "    /    " + rs.getIdade();
-
-            model.addRow(new Object[]{cod, cp, nomeSexo, racaIdade});
-
-            consultaBancoConsultas.setModel(model);
-        } else {
-            JOptionPane.showMessageDialog(null, "CPF digitado não existe.");
-        }
-    }
+}
     
     
     
-     public void windowActivated(WindowEvent e) {
-        this.Listar();
-        
-    }
-  
+    
+    
+    
+    
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -547,6 +435,9 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
             java.util.logging.Logger.getLogger(TelaCadConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -557,19 +448,18 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoAlterar;
-    private javax.swing.JButton ButaoAgendarCons;
+    private javax.swing.JButton BotaoCadastrar;
+    private javax.swing.JButton BotaoDeConsultar;
     private javax.swing.JComboBox<String> CaixaDeHorasConsultas;
     private javax.swing.JComboBox<String> CaixaDeTipodeConsultas;
-    private javax.swing.JTextField CampoCodigoPet;
+    private javax.swing.JTextField CampoCpfPet;
     private javax.swing.JTextField CampoDaRaca;
     private javax.swing.JTextField CampoDiaConsulta;
-    private javax.swing.JTextField CampoDoCpf;
     private javax.swing.JTextField CampoIdade;
     private javax.swing.JTextField CampoNomeDoPet;
     private javax.swing.JTextField CampoSexo;
-    private javax.swing.JTable consultaBancoConsultas;
     private javax.swing.JButton consultaProdPesquisarBotao;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -577,33 +467,31 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-
-@Override
+    
+    @Override
     public void windowOpened(WindowEvent e) {
-    }
+      }
 
     @Override
     public void windowClosing(WindowEvent e) {
-    }
+      }
 
     @Override
     public void windowClosed(WindowEvent e) {
-    }
+        }
 
     @Override
     public void windowIconified(WindowEvent e) {
-    }
+       }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-    }
+        }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-    }
-
+       }
+ 
 }

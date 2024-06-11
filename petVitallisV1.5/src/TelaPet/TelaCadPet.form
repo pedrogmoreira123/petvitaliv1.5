@@ -122,10 +122,8 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="SalvarPet" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="BotaoMaisPet" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="VoltarMEnu" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="BotaoMaisPet" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="VoltarMEnu" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
