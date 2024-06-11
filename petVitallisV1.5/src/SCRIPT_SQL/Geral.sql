@@ -1,4 +1,4 @@
-/*drop database db_pessoas;*/
+drop database db_pessoas;
 
 
 

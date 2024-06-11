@@ -1,20 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package TelaRelatorios;
 
 import ClassesCadastro.ConexaoRelatorio;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author pedro
- */
+
 public class TelaRelCliEPet extends javax.swing.JFrame {
-
-    /**
-     * Creates new form TelaRelCliEPet
-     */
+   
     public TelaRelCliEPet() {
         initComponents();
     }
@@ -29,8 +24,9 @@ public class TelaRelCliEPet extends javax.swing.JFrame {
     private void initComponents() {
 
         BotaoRelatorio = new javax.swing.JButton();
+        BotaoSalvarPdf = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         BotaoRelatorio.setText("Gerar Relatorio");
         BotaoRelatorio.addActionListener(new java.awt.event.ActionListener() {
@@ -39,21 +35,32 @@ public class TelaRelCliEPet extends javax.swing.JFrame {
             }
         });
 
+        BotaoSalvarPdf.setText("Salvar em PDF");
+        BotaoSalvarPdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoSalvarPdfActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
-                .addComponent(BotaoRelatorio)
-                .addGap(79, 79, 79))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotaoSalvarPdf)
+                    .addComponent(BotaoRelatorio))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(179, Short.MAX_VALUE)
+                .addContainerGap(156, Short.MAX_VALUE)
                 .addComponent(BotaoRelatorio)
-                .addGap(53, 53, 53))
+                .addGap(18, 18, 18)
+                .addComponent(BotaoSalvarPdf)
+                .addGap(35, 35, 35))
         );
 
         pack();
@@ -64,6 +71,34 @@ public class TelaRelCliEPet extends javax.swing.JFrame {
         ConexaoRelatorio relatorio = new ConexaoRelatorio();
         relatorio.carregarRelatorio("Relatorios/Clientesepets.jrxml", null);
     }//GEN-LAST:event_BotaoRelatorioActionPerformed
+
+    private void BotaoSalvarPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarPdfActionPerformed
+        ConexaoRelatorio relatorio = new ConexaoRelatorio();
+        String caminhoRelatorio = "Relatorios/Clientesepets.jrxml";
+        
+        // Abre um JFileChooser para selecionar onde salvar o arquivo PDF
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Salvar Relatório em PDF");
+        
+        // Define a opção de salvar arquivo
+        int userSelection = fileChooser.showSaveDialog(this);
+        
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            String caminhoDestino = fileToSave.getAbsolutePath();
+            
+            // Se o caminho não terminar com .pdf, adiciona a extensão
+            if (!caminhoDestino.toLowerCase().endsWith(".pdf")) {
+                caminhoDestino += ".pdf";
+            }
+        
+        // Pode adicionar parâmetros se necessário, aqui estamos passando null
+        Map<String, Object> parametros = new HashMap<>();
+        
+        relatorio.salvarRelatorioPdf(caminhoRelatorio, parametros, caminhoDestino);
+        JOptionPane.showMessageDialog(this, "Relatório salvo em PDF com sucesso!");    
+        }
+    }//GEN-LAST:event_BotaoSalvarPdfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,7 +135,9 @@ public class TelaRelCliEPet extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoRelatorio;
+    private javax.swing.JButton BotaoSalvarPdf;
     // End of variables declaration//GEN-END:variables
 }
