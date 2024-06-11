@@ -27,7 +27,7 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
         initComponents();
         addWindowListener(this);
         this.setLocationRelativeTo(null);
-        setResizable(false);
+        setResizable(true);
         addEnterKeyListener();
         String caminhoImagem = "/icon/logo PET VITALLI.png";        
          // Carrega a imagem do ícone
@@ -208,7 +208,7 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
+                        .addContainerGap(111, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
@@ -270,7 +270,7 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,7 +317,7 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
                     .addComponent(BotaoConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1))
+                .addContainerGap(1, Short.MAX_VALUE))
         );
 
         pack();
