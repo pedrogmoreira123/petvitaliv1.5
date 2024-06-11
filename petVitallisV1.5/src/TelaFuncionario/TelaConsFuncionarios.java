@@ -1,18 +1,23 @@
 package TelaFuncionario;
 
 import ClassesCadastro.CadFuncionario;
+import ClassesCadastro.CadPets;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class TelaConsFuncionarios extends javax.swing.JFrame {
+public class TelaConsFuncionarios extends javax.swing.JFrame implements java.awt.event.WindowListener  {
 
     /**
      * Creates new form TelaConsProduto
      */
     public TelaConsFuncionarios() {
-        super("Produtos");
+        super("Consulta de Funcionarios");
         initComponents();
+        addWindowListener((WindowListener) this);
         this.setLocationRelativeTo(null);
         setResizable(false);
         String caminhoImagem = "/icon/logo PET VITALLI.png";        
@@ -20,16 +25,14 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
-        
-        consultaBarraDeTextoPesquisa.addFocusListener(new java.awt.event.FocusAdapter() {        
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                consultaBarraDeTextoPesquisaFocusLost(evt);
-                }
-        });     
-        
+         
+    }
+    
+    
+ public void windowActivated(WindowEvent e) {
+        this.Listar();
         
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,7 +60,7 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Código do Funcionario", "Nome do Funcionario", "CPF", "Cargo"
+                "CPF", "Nome do Funcionario", "Data De Nascimento", "Cargo"
             }
         ));
         jScrollPane1.setViewportView(consultaBancoFuncionarios);
@@ -138,45 +141,28 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
     private void consultaBarraDeTextoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaBarraDeTextoPesquisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_consultaBarraDeTextoPesquisaActionPerformed
-
-    private void consultaBarraDeTextoPesquisaFocusLost(java.awt.event.FocusEvent evt) {        
-        String produto = consultaBarraDeTextoPesquisa.getText().trim();
-        
-        CadFuncionario func = new CadFuncionario();
-
-        if (produto.isEmpty()) {
-            // Se o campo de pesquisa estiver vazio, mostramos todos os registros
-            func();
-        } else {
-            // Caso contrário, pesquisamos por um Produto específico
-            procurarPorNomeProduto(produto);
-        }
-    }   
     
-    private void procurarPorNomeProduto(String funcionario) {
-        CadFuncionario consultaProdNome = new CadFuncionario();
-        CadFuncionario rs = consultaProdNome.lerCPF(funcionario);
+    public void Listar(){
+       try{
+           CadFuncionario funs = new CadFuncionario();
+           List<CadFuncionario> listadeFuns = funs.ListarFuncionarios();
 
-        if (rs != null) {
-            DefaultTableModel model = new DefaultTableModel();
-            model.addColumn("Código do Funcionario");
-            model.addColumn("Nome do Funcionario");
-            model.addColumn("CPF");
-            model.addColumn("Cargo");
+           DefaultTableModel model = (DefaultTableModel) consultaBancoFuncionarios.getModel();
+           model.setNumRows(0);
+           
+           for(CadFuncionario v : listadeFuns ){
+               model.addRow(new Object[]{
+               v.getCpf(),
+               v.getNome(),
+               v.getDataDeNascimento(),
+               v.getCargoFun(),   
+               });
+           }
+       
+       }catch(Exception e){
 
-            String codFunc = rs.getCodFunc();
-            String nomeFunc = rs.getNome();
-            String CPFFunc = rs.getCpf();
-            String cargoFunc = rs.getCargoFun();
-
-            model.addRow(new Object[]{codFunc, nomeFunc, CPFFunc, cargoFunc});
-
-            consultaBancoFuncionarios.setModel(model);
-        } else {
-            JOptionPane.showMessageDialog(null, "O funcionário digitado não existe.");
-        }
     }
-    
+   }
     /**
      * @param args the command line arguments
      */
@@ -222,4 +208,31 @@ public class TelaConsFuncionarios extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+
+      @Override
+    public void windowOpened(WindowEvent e) {
+      }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+      }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+        }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+       }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+        }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+       }
+    
+
 }

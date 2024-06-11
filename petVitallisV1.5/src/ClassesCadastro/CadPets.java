@@ -128,7 +128,7 @@ public class CadPets {
     catch(Exception e)
     {
         System.out.println("");
-    }
+        }
     }
     
     
@@ -247,6 +247,7 @@ public class CadPets {
            Connection conn = factory.obtemConexao();
            PreparedStatement pstmt = conn.prepareStatement(sql);
            pstmt.setString(1, Cpf);
+          
            
            ResultSet rs= pstmt.executeQuery();
            
@@ -272,5 +273,48 @@ public class CadPets {
    
    }
    
-    
+   
+   
+   
+   
+     public List<CadPets> ListarPetsPorCpfeNome(String Cpf, String nomepet){
+       try{
+           List<CadPets> lista=new ArrayList<CadPets>();
+           String sql= "SELECT*FROM tb_pets WHERE cpf=? AND nomepet = ? ";
+           
+           Connection conn = factory.obtemConexao();
+           PreparedStatement pstmt = conn.prepareStatement(sql);
+           pstmt.setString(1, Cpf);
+           pstmt.setString(2, nomepet);
+           
+           ResultSet rs= pstmt.executeQuery();
+           
+           while(rs.next()){
+            CadPets pets = new CadPets();
+            pets.setCodigo(rs.getInt("codigo"));
+            pets.setNome(rs.getString("nome"));
+            pets.setCpf(rs.getString("cpf"));
+            pets.setNumero(rs.getString("número"));
+            pets.setNomePet(rs.getString("nomepet"));
+            pets.setIdade(rs.getString("idade"));
+            pets.setraca(rs.getString("especie_raça"));
+            pets.setSexo(rs.getString("sexo"));
+           
+            lista.add(pets);
+            
+           }
+           
+        rs.close();
+        pstmt.close();
+        conn.close();
+
+        return lista;
+        
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+   
+   }
 }

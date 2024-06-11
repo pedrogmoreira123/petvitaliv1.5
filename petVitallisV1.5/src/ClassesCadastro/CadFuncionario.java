@@ -6,21 +6,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class CadFuncionario {
     
   ConnectionFactory factory = new ConnectionFactory();
+
+   
     
     private String codFunc;
-
-    public String getCodFunc() {
-        return codFunc;
-    }
-
-    public void setCodFunc(String codFunc) {
-        this.codFunc = codFunc;
-    }
     private String Nome;
     private String Endereco;
     private String Rg;
@@ -31,6 +27,15 @@ public class CadFuncionario {
     private String NumeroDaResidencia;
     private String CargoFun;
 
+
+    public String getCodFunc() {
+        return codFunc;
+    }
+
+    public void setCodFunc(String codFunc) {
+        this.codFunc = codFunc;
+    }
+    
     public String getNome() {
         return Nome;
     }
@@ -95,16 +100,45 @@ public class CadFuncionario {
         this.NumeroDaResidencia = NumeroDaResidencia;
     }
     
-    public void IncluirFun(){
-        JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
-    }
-    
     public String getCargoFun() {
         return CargoFun;
     }
 
     public void setCargoFun(String CargoFun) {
         this.CargoFun = CargoFun;
+    }
+    
+    
+    public CadFuncionario(){
+    
+    }
+    
+    
+     public CadFuncionario(String codFunc, String Nome, String Endereco, String Rg, String Cpf, String DataDeNascimento, String Pis, String Cep, String NumeroDaResidencia, String CargoFun) {
+        this.codFunc = codFunc;
+        this.Nome = Nome;
+        this.Endereco = Endereco;
+        this.Rg = Rg;
+        this.Cpf = Cpf;
+        this.DataDeNascimento = DataDeNascimento;
+        this.Pis = Pis;
+        this.Cep = Cep;
+        this.NumeroDaResidencia = NumeroDaResidencia;
+        this.CargoFun = CargoFun;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     public void IncluirFun(){
+        JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
     }
     
      public boolean cpfExists() {
@@ -212,4 +246,33 @@ public class CadFuncionario {
             }
          }
         
+        
+         public List<CadFuncionario> ListarFuncionarios(){
+       try{
+           List<CadFuncionario> lista = new ArrayList<CadFuncionario>();
+           String sql= "SELECT*FROM tb_cadfuncionario";
+           
+           Connection conn = factory.obtemConexao();
+           PreparedStatement pstmt = conn.prepareStatement(sql);
+           
+           ResultSet rs= pstmt.executeQuery();
+           
+           while(rs.next()){
+            CadFuncionario cons = new CadFuncionario();
+            cons.setCpf(rs.getString("cpf"));
+            cons.setNome(rs.getString("Nome"));
+            cons.setDataDeNascimento(rs.getString("DataDeNascimento"));
+            cons.setCargoFun(rs.getString("CargoFuncionario"));
+                    
+            lista.add(cons);
+            
+           }
+           return lista;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+   
+         }
 }

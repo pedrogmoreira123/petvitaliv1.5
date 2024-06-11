@@ -1,6 +1,5 @@
     package TelaFuncionario;
 
-import ClassesCadastro.CadConsultatt;
 import ClassesCadastro.CadFuncionario;
 import TelasLogin.TelaMenu;
 import java.awt.event.FocusEvent;
@@ -565,9 +564,4 @@ public class TelasCadFuncionarios extends javax.swing.JFrame {
     private javax.swing.JLabel rgfun;
     // End of variables declaration//GEN-END:variables
 
-    private static class Cadfuncionario {
-
-        public Cadfuncionario() {
-        }
-    }
 }
