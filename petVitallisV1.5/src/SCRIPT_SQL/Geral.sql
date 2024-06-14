@@ -19,8 +19,11 @@ create table tb_pets(
 );
 
 create table tb_cadconsultas(
-     Código varchar(200),
+     cpf varchar(11),
      NomePet varchar(15),
+     sexo varchar(8),
+     raca varchar(30),
+     idade varchar(3)
      Consulta varchar(100),
      Dia varchar (11),
      Hora varchar (5)

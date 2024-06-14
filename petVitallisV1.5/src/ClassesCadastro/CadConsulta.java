@@ -13,23 +13,18 @@ import java.util.List;
 public class CadConsulta {
     
     ConnectionFactory factory = new ConnectionFactory();
-    private String Codigo;
+    
     private String nomePet;
     private String CPF;
+    private String Sexo;
+    private String raca;
+    private String idade;
     private String consulta;
     private String dia;
     private String hora;
     private int valor;
     
-    
-     public String getCodigo() {
-        return Codigo;
-    }
-
-    public void setCodigo(String Codigo) {
-        this.Codigo = Codigo;
-    }
-
+   
     public String getnomePet() {
         return nomePet;
     }
@@ -46,6 +41,33 @@ public class CadConsulta {
         this.CPF = CPF;
     }
 
+      public String getSexo() {
+        return Sexo;
+    }
+
+    public void setSexo(String Sexo) {
+        this.Sexo = Sexo;
+    }
+    
+    
+      public String getraca() {
+        return raca;
+    }
+
+    public void setraca(String raca) {
+        this.raca = raca;
+    }
+    
+    
+      public String getidade() {
+        return idade;
+    }
+
+    public void setidade(String idade) {
+        this.idade = idade;
+    }
+    
+    
     public String getconsulta() {
         return consulta;
     }
@@ -81,34 +103,39 @@ public class CadConsulta {
     public CadConsulta(){
     
     }
-
-     public CadConsulta(String Codigo, String nomePet, String CPF, String consulta, String dia, String hora, int valor) {
-        this.Codigo = Codigo;
+        public CadConsulta(String nomePet, String CPF, String Sexo, String raca, String idade, String consulta, String dia, String hora, int valor) {
         this.nomePet = nomePet;
         this.CPF = CPF;
+        this.Sexo = Sexo;
+        this.raca = raca;
+        this.idade = idade;
         this.consulta = consulta;
         this.dia = dia;
         this.hora = hora;
         this.valor = valor;
     }
     
-    
        public void inserirConsultas() {
-        String query = "INSERT INTO tb_cadconsultas  (Código, cpf, NomePet, consulta, Dia, Hora) VALUES ( ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO tb_cadconsultas ( cpf, NomePet, sexo, raca, idade, consulta,Dia, Hora) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
+        
         try (Connection conn = factory.obtemConexao();
             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, Codigo);
-            pstmt.setString(2, CPF);
-            pstmt.setString(3, nomePet);
-            pstmt.setString(4, consulta);
-            pstmt.setString(5, dia);
-            pstmt.setString(6, hora);
-            pstmt.executeUpdate();
+            pstmt.setString(1, CPF);
+            pstmt.setString(2, nomePet);
+            pstmt.setString(3, Sexo);
+            pstmt.setString(4, raca);
+            pstmt.setString(5, idade);
+            pstmt.setString(6, consulta);
+            pstmt.setString(7, dia);
+            pstmt.setString(8, hora);
+           
+            pstmt.execute();
             
            JOptionPane.showMessageDialog(null,nomePet +", Consulta Registrada com sucesso!"); 
 
         } catch (SQLException e) {
             e.printStackTrace();
+           JOptionPane.showMessageDialog(null, "Erro ao inserir consulta no banco de dados: " + e.getMessage());
         }
     }
        
@@ -141,9 +168,11 @@ public class CadConsulta {
            
            while(rs.next()){
             CadConsulta cons = new CadConsulta();
-            cons.setCodigo(rs.getString("Código"));
             cons.setnomePet(rs.getString("NomePet"));
             cons.setCPF(rs.getString("cpf"));
+            cons.setSexo(rs.getString("sexo"));
+            cons.setraca(rs.getString("raca"));
+            cons.setidade(rs.getString("idade"));
             cons.setconsulta(rs.getString("Consulta"));
             cons.setDia(rs.getString("Dia"));
             cons.setHora(rs.getString("Hora"));
@@ -159,12 +188,11 @@ public class CadConsulta {
         
         return null;
    
-   }
-   
-   public List<CadConsulta> ListarConsultaPorCpf(String Cpf){
+   } 
+     public List<CadConsulta> ListarConsultaPorCpf(String Cpf){
        try{
            List<CadConsulta> lista=new ArrayList<CadConsulta>();
-           String sql= "SELECT*FROM tb_cadconsultas WHERE cpf = ? , NomePet = ?";
+           String sql= "SELECT*FROM tb_cadconsultas WHERE cpf = ?";
            
            Connection conn = factory.obtemConexao();
            PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -174,9 +202,11 @@ public class CadConsulta {
            
            while(rs.next()){
             CadConsulta cons = new CadConsulta();
-            cons.setCodigo(rs.getString("Código"));
             cons.setnomePet(rs.getString("NomePet"));
             cons.setCPF(rs.getString("cpf"));
+            cons.setSexo(rs.getString("sexo"));
+            cons.setraca(rs.getString("raca"));
+            cons.setidade(rs.getString("idade"));
             cons.setconsulta(rs.getString("Consulta"));
             cons.setDia(rs.getString("Dia"));
             cons.setHora(rs.getString("Hora"));
@@ -192,6 +222,5 @@ public class CadConsulta {
         return null;
    
    }  
-
-        
+     
 }

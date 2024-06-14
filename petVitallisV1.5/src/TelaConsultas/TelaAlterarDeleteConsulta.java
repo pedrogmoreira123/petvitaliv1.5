@@ -23,7 +23,7 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
      * Creates new form TelaCadConsultas
      */
     public TelaAlterarDeleteConsulta() {
-        super("Cadastro de Consultas");
+        super("Alteração de Consultas");
         initComponents();
         addWindowListener(this);
         this.setLocationRelativeTo(null);
@@ -66,7 +66,7 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         CampoNomeDoPet = new javax.swing.JTextField();
-        CampoCodigoPet = new javax.swing.JTextField();
+        CampoCpf = new javax.swing.JTextField();
         CaixaDeHorasConsultas = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -122,11 +122,11 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Codigo do Pet");
+        jLabel3.setText("CPF");
 
-        CampoCodigoPet.addActionListener(new java.awt.event.ActionListener() {
+        CampoCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoCodigoPetActionPerformed(evt);
+                CampoCpfActionPerformed(evt);
             }
         });
 
@@ -149,13 +149,13 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
 
         consultaBancoConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Códigos", "CPF Do Cliente", "Nome Do Pet  /  Sexo", "Raça  /  Idade(Anos) ", "Tipo de Consulta", "Dia e Hora"
+                "CPF Do Cliente", "Nome Do Pet  /  Sexo", "Raça  /  Idade(Anos) ", "Tipo de Consulta", "Dia e Hora"
             }
         ));
         consultaBancoConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -211,9 +211,10 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
                         .addContainerGap(111, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CampoCodigoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(CampoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -273,7 +274,7 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoCodigoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CampoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CaixaDeHorasConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,9 +328,9 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
       
     }//GEN-LAST:event_ButaoDeleteActionPerformed
 
-    private void CampoCodigoPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoCodigoPetActionPerformed
+    private void CampoCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoCpfActionPerformed
        
-    }//GEN-LAST:event_CampoCodigoPetActionPerformed
+    }//GEN-LAST:event_CampoCpfActionPerformed
 
     private void consultaProdPesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaProdPesquisarBotaoActionPerformed
         // TODO add your handling code here:
@@ -346,19 +347,23 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
     private void consultaBancoConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consultaBancoConsultasMouseClicked
                                        
         //Funciona pra clicar
-        CampoCodigoPet.setText(consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 0).toString());
-        String nomePetESexo = consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 2).toString();
-        String[] partes = nomePetESexo.split("  /  ");
+        CampoCpf.setText(consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 0).toString());
+        String nomePetESexo = consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 1).toString();
+        String[] partes = nomePetESexo.split(" / ");
         CampoNomeDoPet.setText(partes[0]);
-        CampoSexo.setText(partes[1]);
-        String racaIdade = consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 3).toString();
-        String[] parte = racaIdade.split("  /  ");
+        CampoSexo.setText(partes[1]);   
+        String racaIdade = consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 2).toString();
+        String[] parte = racaIdade.split(" / ");
         CampoDaRaca.setText(parte[0]);
         CampoIdade.setText(parte [1]);
         
+        CaixaDeTipodeConsultas.setSelectedItem(consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 3).toString());
         
-        
-          
+        String diaHora = consultaBancoConsultas.getValueAt(consultaBancoConsultas.getSelectedRow(), 4).toString();
+        String[] part = diaHora.split(" -- ");
+        CampoDiaConsulta.setText(part[0]);
+        CaixaDeHorasConsultas.setSelectedItem(part[1]);
+    
     }//GEN-LAST:event_consultaBancoConsultasMouseClicked
 
     private void CampoDoCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDoCpfActionPerformed
@@ -376,8 +381,8 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
         }else{
             JOptionPane.showMessageDialog(null, "Campo Nome Do Pet Inválido");
         }
-        if (!CampoCodigoPet.getText().isEmpty()) {
-            alo.setCPF(CampoCodigoPet.getText());
+        if (!CampoCpf.getText().isEmpty()) {
+            alo.setCPF(CampoCpf.getText());
         }else{
            JOptionPane.showMessageDialog(null, "Campo Cpf do Tutor Inválido");
         }
@@ -397,7 +402,7 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
         }
      
         
-        String nomeAnimal = CampoCodigoPet.getText();
+        String nomeAnimal = CampoCpf.getText();
         String nomeCliente = CampoNomeDoPet.getText();
         String tipoConsulta = (String) CaixaDeTipodeConsultas.getSelectedItem();
         String Diaconsulta = CampoDiaConsulta.getText();
@@ -420,56 +425,47 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
     private void BotaoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConsultarActionPerformed
         
         try{
-           String cpf = CampoDoCpf.getText();
-           CadPets pets = new CadPets();
-           List<CadPets> listadepets = pets.ListarPetsPorCpf(cpf);
+          
+            String Cpf = CampoDoCpf.getText();
+            
+        CadConsulta consultas = new CadConsulta();
+        List<CadConsulta> listaDeConsultas = consultas.ListarConsultaPorCpf(Cpf);
 
-           DefaultTableModel model = (DefaultTableModel) consultaBancoConsultas.getModel();
-           model.setNumRows(0);
-           
-           for(CadPets v : listadepets ){
-               model.addRow(new Object[]{
-               v.getCodigo(),
-               v.getCpf(),
-               v.getNomePet() + "    /    " + v.getSexo(),
-               v.getraca() + "    /    " + v.getIdade(),
-               });
-           }
-       
-       }catch(Exception e){
-            e.printStackTrace();
-
-       }
+        DefaultTableModel model = (DefaultTableModel) consultaBancoConsultas.getModel();
+        model.setNumRows(0);
+        
+            for(CadConsulta cons : listaDeConsultas){
+                model.addRow(new Object[]{
+                    cons.getCPF(),
+                    cons.getnomePet() + " / " + cons.getSexo(),
+                    cons.getraca() + " / " + cons.getidade(),
+                    cons.getconsulta(), cons.getDia() + " -- " + cons.getHora()
+                });
+            }
+        
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
     }//GEN-LAST:event_BotaoConsultarActionPerformed
 
     
    public void Listar(){
     try{
-        // Instanciar as classes e obter as listas
-        CadPets pets = new CadPets();
-        List<CadPets> listaDePets = pets.ListarPets();
-        
         CadConsulta consultas = new CadConsulta();
         List<CadConsulta> listaDeConsultas = consultas.ListarConsultas();
 
-        // Obter o modelo da tabela
         DefaultTableModel model = (DefaultTableModel) consultaBancoConsultas.getModel();
         model.setNumRows(0);
-
-        // Iterar sobre a lista de pets e de consultas
-        for(CadPets pet : listaDePets){
-            // Para cada pet, você pode iterar sobre a lista de consultas se precisar associar consultas a pets
-            for(CadConsulta consulta : listaDeConsultas){
-                // Adicionar uma nova linha à tabela com dados combinados
+        
+            for(CadConsulta cons : listaDeConsultas){
                 model.addRow(new Object[]{
-                    pet.getCodigo(),
-                    pet.getCpf(),
-                    pet.getNomePet() + " / " + pet.getSexo(),
-                    pet.getraca() + " / " + pet.getIdade(),
-                    consulta.getconsulta(), consulta.getDia() + " / " + consulta.getHora()
+                    cons.getCPF(),
+                    cons.getnomePet() + " / " + cons.getSexo(),
+                    cons.getraca() + " / " + cons.getidade(),
+                    cons.getconsulta(), cons.getDia() + " -- " + cons.getHora()
                 });
             }
-        }
+        
     } catch(Exception e) {
         e.printStackTrace();
     }
@@ -520,7 +516,7 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
     private javax.swing.JButton ButaoDelete;
     private javax.swing.JComboBox<String> CaixaDeHorasConsultas;
     private javax.swing.JComboBox<String> CaixaDeTipodeConsultas;
-    private javax.swing.JTextField CampoCodigoPet;
+    private javax.swing.JTextField CampoCpf;
     private javax.swing.JTextField CampoDaRaca;
     private javax.swing.JTextField CampoDiaConsulta;
     private javax.swing.JTextField CampoDoCpf;
