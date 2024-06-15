@@ -20,7 +20,7 @@ public class TelaConsFuncionarios extends javax.swing.JFrame implements java.awt
         addWindowListener((WindowListener) this);
         this.setLocationRelativeTo(null);
         setResizable(true);
-        String caminhoImagem = "/icon/logo PET VITALLI.png";        
+        String caminhoImagem = "/icon/logo 100.png";        
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela

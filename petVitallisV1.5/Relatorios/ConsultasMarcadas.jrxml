@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ConsultasMarcadas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7b96480a-a7f5-44f1-997f-04c2e48a71aa">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="db_pessoas"/>
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[ZGJfcGVzc29hcy50Yl9jYWRjb25zdWx0YXMgLDE1LDE1LDhjMDIxMDA0LTVkYWMtNGQ4Yy1iYThj
+LTIyMThhODg0ZmExMTs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="648"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="352"/>
+	<queryString>
+		<![CDATA[SELECT *
+FROM db_pessoas.tb_cadconsultas]]>
+	</queryString>
+	<field name="cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.label" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cadconsultas"/>
+	</field>
+	<field name="NomePet" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NomePet"/>
+		<property name="com.jaspersoft.studio.field.label" value="NomePet"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cadconsultas"/>
+	</field>
+	<field name="sexo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sexo"/>
+		<property name="com.jaspersoft.studio.field.label" value="sexo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cadconsultas"/>
+	</field>
+	<field name="raca" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="raca"/>
+		<property name="com.jaspersoft.studio.field.label" value="raca"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cadconsultas"/>
+	</field>
+	<field name="idade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idade"/>
+		<property name="com.jaspersoft.studio.field.label" value="idade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cadconsultas"/>
+	</field>
+	<field name="Consulta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Consulta"/>
+		<property name="com.jaspersoft.studio.field.label" value="Consulta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cadconsultas"/>
+	</field>
+	<field name="Dia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Dia"/>
+		<property name="com.jaspersoft.studio.field.label" value="Dia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cadconsultas"/>
+	</field>
+	<field name="Hora" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Hora"/>
+		<property name="com.jaspersoft.studio.field.label" value="Hora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cadconsultas"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="169" y="24" width="216" height="30" uuid="e44cc74a-cd1c-451b-8231-6c8daa30f32a"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consultas Marcadas]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="490" y="0" width="100" height="24" uuid="3b3cebfd-671f-4edb-b0d0-fb69ddc32828"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="26" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-40" y="0" width="650" height="20" uuid="02b4231f-a75e-4746-818c-71ef2635079a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="3" width="90" height="16" uuid="da599ba1-a6d3-4e88-a9ec-c54e000b654b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="3" width="68" height="16" uuid="76099b94-ee16-4705-97a8-7a7a45220d26"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome do Pet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="3" width="60" height="16" uuid="7a38a3ed-acbb-4b35-a684-0f7e7d0f0fd3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexo do Pet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="3" width="70" height="16" uuid="f62ec09e-17be-4464-80c6-a7dcea4e3fcc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Idade do Pet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="5" width="120" height="16" uuid="da145278-3a79-4117-801e-aeb207853e52"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo de Consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="465" y="5" width="100" height="16" uuid="87cb77b6-bc10-4eed-a0a7-9ff423f6be29"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data/Hora]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="90" height="20" uuid="e71cb635-9e89-41ae-9681-95cda5917a2a"/>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="68" height="20" uuid="659917bf-f1c3-4da6-86a7-5a0995502ca3"/>
+				<textFieldExpression><![CDATA[$F{NomePet}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="0" width="60" height="20" uuid="352a2eff-dad4-413e-8390-45521a023de6"/>
+				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="70" height="20" uuid="6a10e4a2-c932-4212-923b-085b1b3da438"/>
+				<textFieldExpression><![CDATA[$F{idade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="0" width="60" height="20" uuid="3bed241f-bb29-4f0d-afd5-7bd3b14c119f"/>
+				<textFieldExpression><![CDATA[$F{Dia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="521" y="0" width="45" height="20" uuid="8a2c3321-e5f6-4f55-8b02-402612fed139"/>
+				<textFieldExpression><![CDATA[$F{Hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="331" y="0" width="119" height="20" uuid="ca8216e8-cce5-47a1-a029-a9fdc2776141"/>
+				<textFieldExpression><![CDATA[$F{Consulta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="517" y="0" width="10" height="20" uuid="8082787b-7359-454d-aac8-6c4c681cab69"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="546" y="0" width="10" height="20" uuid="6146779c-3f66-4617-a973-c805fdf106fc"/>
+				<text><![CDATA[H]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="59" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="60" height="59" uuid="b7142f17-5ab2-4e03-9328-af7ab1ab5e1e"/>
+				<imageExpression><![CDATA["https://raw.githubusercontent.com/pedrogmoreira123/petvitaliv1.5/main/petVitallisV1.5/src/icon/logo%20100.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="520" y="39" width="100" height="20" uuid="56a79290-ee04-4072-b7f7-bd2a736b4c3d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

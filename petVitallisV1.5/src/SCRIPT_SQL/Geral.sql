@@ -46,7 +46,7 @@ create table tb_cadfuncionario(
     NumeroDaResidencia varchar(20),
     Cep varchar (10),
     CargoFuncionario varchar (2000)
-)
+);
 
 
 select * from tb_cadproduto;

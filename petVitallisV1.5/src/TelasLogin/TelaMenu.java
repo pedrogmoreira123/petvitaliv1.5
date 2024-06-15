@@ -1,16 +1,22 @@
 package TelasLogin;
 
+import Conexao_SQL.ConnectionFactory;
 import TelaRelatorios.TelaRelCliEPet;
 import TelaFuncionario.TelaConsFuncionarios;
 import TelaFuncionario.TelasCadFuncionarios;
-import javax.swing.ImageIcon;
+import javax.swing.*;
 import TelaProdutos.TelaCadProdutos;
 import TelaProdutos.TelaConsProduto;
 import TelaConsultas.TelaAlterarDeleteConsulta;
 import TelaConsultas.TelaCadConsultas;
 import TelaPet.TelaCadPet;
 import TelaPet.TelaConsultarAlterarPets;
-
+import TelaRelatorios.TelaRelConsultas;
+import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 public class TelaMenu extends javax.swing.JFrame {
     
@@ -18,7 +24,6 @@ public class TelaMenu extends javax.swing.JFrame {
     public int numeroDeCompras = 0;
     private String cargo;
     
-
     public TelaMenu(String cargo) {
         super("TELA DE MENUS");
         initComponents();
@@ -31,12 +36,8 @@ public class TelaMenu extends javax.swing.JFrame {
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
         configurarVisibilidadeItensMenu(cargo);
-        
-         
-         }
-    
-    
-    
+        carregarDados();
+ }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -54,6 +55,8 @@ public class TelaMenu extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         dbAgendamento = new javax.swing.JPanel();
         textAgendamento = new javax.swing.JLabel();
+        dbTabelaAgendamentos = new javax.swing.JScrollPane();
+        TabelaAgendamentos = new JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         IconMenu = new javax.swing.JLabel();
@@ -74,7 +77,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         relatorios = new javax.swing.JMenu();
         relCliPet = new javax.swing.JMenuItem();
-        vendas = new javax.swing.JMenuItem();
+        relConsultas = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
         voltar = new javax.swing.JMenuItem();
         sair = new javax.swing.JMenuItem();
@@ -149,23 +152,55 @@ public class TelaMenu extends javax.swing.JFrame {
 
         textAgendamento.setBackground(new java.awt.Color(0, 0, 0));
         textAgendamento.setFont(new java.awt.Font("Segoe UI Black", 1, 10)); // NOI18N
-        textAgendamento.setText("AGENDAMENTOS PARA HOJE:");
+        textAgendamento.setText("CONSULTAS PARA HOJE:");
+
+        TabelaAgendamentos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "CPF", "Nome do Pet", "Consulta", "Data"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        dbTabelaAgendamentos.setViewportView(TabelaAgendamentos);
 
         javax.swing.GroupLayout dbAgendamentoLayout = new javax.swing.GroupLayout(dbAgendamento);
         dbAgendamento.setLayout(dbAgendamentoLayout);
         dbAgendamentoLayout.setHorizontalGroup(
             dbAgendamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dbAgendamentoLayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+            .addComponent(dbTabelaAgendamentos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+            .addGroup(dbAgendamentoLayout.createSequentialGroup()
+                .addGap(134, 134, 134)
                 .addComponent(textAgendamento)
-                .addGap(38, 38, 38))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dbAgendamentoLayout.setVerticalGroup(
             dbAgendamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dbAgendamentoLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
+                .addContainerGap()
                 .addComponent(textAgendamento)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dbTabelaAgendamentos, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))
         );
 
         jPanel3.setForeground(new java.awt.Color(255, 222, 173));
@@ -306,8 +341,13 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         relatorios.add(relCliPet);
 
-        vendas.setText("Vendas");
-        relatorios.add(vendas);
+        relConsultas.setText("Consultas Marcadas");
+        relConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relConsultasActionPerformed(evt);
+            }
+        });
+        relatorios.add(relConsultas);
 
         barraMenu.add(relatorios);
 
@@ -377,15 +417,15 @@ public class TelaMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(iconLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dbAgendamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(iconLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,7 +447,6 @@ public class TelaMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-     
    
     private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
         dispose();
@@ -516,7 +555,89 @@ public class TelaMenu extends javax.swing.JFrame {
         cadconsultas.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem10ActionPerformed
+    private void carregarDados() {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
 
+        try {
+            // Criação de instância de ConnectionFactory
+            ConnectionFactory connectionFactory = new ConnectionFactory();
+
+            // Obtenção da conexão
+            conn = connectionFactory.obtemConexao();
+
+            // Verificação se a conexão foi estabelecida
+            if (conn != null) {
+                // SQL para seleção dos dados
+                String sql = "SELECT cpf, nomepet, consulta, hora FROM tb_cadconsultas";
+                stmt = conn.prepareStatement(sql);
+
+                // Execução da consulta
+                rs = stmt.executeQuery();
+
+                // Verificação se o ResultSet não é nulo
+                if (rs != null) {
+                    // Mapeamento entre os nomes das colunas retornadas pela consulta SQL e os cabeçalhos personalizados
+            Map<String, String> columnMapping = new HashMap<>();
+            columnMapping.put("cpf", "CPF");
+            columnMapping.put("nomepet", "Nome do Pet");
+            columnMapping.put("consulta", "Consulta");
+            columnMapping.put("hora", "Hora");
+
+                // Preparação do modelo da tabela
+            DefaultTableModel model = new DefaultTableModel() {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+
+                // Definição dos nomes das colunas
+            String[] colunas = {"cpf", "nomepet", "consulta", "hora"};
+            model.setColumnIdentifiers(colunas);
+
+                // Setando o model na tabela
+            TabelaAgendamentos.setModel(model);
+
+                // Adição das linhas
+            Vector<Object> row;
+            while (rs.next()) {
+                row = new Vector<>(colunas.length);
+                for (String coluna : colunas) {
+                    row.add(rs.getObject(coluna)); // Adiciona os valores das colunas
+                }
+                model.addRow(row);
+            }
+
+                Vector<String> newColumnNames = new Vector<>();
+                for (int i = 0; i < model.getColumnCount(); i++) {
+                    String columnName = model.getColumnName(i);
+                    if (columnMapping.containsKey(columnName)) {
+                        newColumnNames.add(columnMapping.get(columnName));
+                    } else {
+                        newColumnNames.add(columnName); // Mantém o nome original da coluna se não houver mapeamento
+                        }
+                    }
+                    model.setColumnIdentifiers(newColumnNames);
+                } else {
+                    System.out.println("O ResultSet está vazio.");
+                }
+            } else {
+                System.out.println("Erro ao conectar ao banco de dados.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
      
         TelaAlterarDeleteConsulta cons = new TelaAlterarDeleteConsulta();
@@ -532,6 +653,11 @@ public class TelaMenu extends javax.swing.JFrame {
         TelaRelCliEPet relatorio = new TelaRelCliEPet ();
         relatorio.setVisible(true);
     }//GEN-LAST:event_relCliPetActionPerformed
+
+    private void relConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relConsultasActionPerformed
+        TelaRelConsultas relatorio = new TelaRelConsultas ();
+        relatorio.setVisible(true);
+    }//GEN-LAST:event_relConsultasActionPerformed
 
     private void configurarVisibilidadeItensMenu(String cargo) {
        
@@ -586,10 +712,12 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenu MenuFuncionarios;
     private javax.swing.JMenu MenuPets;
     private javax.swing.JMenu MenuProdutos;
+    private javax.swing.JTable TabelaAgendamentos;
     private javax.swing.JLabel Total;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenu cadastrosConsultas;
     private javax.swing.JPanel dbAgendamento;
+    private javax.swing.JScrollPane dbTabelaAgendamentos;
     private javax.swing.JPanel iconLogo;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
@@ -600,10 +728,10 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel logo;
     private javax.swing.JMenu menuSair;
     private javax.swing.JMenuItem relCliPet;
+    private javax.swing.JMenuItem relConsultas;
     private javax.swing.JMenu relatorios;
     private javax.swing.JMenuItem sair;
     private javax.swing.JLabel textAgendamento;
-    private javax.swing.JMenuItem vendas;
     private javax.swing.JMenuItem voltar;
     // End of variables declaration//GEN-END:variables
    

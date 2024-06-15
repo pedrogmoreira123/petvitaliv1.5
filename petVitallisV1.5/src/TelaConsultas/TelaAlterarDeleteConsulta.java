@@ -29,7 +29,7 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
         this.setLocationRelativeTo(null);
         setResizable(true);
         addEnterKeyListener();
-        String caminhoImagem = "/icon/logo PET VITALLI.png";        
+        String caminhoImagem = "/icon/logo 100.png";        
          // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela

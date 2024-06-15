@@ -19,7 +19,7 @@ public class TelaConsProduto extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setResizable(true);
         consultaBarraDeTextoPesquisaFocusLost (null);
-        String caminhoImagem = "/icon/logo PET VITALLI.png";
+        String caminhoImagem = "/icon/logo 100.png";
         
         // Carrega a imagem do ícone
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
