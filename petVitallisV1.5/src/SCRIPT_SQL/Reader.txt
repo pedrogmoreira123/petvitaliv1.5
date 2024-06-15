@@ -1,0 +1,7 @@
+INFORMAÇÕES PARA FUNCIONAMENTO DO SISTEMA
+
+Script do banco de dados está em SCRIPT_SQL > Geral;
+
+O login e senha do banco de dados é petv para ambos.
+
+Efetuando a configuração do banco de dados, é só abrir o sistema. 
