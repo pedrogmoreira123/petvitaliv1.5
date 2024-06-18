@@ -276,7 +276,6 @@ public class TelaLogin extends javax.swing.JFrame {
         if (login.equals("adm") && senha.equals("adm")) {
             TelaMenu telaMenu = new TelaMenu("adm");
             telaMenu.setVisible(true);
-            JOptionPane.showMessageDialog(null, "Seja Bem vindo Adm");
             dispose();  
         }
             else if (funcionario != null && funcionario.getDataDeNascimento().equals(senha)) {
