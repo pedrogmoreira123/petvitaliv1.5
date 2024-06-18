@@ -104,8 +104,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nomeFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="enderecoFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeFuncionario" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="enderecoFuncionario" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -114,8 +114,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cpfFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="residenciaFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cpfFuncionario" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="residenciaFuncionario" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -124,8 +124,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="rgFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cepFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rgFuncionario" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="cepFuncionario" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="datefun" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -134,13 +134,13 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="CargoFun" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="dataNasFuncionario" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataNasFuncionario" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <Component id="pisfun" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="pisFuncionario" min="-2" max="-2" attributes="0"/>
+              <Component id="pisFuncionario" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>

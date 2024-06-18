@@ -2,6 +2,7 @@ package TelaFuncionario;
 
 import ClassesCadastro.CadFuncionario;
 import ClassesCadastro.CadPets;
+import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.List;
@@ -25,8 +26,14 @@ public class TelaConsFuncionarios extends javax.swing.JFrame implements java.awt
         ImageIcon icon = new ImageIcon(getClass().getResource( caminhoImagem ));
         // Define o ícone da janela
         this.setIconImage(icon.getImage());
-         
+        
+        
+        setBackground(new Color(255,183,101));
+        consultaBancoFuncionarios.setSelectionBackground(Color.YELLOW);
     }
+  
+   
+  
     
     
  public void windowActivated(WindowEvent e) {
@@ -42,55 +49,76 @@ public class TelaConsFuncionarios extends javax.swing.JFrame implements java.awt
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        consultaBancoFuncionarios = new javax.swing.JTable();
-        consultaFiltroPesquisa = new javax.swing.JComboBox<>();
         BotaoSairAlterar = new javax.swing.JButton();
         consultaProdPesquisarBotao = new javax.swing.JButton();
         consultaBarraDeTextoPesquisa = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        consultaBancoFuncionarios = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        consultaBancoFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "CPF", "Nome do Funcionario", "Data De Nascimento", "Cargo"
-            }
-        ));
-        jScrollPane1.setViewportView(consultaBancoFuncionarios);
-
-        consultaFiltroPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CPF" }));
-        consultaFiltroPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultaFiltroPesquisaActionPerformed(evt);
-            }
-        });
-
+        BotaoSairAlterar.setBackground(new java.awt.Color(255, 183, 101));
+        BotaoSairAlterar.setForeground(new java.awt.Color(0, 0, 0));
         BotaoSairAlterar.setText("Sair");
+        BotaoSairAlterar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotaoSairAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoSairAlterarActionPerformed(evt);
             }
         });
 
+        consultaProdPesquisarBotao.setBackground(new java.awt.Color(255, 183, 101));
+        consultaProdPesquisarBotao.setForeground(new java.awt.Color(0, 0, 0));
         consultaProdPesquisarBotao.setText("+");
+        consultaProdPesquisarBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         consultaProdPesquisarBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultaProdPesquisarBotaoActionPerformed(evt);
             }
         });
 
+        consultaBarraDeTextoPesquisa.setBackground(new java.awt.Color(255, 183, 101));
+        consultaBarraDeTextoPesquisa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 255), java.awt.Color.white, new java.awt.Color(255, 255, 255), new java.awt.Color(255, 255, 255)));
         consultaBarraDeTextoPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultaBarraDeTextoPesquisaActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("CPF");
+
+        consultaBancoFuncionarios.setBackground(new java.awt.Color(255, 255, 255));
+        consultaBancoFuncionarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+        consultaBancoFuncionarios.setForeground(new java.awt.Color(0, 0, 0));
+        consultaBancoFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "CPF", "Nome do Funcionario", "Data De Nascimento", "Cargo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        consultaBancoFuncionarios.setSelectionBackground(new java.awt.Color(255, 183, 101));
+        jScrollPane1.setViewportView(consultaBancoFuncionarios);
+        if (consultaBancoFuncionarios.getColumnModel().getColumnCount() > 0) {
+            consultaBancoFuncionarios.getColumnModel().getColumn(0).setPreferredWidth(150);
+            consultaBancoFuncionarios.getColumnModel().getColumn(1).setPreferredWidth(150);
+            consultaBancoFuncionarios.getColumnModel().getColumn(2).setPreferredWidth(150);
+            consultaBancoFuncionarios.getColumnModel().getColumn(3).setPreferredWidth(150);
+        }
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -98,31 +126,31 @@ public class TelaConsFuncionarios extends javax.swing.JFrame implements java.awt
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(consultaBarraDeTextoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(consultaProdPesquisarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotaoSairAlterar)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(consultaBarraDeTextoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(consultaProdPesquisarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BotaoSairAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(consultaBarraDeTextoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(consultaProdPesquisarBotao)
-                    .addComponent(BotaoSairAlterar)
-                    .addComponent(consultaFiltroPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel1))
+                    .addComponent(consultaBarraDeTextoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(consultaProdPesquisarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoSairAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -136,10 +164,6 @@ public class TelaConsFuncionarios extends javax.swing.JFrame implements java.awt
         TelasCadFuncionarios CadProd = new TelasCadFuncionarios ();
         CadProd.setVisible(true);
     }//GEN-LAST:event_consultaProdPesquisarBotaoActionPerformed
-
-    private void consultaFiltroPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaFiltroPesquisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_consultaFiltroPesquisaActionPerformed
 
     private void consultaBarraDeTextoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaBarraDeTextoPesquisaActionPerformed
         // TODO add your handling code here:
@@ -206,8 +230,8 @@ public class TelaConsFuncionarios extends javax.swing.JFrame implements java.awt
     private javax.swing.JButton BotaoSairAlterar;
     private javax.swing.JTable consultaBancoFuncionarios;
     private javax.swing.JTextField consultaBarraDeTextoPesquisa;
-    private javax.swing.JComboBox<String> consultaFiltroPesquisa;
     private javax.swing.JButton consultaProdPesquisarBotao;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

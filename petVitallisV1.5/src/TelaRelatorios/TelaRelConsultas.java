@@ -36,6 +36,7 @@ public class TelaRelConsultas extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 183, 101));
 
+        BotaoRelatorio.setBackground(new java.awt.Color(255, 134, 47));
         BotaoRelatorio.setText("Gerar Relatorio");
         BotaoRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
