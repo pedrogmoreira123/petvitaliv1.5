@@ -90,7 +90,6 @@ public class TelaConsProduto extends javax.swing.JFrame {
             }
         });
 
-        consultaBarraDeTextoPesquisa.setBackground(new java.awt.Color(255, 183, 101));
         consultaBarraDeTextoPesquisa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
         consultaBarraDeTextoPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

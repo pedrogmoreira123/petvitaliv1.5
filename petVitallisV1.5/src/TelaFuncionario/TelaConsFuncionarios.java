@@ -79,7 +79,6 @@ public class TelaConsFuncionarios extends javax.swing.JFrame implements java.awt
             }
         });
 
-        consultaBarraDeTextoPesquisa.setBackground(new java.awt.Color(255, 183, 101));
         consultaBarraDeTextoPesquisa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 255), java.awt.Color.white, new java.awt.Color(255, 255, 255), new java.awt.Color(255, 255, 255)));
         consultaBarraDeTextoPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +90,6 @@ public class TelaConsFuncionarios extends javax.swing.JFrame implements java.awt
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CPF");
 
-        consultaBancoFuncionarios.setBackground(new java.awt.Color(255, 255, 255));
         consultaBancoFuncionarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
         consultaBancoFuncionarios.setForeground(new java.awt.Color(0, 0, 0));
         consultaBancoFuncionarios.setModel(new javax.swing.table.DefaultTableModel(

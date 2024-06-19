@@ -60,7 +60,6 @@ public class TelaCadProdutos extends javax.swing.JFrame {
         });
 
         cadastroNomeDoProduto.setEditable(false);
-        cadastroNomeDoProduto.setBackground(new java.awt.Color(255, 183, 101));
         cadastroNomeDoProduto.setAlignmentX(0.0F);
         cadastroNomeDoProduto.setAlignmentY(0.0F);
         cadastroNomeDoProduto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nome do Produto", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
@@ -70,7 +69,6 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             }
         });
 
-        cadastroQuantidadeDeProduto.setBackground(new java.awt.Color(255, 183, 101));
         cadastroQuantidadeDeProduto.setAlignmentX(0.0F);
         cadastroQuantidadeDeProduto.setAlignmentY(0.0F);
         cadastroQuantidadeDeProduto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Quantidade", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
@@ -80,6 +78,8 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             }
         });
 
+        labelTipoDeProduto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        labelTipoDeProduto.setForeground(new java.awt.Color(0, 0, 0));
         labelTipoDeProduto.setText("Tipo de Produto");
         labelTipoDeProduto.setAlignmentY(0.0F);
 
@@ -102,7 +102,6 @@ public class TelaCadProdutos extends javax.swing.JFrame {
             }
         });
 
-        cadastroCodigoDoProduto.setBackground(new java.awt.Color(255, 183, 101));
         cadastroCodigoDoProduto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Código do Produto", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         cadastroCodigoDoProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

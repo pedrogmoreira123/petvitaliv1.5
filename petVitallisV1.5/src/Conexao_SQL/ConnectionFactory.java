@@ -6,7 +6,7 @@
 
     public class ConnectionFactory {
         private String usuario = "root";
-        private String senha = "1234";
+        private String senha = "root";
         private String host = "localhost";
         private String porta = "3306";
         private String bd = "db_pessoas";

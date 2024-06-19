@@ -98,15 +98,12 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
 
         jPanel1.setBackground(new java.awt.Color(255, 183, 101));
 
-        CampoDaRaca.setBackground(new java.awt.Color(255, 183, 101));
         CampoDaRaca.setToolTipText("");
         CampoDaRaca.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "Raça", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
-        CampoIdade.setBackground(new java.awt.Color(255, 183, 101));
         CampoIdade.setToolTipText("");
         CampoIdade.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "Idade", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
-        CampoNomeDoPet.setBackground(new java.awt.Color(255, 183, 101));
         CampoNomeDoPet.setToolTipText("");
         CampoNomeDoPet.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "Nome Do Pet", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
@@ -120,7 +117,6 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
             }
         });
 
-        CampoDoCpf.setBackground(new java.awt.Color(255, 183, 101));
         CampoDoCpf.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "Pesquise o CPF", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         CampoDoCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +145,6 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
         });
         jScrollPane1.setViewportView(consultaBancoConsultas);
 
-        CaixaDeTipodeConsultas.setBackground(new java.awt.Color(255, 183, 101));
         CaixaDeTipodeConsultas.setForeground(new java.awt.Color(0, 0, 0));
         CaixaDeTipodeConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Consulta de Rotina", "Vacinação", "Tratamento" }));
         CaixaDeTipodeConsultas.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +153,6 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
             }
         });
 
-        CaixaDeHorasConsultas.setBackground(new java.awt.Color(255, 183, 101));
         CaixaDeHorasConsultas.setForeground(new java.awt.Color(0, 0, 0));
         CaixaDeHorasConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00", "08:30", "09:00", "09:30", "10:00", "10:30" }));
 
@@ -176,11 +170,9 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Tipo da Consulta");
 
-        CampoDiaConsulta.setBackground(new java.awt.Color(255, 183, 101));
         CampoDiaConsulta.setToolTipText("");
         CampoDiaConsulta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
 
-        CampoCpf.setBackground(new java.awt.Color(255, 183, 101));
         CampoCpf.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "CPF", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         CampoCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +180,6 @@ public class TelaAlterarDeleteConsulta extends javax.swing.JFrame implements jav
             }
         });
 
-        CampoSexo.setBackground(new java.awt.Color(255, 183, 101));
         CampoSexo.setToolTipText("");
         CampoSexo.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "Sexo", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         CampoSexo.addActionListener(new java.awt.event.ActionListener() {

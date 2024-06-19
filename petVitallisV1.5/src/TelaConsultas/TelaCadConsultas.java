@@ -71,6 +71,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         jLabel5 = new javax.swing.JLabel();
         BotaoDeConsultar = new javax.swing.JButton();
         BotaoCadastrar = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
 
         consultaProdPesquisarBotao.setText("...");
         consultaProdPesquisarBotao.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +90,6 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logo 100.png"))); // NOI18N
 
-        CampoCpf.setBackground(new java.awt.Color(255, 183, 101));
         CampoCpf.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         CampoCpf.setForeground(new java.awt.Color(0, 0, 0));
         CampoCpf.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "CPF", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
@@ -100,10 +100,8 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
             }
         });
 
-        CampoNomeDoPet.setBackground(new java.awt.Color(255, 183, 101));
         CampoNomeDoPet.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "Nome Do Pet", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
-        CampoDaRaca.setBackground(new java.awt.Color(255, 183, 101));
         CampoDaRaca.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "Raça", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         CampoDaRaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +109,6 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
             }
         });
 
-        CampoSexo.setBackground(new java.awt.Color(255, 183, 101));
         CampoSexo.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "Sexo", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         CampoSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +116,6 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
             }
         });
 
-        CampoIdade.setBackground(new java.awt.Color(255, 183, 101));
         CampoIdade.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white), "Idade", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 3, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -131,7 +127,6 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Hora Da Consulta");
 
-        CaixaDeTipodeConsultas.setBackground(new java.awt.Color(255, 183, 101));
         CaixaDeTipodeConsultas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         CaixaDeTipodeConsultas.setForeground(new java.awt.Color(0, 0, 0));
         CaixaDeTipodeConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Consulta de Rotina", "Vacinação", "Tratamento" }));
@@ -142,11 +137,9 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
             }
         });
 
-        CaixaDeHorasConsultas.setBackground(new java.awt.Color(255, 183, 101));
         CaixaDeHorasConsultas.setForeground(new java.awt.Color(0, 0, 0));
         CaixaDeHorasConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00", "08:30", "09:00", "09:30", "10:00", "10:30" }));
 
-        CampoDiaConsulta.setBackground(new java.awt.Color(255, 183, 101));
         CampoDiaConsulta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
         CampoDiaConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +171,14 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
                 BotaoCadastrarActionPerformed(evt);
             }
         });
+
+        jLabel12.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Agendamento de Consultas");
+        jLabel12.setToolTipText("");
+        jLabel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -221,13 +222,20 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(7, 7, 7)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -500,6 +508,7 @@ public class TelaCadConsultas extends javax.swing.JFrame implements java.awt.eve
     private javax.swing.JTextField CampoSexo;
     private javax.swing.JButton consultaProdPesquisarBotao;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
